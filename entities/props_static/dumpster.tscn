@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8rx6qffj8jp1"]
+
+[ext_resource type="Texture2D" uid="uid://bqmpler812d53" path="res://sprites/props/dumpster.png" id="1_2amr7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(124, 51)
+
+[node name="Dumpster" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Dumpster" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-4, -23)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_2amr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-4, 2.5)
+shape = SubResource("RectangleShape2D_x7wqg")

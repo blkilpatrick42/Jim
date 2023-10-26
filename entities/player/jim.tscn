@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dip52lba5ep0f"]
+
+[ext_resource type="Script" path="res://scripts/Jim_Script.gd" id="1_n452v"]
+[ext_resource type="SpriteFrames" uid="uid://cmip1x8m0fcw2" path="res://sprites/spritesheets/spriteframes/JimSpriteFrames.tres" id="2_npdvm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
+size = Vector2(39, 35)
+
+[node name="Jim" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(-1, -27)
+up_direction = Vector2(0.502706, -0.864457)
+script = ExtResource("1_n452v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 29.5)
+shape = SubResource("RectangleShape2D_w3v7o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = ExtResource("2_npdvm")
