@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://58f6tstia2hp"]
+[gd_scene load_steps=4 format=3 uid="uid://58f6tstia2hp"]
 
 [ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim.tscn" id="1_gfq4y"]
-[ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props_static/dumpster.tscn" id="2_f2ljo"]
+[ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props_static/city/dumpster.tscn" id="2_f2ljo"]
+[ext_resource type="PackedScene" uid="uid://ba0ojl5rnqg0k" path="res://entities/props_static/a_static_prop_template.tscn" id="3_kfaqv"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Jim" parent="." instance=ExtResource("1_gfq4y")]
 position = Vector2(615, 242)
+up_direction = Vector2(0.502706, -0.864457)
 
 [node name="Dumpster" parent="." instance=ExtResource("2_f2ljo")]
 position = Vector2(340, 347)
 
 [node name="Dumpster2" parent="." instance=ExtResource("2_f2ljo")]
 position = Vector2(937, 386)
+
+[node name="prop_name_here" parent="." instance=ExtResource("3_kfaqv")]
+position = Vector2(615, 410)
