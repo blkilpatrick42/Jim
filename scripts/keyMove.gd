@@ -1,4 +1,4 @@
-xtends CharacterBody2D
+extends CharacterBody2D
 
 @export var speed = 400
 

@@ -37,16 +37,16 @@ func _process(_delta):
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	
+
 	#ramp up acceleration if we have't hit max
 	if(current_acceleration < max_acceleration && 
 	   input_direction.length() != 0):
 		current_acceleration = current_acceleration + acceleration_quotient 
-	
+
 	#stop accelerating if we hit max speed
 	if(velocity.length() >= top_velocity): 
 		current_acceleration = 0
-	
+
 	#apply acceleration and friction to velocity
 	velocity = velocity + (input_direction * current_acceleration) - (velocity.normalized() * friction_quotient)
 
@@ -54,8 +54,8 @@ func get_input():
 	#Oherwise leftover friction makes him scoot backwards lol
 	if(velocity.length() < friction_quotient): 
 		velocity = velocity * 0
-
+#
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
-	
+
