@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
-var acceleration_quotient = 25
 var friction_quotient = 25
 var current_acceleration = 0
-var max_acceleration = 50
-var top_velocity = 500
+var acceleration_quotient = 50
+var top_velocity = 600
 var facingPosition = "left"
 
 func _process(_delta):
@@ -39,9 +38,8 @@ func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 
 	#ramp up acceleration if we have't hit max
-	if(current_acceleration < max_acceleration && 
-	   input_direction.length() != 0):
-		current_acceleration = current_acceleration + acceleration_quotient 
+	if(input_direction.length() != 0):
+		current_acceleration = acceleration_quotient 
 
 	#stop accelerating if we hit max speed
 	if(velocity.length() >= top_velocity): 
@@ -54,6 +52,13 @@ func get_input():
 	#Oherwise leftover friction makes him scoot backwards lol
 	if(velocity.length() < friction_quotient): 
 		velocity = velocity * 0
+		
+	
+	#scale animation to movement speed
+	if(velocity.length() != 0):
+		_animated_sprite.set_speed_scale(velocity.length() / top_velocity)
+	else:
+		_animated_sprite.set_speed_scale(1)
 #
 func _physics_process(delta):
 	get_input()

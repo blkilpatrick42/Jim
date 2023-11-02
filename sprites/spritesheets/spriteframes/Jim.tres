@@ -1,97 +1,97 @@
-[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cyfujmfal252r"]
+[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://dy0ok2t6yhqyc"]
 
-[ext_resource type="Texture2D" uid="uid://bk55i13qwmltx" path="res://sprites/spritesheets/Jim-Sheet.png" id="1_6x805"]
+[ext_resource type="Texture2D" uid="uid://bk55i13qwmltx" path="res://sprites/spritesheets/Jim-Sheet.png" id="1_sbwq2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ay68i"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bx1sy"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nmfc"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4sqx"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(256, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3badq"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fccjf"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp6if"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mkird"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(256, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0oqno"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p47gs"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(256, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fn30"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(128, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxer6"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1axcs"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(384, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3o0vk"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83tdy"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7f3g"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp5ku"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5fll"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vf7ig"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j03ne"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(384, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8a45e"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(128, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ona0n"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(0, 384, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6mqxh"]
-atlas = ExtResource("1_6x805")
+atlas = ExtResource("1_sbwq2")
 region = Rect2(384, 384, 128, 128)
 
 [resource]
@@ -166,7 +166,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +183,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -217,5 +217,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 5.0
+"speed": 10.0
 }]

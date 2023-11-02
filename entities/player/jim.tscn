@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dip52lba5ep0f"]
 
 [ext_resource type="Script" path="res://scripts/Jim_Script.gd" id="1_n452v"]
-[ext_resource type="SpriteFrames" uid="uid://cyfujmfal252r" path="res://sprites/spritesheets/spriteframes/JimSpriteFrames2.tres" id="2_sc7kb"]
+[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/Jim.tres" id="2_18ira"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
-size = Vector2(54.5, 31.5)
+size = Vector2(46, 31.5)
 
 [node name="Jim" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -17,9 +17,9 @@ script = ExtResource("1_n452v")
 y_sort_enabled = true
 position = Vector2(0, 2)
 scale = Vector2(0.578125, 0.578125)
-sprite_frames = ExtResource("2_sc7kb")
+sprite_frames = ExtResource("2_18ira")
 offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 9)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_w3v7o")
