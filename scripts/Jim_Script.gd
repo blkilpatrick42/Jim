@@ -1,12 +1,23 @@
 extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _left_grab = $left_grab
+@onready var _right_grab = $right_grab
+@onready var _up_grab = $up_grab
+@onready var _down_grab = $down_grab
+
+@export var facingPosition = "left"
 
 var friction_quotient = 25
 var current_acceleration = 0
-var acceleration_quotient = 50
+var acceleration_quotient = 40
 var top_velocity = 600
-var facingPosition = "left"
+
+var holding_object = false
+var will_grab_object = null
+var grabbed_object = null
+
+signal player_pickup()
 
 func _process(_delta):
 	if Input.is_action_pressed("right"):
@@ -35,6 +46,25 @@ func _process(_delta):
 		current_acceleration = 0
 
 func get_input():
+	handle_pickup()
+	move_jim()
+	
+func handle_pickup():
+	if Input.is_action_just_pressed("pickup"):
+			pick_up()
+
+func pick_up():
+	if(will_grab_object != null && !holding_object):
+		will_grab_object.pick_up()
+		grabbed_object = will_grab_object
+		will_grab_object = null
+		holding_object = true
+	else: if(holding_object):
+		grabbed_object.put_down()
+		grabbed_object = null
+		holding_object = false
+
+func move_jim():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 
 	#ramp up acceleration if we have't hit max
@@ -56,11 +86,57 @@ func get_input():
 	
 	#scale animation to movement speed
 	if(velocity.length() != 0):
-		_animated_sprite.set_speed_scale(velocity.length() / top_velocity)
+		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
+		#speed/topspeed for the remaining 60%.	
+		var baseScale = 0.4
+		var velocityScale = velocity.length() / top_velocity
+		var remainderScale = 0.6 * velocityScale
+		var animationScale = baseScale + remainderScale
+		_animated_sprite.set_speed_scale(animationScale)
 	else:
 		_animated_sprite.set_speed_scale(1)
 #
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
+	
+	get_tree().call_group("pickupable", "set_will_pickup_false")
+	if(!holding_object):
+		var leftGrabObj = null
+		var rightGrabObj = null
+		var upGrabObj = null
+		var downGrabObj = null
+		
+		if(_left_grab.is_colliding()):
+			leftGrabObj = _left_grab.get_collider(0)
+		else: if(_right_grab.is_colliding()):
+			rightGrabObj = _right_grab.get_collider(0)
+		else: if(_up_grab.is_colliding()):
+			upGrabObj = _up_grab.get_collider(0)
+		else: if(_down_grab.is_colliding()):
+			downGrabObj = _down_grab.get_collider(0)
+		
+		if(facingPosition == "left" &&
+		leftGrabObj != null && 
+		leftGrabObj.is_in_group("pickupable")):
+			leftGrabObj.will_pickup = true
+			will_grab_object = leftGrabObj
+		else: if(facingPosition == "right" &&
+		rightGrabObj != null && 
+		rightGrabObj.is_in_group("pickupable")):
+			rightGrabObj.will_pickup = true
+			will_grab_object = rightGrabObj
+		else: if(facingPosition == "up" &&
+		upGrabObj != null && 
+		upGrabObj.is_in_group("pickupable")):
+			upGrabObj.will_pickup = true
+			will_grab_object = upGrabObj
+		else: if(facingPosition == "down" &&
+		downGrabObj != null && 
+		downGrabObj.is_in_group("pickupable")):
+			downGrabObj.will_pickup = true
+			will_grab_object = downGrabObj
+	
+
+
 

@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://7rook6snhpcb"]
+
+[ext_resource type="Texture2D" uid="uid://d3lknes1uv43c" path="res://sprites/spritesheets/interface/pickup_arrow.png" id="1_f4n0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uocgg"]
+atlas = ExtResource("1_f4n0g")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8kuc"]
+atlas = ExtResource("1_f4n0g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6nlw"]
+atlas = ExtResource("1_f4n0g")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uocgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8kuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6nlw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

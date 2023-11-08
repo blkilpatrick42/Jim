@@ -5,15 +5,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(32, 10.5)
 
-[node name="prop_name_here" type="StaticBody2D"]
+[node name="prop_name_here" type="StaticBody2D" groups=["prop"]]
 y_sort_enabled = true
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="." groups=["prop"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_smihh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
 y_sort_enabled = true
 position = Vector2(0, 11.25)
 shape = SubResource("RectangleShape2D_x7wqg")

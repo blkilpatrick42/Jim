@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim.tscn" id="1_gfq4y"]
 [ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props_static/city/dumpster.tscn" id="2_f2ljo"]
 [ext_resource type="PackedScene" uid="uid://ba0ojl5rnqg0k" path="res://entities/props_static/static_prop_template.tscn" id="3_kfaqv"]
-[ext_resource type="PackedScene" uid="uid://dd7iipnyxs0o5" path="res://entities/props_dynamic/props_dynamic_pickupable/pickupable_prop_template.tscn" id="5_d50ti"]
+[ext_resource type="PackedScene" uid="uid://cj0tccpqk06mb" path="res://entities/props_dynamic/props_dynamic_pickupable/pickupable_prop_template.tscn" id="5_d50ti"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -23,8 +23,5 @@ position = Vector2(615, 410)
 [node name="static_prop_2" parent="." instance=ExtResource("3_kfaqv")]
 position = Vector2(356, 532)
 
-[node name="prop_name_here" parent="." instance=ExtResource("5_d50ti")]
-position = Vector2(197, 191)
-
 [node name="prop_name_here2" parent="." instance=ExtResource("5_d50ti")]
-position = Vector2(181, 132)
+position = Vector2(129, 192)

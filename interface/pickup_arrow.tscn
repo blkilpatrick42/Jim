@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjfysr76yjjyx"]
+
+[ext_resource type="SpriteFrames" uid="uid://7rook6snhpcb" path="res://sprites/spritesheets/spriteframes/interface/pickup_arrow.tres" id="1_5iywg"]
+[ext_resource type="Script" path="res://scripts/pickup_arrow.gd" id="1_il7vr"]
+
+[node name="pickup_arrow" type="Node2D" groups=["interface", "pickuparrow"]]
+script = ExtResource("1_il7vr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface", "pickuparrow"]]
+sprite_frames = ExtResource("1_5iywg")
+offset = Vector2(0, -32)

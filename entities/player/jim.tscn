@@ -1,25 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://dip52lba5ep0f"]
+[gd_scene load_steps=8 format=3 uid="uid://dip52lba5ep0f"]
 
 [ext_resource type="Script" path="res://scripts/Jim_Script.gd" id="1_n452v"]
-[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/Jim.tres" id="2_18ira"]
+[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_fkdqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
 size = Vector2(46, 31.5)
 
-[node name="Jim" type="CharacterBody2D"]
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hesq7"]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_pqa44"]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_llxmr"]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_32dvj"]
+
+[node name="Jim" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
-position = Vector2(-1, -27)
 motion_mode = 1
 up_direction = Vector2(0.502706, -0.864457)
 script = ExtResource("1_n452v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 y_sort_enabled = true
 position = Vector2(0, 2)
 scale = Vector2(0.578125, 0.578125)
-sprite_frames = ExtResource("2_18ira")
+sprite_frames = ExtResource("2_fkdqe")
 offset = Vector2(0, -20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_w3v7o")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
+
+[node name="left_grab" type="ShapeCast2D" parent="."]
+rotation = 1.5708
+shape = SubResource("SeparationRayShape2D_hesq7")
+target_position = Vector2(0, 25)
+collision_mask = 2
+
+[node name="down_grab" type="ShapeCast2D" parent="."]
+shape = SubResource("SeparationRayShape2D_pqa44")
+target_position = Vector2(0, 25)
+collision_mask = 2
+
+[node name="up_grab" type="ShapeCast2D" parent="."]
+rotation = 3.14159
+shape = SubResource("SeparationRayShape2D_llxmr")
+target_position = Vector2(0, 25)
+collision_mask = 2
+
+[node name="right_grab" type="ShapeCast2D" parent="."]
+rotation = 4.71239
+shape = SubResource("SeparationRayShape2D_32dvj")
+target_position = Vector2(0, 25)
+collision_mask = 2

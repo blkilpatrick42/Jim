@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkkywx2ixss7"
-path="res://.godot/imported/Old_Jim.png-193eda24d10a0de9dc7b6e8d99bf2fa0.ctex"
+uid="uid://d3lknes1uv43c"
+path="res://.godot/imported/pickup_arrow.png-b4b9ce5e0fd3d601ff7a91d8c86ca861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/Old_Jim.png"
-dest_files=["res://.godot/imported/Old_Jim.png-193eda24d10a0de9dc7b6e8d99bf2fa0.ctex"]
+source_file="res://sprites/spritesheets/interface/pickup_arrow.png"
+dest_files=["res://.godot/imported/pickup_arrow.png-b4b9ce5e0fd3d601ff7a91d8c86ca861.ctex"]
 
 [params]
 
