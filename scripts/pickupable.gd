@@ -3,8 +3,10 @@ extends RigidBody2D
 @onready var _collision_shape = $CollisionShape2D
 @onready var sprite = $sprite
 
+@export var force_factor = 10000
+
 var picked_up = false
-@export var will_pickup = false
+var will_pickup = false
 var showing_arrow = false
 var distance_for_pickup = 300
 var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
@@ -16,7 +18,7 @@ var new_position = Vector2(0, 0)
 var throw_force = Vector2(0, 0)
 var thrown = false
 
-var player_y_offset = 64
+var player_y_offset = 48
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,7 +34,6 @@ func throw(direction):
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		var force_factor = 10000
 		if(direction == "left"):
 			throw_force = Vector2(-force_factor,0)
 			set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))

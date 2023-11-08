@@ -68,9 +68,8 @@ func pick_up():
 	if(will_grab_object != null && !holding_object):
 		will_grab_object.pick_up()
 		grabbed_object = will_grab_object
-		will_grab_object = null
 		holding_object = true
-	else: if(holding_object):
+	else: if(holding_object):	
 		grabbed_object.put_down()
 		grabbed_object = null
 		holding_object = false
@@ -112,6 +111,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	get_tree().call_group("pickupable", "set_will_pickup_false")
+	will_grab_object = null
 	if(!holding_object):
 		var leftGrabObj = null
 		var rightGrabObj = null

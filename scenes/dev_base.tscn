@@ -2,14 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim.tscn" id="1_gfq4y"]
 [ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props_static/city/dumpster.tscn" id="2_f2ljo"]
-[ext_resource type="PackedScene" uid="uid://ba0ojl5rnqg0k" path="res://entities/props_static/static_prop_template.tscn" id="3_kfaqv"]
-[ext_resource type="PackedScene" uid="uid://dd7iipnyxs0o5" path="res://entities/props_dynamic/props_dynamic_pickupable/pickupable_prop_template.tscn" id="5_d50ti"]
+[ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="4_ayc4l"]
+[ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="4_dt4q2"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Jim" parent="." instance=ExtResource("1_gfq4y")]
 position = Vector2(367, 149)
+up_direction = Vector2(0.502706, -0.864457)
 
 [node name="Dumpster" parent="." instance=ExtResource("2_f2ljo")]
 position = Vector2(340, 347)
@@ -17,14 +18,14 @@ position = Vector2(340, 347)
 [node name="Dumpster2" parent="." instance=ExtResource("2_f2ljo")]
 position = Vector2(937, 386)
 
-[node name="static_prop_template" parent="." instance=ExtResource("3_kfaqv")]
-position = Vector2(615, 410)
+[node name="prop_name_here3" parent="." instance=ExtResource("4_ayc4l")]
+position = Vector2(506, 425)
 
-[node name="static_prop_2" parent="." instance=ExtResource("3_kfaqv")]
-position = Vector2(356, 532)
+[node name="prop_name_here4" parent="." instance=ExtResource("4_ayc4l")]
+position = Vector2(675, 431)
 
-[node name="prop_name_here" parent="." instance=ExtResource("5_d50ti")]
-position = Vector2(197, 191)
+[node name="prop_name_here" parent="." instance=ExtResource("4_dt4q2")]
+position = Vector2(593, 320)
 
-[node name="prop_name_here2" parent="." instance=ExtResource("5_d50ti")]
-position = Vector2(181, 132)
+[node name="prop_name_here2" parent="." instance=ExtResource("4_dt4q2")]
+position = Vector2(328, 428)

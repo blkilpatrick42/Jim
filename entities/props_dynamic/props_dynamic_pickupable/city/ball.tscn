@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://0238pavltllm"]
+
+[ext_resource type="Script" path="res://scripts/pickupable.gd" id="1_25myv"]
+[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="2_aofi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(32, 32.5)
+
+[node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 3
+mass = 5.0
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_25myv")
+force_factor = 5000
+
+[node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aofi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_x7wqg")
