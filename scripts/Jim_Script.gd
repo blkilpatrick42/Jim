@@ -47,12 +47,23 @@ func _process(_delta):
 
 func get_input():
 	handle_pickup()
+	handle_throw()
 	move_jim()
 	
 func handle_pickup():
 	if Input.is_action_just_pressed("pickup"):
 			pick_up()
+			
+func handle_throw():
+	if Input.is_action_just_pressed("throw"):
+			throw()
 
+func throw():
+	if(holding_object):
+		grabbed_object.throw(facingPosition)
+		grabbed_object = null
+		holding_object = false
+		
 func pick_up():
 	if(will_grab_object != null && !holding_object):
 		will_grab_object.pick_up()
