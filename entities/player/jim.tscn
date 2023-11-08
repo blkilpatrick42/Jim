@@ -32,6 +32,7 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_w3v7o")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+limit_left = -1000000
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true

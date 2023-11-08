@@ -12,37 +12,37 @@ var arrow_instance = null
 
 var should_reset = false
 var new_position = Vector2(0, 0)
-var should_unhide = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func set_physics_pos(vector2):
+	should_reset = true
+	new_position = vector2
+
 func pick_up():
 	if(will_pickup):
+		#teleport WAY out of bounds so that we don't
+		#end up with an invisible prop messing with
+		#physics stuff
+		set_physics_pos(Vector2(-1000100, -1000100)) 
+		_collision_shape.set_deferred("disabled", true)
 		picked_up = true
-		_collision_shape.disabled = true
+		will_pickup = false
 
 func put_down():
 	if(picked_up):
-		sprite.hide()
 		picked_up = false
+		_collision_shape.set_deferred("disabled", false)
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		new_position = playerRef.position + Vector2(0, 50)
-		_collision_shape.disabled = false
-		should_reset = true
-		should_unhide = 2
+		set_physics_pos(playerRef.position + Vector2(0, 50))
 	
 func set_will_pickup_false():
 	will_pickup = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(should_unhide == 0):
-		sprite.show()
-	else:
-		should_unhide = should_unhide - 1
-		
 #	#update pickup arrow's presence
 	if(!picked_up && will_pickup && !showing_arrow):
 		arrow_instance = pickup_arrow.instantiate()
