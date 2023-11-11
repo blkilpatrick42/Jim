@@ -110,7 +110,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	get_tree().call_group("pickupable", "set_will_pickup_false")
+	
 	will_grab_object = null
 	if(!holding_object):
 		var leftGrabObj = null
@@ -127,6 +127,8 @@ func _physics_process(delta):
 		else: if(_down_grab.is_colliding()):
 			downGrabObj = _down_grab.get_collider(0)
 		
+		#check for pickupables
+		get_tree().call_group("pickupable", "set_will_pickup_false")
 		if(facingPosition == "left" &&
 		leftGrabObj != null && 
 		leftGrabObj.is_in_group("pickupable")):
@@ -147,6 +149,25 @@ func _physics_process(delta):
 		downGrabObj.is_in_group("pickupable")):
 			downGrabObj.will_pickup = true
 			will_grab_object = downGrabObj
+			
+		#check for npcs
+		get_tree().call_group("npc", "set_will_talk_false")
+		if(facingPosition == "left" &&
+		leftGrabObj != null && 
+		leftGrabObj.is_in_group("npc")):
+			leftGrabObj.will_talk = true
+		else: if(facingPosition == "right" &&
+		rightGrabObj != null && 
+		rightGrabObj.is_in_group("npc")):
+			rightGrabObj.will_talk = true
+		else: if(facingPosition == "up" &&
+		upGrabObj != null && 
+		upGrabObj.is_in_group("npc")):
+			upGrabObj.will_talk = true
+		else: if(facingPosition == "down" &&
+		downGrabObj != null && 
+		downGrabObj.is_in_group("npc")):
+			downGrabObj.will_talk = true
 	
 
 

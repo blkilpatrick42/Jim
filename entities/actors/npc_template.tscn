@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwnkyu8luia0a"]
+
+[ext_resource type="SpriteFrames" uid="uid://cmip1x8m0fcw2" path="res://sprites/spritesheets/spriteframes/player/Old_Jim.tres" id="1_0f4di"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_7u23o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68bjs"]
+size = Vector2(25, 21)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["npc"]]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 100.0
+script = ExtResource("1_7u23o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["npc"]]
+position = Vector2(0, -20)
+scale = Vector2(0.745676, 0.745676)
+sprite_frames = ExtResource("1_0f4di")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["npc"]]
+shape = SubResource("RectangleShape2D_68bjs")

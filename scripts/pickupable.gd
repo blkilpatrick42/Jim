@@ -86,7 +86,7 @@ func _process(delta):
 		
 	if(picked_up):
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		position = (playerRef.position + Vector2(0, -50))
+		position = (playerRef.position + Vector2(0, -player_y_offset))
 
 func _integrate_forces(state):
 	if should_reset:

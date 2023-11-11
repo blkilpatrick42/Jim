@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://0238pavltllm"]
+[gd_scene load_steps=5 format=3 uid="uid://0238pavltllm"]
 
 [ext_resource type="Script" path="res://scripts/pickupable.gd" id="1_25myv"]
 [ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="2_aofi2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_486n2"]
+bounce = 0.61
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(32, 32.5)
@@ -11,10 +14,11 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3
 mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_486n2")
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource("1_25myv")
-force_factor = 5000
+force_factor = 6000
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
