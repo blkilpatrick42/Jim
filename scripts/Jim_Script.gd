@@ -15,6 +15,7 @@ var top_velocity = 600
 
 var holding_object = false
 var will_grab_object = null
+var will_talk_npc = null
 var grabbed_object = null
 
 signal player_pickup()
@@ -110,7 +111,6 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
-	
 	will_grab_object = null
 	if(!holding_object):
 		var leftGrabObj = null
@@ -165,8 +165,8 @@ func _physics_process(delta):
 		upGrabObj.is_in_group("npc")):
 			upGrabObj.will_talk = true
 		else: if(facingPosition == "down" &&
-		downGrabObj != null && 
-		downGrabObj.is_in_group("npc")):
+			downGrabObj != null && 
+			downGrabObj.is_in_group("npc")):
 			downGrabObj.will_talk = true
 	
 

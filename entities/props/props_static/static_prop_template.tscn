@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba0ojl5rnqg0k"]
 
-[ext_resource type="Texture2D" uid="uid://dlv7oxi4u13bp" path="res://sprites/props/trafficCone.png" id="1_smihh"]
+[ext_resource type="Texture2D" uid="uid://dlv7oxi4u13bp" path="res://sprites/props/trafficCone.png" id="1_ct2if"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(32, 10.5)
@@ -11,7 +11,7 @@ y_sort_enabled = true
 [node name="sprite" type="Sprite2D" parent="." groups=["prop"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_smihh")
+texture = ExtResource("1_ct2if")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
 y_sort_enabled = true

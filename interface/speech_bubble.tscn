@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd4an5ql0m3bv"]
+
+[ext_resource type="Texture2D" uid="uid://d2kmsahbgbanl" path="res://sprites/interface/speechbubble_placeholder.png" id="1_0ibgy"]
+[ext_resource type="Script" path="res://scripts/speech_bubble.gd" id="2_upcsf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ypt5o"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="speech_bubble" type="Sprite2D" groups=["speech"]]
+position = Vector2(53, -106)
+texture = ExtResource("1_0ibgy")
+script = ExtResource("2_upcsf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -55.0
+offset_right = 54.0
+offset_bottom = 49.0
+label_settings = SubResource("LabelSettings_ypt5o")
+autowrap_mode = 3

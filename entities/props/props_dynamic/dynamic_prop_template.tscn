@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duu0mnd7q2gur"]
 
-[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="1_7yjir"]
+[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="1_tepus"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(32, 32.5)
@@ -16,7 +16,7 @@ linear_damp = 2.0
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "prop"]]
 y_sort_enabled = true
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_7yjir")
+texture = ExtResource("1_tepus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "prop"]]
 y_sort_enabled = true
