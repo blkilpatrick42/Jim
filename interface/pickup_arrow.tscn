@@ -7,5 +7,6 @@
 script = ExtResource("1_il7vr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface", "pickuparrow"]]
+position = Vector2(0, 15)
 sprite_frames = ExtResource("1_5iywg")
 offset = Vector2(0, -32)

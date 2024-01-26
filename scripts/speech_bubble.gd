@@ -2,11 +2,13 @@ extends Node
 @onready var _label = $Label
 
 @export var time_between_chars = 0.1
+@export var time_until_disappear = 2
 
 var full_text = ""
 var current_text 
 var characters_displayed = 0
-var full_text_displayed = true
+var full_text_displayed = false
+var ready_to_disappear = false
 var wait_time = 0
 
 
@@ -34,6 +36,8 @@ func _process(delta):
 		current_text = full_text.substr(0,characters_displayed)
 	else:
 		current_text = full_text
+		if(!ready_to_disappear && wait_time >= time_until_disappear):
+			ready_to_disappear = true
 	
 	if(characters_displayed >= full_text.length()):
 		full_text_displayed = true

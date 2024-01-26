@@ -8,7 +8,7 @@ extends RigidBody2D
 var picked_up = false
 var will_pickup = false
 var showing_arrow = false
-var distance_for_pickup = 300
+var distance_for_pickup = 100
 var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
 var arrow_instance = null 
 
@@ -18,7 +18,7 @@ var new_position = Vector2(0, 0)
 var throw_force = Vector2(0, 0)
 var thrown = false
 
-var player_y_offset = 48
+var player_y_offset = 24
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

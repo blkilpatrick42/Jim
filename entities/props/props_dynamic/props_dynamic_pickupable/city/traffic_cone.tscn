@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dlv7oxi4u13bp" path="res://sprites/props/trafficCone.png" id="2_auy0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
-size = Vector2(32, 12.5)
+size = Vector2(16, 5.625)
 
 [node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
@@ -19,10 +19,9 @@ force_factor = 5000
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_auy0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
-position = Vector2(0, 10.25)
+position = Vector2(0, 4.8125)
 shape = SubResource("RectangleShape2D_x7wqg")

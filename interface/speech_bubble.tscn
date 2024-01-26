@@ -1,20 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd4an5ql0m3bv"]
+[gd_scene load_steps=5 format=3 uid="uid://cd4an5ql0m3bv"]
 
-[ext_resource type="Texture2D" uid="uid://d2kmsahbgbanl" path="res://sprites/interface/speechbubble_placeholder.png" id="1_0ibgy"]
+[ext_resource type="Texture2D" uid="uid://jcwsqc48iywl" path="res://sprites/interface/speechbubble.png" id="1_dmsx7"]
 [ext_resource type="Script" path="res://scripts/speech_bubble.gd" id="2_upcsf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ypt5o"]
+[sub_resource type="FontFile" id="FontFile_ml5o6"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/12/0 = Vector2(0, 0)
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/12/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/12/0/kerning_overrides/12/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tnvb5"]
+font = SubResource("FontFile_ml5o6")
+font_size = 8
 font_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 1, 1, 0)
+shadow_size = 0
 
 [node name="speech_bubble" type="Sprite2D" groups=["speech"]]
-position = Vector2(53, -106)
-texture = ExtResource("1_0ibgy")
+position = Vector2(30, -50)
+texture = ExtResource("1_dmsx7")
 script = ExtResource("2_upcsf")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -54.0
-offset_top = -55.0
-offset_right = 54.0
-offset_bottom = 49.0
-label_settings = SubResource("LabelSettings_ypt5o")
+offset_left = -29.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 25.0
+label_settings = SubResource("LabelSettings_tnvb5")
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_use_anchors_ = true

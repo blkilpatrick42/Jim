@@ -2,29 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://d3lknes1uv43c" path="res://sprites/interface/pickup_arrow.png" id="1_f4n0g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uocgg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vf8p"]
 atlas = ExtResource("1_f4n0g")
-region = Rect2(0, 64, 32, 32)
+region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8kuc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtacc"]
 atlas = ExtResource("1_f4n0g")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6nlw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojfnj"]
 atlas = ExtResource("1_f4n0g")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uocgg")
+"texture": SubResource("AtlasTexture_3vf8p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w8kuc")
+"texture": SubResource("AtlasTexture_wtacc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x6nlw")
+"texture": SubResource("AtlasTexture_ojfnj")
 }],
 "loop": true,
 "name": &"default",

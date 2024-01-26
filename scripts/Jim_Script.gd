@@ -8,10 +8,10 @@ extends CharacterBody2D
 
 @export var facingPosition = "left"
 
-var friction_quotient = 25
+var friction_quotient = 10
 var current_acceleration = 0
-var acceleration_quotient = 40
-var top_velocity = 600
+var acceleration_quotient = 20
+var top_velocity = 200
 
 var holding_object = false
 var will_grab_object = null

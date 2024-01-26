@@ -4,33 +4,32 @@
 [ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props/props_static/city/dumpster.tscn" id="2_f2ljo"]
 [ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="4_ayc4l"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="4_dt4q2"]
-[ext_resource type="PackedScene" uid="uid://bwnkyu8luia0a" path="res://entities/actors/npc_template.tscn" id="5_qxfjr"]
+[ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="5_f8eii"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Jim" parent="." instance=ExtResource("1_gfq4y")]
-position = Vector2(367, 149)
 facingPosition = "right"
 
 [node name="Dumpster" parent="." instance=ExtResource("2_f2ljo")]
-position = Vector2(340, 347)
+position = Vector2(-120, -96)
 
 [node name="Dumpster2" parent="." instance=ExtResource("2_f2ljo")]
-position = Vector2(937, 386)
+position = Vector2(240, 48)
 
 [node name="prop_name_here3" parent="." instance=ExtResource("4_ayc4l")]
-position = Vector2(506, 425)
+position = Vector2(24, 112)
 
 [node name="prop_name_here4" parent="." instance=ExtResource("4_ayc4l")]
-position = Vector2(675, 431)
+position = Vector2(96, 80)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("5_f8eii")]
+position = Vector2(128, -32)
+talk_radius = 100
+has_passive_text = true
+ai_directive = "alert_passive"
+passive_text = "Wonderful weather we're having"
 
 [node name="prop_name_here" parent="." instance=ExtResource("4_dt4q2")]
-position = Vector2(593, 320)
-
-[node name="prop_name_here2" parent="." instance=ExtResource("4_dt4q2")]
-position = Vector2(328, 428)
-
-[node name="NPC_Template_TEST" parent="." instance=ExtResource("5_qxfjr")]
-has_passive_text = true
-passive_text = "The quick brown fox jumped over the lazy dog"
+position = Vector2(-32, 8)
