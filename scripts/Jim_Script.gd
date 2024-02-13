@@ -11,45 +11,48 @@ extends CharacterBody2D
 var friction_quotient = 10
 var current_acceleration = 0
 var acceleration_quotient = 20
-var top_velocity = 200
+var top_velocity = 175
 
 var holding_object = false
 var will_grab_object = null
 var will_talk_npc = null
 var grabbed_object = null
+var control_frozen = false
 
 signal player_pickup()
 
 func _process(_delta):
-	if Input.is_action_pressed("right"):
-		_animated_sprite.play("walk_right")
-		facingPosition = "right"
-	else: if Input.is_action_pressed("left"):
-		_animated_sprite.play("walk_left")
-		facingPosition = "left"
-	else: if Input.is_action_pressed("up"):
-		_animated_sprite.play("walk_up")
-		facingPosition = "up"
-	else: if Input.is_action_pressed("down"):
-		_animated_sprite.play("walk_down")
-		facingPosition = "down"
-	else: if (facingPosition == "left"):
-		_animated_sprite.play("stand_left")
-		current_acceleration = 0
-	else: if (facingPosition == "right"):
-		_animated_sprite.play("stand_right")
-		current_acceleration = 0
-	else: if (facingPosition == "up"):
-		_animated_sprite.play("stand_up")
-		current_acceleration = 0
-	else: if (facingPosition == "down"):
-		_animated_sprite.play("stand_down")
-		current_acceleration = 0
+	if(!control_frozen):
+		if Input.is_action_pressed("right"):
+			_animated_sprite.play("walk_right")
+			facingPosition = "right"
+		else: if Input.is_action_pressed("left"):
+			_animated_sprite.play("walk_left")
+			facingPosition = "left"
+		else: if Input.is_action_pressed("up"):
+			_animated_sprite.play("walk_up")
+			facingPosition = "up"
+		else: if Input.is_action_pressed("down"):
+			_animated_sprite.play("walk_down")
+			facingPosition = "down"
+		else: if (facingPosition == "left"):
+			_animated_sprite.play("stand_left")
+			current_acceleration = 0
+		else: if (facingPosition == "right"):
+			_animated_sprite.play("stand_right")
+			current_acceleration = 0
+		else: if (facingPosition == "up"):
+			_animated_sprite.play("stand_up")
+			current_acceleration = 0
+		else: if (facingPosition == "down"):
+			_animated_sprite.play("stand_down")
+			current_acceleration = 0
 
 func get_input():
-	handle_pickup()
-	handle_throw()
-	move_jim()
+	if(!control_frozen):
+		handle_pickup()
+		handle_throw()
+		move_jim()
 	
 func handle_pickup():
 	if Input.is_action_just_pressed("pickup"):

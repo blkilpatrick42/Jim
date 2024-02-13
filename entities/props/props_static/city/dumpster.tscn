@@ -13,6 +13,7 @@ y_sort_enabled = true
 texture = ExtResource("1_2amr7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
+z_as_relative = false
 y_sort_enabled = true
 position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_x7wqg")

@@ -65,7 +65,7 @@ func _process(delta):
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
 	
 	#passive NPC
-	var cone_size = 64
+	var cone_size = 32
 	if(ai_directive == alert_passive &&
 	self.position.distance_to(player_ref.position) < talk_radius):	
 		if(player_ref.position.x < self.position.x + cone_size && 
