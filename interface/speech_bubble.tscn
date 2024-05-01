@@ -11,6 +11,7 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/16/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/8/0 = Vector2(0, 0)
 cache/0/10/0/ascent = 0.0
 cache/0/10/0/descent = 0.0
 cache/0/10/0/underline_position = 0.0
@@ -18,6 +19,15 @@ cache/0/10/0/underline_thickness = 0.0
 cache/0/10/0/scale = 1.0
 cache/0/10/0/kerning_overrides/16/0 = Vector2(0, 0)
 cache/0/10/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/8/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/8/0 = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_p6gh2"]
 font = SubResource("FontFile_i78oq")

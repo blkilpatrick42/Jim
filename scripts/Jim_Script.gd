@@ -8,10 +8,10 @@ extends CharacterBody2D
 
 @export var facingPosition = "left"
 
-var friction_quotient = 10
+var friction_quotient = 7
 var current_acceleration = 0
-var acceleration_quotient = 20
-var top_velocity = 175
+var acceleration_quotient = 15
+var top_speed = 180
 
 var holding_object = false
 var will_grab_object = null
@@ -78,32 +78,43 @@ func pick_up():
 		grabbed_object = null
 		holding_object = false
 
+func speed():
+	return velocity.length()
+
 func move_jim():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-
-	#ramp up acceleration if we have't hit max
-	if(input_direction.length() != 0):
+	
+	#accelerate if we have't hit max
+	if(input_direction.length() != 0 && speed() < top_speed):
 		current_acceleration = acceleration_quotient 
-
-	#stop accelerating if we hit max speed
-	if(velocity.length() >= top_velocity): 
+	else: 
 		current_acceleration = 0
-
-	#apply acceleration and friction to velocity
-	velocity = velocity + (input_direction * current_acceleration) - (velocity.normalized() * friction_quotient)
-
-	#if velocity is below friction quotient, just stop Jim. 
-	#Oherwise leftover friction makes him scoot backwards lol
-	if(velocity.length() < friction_quotient): 
-		velocity = velocity * 0
 		
+
+	var acceleration = input_direction * current_acceleration #input_direction is already normalized
+	var friction = velocity.normalized() * friction_quotient
+	
+	velocity = velocity + acceleration
+	
+	#if velocity is about to be reversed by friction, stop Jim
+	if((velocity).dot(velocity - friction) < 0 && speed() != 0):
+		velocity = velocity * 0
+	else:
+		#apply acceleration and friction to velocity
+		velocity = velocity - friction
+	
+	
+	
+
+	
+	#if(velocity - friction)
 	
 	#scale animation to movement speed
-	if(velocity.length() != 0):
+	if(speed() != 0):
 		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
 		#speed/topspeed for the remaining 60%.	
 		var baseScale = 0.4
-		var velocityScale = velocity.length() / top_velocity
+		var velocityScale = speed() / top_speed
 		var remainderScale = 0.6 * velocityScale
 		var animationScale = baseScale + remainderScale
 		_animated_sprite.set_speed_scale(animationScale)

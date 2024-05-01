@@ -481,6 +481,7 @@ y_sort_enabled = true
 y_sort_enabled = false
 position = Vector2(56, -248)
 up_direction = Vector2(0.502706, -0.864457)
+facingPosition = null
 
 [node name="PizzaGuy" parent="ysort" instance=ExtResource("2_k7uph")]
 y_sort_enabled = false
