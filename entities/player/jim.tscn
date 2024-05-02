@@ -19,7 +19,7 @@ y_sort_enabled = true
 mass = 70.0
 gravity_scale = 0.0
 lock_rotation = true
-linear_damp = 5.0
+linear_damp = 6.0
 script = ExtResource("1_n452v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]

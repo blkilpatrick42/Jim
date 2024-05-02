@@ -5,11 +5,20 @@ extends RigidBody2D
 @onready var _right_grab = $right_grab
 @onready var _up_grab = $up_grab
 @onready var _down_grab = $down_grab
-
 @export var facingPosition = "left"
 
-var acceleration_quotient = 50000
+var dash_get = preload("res://interface/dash_get.tscn")
+
+var normal_speed = 50000
+var dash_speed = 250000
+var acceleration_quotient = normal_speed
 var top_speed = 180
+
+var can_dash = true
+var is_dashing = false
+var dash_timer= 0.5
+var dash_regen_timer = 5
+var dash_ticks_chkpt = 0
 
 var holding_object = false
 var will_grab_object = null
@@ -42,7 +51,6 @@ func _process(_delta):
 			_animated_sprite.play("stand_up")
 		else: if (facingPosition == "down"):
 			_animated_sprite.play("stand_down")
-
 	
 	will_grab_object = null
 	if(!holding_object):
@@ -101,16 +109,35 @@ func _process(_delta):
 			downGrabObj != null && 
 			downGrabObj.is_in_group("npc")):
 			downGrabObj.will_talk = true
+	
+	#handle dash timer stuff
+	var time_since_dash_secs = ((Time.get_ticks_msec() - dash_ticks_chkpt)/1000)
+	if(is_dashing):
+		acceleration_quotient = dash_speed
+		if(time_since_dash_secs > dash_timer):
+			is_dashing = false
+			acceleration_quotient = normal_speed
+	else:
+		acceleration_quotient = normal_speed
+		
+	if(time_since_dash_secs > dash_regen_timer && can_dash == false):
+		can_dash = true
+		add_child(dash_get.instantiate())
 
 func get_input():
 	if(!control_frozen):
 		handle_pickup()
 		handle_throw()
+		handle_dash()
 		move_jim()
 	
 func handle_pickup():
 	if Input.is_action_just_pressed("pickup"):
 			pick_up()
+			
+func handle_dash():
+	if Input.is_action_just_pressed("dash"):
+			dash()
 			
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
@@ -131,6 +158,13 @@ func pick_up():
 		grabbed_object.put_down()
 		grabbed_object = null
 		holding_object = false
+
+func dash():
+	if(!is_dashing):
+		if(can_dash):
+			is_dashing = true
+			can_dash = false
+			dash_ticks_chkpt = Time.get_ticks_msec() 
 
 func speed():
 	return linear_velocity.length()

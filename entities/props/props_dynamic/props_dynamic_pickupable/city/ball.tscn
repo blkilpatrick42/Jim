@@ -17,7 +17,7 @@ physics_material_override = SubResource("PhysicsMaterial_486n2")
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource("1_25myv")
-force_factor = 6000
+force_factor = 1000
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true

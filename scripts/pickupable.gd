@@ -3,7 +3,7 @@ extends RigidBody2D
 @onready var _collision_shape = $CollisionShape2D
 @onready var sprite = $sprite
 
-@export var force_factor = 10000
+@export var force_factor = 100
 
 var picked_up = false
 var will_pickup = false
@@ -43,7 +43,7 @@ func throw(direction):
 		else: if(direction == "up"):
 			throw_force = Vector2(0,-force_factor)
 			set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
-		else: if(direction == "down"):			
+		else: if(direction == "down"):
 			throw_force = Vector2(0,force_factor)
 			set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 		
@@ -79,6 +79,7 @@ func _process(delta):
 				picked_up && showing_arrow):
 		arrow_instance = get_tree().get_nodes_in_group("pickuparrow")[0]
 		get_parent().remove_child(arrow_instance)
+		arrow_instance.queue_free()
 		showing_arrow = false
 		
 	if(showing_arrow):
