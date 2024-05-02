@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c21jsew46j2v0"]
+[gd_scene load_steps=8 format=3 uid="uid://dip52lba5ep0f"]
 
-[ext_resource type="Script" path="res://scripts/Jim_Script.gd" id="1_n452v"]
-[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_407ts"]
+[ext_resource type="Script" path="res://scripts/Jim_Script_characterbody2d.gd" id="1_b06om"]
+[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_hl4md"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
 size = Vector2(20, 13)
@@ -14,18 +14,16 @@ size = Vector2(20, 13)
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_32dvj"]
 
-[node name="Jim" type="RigidBody2D" groups=["player"]]
+[node name="Jim" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
-mass = 70.0
-gravity_scale = 0.0
-lock_rotation = true
-linear_damp = 5.0
-script = ExtResource("1_n452v")
+motion_mode = 1
+up_direction = Vector2(0.502706, -0.864457)
+script = ExtResource("1_b06om")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 y_sort_enabled = true
 position = Vector2(0, 2)
-sprite_frames = ExtResource("2_407ts")
+sprite_frames = ExtResource("2_hl4md")
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
@@ -58,7 +56,7 @@ target_position = Vector2(-7.60554e-06, 3)
 collision_mask = 2
 
 [node name="right_grab" type="ShapeCast2D" parent="."]
-rotation = -1.5708
+rotation = 4.71239
 shape = SubResource("SeparationRayShape2D_32dvj")
 target_position = Vector2(5.79359e-06, 6)
 collision_mask = 2

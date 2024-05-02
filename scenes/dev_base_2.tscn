@@ -2,11 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="1_1o314"]
 [ext_resource type="PackedScene" uid="uid://f4uix6an75n8" path="res://entities/dev_entitites/invisible_wall_hor.tscn" id="1_igr77"]
-[ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim.tscn" id="2_gmcnk"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="2_k7uph"]
 [ext_resource type="PackedScene" uid="uid://getapj722484" path="res://entities/dev_entitites/invisible_wall_ver.tscn" id="2_mq1av"]
-[ext_resource type="Texture2D" uid="uid://bqmpler812d53" path="res://sprites/props/dumpster.png" id="3_a8t8j"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="7_v0w0m"]
+[ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/player/jim.tscn" id="8_16kpq"]
+[ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/props_dynamic/dynamic_dumpster.tscn" id="8_m46ut"]
 [ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="8_my1ep"]
 [ext_resource type="AudioStream" uid="uid://ddjq54l30prri" path="res://audio/music/test_song.wav" id="9_ogsom"]
 
@@ -477,11 +477,6 @@ z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="Jim" parent="ysort" instance=ExtResource("2_gmcnk")]
-y_sort_enabled = false
-position = Vector2(56, -248)
-up_direction = Vector2(0.502706, -0.864457)
-
 [node name="PizzaGuy" parent="ysort" instance=ExtResource("2_k7uph")]
 y_sort_enabled = false
 position = Vector2(72, 224)
@@ -500,10 +495,6 @@ facingPosition = "down"
 ai_directive = "alert_passive"
 passive_text = "wanna buy some seashells??"
 
-[node name="Dumpster" type="Sprite2D" parent="ysort"]
-position = Vector2(-16, 24)
-texture = ExtResource("3_a8t8j")
-
 [node name="prop_name_here" parent="ysort" instance=ExtResource("7_v0w0m")]
 position = Vector2(136, 184)
 
@@ -518,6 +509,12 @@ position = Vector2(248, 440)
 
 [node name="prop_name_here3" parent="ysort" instance=ExtResource("8_my1ep")]
 position = Vector2(240, -256)
+
+[node name="Jim" parent="ysort" instance=ExtResource("8_16kpq")]
+position = Vector2(216, 80)
+
+[node name="prop_name_here6" parent="ysort" instance=ExtResource("8_m46ut")]
+position = Vector2(0, 56)
 
 [node name="TileMap_mid" type="TileMap" parent="."]
 z_index = 2

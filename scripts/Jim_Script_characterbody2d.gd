@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _left_grab = $left_grab
@@ -8,7 +8,9 @@ extends RigidBody2D
 
 @export var facingPosition = "left"
 
-var acceleration_quotient = 50000
+var friction_quotient = 7
+var current_acceleration = 0
+var acceleration_quotient = 15
 var top_speed = 180
 
 var holding_object = false
@@ -36,12 +38,16 @@ func _process(_delta):
 			facingPosition = "down"
 		else: if (facingPosition == "left"):
 			_animated_sprite.play("stand_left")
+			current_acceleration = 0
 		else: if (facingPosition == "right"):
 			_animated_sprite.play("stand_right")
+			current_acceleration = 0
 		else: if (facingPosition == "up"):
 			_animated_sprite.play("stand_up")
+			current_acceleration = 0
 		else: if (facingPosition == "down"):
 			_animated_sprite.play("stand_down")
+			current_acceleration = 0
 
 	
 	will_grab_object = null
@@ -133,17 +139,30 @@ func pick_up():
 		holding_object = false
 
 func speed():
-	return linear_velocity.length()
+	return velocity.length()
 
 func move_jim():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
 	#accelerate if we have't hit max
 	if(input_direction.length() != 0 && speed() < top_speed):
-		current_v = input_direction * acceleration_quotient 
+		current_acceleration = acceleration_quotient 
 	else: 
-		current_v = input_direction * 0
+		current_acceleration = 0
+		
 
+	var acceleration = input_direction * current_acceleration #input_direction is already normalized
+	var friction = current_v.normalized() * friction_quotient
+	
+	current_v = current_v + acceleration
+	
+	#if velocity is about to be reversed by friction, stop Jim
+	if((current_v).dot(current_v - friction) < 0 && speed() != 0):
+		current_v = current_v * 0
+	else:
+		#apply acceleration and friction to velocity
+		current_v = current_v - friction
+	
 	#scale animation to movement speed
 	if(speed() != 0):
 		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
@@ -158,7 +177,8 @@ func move_jim():
 
 func _physics_process(delta):
 	get_input()
-	apply_force(current_v)
+	
+	move_and_slide()
 
 
 
