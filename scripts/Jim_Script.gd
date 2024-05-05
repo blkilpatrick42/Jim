@@ -180,10 +180,10 @@ func dash():
 		if(can_dash):
 			sound_player.stream = load("res://audio/soundFX/woosh.wav")
 			sound_player.play()
-			var dash_dust = dust.instantiate()
+#			var dash_dust = dust.instantiate()
 			#add_child(dust.instantiate())
 			#remove_child(dash_dust)
-			add_child(dash_dust)
+#			add_child(dash_dust)
 			is_dashing = true
 			can_dash = false
 			dash_ticks_chkpt = Time.get_ticks_msec() 

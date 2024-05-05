@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://sp81pjpathb6"]
+
+[ext_resource type="Texture2D" uid="uid://bovqk2ohyurt1" path="res://sprites/spritesheets/effects/spark.png" id="1_5338c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoxpv"]
+atlas = ExtResource("1_5338c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anb65"]
+atlas = ExtResource("1_5338c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsbhp"]
+atlas = ExtResource("1_5338c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yhl4"]
+atlas = ExtResource("1_5338c")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoxpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anb65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsbhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yhl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

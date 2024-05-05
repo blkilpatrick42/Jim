@@ -10,7 +10,10 @@ var will_pickup = false
 var showing_arrow = false
 var distance_for_pickup = 100
 var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
+var spark = preload("res://entities/effects/spark.tscn")
 var arrow_instance = null 
+
+var sound_player := AudioStreamPlayer.new()
 
 var should_reset = false
 var new_position = Vector2(0, 0)
@@ -22,7 +25,8 @@ var player_y_offset = 24
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_child(sound_player)
+	sound_player.volume_db = -20
 
 func set_physics_pos(vector2):
 	should_reset = true
@@ -47,6 +51,17 @@ func throw(direction):
 			throw_force = Vector2(0,force_factor)
 			set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 		
+
+func _on_body_entered(body:Node):
+	if(linear_velocity.length() > 200):
+		var nSpark = spark.instantiate()
+		get_parent().add_child(nSpark)
+		nSpark.position = position
+		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+		sound_player.play()
+	else:
+		sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
+		sound_player.play()
 
 func pick_up():
 	if(will_pickup):
