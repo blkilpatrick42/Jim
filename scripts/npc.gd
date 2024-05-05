@@ -11,6 +11,7 @@ const alert_passive = "alert_passive"
 @export var acknowledges_player = false
 @export var facingPosition = "left"
 @export var ai_directive = full_passive
+@export var voice = "none"
 
 @export var passive_text = ""
 @export var monologue_text = ""
@@ -22,12 +23,15 @@ var will_talk = false
 var showing_bubble = false
 var is_walking = false
 
+var sound_player := AudioStreamPlayer.new()
+
 var bubble_instance = null
 var speech_instance = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_sprite.play("default")
+	add_child(sound_player)
 	
 func set_will_talk_false():
 	will_talk = false
@@ -94,7 +98,7 @@ func _process(delta):
 		if(!talking && will_talk):
 			speech_instance = speech_bubble.instantiate()
 			self.add_child(speech_instance)
-			speech_instance.play_passive_text(passive_text)
+			speech_instance.play_passive_text(passive_text, voice)
 			talking = true
 		else: if (!will_talk && talking && speech_instance.ready_to_disappear):
 			speech_instance = self.get_node("speech_bubble")
@@ -111,6 +115,7 @@ func _process(delta):
 					talking && showing_bubble):
 			bubble_instance = self.get_node("can_talk_bubble")
 			self.remove_child(bubble_instance)
+			bubble_instance.queue_free()
 			showing_bubble = false
 			
 		if(showing_bubble):

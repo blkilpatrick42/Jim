@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/dash_get.gd" id="1_b6rkl"]
 [ext_resource type="SpriteFrames" uid="uid://d07pd61fdcupd" path="res://sprites/spritesheets/spriteframes/interface/dash_get.tres" id="2_11knr"]
 
-[node name="dash_get" type="Node2D" groups=["interface", "pickuparrow"]]
+[node name="dash_get" type="Node2D" groups=["interface"]]
 script = ExtResource("1_b6rkl")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface", "pickuparrow"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
 position = Vector2(0, -8)
 scale = Vector2(0.75, 0.75)
 sprite_frames = ExtResource("2_11knr")

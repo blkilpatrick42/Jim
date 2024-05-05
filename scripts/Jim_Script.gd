@@ -8,6 +8,9 @@ extends RigidBody2D
 @export var facingPosition = "left"
 
 var dash_get = preload("res://interface/dash_get.tscn")
+var dust = preload("res://interface/dust.tscn")
+
+var sound_player := AudioStreamPlayer.new()
 
 var normal_speed = 50000
 var dash_speed = 250000
@@ -28,6 +31,10 @@ var control_frozen = false
 var current_v = Vector2(0,0)
 
 signal player_pickup()
+
+func _ready():
+	add_child(sound_player)
+	sound_player.volume_db = -12
 
 func _process(_delta):
 	if(!control_frozen):
@@ -119,8 +126,11 @@ func _process(_delta):
 			acceleration_quotient = normal_speed
 	else:
 		acceleration_quotient = normal_speed
-		
+	
+	#regen dash
 	if(time_since_dash_secs > dash_regen_timer && can_dash == false):
+		sound_player.stream = load("res://audio/soundFX/dashget.wav")
+		sound_player.play()
 		can_dash = true
 		add_child(dash_get.instantiate())
 
@@ -145,23 +155,35 @@ func handle_throw():
 
 func throw():
 	if(holding_object):
+		sound_player.stream = load("res://audio/soundFX/woosh.wav")
+		sound_player.play()
 		grabbed_object.throw(facingPosition)
 		grabbed_object = null
 		holding_object = false
 		
 func pick_up():
 	if(will_grab_object != null && !holding_object):
+		sound_player.stream = load("res://audio/soundFX/pickup.wav")
+		sound_player.play()
 		will_grab_object.pick_up()
 		grabbed_object = will_grab_object
 		holding_object = true
-	else: if(holding_object):	
+	else: if(holding_object):
+		sound_player.stream = load("res://audio/soundFX/putdown.wav")
+		sound_player.play()
 		grabbed_object.put_down()
 		grabbed_object = null
 		holding_object = false
 
 func dash():
-	if(!is_dashing):
+	if(!is_dashing && Input.get_vector("left", "right", "up", "down").length() > 0):
 		if(can_dash):
+			sound_player.stream = load("res://audio/soundFX/woosh.wav")
+			sound_player.play()
+			var dash_dust = dust.instantiate()
+			#add_child(dust.instantiate())
+			#remove_child(dash_dust)
+			add_child(dash_dust)
 			is_dashing = true
 			can_dash = false
 			dash_ticks_chkpt = Time.get_ticks_msec() 
