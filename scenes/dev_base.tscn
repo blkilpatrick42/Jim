@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://58f6tstia2hp"]
 
 [ext_resource type="TileSet" uid="uid://dlxwwrcjuo2pl" path="res://sprites/tilesets/test_set_2.tres" id="1_3oad0"]
-[ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim.tscn" id="1_gfq4y"]
+[ext_resource type="PackedScene" uid="uid://dip52lba5ep0f" path="res://entities/player/jim_characterbody2d.tscn" id="1_gfq4y"]
 [ext_resource type="PackedScene" uid="uid://f4uix6an75n8" path="res://entities/dev_entitites/invisible_wall_hor.tscn" id="3_utqqn"]
 [ext_resource type="PackedScene" uid="uid://getapj722484" path="res://entities/dev_entitites/invisible_wall_ver.tscn" id="4_mx3fv"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="5_2xel0"]
