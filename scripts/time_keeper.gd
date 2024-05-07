@@ -1,7 +1,7 @@
 extends Control
 
 var clock = 0
-var hour_length_seconds = 2
+var hour_length_seconds = 30
 var time_checkpoint = 0
 
 #Called when the node enters the scene tree for the first time.
