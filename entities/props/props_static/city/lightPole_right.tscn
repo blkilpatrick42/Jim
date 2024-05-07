@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7i6xhe00dvi4"]
+
+[ext_resource type="Texture2D" uid="uid://2hjb0jnagdkt" path="res://sprites/props/lightPole.png" id="1_f2cht"]
+[ext_resource type="Texture2D" uid="uid://d1u4hqhj0fees" path="res://sprites/lights/solid_circle.png" id="2_g61jv"]
+[ext_resource type="Script" path="res://scripts/timed_light.gd" id="3_enns8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(70.3931, 29.3857)
+
+[node name="lightPole" type="StaticBody2D" groups=["prop"]]
+y_sort_enabled = true
+
+[node name="lightPole" type="Sprite2D" parent="." groups=["prop"]]
+y_sort_enabled = true
+position = Vector2(25, -17)
+texture = ExtResource("1_f2cht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0.0478987, 7)
+scale = Vector2(0.16911, 0.544482)
+shape = SubResource("RectangleShape2D_x7wqg")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(75, 8)
+scale = Vector2(0.705, 0.33)
+color = Color(1, 1, 0.901961, 1)
+texture = ExtResource("2_g61jv")
+script = ExtResource("3_enns8")
+turns_on = 18
+turns_off = 7
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(50, -35)
+scale = Vector2(0.03, 0.01)
+color = Color(1, 1, 0.878431, 1)
+energy = 9.23
+texture = ExtResource("2_g61jv")
+script = ExtResource("3_enns8")
+turns_on = 18
+turns_off = 7

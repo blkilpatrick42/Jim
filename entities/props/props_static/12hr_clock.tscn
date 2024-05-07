@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmop2hkofessp"]
+
+[ext_resource type="SpriteFrames" uid="uid://bb2vjfx70ue2q" path="res://sprites/spritesheets/spriteframes/props/12hr_clock.tres" id="1_ijqpb"]
+[ext_resource type="Script" path="res://scripts/clock_anim.gd" id="2_uuw3q"]
+
+[node name="12hr_clock" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_ijqpb")
+script = ExtResource("2_uuw3q")

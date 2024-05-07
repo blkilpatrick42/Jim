@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd4an5ql0m3bv"]
+[gd_scene load_steps=6 format=3 uid="uid://cd4an5ql0m3bv"]
 
 [ext_resource type="Texture2D" uid="uid://jcwsqc48iywl" path="res://sprites/interface/speechbubble.png" id="1_dmsx7"]
 [ext_resource type="Script" path="res://scripts/speech_bubble.gd" id="2_upcsf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ievkp"]
+light_mode = 1
 
 [sub_resource type="FontFile" id="FontFile_i78oq"]
 cache/0/16/0/ascent = 0.0
@@ -36,6 +39,7 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="speech_bubble" type="Sprite2D" groups=["speech"]]
 z_index = 10
+material = SubResource("CanvasItemMaterial_ievkp")
 position = Vector2(30, -50)
 texture = ExtResource("1_dmsx7")
 script = ExtResource("2_upcsf")
