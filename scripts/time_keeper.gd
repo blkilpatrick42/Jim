@@ -1,6 +1,6 @@
 extends Control
 
-var clock = 0
+@export var clock = 0
 var hour_length_seconds = 30
 var time_checkpoint = 0
 

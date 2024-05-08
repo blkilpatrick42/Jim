@@ -1,0 +1,91 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://c2e1mdnb4u0jc"]
+
+[ext_resource type="Texture2D" uid="uid://s8sit673pxc0" path="res://sprites/game_world/window1.png" id="1_fo7dy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni2qo"]
+atlas = ExtResource("1_fo7dy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72ix4"]
+atlas = ExtResource("1_fo7dy")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72ix4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2qo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
