@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy40cvst7p3ko"]
 
-[ext_resource type="Script" path="res://scripts/pickupable.gd" id="1_1fhli"]
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_1fhli"]
 [ext_resource type="Texture2D" uid="uid://dlv7oxi4u13bp" path="res://sprites/props/trafficCone.png" id="2_auy0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]

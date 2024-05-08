@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c21jsew46j2v0"]
 
-[ext_resource type="Script" path="res://scripts/Jim_Script.gd" id="1_n452v"]
+[ext_resource type="Script" path="res://scripts/player/Jim_Script.gd" id="1_txjuo"]
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_407ts"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3o5m8"]
@@ -24,7 +24,7 @@ physics_material_override = SubResource("PhysicsMaterial_3o5m8")
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 6.0
-script = ExtResource("1_n452v")
+script = ExtResource("1_txjuo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 y_sort_enabled = true

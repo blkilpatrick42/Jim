@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcd4cw7785qx"]
 
-[ext_resource type="Script" path="res://scripts/animation_destroy.gd" id="1_4cuns"]
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_4cuns"]
 [ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_5se57"]
 
 [node name="spark" type="Node2D" groups=["interface"]]

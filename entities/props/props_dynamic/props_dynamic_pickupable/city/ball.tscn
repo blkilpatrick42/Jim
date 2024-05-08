@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0238pavltllm"]
 
-[ext_resource type="Script" path="res://scripts/pickupable.gd" id="1_25myv"]
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_25myv"]
 [ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="2_aofi2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_486n2"]

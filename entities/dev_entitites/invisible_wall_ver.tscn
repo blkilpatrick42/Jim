@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://getapj722484"]
 
-[ext_resource type="Script" path="res://scripts/become_invisible.gd" id="1_5tx2s"]
+[ext_resource type="Script" path="res://scripts/utility/become_invisible.gd" id="1_5tx2s"]
 [ext_resource type="Texture2D" uid="uid://dlv7oxi4u13bp" path="res://sprites/props/trafficCone.png" id="1_55vxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mue5l"]

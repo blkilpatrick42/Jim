@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2pdxagj1b814"]
 
-[ext_resource type="Script" path="res://scripts/animation_destroy.gd" id="1_tn4tf"]
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_tn4tf"]
 [ext_resource type="SpriteFrames" uid="uid://d07pd61fdcupd" path="res://sprites/spritesheets/spriteframes/interface/dash_get.tres" id="2_11knr"]
 
 [node name="dash_get" type="Node2D" groups=["interface"]]

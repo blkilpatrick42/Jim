@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2hjb0jnagdkt" path="res://sprites/props/lightPole.png" id="1_f2cht"]
 [ext_resource type="Texture2D" uid="uid://d1u4hqhj0fees" path="res://sprites/lights/solid_circle.png" id="2_g61jv"]
-[ext_resource type="Script" path="res://scripts/timed_light.gd" id="3_enns8"]
+[ext_resource type="Script" path="res://scripts/clock/timed_light.gd" id="3_enns8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(70.3932, 27.5491)

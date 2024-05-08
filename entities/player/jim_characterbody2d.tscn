@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dip52lba5ep0f"]
 
-[ext_resource type="Script" path="res://scripts/Jim_Script_characterbody2d.gd" id="1_b06om"]
+[ext_resource type="Script" path="res://scripts/player/Jim_Script_characterbody2d.gd" id="1_b06om"]
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_hl4md"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
