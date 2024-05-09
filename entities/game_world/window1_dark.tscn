@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch3ityck63mn0"]
+
+[ext_resource type="SpriteFrames" uid="uid://c2e1mdnb4u0jc" path="res://sprites/spritesheets/spriteframes/game_world/window1.tres" id="1_6duij"]
+[ext_resource type="Script" path="res://scripts/clock/clock_anim.gd" id="2_kkjus"]
+
+[node name="window1_dark" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_6duij")
+animation = &"dark"
+script = ExtResource("2_kkjus")

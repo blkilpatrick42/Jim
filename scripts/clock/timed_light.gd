@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(time_keeper.clock == turns_on):
+	if(time_keeper.clock >=turns_on || time_keeper.clock < turns_off):
 		enabled = true
-	else: if(time_keeper.clock == turns_off):
+	else:
 		enabled = false
