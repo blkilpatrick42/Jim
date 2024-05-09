@@ -5,6 +5,7 @@ var light_level = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true
 	time_keeper = get_tree().get_nodes_in_group("time_keeper")[0]
 
 

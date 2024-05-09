@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c21jsew46j2v0"]
+[gd_scene load_steps=10 format=3 uid="uid://c21jsew46j2v0"]
 
 [ext_resource type="Script" path="res://scripts/player/Jim_Script.gd" id="1_txjuo"]
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_407ts"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_qo3kv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3o5m8"]
 bounce = 0.51
@@ -72,3 +73,7 @@ rotation = -1.5708
 shape = SubResource("SeparationRayShape2D_32dvj")
 target_position = Vector2(5.79359e-06, 6)
 collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("3_qo3kv")
