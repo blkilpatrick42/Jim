@@ -1,7 +1,15 @@
 extends RigidBody2D
 
 #AI STATES
-const patrol = "patrol"
+const state_patrol = "patrol"
+const sub_state_patrol_transit = "patrol_transit"
+const sub_state_patrol_look = "patrol_look"
+var patrol_look_time_secs = 3
+var selected_patrol_point = null
+
+#State vars
+var state = state_patrol
+var sub_state = sub_state_patrol_look
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -10,6 +18,9 @@ const patrol = "patrol"
 var sound_player := AudioStreamPlayer.new()
 var current_v = Vector2(0,0)
 var max_speed = 15000
+var random = RandomNumberGenerator.new()
+
+var timer_checkpoint = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +29,7 @@ func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 32.0
 	call_deferred("actor_setup")
+	state = state_patrol
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -91,13 +103,16 @@ func stand():
 func speed():
 	return linear_velocity.length()
 
+#rotate and animate sprite based on velocity
 func set_sprite_by_velocity():
-	if(abs(linear_velocity.x) >= abs(linear_velocity.y)): #movement is greater on the x axis
+	#movement is greater on the x axis
+	if(abs(linear_velocity.x) >= abs(linear_velocity.y)): 
 		if(linear_velocity.x > 0):
 			facingPosition = "right"
 		else: if (linear_velocity.x < 0):
 			facingPosition = "left"
-	else: if (abs(linear_velocity.x) <= abs(linear_velocity.y)): #movement is greater on the y axis
+	#movement is greater on the y axis
+	else: if (abs(linear_velocity.x) <= abs(linear_velocity.y)): 
 		if(linear_velocity.y > 0):
 			facingPosition = "down"
 		else: if (linear_velocity.y < 0):
@@ -107,6 +122,32 @@ func set_sprite_by_velocity():
 		walk_facing_pos()
 	else: if (current_v.length() == 0):
 		stand_facing_pos()
+
+#############
+#AI STATE CODE 
+#\/\/\/\/\/\/\/
+func patrol():
+	if(sub_state == sub_state_patrol_transit):
+		patrol_transit()
+	else: if(sub_state == sub_state_patrol_look):
+		patrol_look()
+
+func patrol_transit():
+	if (position.distance_to(navigation_agent.target_position) <= 32):
+		timer_checkpoint = Time.get_ticks_msec()
+		sub_state = sub_state_patrol_look
+
+func patrol_look():
+	if((((Time.get_ticks_msec() - timer_checkpoint) / 1000) > patrol_look_time_secs)):
+		var patrol_points = get_tree().get_nodes_in_group("patrol_point")
+		patrol_points.remove_at(patrol_points.find(selected_patrol_point))
+		selected_patrol_point = patrol_points[random.randi_range(0, patrol_points.size()-1)]
+		set_movement_target(selected_patrol_point.position)
+		sub_state = sub_state_patrol_transit
+
+#/\/\/\/\/\/\/\
+#AI STATE CODE 
+#############
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -121,23 +162,23 @@ func _process(delta):
 		_animated_sprite.set_speed_scale(animationScale)
 	else:
 		_animated_sprite.set_speed_scale(1)
-		
-	set_movement_target(get_tree().get_first_node_in_group("player").position)
 	
-#	if(position.distance_to(get_tree().get_first_node_in_group("player").position) > 32):
-#		set_movement_target(position.direction_to(get_tree().get_first_node_in_group("player").position)
-#		current_v = position.direction_to(get_tree().get_first_node_in_group("player").position) * max_speed
-#	else:
-#		current_v = current_v * 0
-	
+	#process AI state
+	if(state == state_patrol):
+		patrol()
+
 func _physics_process(delta):
+	#advance along path towards movement target
 	if (position.distance_to(navigation_agent.target_position) >= 32):
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 		current_v = current_agent_position.direction_to(next_path_position) * max_speed
 	else:
 		current_v = current_v * 0
-
+	
+	#set animation via velocity
 	set_sprite_by_velocity()
+	
+	#apply velocity thru physics engine
 	apply_force(current_v)
 	
