@@ -5,11 +5,11 @@ const state_patrol = "patrol"
 const sub_state_patrol_transit = "patrol_transit"
 const sub_state_patrol_look = "patrol_look"
 var patrol_look_time_secs = 3
-var selected_patrol_point = null
+@export var current_patrol_point = Node2D
 
 #State vars
-var state = state_patrol
-var sub_state = sub_state_patrol_look
+@export var state = state_patrol
+@export var sub_state = sub_state_patrol_look
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -139,11 +139,10 @@ func patrol_transit():
 
 func patrol_look():
 	if((((Time.get_ticks_msec() - timer_checkpoint) / 1000) > patrol_look_time_secs)):
-		var patrol_points = get_tree().get_nodes_in_group("patrol_point")
-		patrol_points.remove_at(patrol_points.find(selected_patrol_point))
-		selected_patrol_point = patrol_points[random.randi_range(0, patrol_points.size()-1)]
-		set_movement_target(selected_patrol_point.position)
-		sub_state = sub_state_patrol_transit
+		if(current_patrol_point.has_next_point):
+			current_patrol_point = current_patrol_point.next_point
+			set_movement_target(current_patrol_point.position)
+			sub_state = sub_state_patrol_transit
 
 #/\/\/\/\/\/\/\
 #AI STATE CODE 
