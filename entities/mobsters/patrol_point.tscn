@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://yh1sdoo12jth"]
+[gd_scene load_steps=3 format=3 uid="uid://yh1sdoo12jth"]
 
+[ext_resource type="Script" path="res://entities/mobsters/patrol_point.gd" id="1_a4bb8"]
 [ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/gangsters/red_gangster.tres" id="1_wsmek"]
 
 [node name="patrol_point" type="Node2D" groups=["patrol_point"]]
+script = ExtResource("1_a4bb8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="patrol_point" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.329412)
 sprite_frames = ExtResource("1_wsmek")

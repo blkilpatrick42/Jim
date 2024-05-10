@@ -32,3 +32,8 @@ position = Vector2(0, 1)
 texture = ExtResource("3_wq4dt")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 64.0
+neighbor_distance = 1000.0
+max_neighbors = 5
+time_horizon_agents = 5.0

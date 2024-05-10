@@ -407,62 +407,39 @@ position = Vector2(-625, 729)
 [node name="patrol_point" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 visible = false
 position = Vector2(-830, 815)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point4" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 visible = false
 position = Vector2(-629, 645)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point5" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 visible = false
 position = Vector2(-1024, 648)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point6" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-904, 508)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point7" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-730, 508)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point8" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-1007, 966)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point9" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-647, 968)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point10" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-932, 1092)
-has_next_point = null
-has_prev_point = null
 
 [node name="patrol_point11" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-730, 1119)
-has_next_point = null
-has_prev_point = null
 
-[node name="patrol_point2" parent="Main_canvas/ysort" node_paths=PackedStringArray("next_point", "prev_point") instance=ExtResource("16_kbovc")]
+[node name="patrol_point2" parent="Main_canvas/ysort" node_paths=PackedStringArray("next_point") instance=ExtResource("16_kbovc")]
 position = Vector2(-977, 814)
 next_point = NodePath("../patrol_point3")
-has_next_point = true
-prev_point = NodePath("../patrol_point8")
-has_prev_point = true
 
 [node name="patrol_point3" parent="Main_canvas/ysort" instance=ExtResource("16_kbovc")]
 position = Vector2(-662, 815)
-has_next_point = null
-has_prev_point = null
 
 [node name="TileMap_mid" type="TileMap" parent="Main_canvas"]
 z_index = 2

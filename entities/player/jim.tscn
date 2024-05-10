@@ -34,6 +34,7 @@ sprite_frames = ExtResource("2_407ts")
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+visible = false
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_w3v7o")
 
@@ -79,3 +80,5 @@ position = Vector2(0, -1)
 texture = ExtResource("3_qo3kv")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 64.0
