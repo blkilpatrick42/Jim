@@ -56,31 +56,23 @@ func stand_dir(direction):
 	match(direction):
 		facing_pos_left:
 			_animated_sprite.play("stand_left")
-			facingPosition = facing_pos_left
 		facing_pos_right:
 			_animated_sprite.play("stand_right")
-			facingPosition = facing_pos_right
 		facing_pos_down:
 			_animated_sprite.play("stand_down")
-			facingPosition = facing_pos_down
 		facing_pos_up:
 			_animated_sprite.play("stand_up")
-			facingPosition = facing_pos_up
 
 func walk_dir(direction):
 		match(direction):
 			facing_pos_left:
 				_animated_sprite.play("walk_left")
-				facingPosition = facing_pos_left
 			facing_pos_right:
 				_animated_sprite.play("walk_right")
-				facingPosition = facing_pos_left
 			facing_pos_down:
 				_animated_sprite.play("walk_down")
-				facingPosition = facing_pos_down
 			facing_pos_up:
 				_animated_sprite.play("walk_up")
-				facingPosition = facing_pos_up
 
 func turn_right():
 	match(facingPosition):

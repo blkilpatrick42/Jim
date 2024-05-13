@@ -7,6 +7,11 @@ extends RigidBody2D
 @onready var _down_grab = $down_grab
 @export var facingPosition = "left"
 
+const facing_pos_right = "right"
+const facing_pos_left = "left"
+const facing_pos_up = "up"
+const facing_pos_down = "down"
+
 var dash_get = preload("res://interface/dash_get.tscn")
 var dust = preload("res://interface/dust.tscn")
 
@@ -36,30 +41,37 @@ func _ready():
 	add_child(sound_player)
 	sound_player.volume_db = -12
 
-func _process(_delta):
-	if(!control_frozen):
-		#orient and animate player according to input
-		if Input.is_action_pressed("right"):
-			_animated_sprite.play("walk_right")
-			facingPosition = "right"
-		else: if Input.is_action_pressed("left"):
-			_animated_sprite.play("walk_left")
-			facingPosition = "left"
-		else: if Input.is_action_pressed("up"):
-			_animated_sprite.play("walk_up")
-			facingPosition = "up"
-		else: if Input.is_action_pressed("down"):
-			_animated_sprite.play("walk_down")
-			facingPosition = "down"
-		else: if (facingPosition == "left"):
+func stand_dir(direction):
+	match(direction):
+		facing_pos_left:
 			_animated_sprite.play("stand_left")
-		else: if (facingPosition == "right"):
+		facing_pos_right:
 			_animated_sprite.play("stand_right")
-		else: if (facingPosition == "up"):
-			_animated_sprite.play("stand_up")
-		else: if (facingPosition == "down"):
+		facing_pos_down:
 			_animated_sprite.play("stand_down")
-	
+		facing_pos_up:
+			_animated_sprite.play("stand_up")
+
+func walk_dir(direction):
+		match(direction):
+			facing_pos_left:
+				_animated_sprite.play("walk_left")
+			facing_pos_right:
+				_animated_sprite.play("walk_right")
+			facing_pos_down:
+				_animated_sprite.play("walk_down")
+			facing_pos_up:
+				_animated_sprite.play("walk_up")
+
+#animate sprite based on velocity
+func set_sprite_by_velocity():
+	if(current_v.length() > 0 || speed() >= top_speed):
+		walk_dir(facingPosition)
+	else: 
+		stand_dir(facingPosition)
+
+func _process(_delta):
+	set_sprite_by_velocity()
 	will_grab_object = null
 	if(!holding_object):
 		var leftGrabObj = null
@@ -137,6 +149,15 @@ func _process(_delta):
 
 func get_input():
 	if(!control_frozen):
+				#orient and player according to input
+		if Input.is_action_pressed("right"):
+			facingPosition = facing_pos_right
+		else: if Input.is_action_pressed("left"):
+			facingPosition = facing_pos_left
+		else: if Input.is_action_pressed("up"):
+			facingPosition = facing_pos_up
+		else: if Input.is_action_pressed("down"):
+				facingPosition = facing_pos_down
 		handle_pickup()
 		handle_throw()
 		handle_dash()
@@ -200,14 +221,14 @@ func move_jim():
 		current_v = input_direction * acceleration_quotient 
 	else: 
 		current_v = input_direction * 0
-
+		
 	#scale animation to movement speed
 	if(speed() != 0):
 		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
 		#speed/topspeed for the remaining 60%.	
-		var baseScale = 0.4
+		var baseScale = 0.2
 		var velocityScale = speed() / top_speed
-		var remainderScale = 0.6 * velocityScale
+		var remainderScale = 0.8 * velocityScale
 		var animationScale = baseScale + remainderScale
 		_animated_sprite.set_speed_scale(animationScale)
 	else:
