@@ -38,19 +38,19 @@ func throw(direction):
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		if(direction == "left"):
-			throw_force = Vector2(-force_factor,0)
-			set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
-		else: if(direction == "right"):
-			throw_force = Vector2(force_factor,0)
-			set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
-		else: if(direction == "up"):
-			throw_force = Vector2(0,-force_factor)
-			set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
-		else: if(direction == "down"):
-			throw_force = Vector2(0,force_factor)
-			set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
-		
+		match(direction):
+			"left":
+				throw_force = Vector2(-force_factor,0)
+				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+			"right":
+				throw_force = Vector2(force_factor,0)
+				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+			"up":
+				throw_force = Vector2(0,-force_factor)
+				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+			"down":
+				throw_force = Vector2(0,force_factor)
+				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 
 func _on_body_entered(body:Node):
 	if(linear_velocity.length() > 200):
@@ -73,12 +73,26 @@ func pick_up():
 		picked_up = true
 		will_pickup = false
 
-func put_down():
+func put_down(direction):
 	if(picked_up):
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
+		match(direction):
+			"left":
+				throw_force = Vector2(-force_factor,0)
+				set_physics_pos(playerRef.position + Vector2(-player_y_offset, 0))
+			"right":
+				throw_force = Vector2(force_factor,0)
+				set_physics_pos(playerRef.position + Vector2(player_y_offset, 0))
+			"up":
+				throw_force = Vector2(0,-force_factor)
+				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+			"down":
+				throw_force = Vector2(0,force_factor)
+				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
+			
+		
 	
 func set_will_pickup_false():
 	will_pickup = false

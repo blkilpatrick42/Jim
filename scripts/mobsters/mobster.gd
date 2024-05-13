@@ -1,11 +1,24 @@
 extends RigidBody2D
 
+#
+const facing_pos_right = "right"
+const facing_pos_left = "left"
+const facing_pos_up = "up"
+const facing_pos_down = "down"
+
+const team_blu = "blu"
+const team_red = "red"
+
 #AI STATES
 const state_patrol = "patrol"
 const sub_state_patrol_transit = "patrol_transit"
 const sub_state_patrol_look = "patrol_look"
-var patrol_look_time_secs = 3
+var patrol_look_time_secs = 1
+var patrol_look_turns = 0
 @export var current_patrol_point = Node2D
+
+var AI_target_pos = Vector2(0,0)
+var nav_target_reached = 32
 
 #State vars
 @export var state = state_patrol
@@ -13,7 +26,9 @@ var patrol_look_time_secs = 3
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@export var facingPosition = "left"
+@onready var _periph_vision = $periph_vision
+@onready var _direct_vision = $direct_vision
+@export var facingPosition = facing_pos_left
 
 var sound_player := AudioStreamPlayer.new()
 var current_v = Vector2(0,0)
@@ -29,7 +44,6 @@ func _ready():
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 32.0
 	call_deferred("actor_setup")
-	state = state_patrol
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -38,67 +52,57 @@ func actor_setup():
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 
-func stand_left():
-	_animated_sprite.play("stand_left")
-	facingPosition = "left"
+func stand_dir(direction):
+	match(direction):
+		facing_pos_left:
+			_animated_sprite.play("stand_left")
+			facingPosition = facing_pos_left
+		facing_pos_right:
+			_animated_sprite.play("stand_right")
+			facingPosition = facing_pos_right
+		facing_pos_down:
+			_animated_sprite.play("stand_down")
+			facingPosition = facing_pos_down
+		facing_pos_up:
+			_animated_sprite.play("stand_up")
+			facingPosition = facing_pos_up
 
-func stand_right():
-	_animated_sprite.play("stand_right")
-	facingPosition = "right"
+func walk_dir(direction):
+		match(direction):
+			facing_pos_left:
+				_animated_sprite.play("walk_left")
+				facingPosition = facing_pos_left
+			facing_pos_right:
+				_animated_sprite.play("walk_right")
+				facingPosition = facing_pos_left
+			facing_pos_down:
+				_animated_sprite.play("walk_down")
+				facingPosition = facing_pos_down
+			facing_pos_up:
+				_animated_sprite.play("walk_up")
+				facingPosition = facing_pos_up
 
-func stand_up():
-	_animated_sprite.play("stand_up")
-	facingPosition = "up"
+func turn_right():
+	match(facingPosition):
+		facing_pos_right:
+			facingPosition = facing_pos_down
+		facing_pos_down:
+			facingPosition = facing_pos_left
+		facing_pos_left:
+			facingPosition = facing_pos_up
+		facing_pos_up:
+			facingPosition = facing_pos_right
 
-func stand_down():
-	_animated_sprite.play("stand_down")
-	facingPosition = "down"
-	
-func walk_left():
-	_animated_sprite.play("walk_left")
-	facingPosition = "left"
-
-func walk_right():
-	_animated_sprite.play("walk_right")
-	facingPosition = "right"
-
-func walk_up():
-	_animated_sprite.play("walk_up")
-	facingPosition = "up"
-
-func walk_down():
-	_animated_sprite.play("walk_down")
-	facingPosition = "down"
-
-func stand_facing_pos():
-	if(facingPosition == "up"):
-		stand_up()
-	else: if(facingPosition == "down"):
-		stand_down()
-	else: if(facingPosition == "left"):
-		stand_left()
-	else: if(facingPosition == "right"):
-		stand_right()
-
-func walk_facing_pos():
-	if(facingPosition == "up"):
-		walk_up()
-	else: if(facingPosition == "down"):
-		walk_down()
-	else: if(facingPosition == "left"):
-		walk_left()
-	else: if(facingPosition == "right"):
-		walk_right()
-
-func stand():
-	if(facingPosition == "left"):
-		stand_left()
-	else: if(facingPosition == "right"):
-		stand_right()
-	else: if(facingPosition == "down"):
-		stand_down()
-	else: if(facingPosition == "up"):
-		stand_up()
+func turn_left():
+	match(facingPosition):
+		facing_pos_right:
+			facingPosition = facing_pos_up
+		facing_pos_down:
+			facingPosition = facing_pos_right
+		facing_pos_left:
+			facingPosition = facing_pos_down
+		facing_pos_up:
+			facingPosition = facing_pos_left
 
 func speed():
 	return linear_velocity.length()
@@ -106,23 +110,44 @@ func speed():
 #rotate and animate sprite based on velocity
 func set_sprite_by_velocity():
 	#movement is greater on the x axis
-	if(abs(linear_velocity.x) >= abs(linear_velocity.y)): 
-		if(linear_velocity.x > 0):
-			facingPosition = "right"
-		else: if (linear_velocity.x < 0):
-			facingPosition = "left"
+	if(abs(current_v.x) >= abs(current_v.y)): 
+		if(current_v.x > 0):
+			facingPosition = facing_pos_right
+		else: if (current_v.x < 0):
+			facingPosition = facing_pos_left
 	#movement is greater on the y axis
-	else: if (abs(linear_velocity.x) <= abs(linear_velocity.y)): 
-		if(linear_velocity.y > 0):
-			facingPosition = "down"
-		else: if (linear_velocity.y < 0):
-			facingPosition = "up"
+	else: if (abs(current_v.x) <= abs(current_v.y)): 
+		if(current_v.y > 0):
+			facingPosition = facing_pos_down
+		else: if (current_v.y < 0):
+			facingPosition = facing_pos_up
 	
 	if(current_v.length() > 0):
-		walk_facing_pos()
-	else: if (current_v.length() == 0):
-		stand_facing_pos()
+		walk_dir(facingPosition)
+	else: 
+		stand_dir(facingPosition)
 
+
+func update_vision():
+	match(facingPosition):
+		facing_pos_right:
+			_periph_vision.shape.set_rotation_degrees(0) 
+			_direct_vision.shape.set_rotation_degrees(0) 
+		facing_pos_left:
+			_periph_vision.shape.set_rotation_degrees(180)
+			_direct_vision.shape.set_rotation_degrees(180)
+		facing_pos_up:
+			_periph_vision.shape.set_rotation_degrees(270)
+			_direct_vision.shape.set_rotation_degrees(270)
+		facing_pos_down:
+			_periph_vision.shape.set_rotation_degrees(90)
+			_direct_vision.shape.set_rotation_degrees(90)
+
+func handle_AI():
+	match(state):
+		state_patrol:
+			patrol()
+	
 #############
 #AI STATE CODE 
 #\/\/\/\/\/\/\/
@@ -133,17 +158,34 @@ func patrol():
 		patrol_look()
 
 func patrol_transit():
-	if (position.distance_to(navigation_agent.target_position) <= 32):
+	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
 		timer_checkpoint = Time.get_ticks_msec()
+		patrol_look_turns = 0
 		sub_state = sub_state_patrol_look
+		
 
 func patrol_look():
+	var num_look_turns = 4
 	if((((Time.get_ticks_msec() - timer_checkpoint) / 1000) > patrol_look_time_secs)):
-		if(current_patrol_point.has_next_point):
-			current_patrol_point = current_patrol_point.next_point
-			set_movement_target(current_patrol_point.position)
+		timer_checkpoint = Time.get_ticks_msec()
+		if(patrol_look_turns < num_look_turns):
+			patrol_look_turns = patrol_look_turns + 1
+			turn_right()
+		else: 
+			patrol_look_turns = 0
+			if(current_patrol_point.has_next_point):
+				current_patrol_point = current_patrol_point.next_point
+				set_movement_target(current_patrol_point.position)
 			sub_state = sub_state_patrol_transit
 
+func advance_navigation():
+		#advance along path towards movement target
+	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached):
+		var current_agent_position: Vector2 = global_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+		current_v = current_agent_position.direction_to(next_path_position) * max_speed
+	else:
+		current_v = current_v * 0
 #/\/\/\/\/\/\/\
 #AI STATE CODE 
 #############
@@ -162,18 +204,12 @@ func _process(delta):
 	else:
 		_animated_sprite.set_speed_scale(1)
 	
-	#process AI state
-	if(state == state_patrol):
-		patrol()
 
 func _physics_process(delta):
-	#advance along path towards movement target
-	if (position.distance_to(navigation_agent.target_position) >= 32):
-		var current_agent_position: Vector2 = global_position
-		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		current_v = current_agent_position.direction_to(next_path_position) * max_speed
-	else:
-		current_v = current_v * 0
+	#process AI state
+	handle_AI()
+	
+	advance_navigation()
 	
 	#set animation via velocity
 	set_sprite_by_velocity()

@@ -38,6 +38,7 @@ func _ready():
 
 func _process(_delta):
 	if(!control_frozen):
+		#orient and animate player according to input
 		if Input.is_action_pressed("right"):
 			_animated_sprite.play("walk_right")
 			facingPosition = "right"
@@ -171,7 +172,7 @@ func pick_up():
 	else: if(holding_object):
 		sound_player.stream = load("res://audio/soundFX/putdown.wav")
 		sound_player.play()
-		grabbed_object.put_down()
+		grabbed_object.put_down(facingPosition)
 		grabbed_object = null
 		holding_object = false
 
