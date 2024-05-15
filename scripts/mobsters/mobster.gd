@@ -1,15 +1,18 @@
 extends RigidBody2D
 
-#
+#TODO replace with enum
 const facing_pos_right = "right"
 const facing_pos_left = "left"
 const facing_pos_up = "up"
 const facing_pos_down = "down"
 
+#TODO replace with enum
 const team_blu = "blu"
 const team_red = "red"
 
+#TODO replace with enum
 #AI STATES
+#Patrol state
 const state_patrol = "patrol"
 const sub_state_patrol_transit = "patrol_transit"
 const sub_state_patrol_look = "patrol_look"
@@ -17,7 +20,17 @@ var patrol_look_time_secs = 1
 var patrol_look_turns = 0
 @export var current_patrol_point = Node2D
 
+#knockout state
+const state_knockout = "knockout"
+const sub_state_knockout_falling = "knockout_falling"
+const sub_state_knockout_sleep = "knockout_sleep"
+const sub_state_knockout_recover = "knockout_recover"
+var knockout_sleep_time_secs = 3
+
+#enemy the mobster is "targeting"
 var AI_target_pos = Vector2(0,0)
+
+#radius for which navigation targets are considered "reached"
 var nav_target_reached = 32
 
 #State vars
@@ -28,12 +41,18 @@ var nav_target_reached = 32
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _periph_vision = $periph_vision
 @onready var _direct_vision = $direct_vision
+@onready var _head_collide = $head_collide
+@onready var _shadow = $shadow
+
+
 @export var facingPosition = facing_pos_left
 
 var sound_player := AudioStreamPlayer.new()
 var current_v = Vector2(0,0)
-var max_speed = 15000
+var max_speed = 125000
 var random = RandomNumberGenerator.new()
+
+var immobilized = false
 
 var timer_checkpoint = 0
 
@@ -51,6 +70,33 @@ func actor_setup():
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
+
+func fall():
+	immobilized = true
+	state = state_knockout
+	sub_state = sub_state_knockout_falling
+	timer_checkpoint = Time.get_ticks_msec()
+	match(facingPosition):
+		facing_pos_left:
+			_animated_sprite.play("fall_left")
+		facing_pos_right:
+			_animated_sprite.play("fall_right")
+		facing_pos_down:
+			_animated_sprite.play("fall_down")
+		facing_pos_up:
+			_animated_sprite.play("fall_up")
+
+func recover():
+	sub_state = sub_state_knockout_recover
+	match(facingPosition):
+		facing_pos_left:
+			_animated_sprite.play("recover_left")
+		facing_pos_right:
+			_animated_sprite.play("recover_right")
+		facing_pos_down:
+			_animated_sprite.play("recover_down")
+		facing_pos_up:
+			_animated_sprite.play("recover_up")
 
 func stand_dir(direction):
 	match(direction):
@@ -139,15 +185,18 @@ func handle_AI():
 	match(state):
 		state_patrol:
 			patrol()
-	
+		state_knockout:
+			knockout()
+
 #############
 #AI STATE CODE 
 #\/\/\/\/\/\/\/
 func patrol():
-	if(sub_state == sub_state_patrol_transit):
-		patrol_transit()
-	else: if(sub_state == sub_state_patrol_look):
-		patrol_look()
+	match(sub_state):
+		sub_state_patrol_transit:
+			patrol_transit()
+		sub_state_patrol_look:
+			patrol_look()
 
 func patrol_transit():
 	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
@@ -178,33 +227,76 @@ func advance_navigation():
 		current_v = current_agent_position.direction_to(next_path_position) * max_speed
 	else:
 		current_v = current_v * 0
+
+func knockout():
+	match(sub_state):
+		sub_state_knockout_falling:
+			falling()
+		sub_state_knockout_sleep:
+			sleep()
+		sub_state_knockout_recover:
+			recovering()
+
+func falling():
+	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
+	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("fall_right")-1):
+		sub_state = sub_state_knockout_sleep
+		match(facingPosition):
+			facing_pos_left:
+				_animated_sprite.play("fallen_left")
+			facing_pos_right:
+				_animated_sprite.play("fallen_right")
+			facing_pos_down:
+				_animated_sprite.play("fallen_down")
+			facing_pos_up:
+				_animated_sprite.play("fallen_up")
+
+func sleep():
+	if(((Time.get_ticks_msec() - timer_checkpoint) / 1000) >= knockout_sleep_time_secs):
+		recover()
+
+func recovering():
+	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("recover_right")-1):
+		state = state_patrol
+		sub_state = sub_state_patrol_look
+		immobilized = false
+
 #/\/\/\/\/\/\/\
 #AI STATE CODE 
 #############
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#scale animation to movement speed
-	if(speed() != 0):
-		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
-		#speed/topspeed for the remaining 60%.	
-		var baseScale = 0.4
-		var velocityScale = speed() / max_speed
-		var remainderScale = 0.6 * velocityScale
-		var animationScale = baseScale + remainderScale
-		_animated_sprite.set_speed_scale(animationScale)
+	if(!immobilized):
+		#scale animation to movement speed
+		if(speed() != 0):
+			#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
+			#speed/topspeed for the remaining 60%.	
+			var baseScale = 0.4
+			var velocityScale = speed() / max_speed
+			var remainderScale = 0.6 * velocityScale
+			var animationScale = baseScale + remainderScale
+			_animated_sprite.set_speed_scale(animationScale)
+		else:
+			_animated_sprite.set_speed_scale(1)
 	else:
 		_animated_sprite.set_speed_scale(1)
 	
+	var sparks = get_tree().get_nodes_in_group("spark")
+	for spark in sparks:
+		if (global_position.distance_to(spark.global_position) < 32 &&
+			state != state_knockout):
+			fall()
 
 func _physics_process(delta):
 	#process AI state
 	handle_AI()
 	
-	advance_navigation()
-	
-	#set animation via velocity
-	set_sprite_by_velocity()
+	if(!immobilized):
+		advance_navigation()
+		set_sprite_by_velocity()
+	else:
+		current_v = current_v * 0
 	
 	#apply velocity thru physics engine
 	apply_force(current_v)

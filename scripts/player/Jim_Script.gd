@@ -162,15 +162,15 @@ func get_input():
 		handle_throw()
 		handle_dash()
 		move_jim()
-	
+
 func handle_pickup():
 	if Input.is_action_just_pressed("pickup"):
 			pick_up()
-			
+
 func handle_dash():
 	if Input.is_action_just_pressed("dash"):
 			dash()
-			
+
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
 			throw()
@@ -182,7 +182,7 @@ func throw():
 		grabbed_object.throw(facingPosition)
 		grabbed_object = null
 		holding_object = false
-		
+
 func pick_up():
 	if(will_grab_object != null && !holding_object):
 		sound_player.stream = load("res://audio/soundFX/pickup.wav")

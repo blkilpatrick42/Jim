@@ -11,7 +11,7 @@ size = Vector2(19.9688, 13.2813)
 y_sort_enabled = true
 collision_layer = 3
 collision_mask = 3
-mass = 70.0
+mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 5.0
@@ -30,5 +30,6 @@ position = Vector2(0.015625, 7.35938)
 shape = SubResource("RectangleShape2D_68bjs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(0, 1)
 texture = ExtResource("3_w8eob")

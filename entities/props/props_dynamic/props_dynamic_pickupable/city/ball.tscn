@@ -19,7 +19,7 @@ max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_25myv")
-force_factor = 1000
+force_factor = 700
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true

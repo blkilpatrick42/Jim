@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpruoc10tcsh5"]
+[gd_scene load_steps=8 format=3 uid="uid://dpruoc10tcsh5"]
 
 [ext_resource type="Script" path="res://scripts/mobsters/mobster.gd" id="1_uqwts"]
 [ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/gangsters/red_gangster.tres" id="2_4eamy"]
@@ -13,11 +13,13 @@ points = PackedVector2Array(0, -32, 0, 32, 256, 128, 256, -128)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ywuv5"]
 points = PackedVector2Array(0, 0, 192, -64, 192, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12y56"]
+size = Vector2(26, 14)
+
 [node name="Red_Mobster" type="RigidBody2D"]
 y_sort_enabled = true
-collision_layer = 3
 collision_mask = 3
-mass = 70.0
+mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 5.0
@@ -33,10 +35,6 @@ y_sort_enabled = true
 position = Vector2(0.015625, 7.35938)
 shape = SubResource("RectangleShape2D_68bjs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-texture = ExtResource("3_wq4dt")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 64.0
@@ -45,10 +43,25 @@ max_neighbors = 5
 time_horizon_agents = 5.0
 
 [node name="periph_vision" type="ShapeCast2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 0, 1)
 shape = SubResource("ConvexPolygonShape2D_ldxv5")
 target_position = Vector2(0, 0)
 
 [node name="direct_vision" type="ShapeCast2D" parent="."]
+visible = false
 shape = SubResource("ConvexPolygonShape2D_ywuv5")
 target_position = Vector2(0, 0)
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 1)
+texture = ExtResource("3_wq4dt")
+
+[node name="head_collide" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="head" type="CollisionShape2D" parent="head_collide"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_12y56")

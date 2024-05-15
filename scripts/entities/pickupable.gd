@@ -22,6 +22,7 @@ var throw_force = Vector2(0, 0)
 var thrown = false
 
 var player_y_offset = 24
+var spark_velocity = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,7 +54,7 @@ func throw(direction):
 				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 
 func _on_body_entered(body:Node):
-	if(linear_velocity.length() > 200):
+	if(linear_velocity.length() > spark_velocity):
 		var nSpark = spark.instantiate()
 		get_parent().add_child(nSpark)
 		nSpark.position = position
@@ -117,6 +118,19 @@ func _process(delta):
 	if(picked_up):
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
 		position = (playerRef.position + Vector2(0, -player_y_offset))
+		
+
+#func _physics_process(delta):
+#	if(linear_velocity.length() > spark_velocity):
+#		set_collision_mask_value(1,false)
+#		set_collision_mask_value(3,true)
+#		set_collision_layer_value(1,false)
+#		set_collision_layer_value(3,true)
+#	else:
+#		set_collision_mask_value(1,true)
+#		set_collision_mask_value(3,false)
+#		set_collision_layer_value(1,true)
+#		set_collision_layer_value(3,false)
 
 func _integrate_forces(state):
 	if should_reset:
