@@ -202,10 +202,6 @@ func dash():
 		if(can_dash):
 			sound_player.stream = load("res://audio/soundFX/woosh.wav")
 			sound_player.play()
-#			var dash_dust = dust.instantiate()
-			#add_child(dust.instantiate())
-			#remove_child(dash_dust)
-#			add_child(dash_dust)
 			is_dashing = true
 			can_dash = false
 			dash_ticks_chkpt = Time.get_ticks_msec() 
@@ -224,8 +220,8 @@ func move_jim():
 		
 	#scale animation to movement speed
 	if(speed() != 0):
-		#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
-		#speed/topspeed for the remaining 60%.	
+		#Base speed of 20%. We ramp to 100% (full speed) using a ratio of 
+		#speed/topspeed for the remaining 80%.	
 		var baseScale = 0.2
 		var velocityScale = speed() / top_speed
 		var remainderScale = 0.8 * velocityScale

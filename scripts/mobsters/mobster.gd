@@ -33,6 +33,9 @@ var AI_target_pos = Vector2(0,0)
 #radius for which navigation targets are considered "reached"
 var nav_target_reached = 32
 
+#distance at which sparks will cause mobsters to be knocked out
+var spark_knockout_distance = 16
+
 #State vars
 @export var state = state_patrol
 @export var sub_state = sub_state_patrol_look
@@ -165,21 +168,20 @@ func set_sprite_by_velocity():
 	else: 
 		stand_dir(facingPosition)
 
-
 func update_vision():
 	match(facingPosition):
 		facing_pos_right:
-			_periph_vision.shape.set_rotation_degrees(0) 
-			_direct_vision.shape.set_rotation_degrees(0) 
+			_periph_vision.set_rotation_degrees(0) 
+			_direct_vision.set_rotation_degrees(0) 
 		facing_pos_left:
-			_periph_vision.shape.set_rotation_degrees(180)
-			_direct_vision.shape.set_rotation_degrees(180)
+			_periph_vision.set_rotation_degrees(180)
+			_direct_vision.set_rotation_degrees(180)
 		facing_pos_up:
-			_periph_vision.shape.set_rotation_degrees(270)
-			_direct_vision.shape.set_rotation_degrees(270)
+			_periph_vision.set_rotation_degrees(270)
+			_direct_vision.set_rotation_degrees(270)
 		facing_pos_down:
-			_periph_vision.shape.set_rotation_degrees(90)
-			_direct_vision.shape.set_rotation_degrees(90)
+			_periph_vision.set_rotation_degrees(90)
+			_direct_vision.set_rotation_degrees(90)
 
 func handle_AI():
 	match(state):
@@ -203,7 +205,6 @@ func patrol_transit():
 		timer_checkpoint = Time.get_ticks_msec()
 		patrol_look_turns = 0
 		sub_state = sub_state_patrol_look
-		
 
 func patrol_look():
 	var num_look_turns = 4
@@ -265,7 +266,6 @@ func recovering():
 #AI STATE CODE 
 #############
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!immobilized):
 		#scale animation to movement speed
@@ -282,9 +282,11 @@ func _process(delta):
 	else:
 		_animated_sprite.set_speed_scale(1)
 	
+	update_vision()
+	
 	var sparks = get_tree().get_nodes_in_group("spark")
 	for spark in sparks:
-		if (global_position.distance_to(spark.global_position) < 32 &&
+		if (global_position.distance_to(spark.global_position) < spark_knockout_distance &&
 			state != state_knockout):
 			fall()
 

@@ -24,6 +24,8 @@ var thrown = false
 var player_y_offset = 24
 var spark_velocity = 200
 
+var local_collision_pos = Vector2(0,0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(sound_player)
@@ -54,10 +56,12 @@ func throw(direction):
 				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 
 func _on_body_entered(body:Node):
+	#var collision_position = to_local(local_collision_pos)
+	
 	if(linear_velocity.length() > spark_velocity):
 		var nSpark = spark.instantiate()
 		get_parent().add_child(nSpark)
-		nSpark.position = position
+		nSpark.position = local_collision_pos
 		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
 		sound_player.play()
 	else:
@@ -133,6 +137,9 @@ func _process(delta):
 #		set_collision_layer_value(3,false)
 
 func _integrate_forces(state):
+	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
+		local_collision_pos = state.get_contact_local_position(0)
+		
 	if should_reset:
 		should_reset = false
 		state.transform.origin = new_position
