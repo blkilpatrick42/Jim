@@ -27,7 +27,7 @@ const state_knockout = "knockout"
 const sub_state_knockout_falling = "knockout_falling"
 const sub_state_knockout_sleep = "knockout_sleep"
 const sub_state_knockout_recover = "knockout_recover"
-var knockout_sleep_time_secs = 3
+var knockout_sleep_time_secs = 10
 
 #investigate state
 const state_investigate = "investigate"
@@ -98,49 +98,17 @@ func fall():
 	state = state_knockout
 	sub_state = sub_state_knockout_falling
 	make_timer_checkpoint()
-	match(facingPosition):
-		facing_pos_left:
-			_animated_sprite.play("fall_left")
-		facing_pos_right:
-			_animated_sprite.play("fall_right")
-		facing_pos_down:
-			_animated_sprite.play("fall_down")
-		facing_pos_up:
-			_animated_sprite.play("fall_up")
+	_animated_sprite.play(str("fall_",facingPosition))
 
 func recover():
 	sub_state = sub_state_knockout_recover
-	match(facingPosition):
-		facing_pos_left:
-			_animated_sprite.play("recover_left")
-		facing_pos_right:
-			_animated_sprite.play("recover_right")
-		facing_pos_down:
-			_animated_sprite.play("recover_down")
-		facing_pos_up:
-			_animated_sprite.play("recover_up")
+	_animated_sprite.play(str("recover_",facingPosition))
 
 func stand_dir(direction):
-	match(direction):
-		facing_pos_left:
-			_animated_sprite.play("stand_left")
-		facing_pos_right:
-			_animated_sprite.play("stand_right")
-		facing_pos_down:
-			_animated_sprite.play("stand_down")
-		facing_pos_up:
-			_animated_sprite.play("stand_up")
+	_animated_sprite.play(str("stand_",facingPosition))
 
 func walk_dir(direction):
-		match(direction):
-			facing_pos_left:
-				_animated_sprite.play("walk_left")
-			facing_pos_right:
-				_animated_sprite.play("walk_right")
-			facing_pos_down:
-				_animated_sprite.play("walk_down")
-			facing_pos_up:
-				_animated_sprite.play("walk_up")
+	_animated_sprite.play(str("walk_",facingPosition))
 
 func turn_right():
 	match(facingPosition):

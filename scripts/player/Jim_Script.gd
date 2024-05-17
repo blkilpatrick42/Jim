@@ -42,26 +42,10 @@ func _ready():
 	sound_player.volume_db = -12
 
 func stand_dir(direction):
-	match(direction):
-		facing_pos_left:
-			_animated_sprite.play("stand_left")
-		facing_pos_right:
-			_animated_sprite.play("stand_right")
-		facing_pos_down:
-			_animated_sprite.play("stand_down")
-		facing_pos_up:
-			_animated_sprite.play("stand_up")
+	_animated_sprite.play(str("stand_",facingPosition))
 
 func walk_dir(direction):
-		match(direction):
-			facing_pos_left:
-				_animated_sprite.play("walk_left")
-			facing_pos_right:
-				_animated_sprite.play("walk_right")
-			facing_pos_down:
-				_animated_sprite.play("walk_down")
-			facing_pos_up:
-				_animated_sprite.play("walk_up")
+	_animated_sprite.play(str("walk_",facingPosition))
 
 #animate sprite based on velocity
 func set_sprite_by_velocity():
@@ -88,6 +72,7 @@ func _process(_delta):
 		else: if(_down_grab.is_colliding()):
 			downGrabObj = _down_grab.get_collider(0)
 		
+		#TODO: simplify this by rotating one grab thingy instead of having four like a doofus
 		#check for pickupables
 		get_tree().call_group("pickupable", "set_will_pickup_false")
 		if(facingPosition == "left" &&
