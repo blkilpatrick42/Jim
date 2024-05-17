@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpruoc10tcsh5"]
+[gd_scene load_steps=6 format=3 uid="uid://dpruoc10tcsh5"]
 
 [ext_resource type="Script" path="res://scripts/mobsters/mobster.gd" id="1_uqwts"]
 [ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/gangsters/red_gangster.tres" id="2_4eamy"]
@@ -8,10 +8,7 @@
 size = Vector2(19.9688, 13.2813)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ldxv5"]
-points = PackedVector2Array(0, -32, 0, 32, 256, 128, 256, -128)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ywuv5"]
-points = PackedVector2Array(0, 0, 192, -64, 192, 64)
+points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
 
 [node name="Red_Mobster" type="RigidBody2D"]
 y_sort_enabled = true
@@ -39,14 +36,9 @@ neighbor_distance = 1000.0
 max_neighbors = 5
 time_horizon_agents = 5.0
 
-[node name="periph_vision" type="ShapeCast2D" parent="."]
+[node name="vision" type="ShapeCast2D" parent="."]
 self_modulate = Color(1, 1, 0, 1)
 shape = SubResource("ConvexPolygonShape2D_ldxv5")
-target_position = Vector2(0, 0)
-
-[node name="direct_vision" type="ShapeCast2D" parent="."]
-visible = false
-shape = SubResource("ConvexPolygonShape2D_ywuv5")
 target_position = Vector2(0, 0)
 
 [node name="shadow" type="Sprite2D" parent="."]

@@ -1,16 +1,18 @@
 extends RigidBody2D
 
-#TODO replace with enum
+var question_bubble = preload("res://entities/mobsters/question.tscn")
+var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
+
+const milliseconds_in_second = 1000
+
 const facing_pos_right = "right"
 const facing_pos_left = "left"
 const facing_pos_up = "up"
 const facing_pos_down = "down"
 
-#TODO replace with enum
 const team_blu = "blu"
 const team_red = "red"
 
-#TODO replace with enum
 #AI STATES
 #Patrol state
 const state_patrol = "patrol"
@@ -27,6 +29,24 @@ const sub_state_knockout_sleep = "knockout_sleep"
 const sub_state_knockout_recover = "knockout_recover"
 var knockout_sleep_time_secs = 3
 
+#investigate state
+const state_investigate = "investigate"
+const sub_state_investigate_question = "investigate_question"
+var investigate_question_time_secs = 3
+
+#alert state
+const state_alert = "alert"
+const sub_state_alert_exclaiming = "alert_exclaim"
+const sub_state_alert_attack = "alert_attack"
+var alert_exclaim_time_secs = 3
+var alert_target = null
+
+#states where the mobster is vulnerable to being knocked out
+var fall_vulnerable_states = [state_patrol, state_investigate]
+
+#states where the mobster is able to become alerted
+var alertable_states = [state_patrol, state_investigate]
+
 #enemy the mobster is "targeting"
 var AI_target_pos = Vector2(0,0)
 
@@ -42,9 +62,7 @@ var spark_knockout_distance = 16
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var _periph_vision = $periph_vision
-@onready var _direct_vision = $direct_vision
-@onready var _head_collide = $head_collide
+@onready var _vision = $vision
 @onready var _shadow = $shadow
 
 
@@ -78,7 +96,7 @@ func fall():
 	immobilized = true
 	state = state_knockout
 	sub_state = sub_state_knockout_falling
-	timer_checkpoint = Time.get_ticks_msec()
+	make_timer_checkpoint()
 	match(facingPosition):
 		facing_pos_left:
 			_animated_sprite.play("fall_left")
@@ -148,6 +166,14 @@ func turn_left():
 func speed():
 	return linear_velocity.length()
 
+func create_question_bubble():
+	var questionBubble = question_bubble.instantiate()
+	self.add_child(questionBubble)
+
+func create_exclaim_bubble():
+	var exclaimBubble = exclaim_bubble.instantiate()
+	self.add_child(exclaimBubble)
+
 #rotate and animate sprite based on velocity
 func set_sprite_by_velocity():
 	#movement is greater on the x axis
@@ -171,28 +197,62 @@ func set_sprite_by_velocity():
 func update_vision():
 	match(facingPosition):
 		facing_pos_right:
-			_periph_vision.set_rotation_degrees(0) 
-			_direct_vision.set_rotation_degrees(0) 
+			_vision.set_rotation_degrees(0) 
 		facing_pos_left:
-			_periph_vision.set_rotation_degrees(180)
-			_direct_vision.set_rotation_degrees(180)
+			_vision.set_rotation_degrees(180)
 		facing_pos_up:
-			_periph_vision.set_rotation_degrees(270)
-			_direct_vision.set_rotation_degrees(270)
+			_vision.set_rotation_degrees(270)
 		facing_pos_down:
-			_periph_vision.set_rotation_degrees(90)
-			_direct_vision.set_rotation_degrees(90)
+			_vision.set_rotation_degrees(90)
 
+func go_alert():
+	immobilized = true
+	stand_dir(facingPosition)
+	create_exclaim_bubble()
+	state = state_alert
+	sub_state = sub_state_alert_exclaiming
+	make_timer_checkpoint()
+
+func check_vision():
+	if (_vision.is_colliding()):
+		var iterator = 0
+		while(iterator < _vision.get_collision_count()):
+			var entity = _vision.get_collider(iterator)
+			if(entity.is_in_group("player") && state in alertable_states):
+				go_alert()
+			iterator = iterator + 1
+
+func advance_navigation():
+		#advance along path towards movement target
+	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached):
+		var current_agent_position: Vector2 = global_position
+		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
+		current_v = current_agent_position.direction_to(next_path_position) * max_speed
+	else:
+		current_v = current_v * 0
+
+#returns seconds since last time checkpoint
+func get_checkpoint_secs_elapsed():
+	return (Time.get_ticks_msec() - timer_checkpoint) / milliseconds_in_second
+
+func make_timer_checkpoint():
+	timer_checkpoint = Time.get_ticks_msec()
+
+#############
+#AI STATE CODE 
+#\/\/\/\/\/\/\/
+#PATROL STATE
 func handle_AI():
 	match(state):
 		state_patrol:
 			patrol()
 		state_knockout:
 			knockout()
+		state_alert:
+			alert()
+		state_investigate:
+			investigate()
 
-#############
-#AI STATE CODE 
-#\/\/\/\/\/\/\/
 func patrol():
 	match(sub_state):
 		sub_state_patrol_transit:
@@ -202,13 +262,13 @@ func patrol():
 
 func patrol_transit():
 	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
-		timer_checkpoint = Time.get_ticks_msec()
+		make_timer_checkpoint()
 		patrol_look_turns = 0
 		sub_state = sub_state_patrol_look
 
 func patrol_look():
-	var num_look_turns = 4
-	if((((Time.get_ticks_msec() - timer_checkpoint) / 1000) > patrol_look_time_secs)):
+	var num_look_turns = 4 #complete rotation
+	if((get_checkpoint_secs_elapsed() > patrol_look_time_secs)):
 		timer_checkpoint = Time.get_ticks_msec()
 		if(patrol_look_turns < num_look_turns):
 			patrol_look_turns = patrol_look_turns + 1
@@ -220,15 +280,7 @@ func patrol_look():
 				set_movement_target(current_patrol_point.position)
 			sub_state = sub_state_patrol_transit
 
-func advance_navigation():
-		#advance along path towards movement target
-	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached):
-		var current_agent_position: Vector2 = global_position
-		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		current_v = current_agent_position.direction_to(next_path_position) * max_speed
-	else:
-		current_v = current_v * 0
-
+#KNOCKOUT STATE
 func knockout():
 	match(sub_state):
 		sub_state_knockout_falling:
@@ -253,11 +305,35 @@ func falling():
 				_animated_sprite.play("fallen_up")
 
 func sleep():
-	if(((Time.get_ticks_msec() - timer_checkpoint) / 1000) >= knockout_sleep_time_secs):
+	if(get_checkpoint_secs_elapsed() >= knockout_sleep_time_secs):
 		recover()
 
 func recovering():
 	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("recover_right")-1):
+		state = state_patrol
+		sub_state = sub_state_patrol_look
+		immobilized = false
+
+#INVESTIGATE STATE
+func investigate():
+	match(sub_state):
+		sub_state_investigate_question:
+			question()
+
+func question():
+	if(get_checkpoint_secs_elapsed() >= investigate_question_time_secs):
+		state = state_patrol
+		sub_state = sub_state_patrol_look
+		immobilized = false
+
+#ALERT STATE
+func alert():
+	if(sub_state == sub_state_alert_exclaiming):
+		exclaiming()
+
+func exclaiming():
+	#TODO: state should go into alert attack mode
+	if(get_checkpoint_secs_elapsed() >= alert_exclaim_time_secs):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
 		immobilized = false
@@ -287,16 +363,18 @@ func _process(delta):
 	var sparks = get_tree().get_nodes_in_group("spark")
 	for spark in sparks:
 		if (global_position.distance_to(spark.global_position) < spark_knockout_distance &&
-			state != state_knockout):
+			state in fall_vulnerable_states):
 			fall()
 
 func _physics_process(delta):
+	check_vision()
+	
 	#process AI state
 	handle_AI()
 	
 	if(!immobilized):
-		advance_navigation()
 		set_sprite_by_velocity()
+		advance_navigation()
 	else:
 		current_v = current_v * 0
 	
