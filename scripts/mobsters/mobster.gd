@@ -62,6 +62,7 @@ var spark_knockout_distance = 16
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var _raycast: RayCast2D = $RayCast2D
 @onready var _vision = $vision
 @onready var _shadow = $shadow
 
@@ -219,7 +220,10 @@ func check_vision():
 		while(iterator < _vision.get_collision_count()):
 			var entity = _vision.get_collider(iterator)
 			if(entity.is_in_group("player") && state in alertable_states):
-				go_alert()
+				_raycast.set_target_position(entity.global_position - _raycast.global_position)
+				if(_raycast.is_colliding() &&
+				   _raycast.get_collider() == entity):
+					go_alert()
 			iterator = iterator + 1
 
 func advance_navigation():

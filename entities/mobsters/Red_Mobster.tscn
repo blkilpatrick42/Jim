@@ -45,3 +45,6 @@ target_position = Vector2(0, 0)
 z_index = -1
 position = Vector2(0, 1)
 texture = ExtResource("3_wq4dt")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)

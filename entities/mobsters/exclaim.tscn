@@ -6,7 +6,7 @@
 [node name="exclaim" type="Node2D"]
 script = ExtResource("1_anrpq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["commotion", "interface", "spark"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
 position = Vector2(16, 0)
 sprite_frames = ExtResource("2_alvm1")
 offset = Vector2(0, -32)
