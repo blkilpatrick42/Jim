@@ -70,7 +70,7 @@ var spark_knockout_distance = 16
 @export var facingPosition = facing_pos_left
 
 var sound_player := AudioStreamPlayer.new()
-var current_v = Vector2(0,0)
+var current_v = Vector2(0,0) #The force which will be applied to the mobster this physics frame
 var max_speed = 125000
 var random = RandomNumberGenerator.new()
 
@@ -266,15 +266,7 @@ func falling():
 	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
 	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("fall_right")-1):
 		sub_state = sub_state_knockout_sleep
-		match(facingPosition):
-			facing_pos_left:
-				_animated_sprite.play("fallen_left")
-			facing_pos_right:
-				_animated_sprite.play("fallen_right")
-			facing_pos_down:
-				_animated_sprite.play("fallen_down")
-			facing_pos_up:
-				_animated_sprite.play("fallen_up")
+		_animated_sprite.play(str("fallen_",facingPosition))
 
 func sleep():
 	if(get_checkpoint_secs_elapsed() >= knockout_sleep_time_secs):

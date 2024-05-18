@@ -1,10 +1,7 @@
 extends RigidBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var _left_grab = $left_grab
-@onready var _right_grab = $right_grab
-@onready var _up_grab = $up_grab
-@onready var _down_grab = $down_grab
+@onready var _grabber = $grabber
 @export var facingPosition = "left"
 
 const facing_pos_right = "right"
@@ -56,64 +53,21 @@ func set_sprite_by_velocity():
 
 func _process(_delta):
 	set_sprite_by_velocity()
+	update_grabber()
 	will_grab_object = null
 	if(!holding_object):
-		var leftGrabObj = null
-		var rightGrabObj = null
-		var upGrabObj = null
-		var downGrabObj = null
+		var grabObj = null
 		
-		if(_left_grab.is_colliding()):
-			leftGrabObj = _left_grab.get_collider(0)
-		else: if(_right_grab.is_colliding()):
-			rightGrabObj = _right_grab.get_collider(0)
-		else: if(_up_grab.is_colliding()):
-			upGrabObj = _up_grab.get_collider(0)
-		else: if(_down_grab.is_colliding()):
-			downGrabObj = _down_grab.get_collider(0)
+		if(_grabber.is_colliding()):
+			grabObj = _grabber.get_collider(0)
 		
-		#TODO: simplify this by rotating one grab thingy instead of having four like a doofus
 		#check for pickupables
 		get_tree().call_group("pickupable", "set_will_pickup_false")
-		if(facingPosition == "left" &&
-		leftGrabObj != null && 
-		leftGrabObj.is_in_group("pickupable")):
-			leftGrabObj.will_pickup = true
-			will_grab_object = leftGrabObj
-		else: if(facingPosition == "right" &&
-		rightGrabObj != null && 
-		rightGrabObj.is_in_group("pickupable")):
-			rightGrabObj.will_pickup = true
-			will_grab_object = rightGrabObj
-		else: if(facingPosition == "up" &&
-		upGrabObj != null && 
-		upGrabObj.is_in_group("pickupable")):
-			upGrabObj.will_pickup = true
-			will_grab_object = upGrabObj
-		else: if(facingPosition == "down" &&
-		downGrabObj != null && 
-		downGrabObj.is_in_group("pickupable")):
-			downGrabObj.will_pickup = true
-			will_grab_object = downGrabObj
+		if(grabObj != null && 
+		grabObj.is_in_group("pickupable")):
+			grabObj.will_pickup = true
+			will_grab_object = grabObj
 			
-		#check for npcs
-		get_tree().call_group("npc", "set_will_talk_false")
-		if(facingPosition == "left" &&
-		leftGrabObj != null && 
-		leftGrabObj.is_in_group("npc")):
-			leftGrabObj.will_talk = true
-		else: if(facingPosition == "right" &&
-		rightGrabObj != null && 
-		rightGrabObj.is_in_group("npc")):
-			rightGrabObj.will_talk = true
-		else: if(facingPosition == "up" &&
-		upGrabObj != null && 
-		upGrabObj.is_in_group("npc")):
-			upGrabObj.will_talk = true
-		else: if(facingPosition == "down" &&
-			downGrabObj != null && 
-			downGrabObj.is_in_group("npc")):
-			downGrabObj.will_talk = true
 	
 	#handle dash timer stuff
 	var time_since_dash_secs = ((Time.get_ticks_msec() - dash_ticks_chkpt)/1000)
@@ -193,6 +147,17 @@ func dash():
 
 func speed():
 	return linear_velocity.length()
+
+func update_grabber():
+	match(facingPosition):
+		facing_pos_right:
+			_grabber.set_rotation_degrees(270) 
+		facing_pos_left:
+			_grabber.set_rotation_degrees(90)
+		facing_pos_up:
+			_grabber.set_rotation_degrees(180)
+		facing_pos_down:
+			_grabber.set_rotation_degrees(0)
 
 func move_jim():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

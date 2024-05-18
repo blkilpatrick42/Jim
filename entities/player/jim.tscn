@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c21jsew46j2v0"]
+[gd_scene load_steps=7 format=3 uid="uid://c21jsew46j2v0"]
 
 [ext_resource type="Script" path="res://scripts/player/Jim_Script.gd" id="1_txjuo"]
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/player/Jim.tres" id="2_407ts"]
@@ -8,12 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3v7o"]
 size = Vector2(20, 13)
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hesq7"]
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_pqa44"]
-
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_llxmr"]
 
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_32dvj"]
 
@@ -25,6 +19,7 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 6.0
 script = ExtResource("1_txjuo")
+facingPosition = "right"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 y_sort_enabled = true
@@ -51,25 +46,8 @@ drag_right_margin = 0.15
 drag_bottom_margin = 0.15
 editor_draw_drag_margin = true
 
-[node name="left_grab" type="ShapeCast2D" parent="."]
-rotation = 1.5708
-shape = SubResource("SeparationRayShape2D_hesq7")
-target_position = Vector2(2.17199e-05, 6)
-collision_mask = 2
-
-[node name="down_grab" type="ShapeCast2D" parent="."]
-shape = SubResource("SeparationRayShape2D_pqa44")
-target_position = Vector2(0, 5)
-collision_mask = 2
-
-[node name="up_grab" type="ShapeCast2D" parent="."]
-rotation = 3.14159
-shape = SubResource("SeparationRayShape2D_llxmr")
-target_position = Vector2(-7.60554e-06, 3)
-collision_mask = 2
-
-[node name="right_grab" type="ShapeCast2D" parent="."]
-rotation = -1.5708
+[node name="grabber" type="ShapeCast2D" parent="."]
+position = Vector2(1, 0)
 shape = SubResource("SeparationRayShape2D_32dvj")
 target_position = Vector2(5.79359e-06, 6)
 collision_mask = 2
