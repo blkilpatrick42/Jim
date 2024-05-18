@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=60 format=3 uid="uid://bhasc4hba2oa3"]
+[gd_resource type="SpriteFrames" load_steps=64 format=3 uid="uid://bhasc4hba2oa3"]
 
 [ext_resource type="Texture2D" uid="uid://ctgcuhk1vst82" path="res://sprites/spritesheets/gangsters/RedGangster.png" id="1_gwp3f"]
 
@@ -137,6 +137,22 @@ region = Rect2(192, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea4xw"]
 atlas = ExtResource("1_gwp3f")
 region = Rect2(224, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj323"]
+atlas = ExtResource("1_gwp3f")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry7mh"]
+atlas = ExtResource("1_gwp3f")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldnm1"]
+atlas = ExtResource("1_gwp3f")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txwsb"]
+atlas = ExtResource("1_gwp3f")
+region = Rect2(0, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wkqc"]
 atlas = ExtResource("1_gwp3f")
@@ -414,6 +430,38 @@ animations = [{
 "loop": true,
 "name": &"recover_up",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj323")
+}],
+"loop": true,
+"name": &"shoot_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry7mh")
+}],
+"loop": true,
+"name": &"shoot_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldnm1")
+}],
+"loop": true,
+"name": &"shoot_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txwsb")
+}],
+"loop": true,
+"name": &"shoot_up",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

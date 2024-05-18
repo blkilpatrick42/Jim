@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
+var bullet = preload("res://entities/mobsters/bullet.tscn")
 
 const milliseconds_in_second = 1000
 
@@ -37,9 +38,23 @@ var investigate_question_time_secs = 3
 #alert state
 const state_alert = "alert"
 const sub_state_alert_exclaiming = "alert_exclaim"
-const sub_state_alert_attack = "alert_attack"
-var alert_exclaim_time_secs = 3
+const sub_state_alert_shoot_gun = "alert_shoot_gun"
+const alert_exclaim_time_secs = 3
 var alert_target = null
+
+#gun-related variables
+const burst_num_bullets = 7
+const burst_cool_down_secs = 3
+const time_between_shots_msecs = 500
+const shoot_arc_degrees = 40 #keep it even
+const arc_segment_degrees = 10 
+var num_bullets_fired = 0
+var current_arc = 0
+var reverse_sweep = false
+var is_shooting = false
+var lower_bound = 0
+var upper_bound = 0
+var burst_cool_down = false
 
 #states where the mobster is vulnerable to being knocked out
 var fall_vulnerable_states = [state_patrol, state_investigate]
@@ -182,6 +197,67 @@ func go_alert():
 	sub_state = sub_state_alert_exclaiming
 	make_timer_checkpoint()
 
+func set_shoort_arc_bounds():
+	var half_arc = shoot_arc_degrees / 2
+	match(facingPosition):
+		facing_pos_right:
+			lower_bound = 0 - half_arc
+			upper_bound = 0 + half_arc
+		facing_pos_left:
+			lower_bound = 180 - half_arc
+			upper_bound = 180 + half_arc
+		facing_pos_up:
+			lower_bound = 270 - half_arc
+			upper_bound = 270 + half_arc
+		facing_pos_down:
+			lower_bound = 90 - half_arc
+			upper_bound = 90 + half_arc
+	current_arc = lower_bound
+
+func create_bullet():
+	var bullet_spawn_point = position
+	var half_arc = shoot_arc_degrees / 2
+	var spawn_distance = 20
+	var gun_pos_tweak = 5
+	match(facingPosition):
+		facing_pos_right:
+			bullet_spawn_point = bullet_spawn_point + Vector2(spawn_distance,0)
+		facing_pos_left:
+			bullet_spawn_point = bullet_spawn_point + Vector2(-spawn_distance,0)
+		facing_pos_up:
+			bullet_spawn_point = bullet_spawn_point + Vector2(gun_pos_tweak,-spawn_distance)
+		facing_pos_down:
+			bullet_spawn_point = bullet_spawn_point + Vector2(-gun_pos_tweak,spawn_distance)
+	
+	var new_bullet = bullet.instantiate()
+	get_parent().add_child(new_bullet)
+	new_bullet.rotation_degrees = current_arc
+	new_bullet.position = bullet_spawn_point
+	new_bullet.apply_velocity()
+	new_bullet.create_spark_benign() #muzzle flash
+	
+	if(reverse_sweep):
+		current_arc = current_arc - arc_segment_degrees
+		if(current_arc < lower_bound):
+			reverse_sweep = !reverse_sweep
+	else:
+		current_arc = current_arc + arc_segment_degrees
+		if(current_arc > upper_bound):
+			reverse_sweep = !reverse_sweep
+
+func shoot_burst():
+	immobilized = true
+	_animated_sprite.play(str("shoot_",facingPosition))
+	
+	if(get_checkpoint_msecs_elapsed() >= time_between_shots_msecs 
+	&& num_bullets_fired < burst_num_bullets):
+		create_bullet()
+		make_timer_checkpoint()
+	else: if(num_bullets_fired >= burst_num_bullets):
+		burst_cool_down = true
+		make_timer_checkpoint()
+
+
 func check_vision():
 	if (_vision.is_colliding()):
 		var iterator = 0
@@ -206,6 +282,9 @@ func advance_navigation():
 #returns seconds since last time checkpoint
 func get_checkpoint_secs_elapsed():
 	return (Time.get_ticks_msec() - timer_checkpoint) / milliseconds_in_second
+
+func get_checkpoint_msecs_elapsed():
+	return (Time.get_ticks_msec() - timer_checkpoint)
 
 func make_timer_checkpoint():
 	timer_checkpoint = Time.get_ticks_msec()
@@ -292,21 +371,36 @@ func question():
 
 #ALERT STATE
 func alert():
-	if(sub_state == sub_state_alert_exclaiming):
-		exclaiming()
+	match(sub_state):
+		sub_state_alert_exclaiming:
+			exclaiming()
+		sub_state_alert_shoot_gun:
+			shooting()
 
 func exclaiming():
 	#TODO: state should go into alert attack mode
 	if(get_checkpoint_secs_elapsed() >= alert_exclaim_time_secs):
-		state = state_patrol
-		sub_state = sub_state_patrol_look
-		immobilized = false
+		sub_state = sub_state_alert_shoot_gun
+		burst_cool_down = false
+		set_shoort_arc_bounds()
+
+func shooting():
+	if(!is_shooting && !burst_cool_down):
+		num_bullets_fired = 0
+		shoot_burst()
+	else: if(get_checkpoint_secs_elapsed() >= burst_cool_down_secs):
+		burst_cool_down = false
 
 #/\/\/\/\/\/\/\
 #AI STATE CODE 
 #############
 
 func _process(delta):
+	check_vision()
+	
+	#process AI state
+	handle_AI()
+	
 	if(!immobilized):
 		#scale animation to movement speed
 		if(speed() != 0):
@@ -331,11 +425,6 @@ func _process(delta):
 			fall()
 
 func _physics_process(delta):
-	check_vision()
-	
-	#process AI state
-	handle_AI()
-	
 	if(!immobilized):
 		set_sprite_by_velocity()
 		advance_navigation()
