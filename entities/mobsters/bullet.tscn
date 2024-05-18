@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn8jdo3y51ern"]
+
+[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/gangsters/bullet.png" id="1_i8mi1"]
+[ext_resource type="Script" path="res://scripts/mobsters/bullet.gd" id="2_qy1y4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]
+size = Vector2(8, 6)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 3
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("2_qy1y4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xemyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i8mi1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

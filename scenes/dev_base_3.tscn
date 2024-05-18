@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://kdaj618ypfh4"]
+[gd_scene load_steps=32 format=3 uid="uid://kdaj618ypfh4"]
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="4_4pvi6"]
 [ext_resource type="Script" path="res://scripts/clock/clock_sound.gd" id="4_7sj5j"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/player/jim.tscn" id="5_cif7j"]
+[ext_resource type="PackedScene" uid="uid://cn8jdo3y51ern" path="res://entities/mobsters/bullet.tscn" id="6_76fcq"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="6_mb1ed"]
 [ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="7_ld508"]
 [ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/props_dynamic/dynamic_dumpster.tscn" id="8_bkbhp"]
@@ -271,6 +272,19 @@ passive_text = "My brother sells seashells by the seashore"
 
 [node name="Jim" parent="Main_canvas/ysort" instance=ExtResource("5_cif7j")]
 position = Vector2(-1002, 814)
+facingPosition = "left"
+
+[node name="bullet" parent="Main_canvas/ysort" instance=ExtResource("6_76fcq")]
+position = Vector2(-955, 795)
+rotation = -0.294206
+
+[node name="bullet2" parent="Main_canvas/ysort" instance=ExtResource("6_76fcq")]
+position = Vector2(-956, 835)
+rotation = -0.588287
+
+[node name="bullet3" parent="Main_canvas/ysort" instance=ExtResource("6_76fcq")]
+position = Vector2(-909, 809)
+rotation = -1.10555
 
 [node name="prop_name_here" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
 position = Vector2(-819, 818)

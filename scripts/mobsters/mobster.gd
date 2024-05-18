@@ -70,7 +70,7 @@ var spark_knockout_distance = 16
 @export var facingPosition = facing_pos_left
 
 var sound_player := AudioStreamPlayer.new()
-var current_v = Vector2(0,0) #The force which will be applied to the mobster this physics frame
+var current_v = Vector2(0,0) #The force which will be applied to the mobster this frame
 var max_speed = 125000
 var random = RandomNumberGenerator.new()
 
@@ -187,7 +187,7 @@ func check_vision():
 		var iterator = 0
 		while(iterator < _vision.get_collision_count()):
 			var entity = _vision.get_collider(iterator)
-			if(entity.is_in_group("player") && state in alertable_states):
+			if(entity != null && entity.is_in_group("player") && state in alertable_states):
 				_raycast.set_target_position(entity.global_position - _raycast.global_position)
 				if(_raycast.is_colliding() &&
 				   _raycast.get_collider() == entity):

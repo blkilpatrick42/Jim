@@ -56,8 +56,6 @@ func throw(direction):
 				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
 
 func _on_body_entered(body:Node):
-	#var collision_position = to_local(local_collision_pos)
-	
 	if(linear_velocity.length() > spark_velocity):
 		var nSpark = spark.instantiate()
 		get_parent().add_child(nSpark)
@@ -101,7 +99,7 @@ func put_down(direction):
 	
 func set_will_pickup_false():
 	will_pickup = false
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	#update pickup arrow's presence
