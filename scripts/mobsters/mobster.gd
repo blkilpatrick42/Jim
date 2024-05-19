@@ -3,7 +3,7 @@ extends RigidBody2D
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
 var bullet = preload("res://entities/mobsters/bullet.tscn")
-var sound_player := AudioStreamPlayer.new()
+var sound_player := AudioStreamPlayer2D.new()
 
 const milliseconds_in_second = 1000
 
@@ -21,6 +21,7 @@ const state_patrol = "patrol"
 const sub_state_patrol_transit = "patrol_transit"
 const sub_state_patrol_look = "patrol_look"
 var patrol_look_time_secs = 1
+var timer_look := Timer.new() 
 var patrol_look_turns = 0
 @export var current_patrol_point = Node2D
 
@@ -30,18 +31,20 @@ const sub_state_knockout_falling = "knockout_falling"
 const sub_state_knockout_sleep = "knockout_sleep"
 const sub_state_knockout_recover = "knockout_recover"
 var knockout_sleep_time_secs = 10
+var timer_knockout_sleep := Timer.new() 
 
 #investigate state
 const state_investigate = "investigate"
 const sub_state_investigate_question = "investigate_question"
 var investigate_question_time_secs = 3
+var timer_investigate_question := Timer.new() 
 
 #alert state
 const state_alert = "alert"
 const sub_state_alert_exclaiming = "alert_exclaim"
 const sub_state_alert_shoot_gun = "alert_shoot_gun"
 const alert_exclaim_time_secs = 1
-const alert_leave_time_secs = 3
+var timer_alert_exclaim := Timer.new() 
 var alert_target = null
 
 #gun-related variables
@@ -49,7 +52,9 @@ const bust_num_sweeps = 2
 const burst_bullets_per_sweep = 4
 const burst_num_bullets = bust_num_sweeps * burst_bullets_per_sweep
 const burst_cool_down_secs = 2
-const time_between_shots_msecs = 500
+var timer_burst_cool_down := Timer.new() 
+const time_between_shots_secs = 0.5
+var timer_between_shots := Timer.new() 
 const shoot_arc_degrees = 40 #keep it even
 var num_bullets_fired = 0
 var lower_bound = 0
@@ -95,15 +100,30 @@ var random = RandomNumberGenerator.new()
 
 var immobilized = false
 
-var timer_checkpoint = 0 #TODO: replace with a dictionary of checkpoints
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_animated_sprite.play("default")
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
 	add_child(sound_player)
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 32.0
+	initialize_timers()
 	call_deferred("actor_setup")
+
+func initialize_timers():
+	timer_look.one_shot = true
+	timer_knockout_sleep.one_shot = true
+	timer_investigate_question.one_shot = true
+	timer_alert_exclaim.one_shot = true
+	timer_burst_cool_down.one_shot = true
+	timer_between_shots.one_shot = true
+	add_child(timer_look)
+	add_child(timer_knockout_sleep)
+	add_child(timer_investigate_question)
+	add_child(timer_alert_exclaim)
+	add_child(timer_burst_cool_down)
+	add_child(timer_between_shots)
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
@@ -116,7 +136,7 @@ func fall():
 	immobilized = true
 	state = state_knockout
 	sub_state = sub_state_knockout_falling
-	make_timer_checkpoint()
+	timer_knockout_sleep.start(knockout_sleep_time_secs)
 	_animated_sprite.play(str("fall_",facingPosition))
 
 func recover():
@@ -145,7 +165,6 @@ func face_to_vector(vector):
 func face_AI_target_pos():
 	var vector_to_target = position.direction_to(AI_target_pos)
 	face_to_vector(vector_to_target)
-	
 
 func turn_right():
 	match(facingPosition):
@@ -208,7 +227,7 @@ func go_alert():
 	create_exclaim_bubble()
 	state = state_alert
 	sub_state = sub_state_alert_exclaiming
-	make_timer_checkpoint()
+	timer_alert_exclaim.start(alert_exclaim_time_secs)
 
 func leave_alert():
 	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
@@ -276,14 +295,14 @@ func shoot_burst():
 	immobilized = true
 	_animated_sprite.play(str("shoot_",facingPosition))
 	
-	if(get_checkpoint_msecs_elapsed() >= time_between_shots_msecs 
+	if(timer_between_shots.is_stopped() 
 		&& num_bullets_fired < burst_num_bullets):
 		create_bullet()
 		num_bullets_fired = num_bullets_fired + 1
-		make_timer_checkpoint()
+		timer_between_shots.start(time_between_shots_secs)
 	else: if(num_bullets_fired >= burst_num_bullets):
 		burst_cool_down = true
-		make_timer_checkpoint()
+		timer_burst_cool_down.start(burst_cool_down_secs)
 
 func has_line_of_sight_to_object(obj):
 	_raycast.set_target_position(obj.global_position - _raycast.global_position)
@@ -317,16 +336,6 @@ func advance_navigation():
 	else:
 		current_v = current_v * 0
 
-#returns seconds since last time checkpoint
-func get_checkpoint_secs_elapsed():
-	return (Time.get_ticks_msec() - timer_checkpoint) / milliseconds_in_second
-
-func get_checkpoint_msecs_elapsed():
-	return (Time.get_ticks_msec() - timer_checkpoint)
-
-func make_timer_checkpoint():
-	timer_checkpoint = Time.get_ticks_msec()
-
 #############
 #AI STATE CODE 
 #\/\/\/\/\/\/\/
@@ -351,14 +360,14 @@ func patrol():
 
 func patrol_transit():
 	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
-		make_timer_checkpoint()
+		timer_look.start(patrol_look_time_secs)
 		patrol_look_turns = 0
 		sub_state = sub_state_patrol_look
 
 func patrol_look():
 	var num_look_turns = 4 #complete rotation
-	if((get_checkpoint_secs_elapsed() > patrol_look_time_secs)):
-		timer_checkpoint = Time.get_ticks_msec()
+	if(timer_look.is_stopped()):
+		timer_look.start(patrol_look_time_secs)
 		if(patrol_look_turns < num_look_turns):
 			patrol_look_turns = patrol_look_turns + 1
 			turn_right()
@@ -388,7 +397,7 @@ func knockout_falling():
 		_animated_sprite.play(str("fallen_",facingPosition))
 
 func knockout_sleep():
-	if(get_checkpoint_secs_elapsed() >= knockout_sleep_time_secs):
+	if(timer_knockout_sleep.is_stopped()):
 		recover()
 
 func knockout_recovering():
@@ -404,7 +413,7 @@ func investigate():
 			investigate_question()
 
 func investigate_question():
-	if(get_checkpoint_secs_elapsed() >= investigate_question_time_secs):
+	if(timer_investigate_question.is_stopped()):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
 		immobilized = false
@@ -419,7 +428,7 @@ func alert():
 
 func alert_exclaiming():
 	#TODO: state should go into alert attack mode
-	if(get_checkpoint_secs_elapsed() >= alert_exclaim_time_secs):
+	if(timer_alert_exclaim.is_stopped()):
 		sub_state = sub_state_alert_shoot_gun
 		burst_cool_down = false
 		set_shoort_arc_bounds()
@@ -432,7 +441,7 @@ func alert_shooting():
 		
 	if(!burst_cool_down):
 		shoot_burst()
-	else: if(get_checkpoint_secs_elapsed() >= burst_cool_down_secs):
+	else: if(timer_burst_cool_down.is_stopped()):
 		num_bullets_fired = 0
 		burst_cool_down = false
 		if(!has_line_of_sight_to_object(AI_target_obj)):

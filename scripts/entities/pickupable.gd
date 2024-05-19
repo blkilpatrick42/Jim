@@ -13,7 +13,7 @@ var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
 var spark = preload("res://entities/effects/spark.tscn")
 var arrow_instance = null 
 
-var sound_player := AudioStreamPlayer.new()
+var sound_player := AudioStreamPlayer2D.new()
 
 var should_reset = false
 var new_position = Vector2(0, 0)
@@ -28,6 +28,8 @@ var local_collision_pos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
 	add_child(sound_player)
 	sound_player.volume_db = -20
 

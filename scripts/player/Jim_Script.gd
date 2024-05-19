@@ -21,9 +21,10 @@ var top_speed = 180
 
 var can_dash = true
 var is_dashing = false
-var dash_timer= 0.5
-var dash_regen_timer = 5
-var dash_ticks_chkpt = 0
+var dash_time_secs = 0.5
+var dash_regen_time_secs = 5
+var timer_dash := Timer.new()
+var timer_dash_regen := Timer.new()
 
 var holding_object = false
 var will_grab_object = null
@@ -35,7 +36,11 @@ var current_v = Vector2(0,0)
 signal player_pickup()
 
 func _ready():
+	timer_dash.one_shot = true
+	timer_dash_regen.one_shot = true
 	add_child(sound_player)
+	add_child(timer_dash)
+	add_child(timer_dash_regen)
 	sound_player.volume_db = -12
 
 func stand_dir(direction):
@@ -67,20 +72,19 @@ func _process(_delta):
 		grabObj.is_in_group("pickupable")):
 			grabObj.will_pickup = true
 			will_grab_object = grabObj
-			
 	
-	#handle dash timer stuff
-	var time_since_dash_secs = ((Time.get_ticks_msec() - dash_ticks_chkpt)/1000)
+	#stop dash if timer has been esceeded
 	if(is_dashing):
 		acceleration_quotient = dash_speed
-		if(time_since_dash_secs > dash_timer):
+		if(timer_dash.is_stopped()):
 			is_dashing = false
 			acceleration_quotient = normal_speed
+			timer_dash_regen.start(dash_regen_time_secs)
 	else:
 		acceleration_quotient = normal_speed
 	
 	#regen dash
-	if(time_since_dash_secs > dash_regen_timer && can_dash == false):
+	if(timer_dash_regen.is_stopped() && can_dash == false && !is_dashing):
 		sound_player.stream = load("res://audio/soundFX/dashget.wav")
 		sound_player.play()
 		can_dash = true
@@ -143,7 +147,7 @@ func dash():
 			sound_player.play()
 			is_dashing = true
 			can_dash = false
-			dash_ticks_chkpt = Time.get_ticks_msec() 
+			timer_dash.start(dash_time_secs)
 
 func speed():
 	return linear_velocity.length()

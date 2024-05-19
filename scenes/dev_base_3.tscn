@@ -514,4 +514,5 @@ offset_right = -49.0
 offset_bottom = 3.0
 script = ExtResource("16_0hrht")
 clock = 18
+hour_length_seconds = 2
 metadata/_edit_use_anchors_ = true
