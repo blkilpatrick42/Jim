@@ -270,7 +270,7 @@ voice = "low_sine_voice"
 passive_text = "My brother sells seashells by the seashore"
 
 [node name="Jim" parent="Main_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(-1002, 814)
+position = Vector2(-359, 810)
 facingPosition = "left"
 
 [node name="prop_name_here" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]

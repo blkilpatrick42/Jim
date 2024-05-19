@@ -3,6 +3,7 @@ extends RigidBody2D
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
 var bullet = preload("res://entities/mobsters/bullet.tscn")
+var sound_player := AudioStreamPlayer.new()
 
 const milliseconds_in_second = 1000
 
@@ -39,21 +40,21 @@ var investigate_question_time_secs = 3
 const state_alert = "alert"
 const sub_state_alert_exclaiming = "alert_exclaim"
 const sub_state_alert_shoot_gun = "alert_shoot_gun"
-const alert_exclaim_time_secs = 3
+const alert_exclaim_time_secs = 1
 var alert_target = null
 
 #gun-related variables
-const burst_num_bullets = 7
-const burst_cool_down_secs = 3
+const bust_num_sweeps = 2
+const burst_bullets_per_sweep = 4
+const burst_num_bullets = bust_num_sweeps * burst_bullets_per_sweep
+const burst_cool_down_secs = 2
 const time_between_shots_msecs = 500
 const shoot_arc_degrees = 40 #keep it even
-const arc_segment_degrees = 10 
 var num_bullets_fired = 0
-var current_arc = 0
-var reverse_sweep = false
 var is_shooting = false
 var lower_bound = 0
 var upper_bound = 0
+var reverse_sweep = false
 var burst_cool_down = false
 
 #states where the mobster is vulnerable to being knocked out
@@ -62,8 +63,12 @@ var fall_vulnerable_states = [state_patrol, state_investigate]
 #states where the mobster is able to become alerted
 var alertable_states = [state_patrol, state_investigate]
 
+#groups which will send mobster into alert state
+var alertable_groups = ["player"]
+
 #enemy the mobster is "targeting"
-var AI_target_pos = Vector2(0,0)
+var AI_target_pos = Vector2(0,0) #last point where the target was seen
+var AI_target_obj = null #reference to the target itself
 
 #radius for which navigation targets are considered "reached"
 var nav_target_reached = 32
@@ -84,7 +89,6 @@ var spark_knockout_distance = 16
 
 @export var facingPosition = facing_pos_left
 
-var sound_player := AudioStreamPlayer.new()
 var current_v = Vector2(0,0) #The force which will be applied to the mobster this frame
 var max_speed = 125000
 var random = RandomNumberGenerator.new()
@@ -125,6 +129,24 @@ func stand_dir(direction):
 func walk_dir(direction):
 	_animated_sprite.play(str("walk_",facingPosition))
 
+func face_to_vector(vector):
+	if(abs(vector.x) >= abs(vector.y)): 
+		if(vector.x > 0):
+			facingPosition = facing_pos_right
+		else: if (vector.x < 0):
+			facingPosition = facing_pos_left
+	#movement is greater on the y axis
+	else: if (abs(vector.x) <= abs(vector.y)): 
+		if(vector.y > 0):
+			facingPosition = facing_pos_down
+		else: if (vector.y < 0):
+			facingPosition = facing_pos_up
+
+func face_AI_target_pos():
+	var vector_to_target = position.direction_to(AI_target_pos)
+	face_to_vector(vector_to_target)
+	
+
 func turn_right():
 	match(facingPosition):
 		facing_pos_right:
@@ -160,18 +182,7 @@ func create_exclaim_bubble():
 
 #rotate and animate sprite based on velocity
 func set_sprite_by_velocity():
-	#movement is greater on the x axis
-	if(abs(current_v.x) >= abs(current_v.y)): 
-		if(current_v.x > 0):
-			facingPosition = facing_pos_right
-		else: if (current_v.x < 0):
-			facingPosition = facing_pos_left
-	#movement is greater on the y axis
-	else: if (abs(current_v.x) <= abs(current_v.y)): 
-		if(current_v.y > 0):
-			facingPosition = facing_pos_down
-		else: if (current_v.y < 0):
-			facingPosition = facing_pos_up
+	face_to_vector(current_v)
 	
 	if(current_v.length() > 0):
 		walk_dir(facingPosition)
@@ -190,6 +201,8 @@ func update_vision():
 			_vision.set_rotation_degrees(90)
 
 func go_alert():
+	sound_player.stream = load("res://audio/soundFX/alert.wav")
+	sound_player.play()
 	immobilized = true
 	stand_dir(facingPosition)
 	create_exclaim_bubble()
@@ -212,7 +225,7 @@ func set_shoort_arc_bounds():
 		facing_pos_down:
 			lower_bound = 90 - half_arc
 			upper_bound = 90 + half_arc
-	current_arc = lower_bound
+	
 
 func create_bullet():
 	var bullet_spawn_point = position
@@ -231,44 +244,64 @@ func create_bullet():
 	
 	var new_bullet = bullet.instantiate()
 	get_parent().add_child(new_bullet)
+	
+	var arc_segment_degrees = shoot_arc_degrees / burst_bullets_per_sweep
+	var current_segment = num_bullets_fired 
+	while(current_segment > burst_bullets_per_sweep):
+		reverse_sweep = !reverse_sweep
+		current_segment = current_segment - burst_bullets_per_sweep
+	
+	var current_arc = 0
+	if(reverse_sweep):
+		current_arc = (upper_bound - (arc_segment_degrees * current_segment))
+	else:
+		current_arc = (lower_bound + (arc_segment_degrees * current_segment))
+#
+#	if(current_arc <= lower_bound || current_arc >= upper_bound):
+#		reverse_sweep = !reverse_sweep
+	
 	new_bullet.rotation_degrees = current_arc
 	new_bullet.position = bullet_spawn_point
 	new_bullet.apply_velocity()
 	new_bullet.create_spark_benign() #muzzle flash
-	
-	if(reverse_sweep):
-		current_arc = current_arc - arc_segment_degrees
-		if(current_arc < lower_bound):
-			reverse_sweep = !reverse_sweep
-	else:
-		current_arc = current_arc + arc_segment_degrees
-		if(current_arc > upper_bound):
-			reverse_sweep = !reverse_sweep
+	sound_player.stream = load("res://audio/soundFX/gunshot.wav")
+	sound_player.play()
 
 func shoot_burst():
 	immobilized = true
 	_animated_sprite.play(str("shoot_",facingPosition))
 	
 	if(get_checkpoint_msecs_elapsed() >= time_between_shots_msecs 
-	&& num_bullets_fired < burst_num_bullets):
+		&& num_bullets_fired < burst_num_bullets):
 		create_bullet()
+		num_bullets_fired = num_bullets_fired + 1
 		make_timer_checkpoint()
 	else: if(num_bullets_fired >= burst_num_bullets):
 		burst_cool_down = true
 		make_timer_checkpoint()
 
+func has_line_of_sight_to_object(obj):
+	_raycast.set_target_position(obj.global_position - _raycast.global_position)
+	if(_raycast.is_colliding() && _raycast.get_collider() == obj):
+		return true
+	else:
+		return false
 
 func check_vision():
-	if (_vision.is_colliding()):
-		var iterator = 0
-		while(iterator < _vision.get_collision_count()):
-			var entity = _vision.get_collider(iterator)
-			if(entity != null && entity.is_in_group("player") && state in alertable_states):
-				_raycast.set_target_position(entity.global_position - _raycast.global_position)
-				if(_raycast.is_colliding() &&
-				   _raycast.get_collider() == entity):
-					go_alert()
-			iterator = iterator + 1
+	if(state in alertable_states):
+		if (_vision.is_colliding()):
+			var iterator = 0
+			while(iterator < _vision.get_collision_count()):
+				var entity = _vision.get_collider(iterator)
+				if(entity != null):
+					for group in alertable_groups:
+						if(entity.is_in_group(group) &&
+						has_line_of_sight_to_object(entity) &&
+						state != state_alert):
+							go_alert()
+							AI_target_obj = entity
+							AI_target_pos = AI_target_obj.position
+				iterator = iterator + 1
 
 func advance_navigation():
 		#advance along path towards movement target
@@ -344,6 +377,8 @@ func knockout():
 func falling():
 	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
 	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("fall_right")-1):
+		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+		sound_player.play()
 		sub_state = sub_state_knockout_sleep
 		_animated_sprite.play(str("fallen_",facingPosition))
 
@@ -385,11 +420,17 @@ func exclaiming():
 		set_shoort_arc_bounds()
 
 func shooting():
+	if(has_line_of_sight_to_object(AI_target_obj)):
+		AI_target_pos = AI_target_obj.position
+		face_AI_target_pos()
+		set_shoort_arc_bounds()
+		
 	if(!is_shooting && !burst_cool_down):
-		num_bullets_fired = 0
 		shoot_burst()
 	else: if(get_checkpoint_secs_elapsed() >= burst_cool_down_secs):
+		num_bullets_fired = 0
 		burst_cool_down = false
+		
 
 #/\/\/\/\/\/\/\
 #AI STATE CODE 
