@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var _sprite = $Sprite2D
+var sound_player := AudioStreamPlayer2D.new()
 
 var spark = preload("res://entities/effects/spark.tscn")
 
@@ -10,6 +11,9 @@ var velocity = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
+	add_child(sound_player)
 	self.add_to_group(team)
 	match(team):
 		"red":
@@ -23,12 +27,16 @@ func _on_body_entered(body:Node):
 
 #simulate muzzle flash, essentially
 func create_spark_benign():
+	sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+	sound_player.play()
 	var new_spark = spark.instantiate()
 	get_parent().call_deferred("add_child", new_spark)
 	new_spark.position = position
 	new_spark.remove_from_group("spark")
 
 func create_spark_deadly():
+	sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+	sound_player.play()
 	var new_spark = spark.instantiate()
 	get_parent().call_deferred("add_child", new_spark)
 	new_spark.position = position

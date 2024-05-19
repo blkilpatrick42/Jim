@@ -5,7 +5,7 @@ extends Node
 @export var time_until_disappear = 2
 @export var voice = "none"
 
-var sound_player := AudioStreamPlayer.new()
+var sound_player := AudioStreamPlayer2D.new()
 var rnd = RandomNumberGenerator.new()
 
 var full_text = ""
@@ -20,6 +20,8 @@ var wait_time = 0
 func _ready():
 	characters_displayed = 0
 	current_text = ""
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
 	add_child(sound_player)
 	sound_player.volume_db = -20
 	
