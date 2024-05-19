@@ -95,7 +95,7 @@ var random = RandomNumberGenerator.new()
 
 var immobilized = false
 
-var timer_checkpoint = 0
+var timer_checkpoint = 0 #TODO: replace with a dictionary of checkpoints
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
