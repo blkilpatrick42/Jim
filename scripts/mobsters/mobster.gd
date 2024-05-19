@@ -41,6 +41,7 @@ const state_alert = "alert"
 const sub_state_alert_exclaiming = "alert_exclaim"
 const sub_state_alert_shoot_gun = "alert_shoot_gun"
 const alert_exclaim_time_secs = 1
+const alert_leave_time_secs = 3
 var alert_target = null
 
 #gun-related variables
@@ -51,7 +52,6 @@ const burst_cool_down_secs = 2
 const time_between_shots_msecs = 500
 const shoot_arc_degrees = 40 #keep it even
 var num_bullets_fired = 0
-var is_shooting = false
 var lower_bound = 0
 var upper_bound = 0
 var reverse_sweep = false
@@ -210,6 +210,14 @@ func go_alert():
 	sub_state = sub_state_alert_exclaiming
 	make_timer_checkpoint()
 
+func leave_alert():
+	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
+	sound_player.play()
+	immobilized = false
+	create_question_bubble()
+	state = state_patrol
+	sub_state = sub_state_patrol_look
+
 func set_shoort_arc_bounds():
 	var half_arc = shoot_arc_degrees / 2
 	match(facingPosition):
@@ -256,9 +264,6 @@ func create_bullet():
 		current_arc = (upper_bound - (arc_segment_degrees * current_segment))
 	else:
 		current_arc = (lower_bound + (arc_segment_degrees * current_segment))
-#
-#	if(current_arc <= lower_bound || current_arc >= upper_bound):
-#		reverse_sweep = !reverse_sweep
 	
 	new_bullet.rotation_degrees = current_arc
 	new_bullet.position = bullet_spawn_point
@@ -368,13 +373,13 @@ func patrol_look():
 func knockout():
 	match(sub_state):
 		sub_state_knockout_falling:
-			falling()
+			knockout_falling()
 		sub_state_knockout_sleep:
-			sleep()
+			knockout_sleep()
 		sub_state_knockout_recover:
-			recovering()
+			knockout_recovering()
 
-func falling():
+func knockout_falling():
 	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
 	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("fall_right")-1):
 		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
@@ -382,11 +387,11 @@ func falling():
 		sub_state = sub_state_knockout_sleep
 		_animated_sprite.play(str("fallen_",facingPosition))
 
-func sleep():
+func knockout_sleep():
 	if(get_checkpoint_secs_elapsed() >= knockout_sleep_time_secs):
 		recover()
 
-func recovering():
+func knockout_recovering():
 	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("recover_right")-1):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
@@ -396,9 +401,9 @@ func recovering():
 func investigate():
 	match(sub_state):
 		sub_state_investigate_question:
-			question()
+			investigate_question()
 
-func question():
+func investigate_question():
 	if(get_checkpoint_secs_elapsed() >= investigate_question_time_secs):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
@@ -408,28 +413,30 @@ func question():
 func alert():
 	match(sub_state):
 		sub_state_alert_exclaiming:
-			exclaiming()
+			alert_exclaiming()
 		sub_state_alert_shoot_gun:
-			shooting()
+			alert_shooting()
 
-func exclaiming():
+func alert_exclaiming():
 	#TODO: state should go into alert attack mode
 	if(get_checkpoint_secs_elapsed() >= alert_exclaim_time_secs):
 		sub_state = sub_state_alert_shoot_gun
 		burst_cool_down = false
 		set_shoort_arc_bounds()
 
-func shooting():
+func alert_shooting():
 	if(has_line_of_sight_to_object(AI_target_obj)):
 		AI_target_pos = AI_target_obj.position
 		face_AI_target_pos()
 		set_shoort_arc_bounds()
 		
-	if(!is_shooting && !burst_cool_down):
+	if(!burst_cool_down):
 		shoot_burst()
 	else: if(get_checkpoint_secs_elapsed() >= burst_cool_down_secs):
 		num_bullets_fired = 0
 		burst_cool_down = false
+		if(!has_line_of_sight_to_object(AI_target_obj)):
+			leave_alert()
 		
 
 #/\/\/\/\/\/\/\
