@@ -7,7 +7,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uoexm"]
 light_mode = 1
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ey0rv"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aerk1"]
 light_mode = 1
 
 [node name="Node2D" type="Node2D"]
@@ -22,6 +22,7 @@ animation = &"dead_down"
 
 [node name="tough_luck" type="Sprite2D" parent="."]
 visible = false
-material = SubResource("CanvasItemMaterial_ey0rv")
-position = Vector2(5, -28)
+z_index = 600
+material = SubResource("CanvasItemMaterial_aerk1")
+position = Vector2(8, -29)
 texture = ExtResource("3_6nnxm")

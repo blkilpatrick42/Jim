@@ -297,7 +297,7 @@ has_prev_point = null
 [node name="Main_canvas" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="window1_all_night22" parent="Main_canvas" instance=ExtResource("17_mgj8o")]
+[node name="matte_painting" parent="Main_canvas" instance=ExtResource("17_mgj8o")]
 material = SubResource("CanvasItemMaterial_jijpm")
 position = Vector2(-16, -1306)
 scale = Vector2(3, 2)
