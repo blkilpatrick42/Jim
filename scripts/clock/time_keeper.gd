@@ -9,7 +9,10 @@ var is_playing_song = false
 var play_song_wait_sec = 1
 var timer_world := Timer.new()
 var timer_song := Timer.new()
+var timer_restart := Timer.new()
 var ambient_dark = null
+
+var restart_wait_sec = 30
 
 var player_ref = null
 
@@ -19,8 +22,10 @@ func _ready():
 	timer_world.one_shot = true
 	timer_world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	timer_song.one_shot = true
+	timer_restart.one_shot = true
 	add_child(timer_world)
 	add_child(timer_song)
+	add_child(timer_restart)
 	timer_world.start(hour_length_seconds)
 	ambient_dark = get_parent().get_tree().get_nodes_in_group("ambient_dark")[0]
 	player_ref = get_parent().get_tree().get_nodes_in_group("player")[0]
@@ -52,7 +57,11 @@ func game_over():
 
 func get_input():
 	if Input.is_action_just_pressed("start"):
+		if(!is_game_over):
 			toggle_menu_pause()
+		else: if(is_game_over):
+			toggle_pause_parent_tree()
+			get_tree().reload_current_scene()
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -73,3 +82,4 @@ func _process(delta):
 	if(player_ref.dead && !is_game_over):
 		is_game_over = true
 		game_over()
+		
