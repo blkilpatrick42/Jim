@@ -11,6 +11,7 @@ const facing_pos_down = "down"
 
 var dash_get = preload("res://interface/dash_get.tscn")
 var dust = preload("res://interface/dust.tscn")
+var player_die = preload("res://entities/player/player_die.tscn")
 
 var sound_player := AudioStreamPlayer.new()
 
@@ -33,7 +34,7 @@ var grabbed_object = null
 var control_frozen = false
 var current_v = Vector2(0,0)
 
-signal player_pickup()
+var dead = false
 
 func _ready():
 	timer_dash.one_shot = true
@@ -105,6 +106,19 @@ func get_input():
 		handle_throw()
 		handle_dash()
 		move_jim()
+
+func _on_body_entered(body:Node):
+	if(body.is_in_group("bullet")):
+		die()
+
+func die():
+	if(!dead):
+		var die_guy = player_die.instantiate()
+		get_parent().add_child(die_guy)
+		die_guy.position = position
+		visible = false
+		die_guy.start_dyin(facingPosition)
+		dead = true
 
 func handle_pickup():
 	if Input.is_action_just_pressed("pickup"):

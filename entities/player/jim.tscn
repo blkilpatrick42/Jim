@@ -16,6 +16,8 @@ y_sort_enabled = true
 mass = 70.0
 physics_material_override = SubResource("PhysicsMaterial_3o5m8")
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 lock_rotation = true
 linear_damp = 6.0
 script = ExtResource("1_txjuo")
@@ -58,3 +60,5 @@ texture = ExtResource("3_qo3kv")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 64.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

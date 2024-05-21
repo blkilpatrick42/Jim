@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]
 size = Vector2(8, 6)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["bullet"]]
 collision_layer = 0
 collision_mask = 3
 gravity_scale = 0.0
