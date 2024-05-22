@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://kdaj618ypfh4"]
+[gd_scene load_steps=40 format=3 uid="uid://kdaj618ypfh4"]
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="4_4pvi6"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://d3q58k74gxjnl" path="res://entities/game_world/matte_painting_test.tscn" id="17_mgj8o"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/game_world/door1.tscn" id="18_m106v"]
 [ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/game_world/door_frame.tscn" id="18_qehjh"]
+[ext_resource type="Script" path="res://scenes/exterior_tilemap.gd" id="20_kbf0y"]
 [ext_resource type="Texture2D" uid="uid://smjfei55010t" path="res://sprites/game_world/door_frame.png" id="21_cqq7d"]
 
 [sub_resource type="GDScript" id="GDScript_rsnvh"]
@@ -82,6 +83,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1038, 1044, -928, 1045
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jijpm"]
 light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us734"]
+size = Vector2(159, 254)
 
 [node name="dev_base_3" type="Node2D"]
 z_as_relative = false
@@ -520,7 +524,17 @@ position = Vector2(376, 72)
 position = Vector2(376, 64)
 
 [node name="TileMap_exterior" type="TileMap" parent="Main_canvas"]
+z_index = 3
+tile_set = ExtResource("3_fohp5")
 format = 2
+layer_0/tile_data = PackedInt32Array(131095, 589824, 8, 23, 589824, 7, -131049, 589824, 8, -262121, 589824, 7, -262123, 589824, 8, -262125, 589824, 7, -393197, 524288, 6, -393195, 524288, 6, -393193, 524288, 6, -524265, 524288, 5, -524267, 524288, 5, -524269, 524288, 5, -655341, 524288, 5, -655339, 524288, 5, -655337, 524288, 5)
+script = ExtResource("20_kbf0y")
+
+[node name="Area2D" type="Area2D" parent="Main_canvas/TileMap_exterior"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main_canvas/TileMap_exterior/Area2D"]
+position = Vector2(345.5, -70)
+shape = SubResource("RectangleShape2D_us734")
 
 [node name="TileMap_mid" type="TileMap" parent="Main_canvas"]
 z_index = 2
@@ -559,3 +573,6 @@ metadata/_edit_use_anchors_ = true
 [node name="DoorFrame" type="Sprite2D" parent="."]
 position = Vector2(372, 70)
 texture = ExtResource("21_cqq7d")
+
+[connection signal="body_entered" from="Main_canvas/TileMap_exterior/Area2D" to="Main_canvas/TileMap_exterior" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Main_canvas/TileMap_exterior/Area2D" to="Main_canvas/TileMap_exterior" method="_on_area_2d_body_exited"]
