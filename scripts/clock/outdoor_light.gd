@@ -2,9 +2,10 @@ extends CanvasModulate
 
 var time_keeper = null
 var light_level = 1
-var fade_time = 3
+var fade_time = 3.0
 var timer_fade := Timer.new()
-var fade_quotient = 0
+var fade_quotient = 0.0
+var time_between_fades_secs = 1.0
 var fading = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,10 @@ func _ready():
 	
 
 func fade_to_black():
-	fading = true
-	fade_quotient = light_level / fade_time
-	timer_fade.start(1)
+	if(!fading):
+		fading = true
+		fade_quotient = light_level / fade_time
+		timer_fade.start(time_between_fades_secs)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +48,6 @@ func _process(delta):
 				light_level = 0.6
 	else: if (timer_fade.is_stopped() && light_level > 0):
 		light_level = light_level - fade_quotient
-		timer_fade.start(1)
+		timer_fade.start(time_between_fades_secs)
 
 	set_color( Color(light_level,light_level,light_level,1) )
