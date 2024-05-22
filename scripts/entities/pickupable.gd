@@ -63,17 +63,6 @@ func throw(direction):
 			"down":
 				throw_force = Vector2(0,force_factor)
 				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
-#
-#func _on_body_entered(body:Node):
-#	if(linear_velocity.length() > spark_velocity):
-#		var nSpark = spark.instantiate()
-#		get_parent().add_child(nSpark)
-#		nSpark.position = local_collision_pos
-#		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
-#		sound_player.play()
-#	else:
-#		sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
-#		sound_player.play()
 
 func pick_up():
 	if(will_pickup):
