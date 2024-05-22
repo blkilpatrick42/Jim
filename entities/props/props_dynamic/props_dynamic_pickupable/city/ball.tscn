@@ -6,8 +6,8 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_486n2"]
 bounce = 0.61
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
-size = Vector2(12, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_inwym"]
+radius = 6.0
 
 [node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
@@ -20,6 +20,7 @@ contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_25myv")
 force_factor = 700
+spark_time_secs = 2
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
@@ -27,6 +28,6 @@ texture = ExtResource("2_aofi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
-shape = SubResource("RectangleShape2D_x7wqg")
+shape = SubResource("CircleShape2D_inwym")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

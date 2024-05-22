@@ -22,12 +22,17 @@ var throw_force = Vector2(0, 0)
 var thrown = false
 
 var player_y_offset = 24
-var spark_velocity = 200
+
+@export var spark_time_secs = 200 #time after being thrown in which a spark is created on collide
+var timer_spark := Timer.new()
+var can_spark = false
 
 var local_collision_pos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timer_spark.one_shot = true
+	add_child(timer_spark)
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
 	add_child(sound_player)
@@ -43,6 +48,8 @@ func throw(direction):
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
+		timer_spark.start(spark_time_secs)
+		can_spark = true
 		match(direction):
 			"left":
 				throw_force = Vector2(-force_factor,0)
@@ -56,17 +63,17 @@ func throw(direction):
 			"down":
 				throw_force = Vector2(0,force_factor)
 				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
-
-func _on_body_entered(body:Node):
-	if(linear_velocity.length() > spark_velocity):
-		var nSpark = spark.instantiate()
-		get_parent().add_child(nSpark)
-		nSpark.position = local_collision_pos
-		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
-		sound_player.play()
-	else:
-		sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
-		sound_player.play()
+#
+#func _on_body_entered(body:Node):
+#	if(linear_velocity.length() > spark_velocity):
+#		var nSpark = spark.instantiate()
+#		get_parent().add_child(nSpark)
+#		nSpark.position = local_collision_pos
+#		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+#		sound_player.play()
+#	else:
+#		sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
+#		sound_player.play()
 
 func pick_up():
 	if(will_pickup):
@@ -139,6 +146,16 @@ func _process(delta):
 func _integrate_forces(state):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
 		local_collision_pos = state.get_contact_local_position(0)
+		if(!timer_spark.is_stopped() && can_spark):
+			can_spark = false
+			var nSpark = spark.instantiate()
+			get_parent().add_child(nSpark)
+			nSpark.position = local_collision_pos
+			sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+			sound_player.play()
+		else:
+			sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
+			sound_player.play()
 		
 	if should_reset:
 		should_reset = false
@@ -147,5 +164,6 @@ func _integrate_forces(state):
 		state.apply_central_impulse(throw_force)
 		thrown = false
 
+#func _physics_process(delta):
 
 

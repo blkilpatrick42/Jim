@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtrx31qm66rid"]
+
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_456yt"]
+[ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="2_7f12v"]
+[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="3_38lua"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2p830"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(24, 14)
+
+[node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "pizza", "prop"]]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_2p830")
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+linear_damp = 2.0
+script = ExtResource("1_456yt")
+force_factor = 1000
+
+[node name="sprite" type="AnimatedSprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+position = Vector2(0, -3)
+sprite_frames = ExtResource("2_7f12v")
+script = ExtResource("3_38lua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_x7wqg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

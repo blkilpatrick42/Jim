@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://kdaj618ypfh4"]
+[gd_scene load_steps=32 format=3 uid="uid://kdaj618ypfh4"]
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/PizzaGuy.tscn" id="4_4pvi6"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/mobsters/Red_Mobster.tscn" id="15_p4rxg"]
 [ext_resource type="Script" path="res://scripts/clock/outdoor_light.gd" id="15_tdgnx"]
 [ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="16_0hrht"]
+[ext_resource type="PackedScene" uid="uid://1htqc5w43g1e" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/pizza.tscn" id="16_1flym"]
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/mobsters/patrol_point.tscn" id="16_kbovc"]
 [ext_resource type="PackedScene" uid="uid://d3q58k74gxjnl" path="res://entities/game_world/matte_painting_test.tscn" id="17_mgj8o"]
 
@@ -55,7 +56,7 @@ size = Vector2(96, 103)
 size = Vector2(320.5, 161.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7dnx"]
-size = Vector2(161, 145)
+size = Vector2(161, 167)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0ctlu"]
 vertices = PackedVector2Array(-966, 1114, -1038, 1044, -928, 1045, -923, 1081, -688, 1113, -715, 1082, -650, 567, -972, 566, -969, 503, -931, 470, -915, 473, -873, 482, -714, 866, -939, 867, -936, 763, -653, 760, -598, 1032, -971, 483, -827, 474, -684, 472, -608, 549)
@@ -209,15 +210,13 @@ shape = SubResource("RectangleShape2D_cib6v")
 [node name="invisible_wall_16" type="StaticBody2D" parent="dev_layer"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/invisible_wall_16"]
-position = Vector2(-824.5, 991.5)
+position = Vector2(-824.5, 980.5)
 shape = SubResource("RectangleShape2D_n7dnx")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="dev_layer"]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_0ctlu")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="dev_layer"]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_fb5nx")
 
 [node name="patrol_point" parent="dev_layer" instance=ExtResource("16_kbovc")]
@@ -428,6 +427,9 @@ position = Vector2(-773, 669)
 
 [node name="window1_all_night12" parent="Main_canvas/ysort" instance=ExtResource("13_jdlpd")]
 position = Vector2(-864, 709)
+
+[node name="prop_name_here2" parent="Main_canvas/ysort" instance=ExtResource("16_1flym")]
+position = Vector2(-289, 803)
 
 [node name="window1_dark5" parent="Main_canvas/ysort" instance=ExtResource("13_wxwfm")]
 position = Vector2(-864, 668)
