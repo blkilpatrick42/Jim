@@ -1,3 +1,4 @@
+@tool
 extends RigidBody2D
 
 @onready var _character_base = $character_base
@@ -49,40 +50,44 @@ func _ready():
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
+	
+	if(Engine.is_editor_hint()):
+		queue_redraw()
 
 func _process(_delta):
-	_character_base.set_sprite_by_vector(current_v, (speed() >= top_speed))
-	update_grabber()
-	will_grab_object = null
-	if(!holding_object):
-		var grabObj = null
+	if(!Engine.is_editor_hint()):
+		_character_base.set_sprite_by_vector(current_v, (speed() >= top_speed))
+		update_grabber()
+		will_grab_object = null
+		if(!holding_object):
+			var grabObj = null
+			
+			if(_grabber.is_colliding()):
+				grabObj = _grabber.get_collider(0)
+			
+			#check for pickupables
+			get_tree().call_group("pickupable", "set_will_pickup_false")
+			if(grabObj != null && 
+			grabObj.is_in_group("pickupable")):
+				grabObj.will_pickup = true
+				will_grab_object = grabObj
 		
-		if(_grabber.is_colliding()):
-			grabObj = _grabber.get_collider(0)
-		
-		#check for pickupables
-		get_tree().call_group("pickupable", "set_will_pickup_false")
-		if(grabObj != null && 
-		grabObj.is_in_group("pickupable")):
-			grabObj.will_pickup = true
-			will_grab_object = grabObj
-	
-	#stop dash if timer has been esceeded
-	if(is_dashing):
-		acceleration_quotient = dash_speed
-		if(timer_dash.is_stopped()):
-			is_dashing = false
+		#stop dash if timer has been esceeded
+		if(is_dashing):
+			acceleration_quotient = dash_speed
+			if(timer_dash.is_stopped()):
+				is_dashing = false
+				acceleration_quotient = normal_speed
+				timer_dash_regen.start(dash_regen_time_secs)
+		else:
 			acceleration_quotient = normal_speed
-			timer_dash_regen.start(dash_regen_time_secs)
-	else:
-		acceleration_quotient = normal_speed
-	
-	#regen dash
-	if(timer_dash_regen.is_stopped() && can_dash == false && !is_dashing):
-		sound_player.stream = load("res://audio/soundFX/dashget.wav")
-		sound_player.play()
-		can_dash = true
-		add_child(dash_get.instantiate())
+		
+		#regen dash
+		if(timer_dash_regen.is_stopped() && can_dash == false && !is_dashing):
+			sound_player.stream = load("res://audio/soundFX/dashget.wav")
+			sound_player.play()
+			can_dash = true
+			add_child(dash_get.instantiate())
 
 func get_input():
 	if(!control_frozen):
@@ -182,8 +187,9 @@ func move_jim():
 	_character_base.set_animation_scale(speed(), top_speed)
 
 func _physics_process(delta):
-	get_input()
-	apply_force(current_v)
+	if(!Engine.is_editor_hint()):
+		get_input()
+		apply_force(current_v)
 
 
 
