@@ -3,6 +3,12 @@ extends RigidBody2D
 @onready var _character_base = $character_base
 @onready var _grabber = $grabber
 
+@export var base_spriteframes : SpriteFrames
+@export var hat_spriteframes : SpriteFrames
+@export var top_spriteframes : SpriteFrames
+@export var bottom_spriteframes : SpriteFrames
+@export var facing_dir = "right"
+
 #TODO: get this working with character composition (will be an absolute bastard wah)
 var player_die = preload("res://entities/player/player_die.tscn") 
 var dash_get = preload("res://interface/dash_get.tscn")
@@ -37,6 +43,12 @@ func _ready():
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	sound_player.volume_db = -12
+	
+	_character_base.set_facing_dir(facing_dir)
+	_character_base.set_spriteframes(base_spriteframes,
+	hat_spriteframes,
+	top_spriteframes,
+	bottom_spriteframes)
 
 func _process(_delta):
 	_character_base.set_sprite_by_vector(current_v, (speed() >= top_speed))

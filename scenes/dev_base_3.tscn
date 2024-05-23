@@ -1,11 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://kdaj618ypfh4"]
+[gd_scene load_steps=41 format=3 uid="uid://kdaj618ypfh4"]
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
 [ext_resource type="Script" path="res://scripts/clock/clock_sound.gd" id="4_7sj5j"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/player/jim.tscn" id="5_cif7j"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="6_mb1ed"]
+[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/characters/new structure/base/char_0_base.tres" id="7_jbsl8"]
 [ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="7_ld508"]
 [ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/props_dynamic/dynamic_dumpster.tscn" id="8_bkbhp"]
+[ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/new structure/hat/cap_0.tres" id="8_cxau3"]
 [ext_resource type="AudioStream" uid="uid://bhi7v38hdrhv6" path="res://audio/soundFX/environment/ocean_waves.wav" id="10_lp4y7"]
 [ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/props_static/city/lightPole_right.tscn" id="11_w3tfl"]
 [ext_resource type="PackedScene" uid="uid://chr3rbwyea60o" path="res://entities/game_world/window1_all_night.tscn" id="13_jdlpd"]
@@ -350,6 +352,8 @@ y_sort_enabled = true
 
 [node name="Jim" parent="Main_canvas/ysort" instance=ExtResource("5_cif7j")]
 position = Vector2(-352, 812)
+base_spriteframes = ExtResource("7_jbsl8")
+hat_spriteframes = ExtResource("8_cxau3")
 
 [node name="prop_name_here" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
 position = Vector2(-819, 818)
