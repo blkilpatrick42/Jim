@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://j10emj0ffcps"]
 
-[ext_resource type="Texture2D" uid="uid://drhb8omp3qpc2" path="res://sprites/spritesheets/player/die_text.png" id="1_kn75y"]
+[ext_resource type="Texture2D" uid="uid://drhb8omp3qpc2" path="res://sprites/spritesheets/characters/old structure/player/die_text.png" id="1_sadg0"]
 
 [node name="tough_luck" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -65)
-texture = ExtResource("1_kn75y")
+texture = ExtResource("1_sadg0")

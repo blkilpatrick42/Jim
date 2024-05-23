@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn8jdo3y51ern"]
 
-[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/gangsters/bullet.png" id="1_i8mi1"]
+[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/characters/old structure/mobster/bullet.png" id="2_61ot4"]
 [ext_resource type="Script" path="res://scripts/mobsters/bullet.gd" id="2_qy1y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]
@@ -19,6 +19,6 @@ script = ExtResource("2_qy1y4")
 shape = SubResource("RectangleShape2D_xemyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_i8mi1")
+texture = ExtResource("2_61ot4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=64 format=3 uid="uid://bhasc4hba2oa3"]
 
-[ext_resource type="Texture2D" uid="uid://ctgcuhk1vst82" path="res://sprites/spritesheets/gangsters/RedGangster.png" id="1_gwp3f"]
+[ext_resource type="Texture2D" uid="uid://ctgcuhk1vst82" path="res://sprites/spritesheets/characters/new structure/base/red_mob_base.png" id="1_gwp3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o200e"]
 atlas = ExtResource("1_gwp3f")

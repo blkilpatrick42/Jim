@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0v07yiea3pea"
-path="res://.godot/imported/bullet.png-c6c51624fac80814e7e3adab01ca7d29.ctex"
+uid="uid://drhb8omp3qpc2"
+path="res://.godot/imported/die_text.png-8438f19f3b7fd2cd622a7c4c491983ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/gangsters/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-c6c51624fac80814e7e3adab01ca7d29.ctex"]
+source_file="res://sprites/spritesheets/characters/old structure/player/die_text.png"
+dest_files=["res://.godot/imported/die_text.png-8438f19f3b7fd2cd622a7c4c491983ad.ctex"]
 
 [params]
 

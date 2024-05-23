@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbvfjnvnmg5ga"
-path="res://.godot/imported/q_mark.png-44246aafcd8bfa4cac739f750434f38b.ctex"
+uid="uid://cm0yc5y2aasfo"
+path="res://.godot/imported/exclaim.png-4e575e09a6f88ba39fa093db8dcfc290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/gangsters/q_mark.png"
-dest_files=["res://.godot/imported/q_mark.png-44246aafcd8bfa4cac739f750434f38b.ctex"]
+source_file="res://sprites/spritesheets/characters/old structure/mobster/exclaim.png"
+dest_files=["res://.godot/imported/exclaim.png-4e575e09a6f88ba39fa093db8dcfc290.ctex"]
 
 [params]
 

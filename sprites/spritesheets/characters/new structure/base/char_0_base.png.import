@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drhb8omp3qpc2"
-path="res://.godot/imported/die_text.png-3858e9b1b25abb4b05f1b1776b5c68a9.ctex"
+uid="uid://bk55i13qwmltx"
+path="res://.godot/imported/char_0_base.png-01f79144c1fba946094ecc88139e6ef6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/player/die_text.png"
-dest_files=["res://.godot/imported/die_text.png-3858e9b1b25abb4b05f1b1776b5c68a9.ctex"]
+source_file="res://sprites/spritesheets/characters/new structure/base/char_0_base.png"
+dest_files=["res://.godot/imported/char_0_base.png-01f79144c1fba946094ecc88139e6ef6.ctex"]
 
 [params]
 

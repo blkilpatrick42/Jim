@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbb436ady2uq6"
-path="res://.godot/imported/pizzaguy-sheet.png-dddb39a92368208c73fb82582463c58a.ctex"
+uid="uid://bpfto2om4d4cb"
+path="res://.godot/imported/BluGangster.png-caad53cb346a660cfbb96b69a83287bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/actors/pizzaguy-sheet.png"
-dest_files=["res://.godot/imported/pizzaguy-sheet.png-dddb39a92368208c73fb82582463c58a.ctex"]
+source_file="res://sprites/spritesheets/characters/old structure/mobster/BluGangster.png"
+dest_files=["res://.godot/imported/BluGangster.png-caad53cb346a660cfbb96b69a83287bb.ctex"]
 
 [params]
 

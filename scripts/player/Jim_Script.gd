@@ -1,17 +1,11 @@
 extends RigidBody2D
 
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _character_base = $character_base
 @onready var _grabber = $grabber
-@export var facingPosition = "left"
 
-const facing_pos_right = "right"
-const facing_pos_left = "left"
-const facing_pos_up = "up"
-const facing_pos_down = "down"
-
+#TODO: get this working with character composition (will be an absolute bastard wah)
+var player_die = preload("res://entities/player/player_die.tscn") 
 var dash_get = preload("res://interface/dash_get.tscn")
-var dust = preload("res://interface/dust.tscn")
-var player_die = preload("res://entities/player/player_die.tscn")
 
 var sound_player := AudioStreamPlayer.new()
 
@@ -44,21 +38,8 @@ func _ready():
 	add_child(timer_dash_regen)
 	sound_player.volume_db = -12
 
-func stand_dir(direction):
-	_animated_sprite.play(str("stand_",facingPosition))
-
-func walk_dir(direction):
-	_animated_sprite.play(str("walk_",facingPosition))
-
-#animate sprite based on velocity
-func set_sprite_by_velocity():
-	if(current_v.length() > 0 || speed() >= top_speed):
-		walk_dir(facingPosition)
-	else: 
-		stand_dir(facingPosition)
-
 func _process(_delta):
-	set_sprite_by_velocity()
+	_character_base.set_sprite_by_vector(current_v, (speed() >= top_speed))
 	update_grabber()
 	will_grab_object = null
 	if(!holding_object):
@@ -95,13 +76,13 @@ func get_input():
 	if(!control_frozen):
 				#orient and player according to input
 		if Input.is_action_pressed("right"):
-			facingPosition = facing_pos_right
+			_character_base.face_right()
 		else: if Input.is_action_pressed("left"):
-			facingPosition = facing_pos_left
+			_character_base.face_left()
 		else: if Input.is_action_pressed("up"):
-			facingPosition = facing_pos_up
+			_character_base.face_up()
 		else: if Input.is_action_pressed("down"):
-				facingPosition = facing_pos_down
+			_character_base.face_down()
 		handle_pickup()
 		handle_throw()
 		handle_dash()
@@ -117,7 +98,7 @@ func die():
 		get_parent().add_child(die_guy)
 		die_guy.position = position
 		visible = false
-		die_guy.start_dyin(facingPosition)
+		die_guy.start_dyin(_character_base.get_facing_dir())
 		dead = true
 
 func handle_pickup():
@@ -136,7 +117,7 @@ func throw():
 	if(holding_object):
 		sound_player.stream = load("res://audio/soundFX/woosh.wav")
 		sound_player.play()
-		grabbed_object.throw(facingPosition)
+		grabbed_object.throw(_character_base.get_facing_dir())
 		grabbed_object = null
 		holding_object = false
 
@@ -150,7 +131,7 @@ func pick_up():
 	else: if(holding_object):
 		sound_player.stream = load("res://audio/soundFX/putdown.wav")
 		sound_player.play()
-		grabbed_object.put_down(facingPosition)
+		grabbed_object.put_down(_character_base.get_facing_dir())
 		grabbed_object = null
 		holding_object = false
 
@@ -167,14 +148,14 @@ func speed():
 	return linear_velocity.length()
 
 func update_grabber():
-	match(facingPosition):
-		facing_pos_right:
+	match(_character_base.get_facing_dir()):
+		_character_base.facing_dir_right:
 			_grabber.set_rotation_degrees(270) 
-		facing_pos_left:
+		_character_base.facing_dir_left:
 			_grabber.set_rotation_degrees(90)
-		facing_pos_up:
+		_character_base.facing_dir_up:
 			_grabber.set_rotation_degrees(180)
-		facing_pos_down:
+		_character_base.facing_dir_down:
 			_grabber.set_rotation_degrees(0)
 
 func move_jim():
@@ -185,18 +166,8 @@ func move_jim():
 		current_v = input_direction * acceleration_quotient 
 	else: 
 		current_v = input_direction * 0
-		
-	#scale animation to movement speed
-	if(speed() != 0):
-		#Base speed of 20%. We ramp to 100% (full speed) using a ratio of 
-		#speed/topspeed for the remaining 80%.	
-		var baseScale = 0.2
-		var velocityScale = speed() / top_speed
-		var remainderScale = 0.8 * velocityScale
-		var animationScale = baseScale + remainderScale
-		_animated_sprite.set_speed_scale(animationScale)
-	else:
-		_animated_sprite.set_speed_scale(1)
+	
+	_character_base.set_animation_scale(speed(), top_speed)
 
 func _physics_process(delta):
 	get_input()

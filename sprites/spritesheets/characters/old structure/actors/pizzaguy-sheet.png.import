@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0mwyyvgjako7"
-path="res://.godot/imported/dust.png-c67aad10a2cd237d3b0f3ba954bb3a57.ctex"
+uid="uid://dbb436ady2uq6"
+path="res://.godot/imported/pizzaguy-sheet.png-694578837e4d44edf315660ba9172a38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/player/dust.png"
-dest_files=["res://.godot/imported/dust.png-c67aad10a2cd237d3b0f3ba954bb3a57.ctex"]
+source_file="res://sprites/spritesheets/characters/old structure/actors/pizzaguy-sheet.png"
+dest_files=["res://.godot/imported/pizzaguy-sheet.png-694578837e4d44edf315660ba9172a38.ctex"]
 
 [params]
 

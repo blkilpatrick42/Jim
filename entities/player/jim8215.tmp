@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c21jsew46j2v0"]
 
-[ext_resource type="Script" path="res://scripts/player/Jim_Script.gd" id="1_txjuo"]
-[ext_resource type="PackedScene" uid="uid://ri414jkdjpq4" path="res://entities/characters/base/character_base.tscn" id="3_f7037"]
-[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_qo3kv"]
+[ext_resource type="Script" path="res://scripts/player/Jim_Script.gd" id="1_csv4t"]
+[ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/characters/player/Jim.tres" id="2_dscw7"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_16o24"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3o5m8"]
 
@@ -20,9 +20,17 @@ max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 linear_damp = 6.0
-script = ExtResource("1_txjuo")
+script = ExtResource("1_csv4t")
+facingPosition = "right"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
+y_sort_enabled = true
+position = Vector2(0, 2)
+sprite_frames = ExtResource("2_dscw7")
+offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
+visible = false
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_w3v7o")
 
@@ -47,13 +55,10 @@ collision_mask = 2
 
 [node name="shadow" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
-texture = ExtResource("3_qo3kv")
+texture = ExtResource("3_16o24")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 radius = 64.0
-
-[node name="character_base" parent="." instance=ExtResource("3_f7037")]
-position = Vector2(0, -3)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

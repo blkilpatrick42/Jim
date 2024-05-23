@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtcyjgea8ii5"]
 
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_anrpq"]
-[ext_resource type="SpriteFrames" uid="uid://ipxjp4atfxm3" path="res://sprites/spritesheets/spriteframes/gangsters/exclaim.tres" id="2_alvm1"]
+[ext_resource type="SpriteFrames" uid="uid://ipxjp4atfxm3" path="res://sprites/spritesheets/spriteframes/characters/old structure/mobsters/exclaim.tres" id="2_alvm1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lqkf"]
 light_mode = 1
