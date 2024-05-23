@@ -190,6 +190,7 @@ func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
 		get_input()
 		apply_force(current_v)
+		
 
 
 

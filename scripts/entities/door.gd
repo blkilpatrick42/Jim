@@ -11,7 +11,7 @@ var waiting_to_open = false
 var waiting_to_close = false
 
 var open_close_timer := Timer.new()
-var open_close_time_secs = 1
+var open_close_time_secs = 0.5
 var open_distance = 32
 
 # Called when the node enters the scene tree for the first time.

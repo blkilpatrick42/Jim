@@ -71,7 +71,7 @@ func set_sprite_by_vector(in_vector :Vector2, walk_override := false):
 
 func set_animation_scale(scalar, top):
 	#scale animation to movement speed
-	if(scalar != 0):
+	if(scalar > 1):
 		#Base speed of 20%. We ramp to 100% (full speed) using a ratio of 
 		#speed/topspeed for the remaining 80%.	
 		var baseScale = 0.2
