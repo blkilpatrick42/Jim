@@ -1,12 +1,14 @@
-[gd_scene load_steps=38 format=3 uid="uid://kmdvvmso2r8o"]
+[gd_scene load_steps=40 format=3 uid="uid://kmdvvmso2r8o"]
 
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
 [ext_resource type="Script" path="res://scripts/clock/clock_sound.gd" id="4_7sj5j"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/player/jim.tscn" id="5_cif7j"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="6_mb1ed"]
 [ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="7_ld508"]
+[ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/npc_template.tscn" id="8_1uumc"]
 [ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/props_dynamic/dynamic_dumpster.tscn" id="8_bkbhp"]
 [ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/new structure/hat/cap_0.tres" id="8_cxau3"]
+[ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/new structure/top/shirt_0.tres" id="9_0o5j7"]
 [ext_resource type="AudioStream" uid="uid://bhi7v38hdrhv6" path="res://audio/soundFX/environment/ocean_waves.wav" id="10_lp4y7"]
 [ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/props_static/city/lightPole_right.tscn" id="11_w3tfl"]
 [ext_resource type="PackedScene" uid="uid://chr3rbwyea60o" path="res://entities/game_world/window1_all_night.tscn" id="13_jdlpd"]
@@ -326,8 +328,28 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="Main_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(-538, 813)
+position = Vector2(376, -329)
 hat_spriteframes = ExtResource("8_cxau3")
+
+[node name="blank_npc" parent="Main_canvas/ysort" instance=ExtResource("8_1uumc")]
+position = Vector2(-57, -197)
+talk_radius = 50
+has_passive_text = true
+ai_directive = "alert_passive"
+voice = "low_sine_voice"
+hat_spriteframes = ExtResource("8_cxau3")
+top_spriteframes = ExtResource("9_0o5j7")
+passive_text = "My brother sells seashells by the seashore."
+
+[node name="blank_npc3" parent="Main_canvas/ysort" instance=ExtResource("8_1uumc")]
+position = Vector2(237, 1832)
+talk_radius = 50
+has_passive_text = true
+ai_directive = "alert_passive"
+voice = "low_sine_voice1"
+hat_spriteframes = ExtResource("8_cxau3")
+top_spriteframes = ExtResource("9_0o5j7")
+passive_text = "Wanna buy some seashells?"
 
 [node name="prop_name_here" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
 position = Vector2(-819, 818)
@@ -465,6 +487,14 @@ position = Vector2(375, -297)
 [node name="Red_Mobster" parent="Main_canvas/ysort" node_paths=PackedStringArray("current_patrol_point") instance=ExtResource("19_x45wg")]
 position = Vector2(-977, 797)
 current_patrol_point = NodePath("../../../dev_layer/patrol_point2")
+
+[node name="blank_npc2" parent="Main_canvas/ysort" instance=ExtResource("8_1uumc")]
+position = Vector2(198, -576)
+talk_radius = 50
+has_passive_text = true
+ai_directive = "alert_passive"
+voice = "sine_voice"
+passive_text = "Taking a look at the clock?"
 
 [node name="TileMap_mid" type="TileMap" parent="Main_canvas"]
 z_index = 2

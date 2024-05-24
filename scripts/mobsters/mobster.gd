@@ -92,7 +92,7 @@ var spark_knockout_distance = 16
 @export var facing_dir = "right"
 
 var current_v = Vector2(0,0) #The force which will be applied to the mobster this frame
-var max_speed = 125000
+var top_speed = 125000
 var random = RandomNumberGenerator.new()
 
 var immobilized = false
@@ -288,7 +288,7 @@ func advance_navigation():
 	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached):
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		current_v = current_agent_position.direction_to(next_path_position) * max_speed
+		current_v = current_agent_position.direction_to(next_path_position) * top_speed
 	else:
 		current_v = current_v * 0
 
@@ -416,7 +416,7 @@ func _process(delta):
 		handle_AI()
 		
 		if(!immobilized):
-			_character_base.set_animation_scale(0.4, 0.6,speed(),max_speed)
+			_character_base.set_animation_scale(0.4, 0.6,speed(),top_speed)
 		
 		update_vision()
 		
@@ -430,7 +430,7 @@ func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
 		if(!immobilized):
 			_character_base.face_to_vector(current_v)
-			_character_base.animate_sprite_by_vector(current_v, (speed() >= max_speed))
+			_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
 			advance_navigation()
 		else:
 			current_v = current_v * 0
