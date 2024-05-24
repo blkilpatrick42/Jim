@@ -24,6 +24,7 @@ func start_dyin(dir):
 		frame_count = _character_base.get_base_animation_framecount(animation_name)
 		running_animation = true
 		_character_base.play_animation(animation_name)
+		_character_base.set_speed_scales(1)
 
 func _process(delta):
 	if(running_animation):
