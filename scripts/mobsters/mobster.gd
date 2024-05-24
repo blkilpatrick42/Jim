@@ -1,16 +1,10 @@
+@tool
 extends RigidBody2D
 
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
 var bullet = preload("res://entities/mobsters/bullet.tscn")
 var sound_player := AudioStreamPlayer2D.new()
-
-const milliseconds_in_second = 1000
-
-const facing_pos_right = "right"
-const facing_pos_left = "left"
-const facing_pos_up = "up"
-const facing_pos_down = "down"
 
 const team_blu = "blu"
 const team_red = "red"
@@ -85,14 +79,17 @@ var spark_knockout_distance = 16
 @export var state = state_patrol
 @export var sub_state = sub_state_patrol_look
 
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _character_base = $character_base
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _raycast: RayCast2D = $RayCast2D
 @onready var _vision = $vision
 @onready var _shadow = $shadow
 
-
-@export var facingPosition = facing_pos_left
+@export var base_spriteframes : SpriteFrames
+@export var hat_spriteframes : SpriteFrames
+@export var top_spriteframes : SpriteFrames
+@export var bottom_spriteframes : SpriteFrames
+@export var facing_dir = "right"
 
 var current_v = Vector2(0,0) #The force which will be applied to the mobster this frame
 var max_speed = 125000
@@ -102,14 +99,23 @@ var immobilized = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_animated_sprite.play("default")
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
 	add_child(sound_player)
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 32.0
 	initialize_timers()
-	call_deferred("actor_setup")
+	call_deferred("actor_setup") #set up navigation
+	
+	#set up character base
+	_character_base.set_facing_dir(facing_dir)
+	_character_base.set_spriteframes(base_spriteframes,
+	hat_spriteframes,
+	top_spriteframes,
+	bottom_spriteframes)
+	
+	if(Engine.is_editor_hint()):
+		queue_redraw()
 
 func initialize_timers():
 	timer_look.one_shot = true
@@ -137,56 +143,15 @@ func fall():
 	state = state_knockout
 	sub_state = sub_state_knockout_falling
 	timer_knockout_sleep.start(knockout_sleep_time_secs)
-	_animated_sprite.play(str("fall_",facingPosition))
+	_character_base.play_animation(str("fall_",facing_dir))
 
 func recover():
 	sub_state = sub_state_knockout_recover
-	_animated_sprite.play(str("recover_",facingPosition))
-
-func stand_dir(direction):
-	_animated_sprite.play(str("stand_",facingPosition))
-
-func walk_dir(direction):
-	_animated_sprite.play(str("walk_",facingPosition))
-
-func face_to_vector(vector):
-	if(abs(vector.x) >= abs(vector.y)): 
-		if(vector.x > 0):
-			facingPosition = facing_pos_right
-		else: if (vector.x < 0):
-			facingPosition = facing_pos_left
-	#movement is greater on the y axis
-	else: if (abs(vector.x) <= abs(vector.y)): 
-		if(vector.y > 0):
-			facingPosition = facing_pos_down
-		else: if (vector.y < 0):
-			facingPosition = facing_pos_up
+	_character_base.play_animation(str("recover_",facing_dir))
 
 func face_AI_target_pos():
 	var vector_to_target = position.direction_to(AI_target_pos)
-	face_to_vector(vector_to_target)
-
-func turn_right():
-	match(facingPosition):
-		facing_pos_right:
-			facingPosition = facing_pos_down
-		facing_pos_down:
-			facingPosition = facing_pos_left
-		facing_pos_left:
-			facingPosition = facing_pos_up
-		facing_pos_up:
-			facingPosition = facing_pos_right
-
-func turn_left():
-	match(facingPosition):
-		facing_pos_right:
-			facingPosition = facing_pos_up
-		facing_pos_down:
-			facingPosition = facing_pos_right
-		facing_pos_left:
-			facingPosition = facing_pos_down
-		facing_pos_up:
-			facingPosition = facing_pos_left
+	_character_base.face_to_vector(vector_to_target)
 
 func speed():
 	return linear_velocity.length()
@@ -199,31 +164,22 @@ func create_exclaim_bubble():
 	var exclaimBubble = exclaim_bubble.instantiate()
 	self.add_child(exclaimBubble)
 
-#rotate and animate sprite based on velocity
-func set_sprite_by_velocity():
-	face_to_vector(current_v)
-	
-	if(current_v.length() > 0):
-		walk_dir(facingPosition)
-	else: 
-		stand_dir(facingPosition)
-
 func update_vision():
-	match(facingPosition):
-		facing_pos_right:
+	match(_character_base.get_facing_dir()):
+		_character_base.facing_dir_right:
 			_vision.set_rotation_degrees(0) 
-		facing_pos_left:
+		_character_base.facing_dir_left:
 			_vision.set_rotation_degrees(180)
-		facing_pos_up:
+		_character_base.facing_dir_up:
 			_vision.set_rotation_degrees(270)
-		facing_pos_down:
+		_character_base.facing_dir_down:
 			_vision.set_rotation_degrees(90)
 
 func go_alert():
 	sound_player.stream = load("res://audio/soundFX/alert.wav")
 	sound_player.play()
 	immobilized = true
-	stand_dir(facingPosition)
+	_character_base.stand_dir(_character_base.get_facing_dir())
 	create_exclaim_bubble()
 	state = state_alert
 	sub_state = sub_state_alert_exclaiming
@@ -239,17 +195,17 @@ func leave_alert():
 
 func set_shoort_arc_bounds():
 	var half_arc = shoot_arc_degrees / 2
-	match(facingPosition):
-		facing_pos_right:
+	match(_character_base.get_facing_dir()):
+		_character_base.facing_dir_right:
 			lower_bound = 0 - half_arc
 			upper_bound = 0 + half_arc
-		facing_pos_left:
+		_character_base.facing_dir_left:
 			lower_bound = 180 - half_arc
 			upper_bound = 180 + half_arc
-		facing_pos_up:
+		_character_base.facing_dir_up:
 			lower_bound = 270 - half_arc
 			upper_bound = 270 + half_arc
-		facing_pos_down:
+		_character_base.facing_dir_down:
 			lower_bound = 90 - half_arc
 			upper_bound = 90 + half_arc
 	
@@ -259,14 +215,14 @@ func create_bullet():
 	var half_arc = shoot_arc_degrees / 2
 	var spawn_distance = 20
 	var gun_pos_tweak = 5
-	match(facingPosition):
-		facing_pos_right:
+	match(_character_base.get_facing_dir()):
+		_character_base.facing_dir_right:
 			bullet_spawn_point = bullet_spawn_point + Vector2(spawn_distance,0)
-		facing_pos_left:
+		_character_base.facing_dir_left:
 			bullet_spawn_point = bullet_spawn_point + Vector2(-spawn_distance,0)
-		facing_pos_up:
+		_character_base.facing_dir_up:
 			bullet_spawn_point = bullet_spawn_point + Vector2(gun_pos_tweak,-spawn_distance)
-		facing_pos_down:
+		_character_base.facing_dir_down:
 			bullet_spawn_point = bullet_spawn_point + Vector2(-gun_pos_tweak,spawn_distance)
 	
 	var new_bullet = bullet.instantiate()
@@ -293,7 +249,7 @@ func create_bullet():
 
 func shoot_burst():
 	immobilized = true
-	_animated_sprite.play(str("shoot_",facingPosition))
+	_character_base.play_animation(str("shoot_",_character_base.get_facing_dir()))
 	
 	if(timer_between_shots.is_stopped() 
 		&& num_bullets_fired < burst_num_bullets):
@@ -370,7 +326,7 @@ func patrol_look():
 		timer_look.start(patrol_look_time_secs)
 		if(patrol_look_turns < num_look_turns):
 			patrol_look_turns = patrol_look_turns + 1
-			turn_right()
+			_character_base.turn_right()
 		else: 
 			patrol_look_turns = 0
 			if(current_patrol_point.has_next_point):
@@ -390,18 +346,18 @@ func knockout():
 
 func knockout_falling():
 	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
-	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("fall_right")-1):
+	if(_character_base.get_base_current_frame() == _character_base.get_base_animation_framecount("fall_right")-1):
 		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
 		sound_player.play()
 		sub_state = sub_state_knockout_sleep
-		_animated_sprite.play(str("fallen_",facingPosition))
+		_character_base.play_animation(str("fallen_",_character_base.get_facing_dir()))
 
 func knockout_sleep():
 	if(timer_knockout_sleep.is_stopped()):
 		recover()
 
 func knockout_recovering():
-	if(_animated_sprite.frame == _animated_sprite.sprite_frames.get_frame_count("recover_right")-1):
+	if(_character_base.get_base_current_frame()  == _character_base.get_base_animation_framecount("recover_right")-1):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
 		immobilized = false
@@ -453,41 +409,32 @@ func alert_shooting():
 #############
 
 func _process(delta):
-	check_vision()
-	
-	#process AI state
-	handle_AI()
-	
-	if(!immobilized):
-		#scale animation to movement speed
-		if(speed() != 0):
-			#Base speed of 40%. We ramp to 100% (full speed) using a ratio of 
-			#speed/topspeed for the remaining 60%.	
-			var baseScale = 0.4
-			var velocityScale = speed() / max_speed
-			var remainderScale = 0.6 * velocityScale
-			var animationScale = baseScale + remainderScale
-			_animated_sprite.set_speed_scale(animationScale)
-		else:
-			_animated_sprite.set_speed_scale(1)
-	else:
-		_animated_sprite.set_speed_scale(1)
-	
-	update_vision()
-	
-	var sparks = get_tree().get_nodes_in_group("spark")
-	for spark in sparks:
-		if (global_position.distance_to(spark.global_position) < spark_knockout_distance &&
-			state in fall_vulnerable_states):
-			fall()
+	if(!Engine.is_editor_hint()):
+		check_vision()
+		
+		#process AI state
+		handle_AI()
+		
+		if(!immobilized):
+			_character_base.set_animation_scale(0.4, 0.6,speed(),max_speed)
+		
+		update_vision()
+		
+		var sparks = get_tree().get_nodes_in_group("spark")
+		for spark in sparks:
+			if (global_position.distance_to(spark.global_position) < spark_knockout_distance &&
+				state in fall_vulnerable_states):
+				fall()
 
 func _physics_process(delta):
-	if(!immobilized):
-		set_sprite_by_velocity()
-		advance_navigation()
-	else:
-		current_v = current_v * 0
-	
-	#apply velocity thru physics engine
-	apply_force(current_v)
+	if(!Engine.is_editor_hint()):
+		if(!immobilized):
+			_character_base.face_to_vector(current_v)
+			_character_base.animate_sprite_by_vector(current_v, (speed() >= max_speed))
+			advance_navigation()
+		else:
+			current_v = current_v * 0
+		
+		#apply velocity thru physics engine
+		apply_force(current_v)
 	

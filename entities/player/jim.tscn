@@ -23,6 +23,7 @@ contact_monitor = true
 lock_rotation = true
 linear_damp = 6.0
 script = ExtResource("1_txjuo")
+base_spriteframes = ExtResource("4_r4t1j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, 5.5)

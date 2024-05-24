@@ -45,6 +45,7 @@ func _ready():
 	add_child(timer_dash_regen)
 	sound_player.volume_db = -12
 	
+	#set up character base
 	_character_base.set_facing_dir(facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,
@@ -56,7 +57,7 @@ func _ready():
 
 func _process(_delta):
 	if(!Engine.is_editor_hint()):
-		_character_base.set_sprite_by_vector(current_v, (speed() >= top_speed))
+		_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
 		update_grabber()
 		will_grab_object = null
 		if(!holding_object):
@@ -184,7 +185,7 @@ func move_jim():
 	else: 
 		current_v = input_direction * 0
 	
-	_character_base.set_animation_scale(speed(), top_speed)
+	_character_base.set_animation_scale(0.2, 0.8, speed(), top_speed)
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):

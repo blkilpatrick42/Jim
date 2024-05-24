@@ -27,6 +27,8 @@ var player_y_offset = 24
 var timer_spark := Timer.new()
 var can_spark = false
 
+var can_make_noise = true
+
 var local_collision_pos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
@@ -140,12 +142,18 @@ func _integrate_forces(state):
 			var nSpark = spark.instantiate()
 			get_parent().add_child(nSpark)
 			nSpark.position = local_collision_pos
-			sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
-			sound_player.play()
+			if(can_make_noise):
+				can_make_noise = false
+				sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+				sound_player.play()
 		else:
-			sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
-			sound_player.play()
-		
+			if(can_make_noise):
+				can_make_noise = false
+				sound_player.stream = load("res://audio/soundFX/smallCollide.wav")
+				sound_player.play()
+	else:
+		can_make_noise = true
+			
 	if should_reset:
 		should_reset = false
 		state.transform.origin = new_position
