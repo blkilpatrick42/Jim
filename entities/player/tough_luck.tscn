@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://j10emj0ffcps"]
 
-[ext_resource type="Texture2D" uid="uid://drhb8omp3qpc2" path="res://sprites/spritesheets/characters/old structure/player/die_text.png" id="1_sadg0"]
+[ext_resource type="Texture2D" uid="uid://drhb8omp3qpc2" path="res://sprites/die_text.png" id="1_sadg0"]
 
 [node name="tough_luck" type="Node2D"]
 

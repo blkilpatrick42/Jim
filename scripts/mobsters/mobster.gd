@@ -143,11 +143,11 @@ func fall():
 	state = state_knockout
 	sub_state = sub_state_knockout_falling
 	timer_knockout_sleep.start(knockout_sleep_time_secs)
-	_character_base.play_animation(str("fall_",facing_dir))
+	_character_base.play_animation(str("fall_",_character_base.facing_dir))
 
 func recover():
 	sub_state = sub_state_knockout_recover
-	_character_base.play_animation(str("recover_",facing_dir))
+	_character_base.play_animation(str("recover_",_character_base.facing_dir))
 
 func face_AI_target_pos():
 	var vector_to_target = position.direction_to(AI_target_pos)

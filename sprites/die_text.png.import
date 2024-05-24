@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drhb8omp3qpc2"
-path="res://.godot/imported/die_text.png-8438f19f3b7fd2cd622a7c4c491983ad.ctex"
+path="res://.godot/imported/die_text.png-0ac8d4b79b0bd28d21a104ca50c51ef4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/characters/old structure/player/die_text.png"
-dest_files=["res://.godot/imported/die_text.png-8438f19f3b7fd2cd622a7c4c491983ad.ctex"]
+source_file="res://sprites/die_text.png"
+dest_files=["res://.godot/imported/die_text.png-0ac8d4b79b0bd28d21a104ca50c51ef4.ctex"]
 
 [params]
 

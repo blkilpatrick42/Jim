@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _character_base = $character_base
 @onready var _tough_luck = $tough_luck
 var sound_player := AudioStreamPlayer2D.new()
 
@@ -21,13 +21,13 @@ func start_dyin(dir):
 		sound_player.play()
 		set_facing_direction(dir)
 		var animation_name = str("die_",facing_direction)
-		frame_count = _animated_sprite.sprite_frames.get_frame_count(animation_name)
+		frame_count = _character_base.get_base_animation_framecount(animation_name)
 		running_animation = true
-		_animated_sprite.play(animation_name)
+		_character_base.play_animation(animation_name)
 
 func _process(delta):
 	if(running_animation):
-		if(_animated_sprite.frame == frame_count-1):
-			var animation_name = str("dead_",facing_direction)
-			_animated_sprite.play(animation_name)
+		if(_character_base.get_base_current_frame() == frame_count-1):
+			var animation_name = str("fallen_",facing_direction)
+			_character_base.play_animation(animation_name)
 			_tough_luck.visible = true

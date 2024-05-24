@@ -68,6 +68,16 @@ func stand_dir(direction):
 func walk_dir(direction):
 	play_animation(str("walk_",direction))
 
+func set_all_materials(material):
+	if(_base_sprite.sprite_frames != null):
+		_base_sprite.set_material(material)
+	if(_hat.sprite_frames != null):
+		_hat.set_material(material)
+	if(_top.sprite_frames != null):
+		_top.set_material(material)
+	if(_bottom.sprite_frames != null):
+		_bottom.set_material(material)
+
 #sets the facing_dir based on the given vector
 func face_to_vector(vector):
 	if(abs(vector.x) >= abs(vector.y)): 

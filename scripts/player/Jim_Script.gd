@@ -3,6 +3,7 @@ extends RigidBody2D
 
 @onready var _character_base = $character_base
 @onready var _grabber = $grabber
+@onready var _tough_luck = $tough_luck
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -13,6 +14,7 @@ extends RigidBody2D
 #TODO: get this working with character composition (will be an absolute bastard wah)
 var player_die = preload("res://entities/player/player_die.tscn") 
 var dash_get = preload("res://interface/dash_get.tscn")
+var die_material = preload("res://entities/player/die_material.tres")
 
 var sound_player := AudioStreamPlayer.new()
 
@@ -55,41 +57,6 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
-func _process(_delta):
-	if(!Engine.is_editor_hint()):
-		_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
-		update_grabber()
-		will_grab_object = null
-		if(!holding_object):
-			var grabObj = null
-			
-			if(_grabber.is_colliding()):
-				grabObj = _grabber.get_collider(0)
-			
-			#check for pickupables
-			get_tree().call_group("pickupable", "set_will_pickup_false")
-			if(grabObj != null && 
-			grabObj.is_in_group("pickupable")):
-				grabObj.will_pickup = true
-				will_grab_object = grabObj
-		
-		#stop dash if timer has been esceeded
-		if(is_dashing):
-			acceleration_quotient = dash_speed
-			if(timer_dash.is_stopped()):
-				is_dashing = false
-				acceleration_quotient = normal_speed
-				timer_dash_regen.start(dash_regen_time_secs)
-		else:
-			acceleration_quotient = normal_speed
-		
-		#regen dash
-		if(timer_dash_regen.is_stopped() && can_dash == false && !is_dashing):
-			sound_player.stream = load("res://audio/soundFX/dashget.wav")
-			sound_player.play()
-			can_dash = true
-			add_child(dash_get.instantiate())
-
 func get_input():
 	if(!control_frozen):
 				#orient and player according to input
@@ -113,8 +80,11 @@ func _on_body_entered(body:Node):
 func die():
 	if(!dead):
 		var die_guy = player_die.instantiate()
-		get_parent().add_child(die_guy)
+		_character_base.reparent(die_guy)
 		die_guy.position = position
+		_character_base.global_position = die_guy.global_position
+		_character_base.set_all_materials(die_material)
+		get_parent().add_child(die_guy)
 		visible = false
 		die_guy.start_dyin(_character_base.get_facing_dir())
 		dead = true
@@ -187,10 +157,47 @@ func move_jim():
 	
 	_character_base.set_animation_scale(0.2, 0.8, speed(), top_speed)
 
+func _process(_delta):
+	if(!Engine.is_editor_hint()):
+		if(!dead):
+			_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
+			update_grabber()
+			will_grab_object = null
+			if(!holding_object):
+				var grabObj = null
+				
+				if(_grabber.is_colliding()):
+					grabObj = _grabber.get_collider(0)
+				
+				#check for pickupables
+				get_tree().call_group("pickupable", "set_will_pickup_false")
+				if(grabObj != null && 
+				grabObj.is_in_group("pickupable")):
+					grabObj.will_pickup = true
+					will_grab_object = grabObj
+			
+			#stop dash if timer has been esceeded
+			if(is_dashing):
+				acceleration_quotient = dash_speed
+				if(timer_dash.is_stopped()):
+					is_dashing = false
+					acceleration_quotient = normal_speed
+					timer_dash_regen.start(dash_regen_time_secs)
+			else:
+				acceleration_quotient = normal_speed
+			
+			#regen dash
+			if(timer_dash_regen.is_stopped() && can_dash == false && !is_dashing):
+				sound_player.stream = load("res://audio/soundFX/dashget.wav")
+				sound_player.play()
+				can_dash = true
+				add_child(dash_get.instantiate())
+
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
-		get_input()
-		apply_force(current_v)
+		if(!dead):
+			get_input()
+			apply_force(current_v)
 		
 
 
