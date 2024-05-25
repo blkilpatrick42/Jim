@@ -59,7 +59,7 @@ func _ready():
 
 func get_input():
 	if(!control_frozen):
-				#orient and player according to input
+		#orient and player according to input
 		if Input.is_action_pressed("right"):
 			_character_base.face_right()
 		else: if Input.is_action_pressed("left"):
@@ -100,6 +100,15 @@ func handle_dash():
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
 			throw()
+
+func set_control_frozen(value):
+	control_frozen = value
+
+func set_current_v(vect : Vector2):
+	current_v = vect
+
+func stop():
+	current_v = Vector2(0,0)
 
 func throw():
 	if(holding_object):

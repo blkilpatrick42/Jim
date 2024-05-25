@@ -20,7 +20,6 @@ contact_monitor = true
 linear_damp = 2.0
 script = ExtResource("1_25myv")
 force_factor = 700
-spark_time_secs = 2
 
 [node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true

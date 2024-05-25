@@ -146,15 +146,17 @@ play_5 = "music/A Tree With Silver Dollar Leaves.mp3"
 [node name="teleporter_link" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
 position = Vector2(376, -311)
 linked_teleporter = NodePath("../teleporter_link2")
-enter_y_push = -50000
-exit_y_push = 25000
+exit_only = null
 
 [node name="teleporter_link2" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
-position = Vector2(2200, 72.8197)
+position = Vector2(2200, 73)
 linked_teleporter = NodePath("../teleporter_link")
-enter_y_push = 50000
-exit_y_push = -25000
-exit_only = false
+exit_only = true
+
+[node name="teleporter_link3" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
+position = Vector2(2200, 137)
+linked_teleporter = NodePath("../teleporter_link")
+exit_only = null
 
 [node name="invisible_Wall_1" type="StaticBody2D" parent="dev_layer"]
 
@@ -582,7 +584,7 @@ passive_text = "Taking a look at the clock?"
 
 [node name="big_black_square" type="Polygon2D" parent="Main_canvas/ysort"]
 z_index = -500
-position = Vector2(2202, 51.8197)
+position = Vector2(2202, 52)
 scale = Vector2(0.465461, 0.465461)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-1254.67, -1357.79, 2043, -1366, 2030.24, 764.833, -1246.08, 784.168)

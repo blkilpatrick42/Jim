@@ -1,0 +1,61 @@
+[gd_scene load_steps=48 format=3 uid="uid://kmdvvmso2r8o"]
+
+[ext_resource type="Script" path="res://scripts/utility/teleporter_link.gd" id="1_85abk"]
+[ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
+[ext_resource type="Script" path="res://scripts/clock/clock_sound.gd" id="4_7sj5j"]
+[ext_resource type="PackedScene" uid="uid://u6uyhyfhf4v5" path="res://entities/dev_entitites/teleporter_link.tscn" id="4_313fk"]
+[ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/player/jim.tscn" id="5_cif7j"]
+[ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/ball.tscn" id="6_mb1ed"]
+[ext_resource type="PackedScene" uid="uid://cy40cvst7p3ko" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/traffic_cone.tscn" id="7_ld508"]
+[ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/hat/cap_0.tres" id="7_xgh3y"]
+[ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/actors/npc_template.tscn" id="8_1uumc"]
+[ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="8_38bov"]
+[ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/props_dynamic/dynamic_dumpster.tscn" id="8_bkbhp"]
+[ext_resource type="AudioStream" uid="uid://bhi7v38hdrhv6" path="res://audio/soundFX/environment/ocean_waves.wav" id="10_lp4y7"]
+[ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/props_static/city/lightPole_right.tscn" id="11_w3tfl"]
+[ext_resource type="PackedScene" uid="uid://chr3rbwyea60o" path="res://entities/game_world/window1_all_night.tscn" id="13_jdlpd"]
+[ext_resource type="PackedScene" uid="uid://dmop2hkofessp" path="res://entities/props/props_static/12hr_clock.tscn" id="13_p02ka"]
+[ext_resource type="PackedScene" uid="uid://ch3ityck63mn0" path="res://entities/game_world/window1_dark.tscn" id="13_wxwfm"]
+[ext_resource type="PackedScene" uid="uid://cvw0h3o72k4yp" path="res://entities/props/props_static/city/lightPole_left.tscn" id="14_eirh3"]
+[ext_resource type="Script" path="res://scripts/clock/outdoor_light.gd" id="15_tdgnx"]
+[ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="16_0hrht"]
+[ext_resource type="PackedScene" uid="uid://1htqc5w43g1e" path="res://entities/props/props_dynamic/props_dynamic_pickupable/city/pizza.tscn" id="16_1flym"]
+[ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/mobsters/patrol_point.tscn" id="16_kbovc"]
+[ext_resource type="PackedScene" uid="uid://d3q58k74gxjnl" path="res://entities/game_world/matte_painting_test.tscn" id="17_mgj8o"]
+[ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/game_world/door1.tscn" id="18_m106v"]
+[ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/game_world/door_frame.tscn" id="18_qehjh"]
+[ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/mobsters/Red_Mobster.tscn" id="19_x45wg"]
+
+[sub_resource type="GDScript" id="GDScript_rsnvh"]
+script/source = "extends AudioStreamPlayer2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_angkk"]
+size = Vector2(96, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y3al"]
+size = Vector2(68, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkv58"]
+size = Vector2(225.125, 194)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0lkp"]
+size = Vector2(14, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egsus"]
+size = Vector2(83.5, 129.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3mlh"]
+size = Vector2(158, 34)
+
+[sub_resource 

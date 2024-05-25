@@ -23,7 +23,7 @@ var thrown = false
 
 var player_y_offset = 24
 
-@export var spark_time_secs = 200 #time after being thrown in which a spark is created on collide
+@export var spark_time_secs :float = 0.5 #time after being thrown in which a spark is created on collide
 var timer_spark := Timer.new()
 var can_spark = false
 
