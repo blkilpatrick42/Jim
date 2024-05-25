@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yh1sdoo12jth"]
 
 [ext_resource type="Script" path="res://scripts/mobsters/patrol_point.gd" id="1_kinu1"]
-[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/new structure/base/red_mobster_base.tres" id="1_wsmek"]
+[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="1_wsmek"]
 
 [node name="patrol_point" type="Node2D" groups=["patrol_point"]]
 script = ExtResource("1_kinu1")

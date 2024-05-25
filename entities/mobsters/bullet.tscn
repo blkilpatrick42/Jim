@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn8jdo3y51ern"]
 
-[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/characters/old structure/mobster/bullet.png" id="2_61ot4"]
+[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/mobster/bullet.png" id="2_61ot4"]
 [ext_resource type="Script" path="res://scripts/mobsters/bullet.gd" id="2_qy1y4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpruoc10tcsh5"]
 
 [ext_resource type="Script" path="res://scripts/mobsters/mobster.gd" id="1_uqwts"]
-[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/new structure/base/red_mobster_base.tres" id="2_4eamy"]
+[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_qkhc6"]
 [ext_resource type="PackedScene" uid="uid://ri414jkdjpq4" path="res://entities/characters/base/character_base.tscn" id="3_bnvdq"]
 [ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_wq4dt"]
 
@@ -19,7 +19,7 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 5.0
 script = ExtResource("1_uqwts")
-base_spriteframes = ExtResource("2_4eamy")
+base_spriteframes = ExtResource("2_qkhc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["npc"]]
 y_sort_enabled = true
@@ -50,5 +50,5 @@ target_position = Vector2(0, 0)
 
 [node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
 position = Vector2(0, -1)
-base_spriteframes = ExtResource("2_4eamy")
+base_spriteframes = ExtResource("2_qkhc6")
 facing_dir = "right"

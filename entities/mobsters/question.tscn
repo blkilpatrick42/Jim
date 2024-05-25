@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bybnwpnl8kabd"]
 
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_k3g4i"]
-[ext_resource type="SpriteFrames" uid="uid://cva0t3qolt7sn" path="res://sprites/spritesheets/spriteframes/characters/old structure/mobsters/question.tres" id="2_g5uov"]
+[ext_resource type="SpriteFrames" uid="uid://cva0t3qolt7sn" path="res://sprites/spritesheets/spriteframes/mobster/question.tres" id="2_g5uov"]
 
 [node name="question" type="Node2D"]
 script = ExtResource("1_k3g4i")
