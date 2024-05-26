@@ -289,7 +289,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall_left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -38,6 +38,7 @@ const state_investigate = "investigate"
 const sub_state_investigate_question = "investigate_question"
 var investigate_question_time_secs = 3
 var timer_investigate_question := Timer.new() 
+var commotion_notice_distance = 150
 
 #alert state
 const state_alert = "alert"
@@ -166,6 +167,8 @@ func speed():
 	return linear_velocity.length()
 
 func create_question_bubble():
+	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
+	sound_player.play()
 	var questionBubble = question_bubble.instantiate()
 	self.add_child(questionBubble)
 
@@ -195,12 +198,20 @@ func go_alert():
 	timer_alert_exclaim.start(alert_exclaim_time_secs)
 
 func leave_alert():
-	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
-	sound_player.play()
 	immobilized = false
 	create_question_bubble()
 	state = state_patrol
 	sub_state = sub_state_patrol_look
+
+func investigate_commotion(commotion_position :Vector2):
+	immobilized = true
+	create_question_bubble()
+	AI_target_pos = commotion_position
+	face_AI_target_pos()
+	_character_base.stand_dir(_character_base.facing_dir)
+	state = state_investigate
+	timer_investigate_question.start(investigate_question_time_secs)
+	sub_state = sub_state_investigate_question
 
 func set_shoort_arc_bounds():
 	var half_arc = shoot_arc_degrees / 2
@@ -355,6 +366,7 @@ func patrol_look():
 				sub_state = sub_state_patrol_transit
 			else: if(current_patrol_point == null):
 				patrol_look_turns = 4
+
 #KNOCKOUT STATE
 func knockout():
 	match(sub_state):
@@ -441,12 +453,24 @@ func _process(delta):
 		
 		update_vision()
 		
-		var sparks = get_tree().get_nodes_in_group("spark")
-		for spark in sparks:
-			if (global_position.distance_to(spark.global_position) < spark_knockout_distance &&
-				state in fall_vulnerable_states):
-				fall()
-
+		#check and see if the mobster ought to be knocked out
+		if(state in fall_vulnerable_states):
+			var sparks = get_tree().get_nodes_in_group("spark")
+			for spark in sparks:
+				if (global_position.distance_to(spark.global_position) < spark_knockout_distance):
+					fall()
+			
+		#check to see if there's any commotions nearby which should be investigated
+		if(state != state_investigate &&
+		state != state_alert &&
+		state in alertable_states):
+			var commotions = get_tree().get_nodes_in_group("commotion")
+			for commotion in commotions:
+				if (global_position.distance_to(commotion.global_position) < commotion_notice_distance &&
+					state in alertable_states &&
+					state != state_investigate):
+					investigate_commotion(commotion.global_position)
+				
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
 		if(!immobilized):

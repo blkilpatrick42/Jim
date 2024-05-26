@@ -413,7 +413,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="Main_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(2124, -231)
+position = Vector2(-809, 311)
 hat_spriteframes = ExtResource("7_xgh3y")
 top_spriteframes = ExtResource("8_38bov")
 
@@ -436,13 +436,13 @@ hat_spriteframes = ExtResource("7_xgh3y")
 passive_text = "Wanna buy some seashells?"
 
 [node name="prop_name_here" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
-position = Vector2(-832, 803)
+position = Vector2(-832, 353)
 
 [node name="basketball" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
 position = Vector2(328, -224)
 
 [node name="basketball2" parent="Main_canvas/ysort" instance=ExtResource("6_mb1ed")]
-position = Vector2(256, 1664)
+position = Vector2(251, 1673)
 
 [node name="cone1" parent="Main_canvas/ysort" instance=ExtResource("7_ld508")]
 position = Vector2(120, 128)
@@ -614,6 +614,10 @@ current_patrol_point = NodePath("../../../dev_layer/patrol_point7")
 [node name="Red_Mobster3" parent="Main_canvas/ysort" node_paths=PackedStringArray("current_patrol_point") instance=ExtResource("19_x45wg")]
 position = Vector2(-647, 969)
 current_patrol_point = NodePath("../../../dev_layer/patrol_point9")
+
+[node name="Red_Mobster4" parent="Main_canvas/ysort" node_paths=PackedStringArray("current_patrol_point") instance=ExtResource("19_x45wg")]
+position = Vector2(-948, 1089)
+current_patrol_point = NodePath("../../../dev_layer/patrol_point10")
 
 [node name="blank_npc2" parent="Main_canvas/ysort" instance=ExtResource("8_1uumc")]
 position = Vector2(198, -576)

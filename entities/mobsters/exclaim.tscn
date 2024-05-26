@@ -6,7 +6,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lqkf"]
 light_mode = 1
 
-[node name="exclaim" type="Node2D"]
+[node name="exclaim" type="Node2D" groups=["commotion"]]
 script = ExtResource("1_anrpq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
