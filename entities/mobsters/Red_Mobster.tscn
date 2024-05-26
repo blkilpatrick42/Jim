@@ -18,6 +18,7 @@ height = 19.7857
 [node name="Red_Mobster" type="RigidBody2D" groups=["mobster", "red"]]
 y_sort_enabled = true
 collision_layer = 2
+collision_mask = 17
 mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true
@@ -50,6 +51,7 @@ texture = ExtResource("3_wq4dt")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
+collision_mask = 17
 
 [node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
 position = Vector2(0, -1)

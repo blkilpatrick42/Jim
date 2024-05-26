@@ -38,7 +38,7 @@ const state_investigate = "investigate"
 const sub_state_investigate_question = "investigate_question"
 var investigate_question_time_secs = 3
 var timer_investigate_question := Timer.new() 
-var commotion_notice_distance = 150
+var commotion_notice_distance = 192
 
 #alert state
 const state_alert = "alert"
@@ -156,7 +156,6 @@ func fall():
 
 func recover():
 	sub_state = sub_state_knockout_recover
-	_head_collider.disabled = false
 	_character_base.play_animation(str("recover_",_character_base.facing_dir))
 
 func face_AI_target_pos():
@@ -393,6 +392,7 @@ func knockout_recovering():
 	if(_character_base.get_base_current_frame()  == _character_base.get_base_animation_framecount("recover_right")-1):
 		state = state_patrol
 		sub_state = sub_state_patrol_look
+		_head_collider.disabled = false
 		immobilized = false
 
 #INVESTIGATE STATE

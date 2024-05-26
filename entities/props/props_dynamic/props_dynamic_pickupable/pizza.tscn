@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtrx31qm66rid"]
+[gd_scene load_steps=6 format=3 uid="uid://p8vbyc0y2cp"]
 
 [ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_456yt"]
 [ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="2_7f12v"]
@@ -12,8 +12,8 @@ size = Vector2(24, 14)
 
 [node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "food", "pickupable", "pizza", "prop"]]
 y_sort_enabled = true
-collision_layer = 3
-collision_mask = 3
+collision_layer = 8
+collision_mask = 31
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_2p830")
 gravity_scale = 0.0

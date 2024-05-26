@@ -8,8 +8,8 @@ size = Vector2(12, 12)
 
 [node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
-collision_layer = 2
-collision_mask = 3
+collision_layer = 8
+collision_mask = 31
 mass = 10.0
 gravity_scale = 0.0
 max_contacts_reported = 1
