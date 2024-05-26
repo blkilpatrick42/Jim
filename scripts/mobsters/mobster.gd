@@ -1,6 +1,8 @@
 @tool
 extends RigidBody2D
 
+@export var alertable = true
+
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
 var bullet = preload("res://entities/mobsters/bullet.tscn")
@@ -9,7 +11,11 @@ var sound_player := AudioStreamPlayer2D.new()
 const team_blu = "blu"
 const team_red = "red"
 
+var safe_velocity = Vector2(0,0)
+
 #AI STATES
+const state_inert = "inert"
+
 #Patrol state
 const state_patrol = "patrol"
 const sub_state_patrol_transit = "patrol_transit"
@@ -17,7 +23,7 @@ const sub_state_patrol_look = "patrol_look"
 var patrol_look_time_secs = 1
 var timer_look := Timer.new() 
 var patrol_look_turns = 0
-@export var current_patrol_point = Node2D
+@export var current_patrol_point :Node2D = null
 
 #knockout state
 const state_knockout = "knockout"
@@ -47,7 +53,7 @@ const burst_bullets_per_sweep = 4
 const burst_num_bullets = bust_num_sweeps * burst_bullets_per_sweep
 const burst_cool_down_secs = 2
 var timer_burst_cool_down := Timer.new() 
-const time_between_shots_secs = 0.5
+const time_between_shots_secs = 0.3
 var timer_between_shots := Timer.new() 
 const shoot_arc_degrees = 40 #keep it even
 var num_bullets_fired = 0
@@ -277,6 +283,7 @@ func check_vision():
 					for group in alertable_groups:
 						if(entity.is_in_group(group) &&
 						has_line_of_sight_to_object(entity) &&
+						alertable &&
 						state != state_alert):
 							go_alert()
 							AI_target_obj = entity
@@ -284,8 +291,15 @@ func check_vision():
 				iterator = iterator + 1
 
 func advance_navigation():
+	var mobsters = get_tree().get_nodes_in_group("mobster")
+	var mobster_near_target = false
+	for mob in mobsters:
+		if(navigation_agent.target_position.distance_to(mob.position) <= nav_target_reached):
+			mobster_near_target = true
+		else:
+			mobster_near_target = false
 		#advance along path towards movement target
-	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached):
+	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached && !mobster_near_target):
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 		current_v = current_agent_position.direction_to(next_path_position) * top_speed
@@ -315,6 +329,7 @@ func patrol():
 			patrol_look()
 
 func patrol_transit():
+
 	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
 		timer_look.start(patrol_look_time_secs)
 		patrol_look_turns = 0
@@ -329,11 +344,14 @@ func patrol_look():
 			_character_base.turn_right()
 		else: 
 			patrol_look_turns = 0
-			if(current_patrol_point.has_next_point):
+			if(current_patrol_point != null &&
+			current_patrol_point.has_next_point &&
+			!current_patrol_point.next_point.is_occupied()):
 				current_patrol_point = current_patrol_point.next_point
 				set_movement_target(current_patrol_point.position)
-			sub_state = sub_state_patrol_transit
-
+				sub_state = sub_state_patrol_transit
+			else: if(current_patrol_point == null):
+				patrol_look_turns = 4
 #KNOCKOUT STATE
 func knockout():
 	match(sub_state):
@@ -437,4 +455,4 @@ func _physics_process(delta):
 		
 		#apply velocity thru physics engine
 		apply_force(current_v)
-	
+

@@ -27,7 +27,7 @@ func _ready():
 	add_child(timer_song)
 	add_child(timer_restart)
 	timer_world.start(hour_length_seconds)
-	ambient_dark = get_parent().get_tree().get_nodes_in_group("ambient_dark")[0]
+	ambient_dark = get_tree().get_nodes_in_group("ambient_dark")[0]
 	player_ref = get_parent().get_tree().get_nodes_in_group("player")[0]
 
 func toggle_pause_parent_tree():
