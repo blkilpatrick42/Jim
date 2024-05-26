@@ -77,14 +77,14 @@ size = Vector2(320.5, 161.5)
 size = Vector2(161, 167)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0ctlu"]
-vertices = PackedVector2Array(-966, 1114, -1038, 1044, -928, 1045, -923, 1081, -688, 1113, -715, 1082, -650, 567, -972, 566, -969, 503, -931, 470, -915, 473, -873, 482, -714, 866, -939, 867, -936, 763, -653, 760, -598, 1032, -971, 483, -827, 474, -684, 472, -608, 549)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 4, 5, 12, 15), PackedInt32Array(8, 17, 9), PackedInt32Array(6, 11, 18, 19, 20), PackedInt32Array(6, 20, 16, 15)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-827, 474, -684, 472, -608, 549, -598, 1032, -688, 1113, -966, 1114, -1038, 1044, -928, 1045, -923, 1081, -715, 1082, -714, 866, -939, 867, -936, 763, -653, 760, -650, 567, -972, 566, -969, 503, -971, 483, -931, 470, -915, 473, -873, 482)])
+vertices = PackedVector2Array(-966, 1114, -1038, 1044, -928, 1045, -918, 1097, -688, 1113, -713, 1097, -650, 567, -972, 566, -969, 503, -931, 470, -915, 473, -873, 482, -714, 866, -939, 867, -937.837, 773.574, -650.864, 781.624, -971, 483, -827, 474, -684, 472, -608, 549, -598, 1032)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(8, 16, 9), PackedInt32Array(6, 11, 17, 18, 19), PackedInt32Array(6, 19, 20, 15), PackedInt32Array(5, 12, 15, 20, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-827, 474, -684, 472, -608, 549, -598, 1032, -688, 1113, -966, 1114, -1038, 1044, -928, 1045, -918, 1097, -713, 1097, -714, 866, -939, 867, -937.837, 773.574, -650.864, 781.624, -650, 567, -972, 566, -969, 503, -971, 483, -931, 470, -915, 473, -873, 482)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fb5nx"]
-vertices = PackedVector2Array(-1050, 556, -971, 483, -969, 503, -972, 566, -1004, 568, -1025, 766, -1051, 737, -1002, 734, -1005, 763, -939, 867, -928, 1045, -1038, 1044, -1055, 911, -1028, 886, -936, 763)
+vertices = PackedVector2Array(-1050, 556, -971, 483, -969, 503, -972, 566, -1004, 568, -1025, 766, -1051, 737, -1002, 734, -1005, 763, -939, 867, -928, 1045, -1038, 1044, -1055, 911, -1028, 886, -935, 777)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 0, 4, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(14, 9, 13, 5, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1038, 1044, -928, 1045, -939, 867, -936, 763, -1005, 763, -1002, 734, -1004, 568, -972, 566, -969, 503, -971, 483, -1050, 556, -1051, 737, -1025, 766, -1028, 886, -1055, 911)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1038, 1044, -928, 1045, -939, 867, -935, 777, -1005, 763, -1002, 734, -1004, 568, -972, 566, -969, 503, -971, 483, -1050, 556, -1051, 737, -1025, 766, -1028, 886, -1055, 911)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hbl0"]
 size = Vector2(160, 64)
@@ -249,17 +249,20 @@ position = Vector2(380, 1700)
 shape = SubResource("RectangleShape2D_4y3al")
 
 [node name="invisible_wall_top" type="StaticBody2D" parent="dev_layer"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_wall_top"]
 visible = false
 polygon = PackedVector2Array(-345, 22, -317, 54, -217, 56, -183, 29, -184, -555, -149, -586, -22, -586, 7, -612, 8, -680, -23, -703, -24, -824, 5, -850, 7, -920, -25, -949, -79, -951, -121, -983, -121, -1017, -90, -1042, -88, -1145, -56, -1176, -21, -1175, 9, -1144, 41, -1144, 61, -1126, 88, -1099, 105, -1083, 103, -1049, 105, -1017, 105, -983, 43, -920, 42, -809, 7, -766, 8, -739, 38, -713, 40, -614, 66, -587, 456, -585, 486, -555, 488, 119, 486, 150, 473, 169, 451, 170, 380, 229, 187, 231, 184, 378, 218, 408, 223, 398, 998, 396, 973, -1494, -1079, -1493, -1062, 553, -967, 457, -888, 456, -857, 423, -854, 312, -822, 282, -788, 279, -628, 122, -557, 118, -473, 23)
 
 [node name="invisible_wall_ctr" type="StaticBody2D" parent="dev_layer"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_wall_ctr"]
 polygon = PackedVector2Array(-585, 712, -520, 776, -359, 775, -328, 744, -167, 743, -135, 776, -6, 775, 119, 649, 119, 408, 152, 379, 151, 231, -40, 229, -105, 166, -166, 168, -224, 125, -469, 123, -578, 233, -613, 234, -699, 328, -740, 327, -775, 350, -775, 425, -745, 456, -681, 456, -583, 551)
 
 [node name="invisible_wall_bottom_right" type="StaticBody2D" parent="dev_layer"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_wall_bottom_right"]
 polygon = PackedVector2Array(217, 408, 216, 713, 214, 775, 153, 834, 154, 971, 280, 1095, 279, 1225, 538, 1480, 535, 1897, 505, 1862, 238, 1867, 238, 2120, 1186, 2135, 1152, 395, 224, 400, 221, 404)
@@ -284,6 +287,7 @@ position = Vector2(-278, 821)
 shape = SubResource("RectangleShape2D_n7dnx")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="dev_layer"]
+rotation = -0.00365903
 navigation_polygon = SubResource("NavigationPolygon_0ctlu")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="dev_layer"]

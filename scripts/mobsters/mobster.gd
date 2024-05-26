@@ -90,6 +90,7 @@ var spark_knockout_distance = 16
 @onready var _raycast: RayCast2D = $RayCast2D
 @onready var _vision = $vision
 @onready var _shadow = $shadow
+@onready var _head_collider = $head_shape
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -147,12 +148,14 @@ func set_movement_target(movement_target: Vector2):
 func fall():
 	immobilized = true
 	state = state_knockout
+	_head_collider.disabled = true
 	sub_state = sub_state_knockout_falling
 	timer_knockout_sleep.start(knockout_sleep_time_secs)
 	_character_base.play_animation(str("fall_",_character_base.facing_dir))
 
 func recover():
 	sub_state = sub_state_knockout_recover
+	_head_collider.disabled = false
 	_character_base.play_animation(str("recover_",_character_base.facing_dir))
 
 func face_AI_target_pos():
