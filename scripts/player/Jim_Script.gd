@@ -4,12 +4,15 @@ extends RigidBody2D
 @onready var _character_base = $character_base
 @onready var _grabber = $grabber
 @onready var _tough_luck = $tough_luck
+@onready var _collision = $CollisionShape2D
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
 @export var top_spriteframes : SpriteFrames
 @export var bottom_spriteframes : SpriteFrames
 @export var facing_dir = "right"
+
+@export var no_clip = false
 
 #TODO: get this working with character composition (will be an absolute bastard wah)
 var player_die = preload("res://entities/player/player_die.tscn") 
@@ -40,6 +43,8 @@ var current_v = Vector2(0,0)
 var dead = false
 
 func _ready():
+	_collision.disabled = !no_clip
+		
 	timer_dash.one_shot = true
 	timer_dash_regen.one_shot = true
 	add_child(sound_player)

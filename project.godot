@@ -74,11 +74,13 @@ start={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="mobs"
+2d_physics/layer_2="red mobs"
 2d_physics/layer_3="npcs"
 2d_physics/layer_4="dynamic props"
 2d_physics/layer_5="static walls"
-2d_physics/layer_6="bullets"
+2d_physics/layer_6="red bullets"
+2d_physics/layer_7="blu mobs"
+2d_physics/layer_8="blu bullets"
 
 [rendering]
 

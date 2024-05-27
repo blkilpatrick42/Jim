@@ -5,11 +5,15 @@ extends RigidBody2D
 
 var question_bubble = preload("res://entities/mobsters/question.tscn")
 var exclaim_bubble = preload("res://entities/mobsters/exclaim.tscn")
-var bullet = preload("res://entities/mobsters/bullet.tscn")
+var red_bullet = preload("res://entities/mobsters/red_bullet.tscn")
+var blu_bullet = preload("res://entities/mobsters/blu_bullet.tscn")
 var sound_player := AudioStreamPlayer2D.new()
 
 const team_blu = "blu"
 const team_red = "red"
+
+@export var team = "red"
+var opposing_team 
 
 var safe_velocity = Vector2(0,0)
 
@@ -70,7 +74,7 @@ var fall_vulnerable_states = [state_patrol, state_investigate]
 var alertable_states = [state_patrol, state_investigate]
 
 #groups which will send mobster into alert state
-var alertable_groups = ["player"]
+var alertable_groups = ["player", "mobster"]
 
 #enemy the mobster is "targeting"
 var AI_target_pos = Vector2(0,0) #last point where the target was seen
@@ -121,6 +125,12 @@ func _ready():
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
+	
+	add_to_group(team)
+	if(team == team_red):
+		opposing_team = team_blu
+	else: if (team == team_blu):
+		opposing_team = team_red
 	
 	if(Engine.is_editor_hint()):
 		queue_redraw()
@@ -244,7 +254,11 @@ func create_bullet():
 		_character_base.facing_dir_down:
 			bullet_spawn_point = bullet_spawn_point + Vector2(-gun_pos_tweak,spawn_distance)
 	
-	var new_bullet = bullet.instantiate()
+	var new_bullet
+	if(team == team_red):
+		new_bullet = red_bullet.instantiate()
+	else: if(team == team_blu):
+		new_bullet = blu_bullet.instantiate()
 	get_parent().add_child(new_bullet)
 	
 	var arc_segment_degrees = shoot_arc_degrees / burst_bullets_per_sweep
@@ -298,10 +312,18 @@ func check_vision():
 						has_line_of_sight_to_object(entity) &&
 						alertable &&
 						state != state_alert):
-							go_alert()
-							AI_target_obj = entity
-							AI_target_pos = AI_target_obj.position
+							if(entity.is_in_group("player") || is_enemy_mobster(entity)):
+								go_alert()
+								AI_target_obj = entity
+								AI_target_pos = AI_target_obj.position
 				iterator = iterator + 1
+
+func is_enemy_mobster(entity):
+	if(entity.is_in_group("mobster") 
+	&& entity.is_in_group(opposing_team)):
+		return true
+	else:
+		return false
 
 func advance_navigation():
 	var mobsters = get_tree().get_nodes_in_group("mobster")

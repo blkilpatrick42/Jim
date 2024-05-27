@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn8jdo3y51ern"]
+
+[ext_resource type="Script" path="res://scripts/mobsters/bullet.gd" id="1_3081v"]
+[ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/mobster/bullet.png" id="2_je4e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]
+size = Vector2(8, 6)
+
+[node name="RigidBody2D" type="RigidBody2D" groups=["bullet"]]
+collision_layer = 32
+collision_mask = 209
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("1_3081v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xemyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_je4e2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

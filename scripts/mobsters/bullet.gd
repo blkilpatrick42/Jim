@@ -3,7 +3,7 @@ extends RigidBody2D
 @onready var _sprite = $Sprite2D
 var sound_player := AudioStreamPlayer2D.new()
 
-var spark = preload("res://entities/effects/spark.tscn")
+var spark = preload("res://entities/effects/bullet_spark.tscn")
 
 var speed = 185
 var velocity = Vector2.RIGHT
