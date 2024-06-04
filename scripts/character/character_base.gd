@@ -63,9 +63,11 @@ func set_speed_scales(scale):
 		_bottom.set_speed_scale(scale)
 
 func stand_dir(direction):
+	facing_dir = direction
 	play_animation(str("stand_",direction))
 
 func walk_dir(direction):
+	facing_dir = direction
 	play_animation(str("walk_",direction))
 
 func set_all_materials(material):

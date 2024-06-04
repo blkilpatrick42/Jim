@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ri414jkdjpq4"]
+
+[ext_resource type="Script" path="res://scripts/character/character_base.gd" id="1_1k0mw"]
+
+[node name="character_base" type="Node2D"]
+script = ExtResource("1_1k0mw")
+
+[node name="base_sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="hat" type="AnimatedSprite2D" parent="."]
+
+[node name="top" type="AnimatedSprite2D" parent="."]
+
+[node name="bottom" type="AnimatedSprite2D" parent="."]

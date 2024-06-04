@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://r7w3pcthi1u4"]
+
+[ext_resource type="Script" path="res://scripts/character/mobsters/mobster.gd" id="1_i2qr8"]
+[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_fuhx0"]
+[ext_resource type="SpriteFrames" uid="uid://cpe2jw8jk1hqg" path="res://sprites/spritesheets/spriteframes/characters/base/blu_mobster_base.tres" id="2_n5d6c"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_y720d"]
+[ext_resource type="PackedScene" uid="uid://ri414jkdjpq4" path="res://entities/characters/character_base.tscn" id="4_uvj0t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68bjs"]
+size = Vector2(19.9688, 13.2813)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ldxv5"]
+points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdne8"]
+radius = 2.0
+height = 19.7857
+
+[node name="Blu_Mobster" type="RigidBody2D" groups=["mobster"]]
+y_sort_enabled = true
+collision_layer = 64
+collision_mask = 17
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 5.0
+script = ExtResource("1_i2qr8")
+team = "blu"
+base_spriteframes = ExtResource("2_n5d6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0.015625, 7.35938)
+shape = SubResource("RectangleShape2D_68bjs")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 32.0
+radius = 64.0
+neighbor_distance = 1000.0
+max_neighbors = 5
+time_horizon_agents = 5.0
+
+[node name="vision" type="ShapeCast2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+shape = SubResource("ConvexPolygonShape2D_ldxv5")
+target_position = Vector2(0, 0)
+collision_mask = 3
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 1)
+texture = ExtResource("3_y720d")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 19
+
+[node name="character_base" parent="." instance=ExtResource("4_uvj0t")]
+position = Vector2(0, -1)
+base_spriteframes = ExtResource("2_fuhx0")
+facing_dir = "right"
+
+[node name="head_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+rotation = 1.57079
+scale = Vector2(2.73187, 1.213)
+shape = SubResource("CapsuleShape2D_cdne8")

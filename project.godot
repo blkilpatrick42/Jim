@@ -13,6 +13,7 @@ config_version=5
 config/name="Jim"
 run/main_scene="res://scenes/dev_base_3.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/image="res://sprites/splash.png"
 config/icon="res://sprites/pizzaBubble.png"
 
 [display]
@@ -81,6 +82,11 @@ start={
 2d_physics/layer_6="red bullets"
 2d_physics/layer_7="blu mobs"
 2d_physics/layer_8="blu bullets"
+
+[physics]
+
+2d/default_gravity=0.0
+2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 

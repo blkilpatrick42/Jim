@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cd4an5ql0m3bv"]
 
 [ext_resource type="Texture2D" uid="uid://jcwsqc48iywl" path="res://sprites/interface/speechbubble.png" id="1_dmsx7"]
-[ext_resource type="Script" path="res://scripts/NPC/speech_bubble.gd" id="2_upxfk"]
+[ext_resource type="Script" path="res://scripts/character/NPC/speech_bubble.gd" id="2_0rr4v"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ievkp"]
 light_mode = 1
@@ -42,7 +42,7 @@ z_index = 10
 material = SubResource("CanvasItemMaterial_ievkp")
 position = Vector2(30, -50)
 texture = ExtResource("1_dmsx7")
-script = ExtResource("2_upxfk")
+script = ExtResource("2_0rr4v")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -29.0
