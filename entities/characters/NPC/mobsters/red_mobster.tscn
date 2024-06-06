@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpruoc10tcsh5"]
+[gd_scene load_steps=12 format=3 uid="uid://dpruoc10tcsh5"]
 
 [ext_resource type="Script" path="res://scripts/character/mobsters/mobster_revised.gd" id="1_w1g6n"]
 [ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_qkhc6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_wq4dt"]
 [ext_resource type="PackedScene" uid="uid://biwoi1biy4ynx" path="res://entities/characters/NPC/AI state machine/ai_state_machine.tscn" id="4_54gx6"]
 [ext_resource type="PackedScene" uid="uid://bfnemblcg0xd0" path="res://entities/characters/NPC/AI state machine/common states/idle.tscn" id="6_aktij"]
+[ext_resource type="PackedScene" uid="uid://bpelaxvbqvfrx" path="res://entities/characters/NPC/AI state machine/mobster states/look.tscn" id="7_myd16"]
+[ext_resource type="PackedScene" uid="uid://b7m035wp3iahk" path="res://entities/characters/NPC/AI state machine/mobster states/transit.tscn" id="8_h0bke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68bjs"]
 size = Vector2(19.9688, 13.2813)
@@ -13,9 +15,8 @@ size = Vector2(19.9688, 13.2813)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ldxv5"]
 points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdne8"]
-radius = 2.0
-height = 19.7857
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1f3"]
+size = Vector2(4.7586, 16.4881)
 
 [node name="red_mobster" type="RigidBody2D" groups=["mobster"]]
 y_sort_enabled = true
@@ -62,14 +63,23 @@ base_spriteframes = ExtResource("2_qkhc6")
 facing_dir = "right"
 
 [node name="head_shape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(-4.9793e-08, -5.5)
 rotation = 1.57079
 scale = Vector2(2.73187, 1.213)
-shape = SubResource("CapsuleShape2D_cdne8")
+shape = SubResource("RectangleShape2D_bh1f3")
 
 [node name="ai_state_machine" parent="." instance=ExtResource("4_54gx6")]
-initial_state = NodePath("idle")
+initial_state = NodePath("look")
 
 [node name="idle" parent="ai_state_machine" instance=ExtResource("6_aktij")]
 
+[node name="look" parent="ai_state_machine" instance=ExtResource("7_myd16")]
+
+[node name="transit" parent="ai_state_machine" instance=ExtResource("8_h0bke")]
+
 [connection signal="stand" from="ai_state_machine/idle" to="." method="_on_stand_dir"]
+[connection signal="stand" from="ai_state_machine/look" to="." method="_on_stand_dir"]
+[connection signal="turn_left" from="ai_state_machine/look" to="." method="_on_turn_left"]
+[connection signal="turn_right" from="ai_state_machine/look" to="." method="_on_turn_right"]
+[connection signal="advance_navigation" from="ai_state_machine/transit" to="." method="_on_advance_navigation"]
+[connection signal="set_nav_target" from="ai_state_machine/transit" to="." method="_on_set_nav_target"]

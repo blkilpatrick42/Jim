@@ -3,9 +3,6 @@ extends Node
 
 var ai_state_machine : Node = null
 
-func update_perceptions(perceptions: Perceptions):
-	pass
-
 func process(_delta: float) -> void:
 	pass
 

@@ -124,14 +124,14 @@ func turn_left():
 			facing_dir = facing_dir_left
 
 #scales the animation speed to a given scaler. base and remainder must add up to 1 for 
-#this to work. top is the top speed.
-func set_animation_scale(base, remainder, scalar, top):
+#this to work.
+func set_animation_scale(base, remainder, scalar, top_speed):
 	#scale animation to movement speed
 	if(scalar > 1):
 		#Base speed of 20%. We ramp to 100% (full speed) using a ratio of 
 		#speed/topspeed for the remaining 80%.	
 		var baseScale = base
-		var velocityScale = scalar / top
+		var velocityScale = scalar / top_speed
 		var remainderScale = remainder * velocityScale
 		var animationScale = baseScale + remainderScale
 		set_speed_scales(animationScale)

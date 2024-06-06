@@ -152,7 +152,7 @@ func initialize_timers():
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
-
+	
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
 

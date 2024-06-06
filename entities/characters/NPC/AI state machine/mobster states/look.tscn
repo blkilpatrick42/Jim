@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bpelaxvbqvfrx"]
+[gd_scene load_steps=2 format=3 uid="uid://bpelaxvbqvfrx"]
+
+[ext_resource type="Script" path="res://scripts/character/AI_state_machine/states/mobster/look.gd" id="1_b6ojh"]
 
 [node name="look" type="Node"]
+script = ExtResource("1_b6ojh")

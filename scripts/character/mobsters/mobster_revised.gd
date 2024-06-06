@@ -35,43 +35,69 @@ var perceptions: MobsterPerceptions = MobsterPerceptions.new()
 #state machine reference
 @onready var _ai_state_machine = $ai_state_machine
 
-#constants
 const top_speed = 125000
 const nav_target_reached_distance = 32 #distance at which nav target is considered reached
+const nav_path_resolution = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sound_player.max_distance = 500
-	sound_player.attenuation = 2
-	add_child(sound_player)
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 32.0
-	call_deferred("actor_setup") #set up navigation
-	
-	#set up character base
+	set_up_sound_player()
+	set_up_nav_agent()
+	set_up_character_base()
+	set_up_mobster_team()
+	#for updating character composition in the editor
+	if(Engine.is_editor_hint()):
+		queue_redraw()
+
+func set_up_character_base():
 	_character_base.set_facing_dir(facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
-	
+
+func set_up_nav_agent():
+	#nav agent setup stuff
+	navigation_agent.path_desired_distance = 4.0
+	navigation_agent.target_desired_distance = nav_target_reached_distance
+	call_deferred("actor_setup") #set up navigation
+
+func set_up_sound_player():
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
+	add_child(sound_player)
+
+func set_up_mobster_team():
 	add_to_group(team)
 	if(team == team_red):
 		opposing_team = team_blu
 	else: if (team == team_blu):
 		opposing_team = team_red
-	
-	if(Engine.is_editor_hint()):
-		queue_redraw()
+	perceptions.team = team
+	perceptions.opposing_team = opposing_team
 
-#PERCEPTIONS- functions which deal with updating the mobster's perceptions
+##########################################################################
+#PERCEPTIONS- functions which deal with the mobster's perceptions
+##########################################################################
+
 func send_perceptions():
 	if(_ai_state_machine != null):
 		_ai_state_machine.receive_perceptions(perceptions)
 
-#ACTIONS- functions that cause the mobster to take some action in the game world
+func update_perceptions():
+	perceptions.current_v = current_v
+	perceptions.facing_dir = facing_dir
+	perceptions.position = position
+	perceptions.linear_velocity = linear_velocity
+	perceptions.speed = linear_velocity.length()
+	
+
+#######################################################################################
+#ACTIONS- signal functions that cause the mobster to take some action in the game world
+#######################################################################################
 
 func _on_set_nav_target(pos : Vector2):
+	perceptions.nav_target_reached = false
 	navigation_agent.target_position = pos
 
 #move mobster along A* navigation path towards navigation target
@@ -88,6 +114,7 @@ func _on_advance_navigation():
 	#handle animation
 	_character_base.face_to_vector(current_v)
 	_character_base.animate_sprite_by_vector(current_v, (linear_velocity.length() >= top_speed))
+	_character_base.set_animation_scale(0.4, 0.6,perceptions.speed,top_speed)
 
 func _on_turn_right():
 	_character_base.turn_right()
@@ -96,9 +123,16 @@ func _on_turn_left():
 	_character_base.turn_left()
 
 func _on_stand_dir(stand : String):
-	_character_base.stand_dir(stand)
+	if(stand == ""):
+		_character_base.stand_dir(_character_base.facing_dir)
+		_character_base.set_animation_scale(0.4, 0.6,perceptions.speed,top_speed)
+	else:
+		_character_base.stand_dir(stand)
+		_character_base.set_animation_scale(0.4, 0.6,perceptions.speed,top_speed)
 
+################################################################################
 #MAINTENENCE- functions that maintain the mobster's physical and observational consistency
+################################################################################
 
 func update():
 	update_vision()
@@ -114,17 +148,19 @@ func update_vision():
 			_vision.set_rotation_degrees(270)
 		_character_base.facing_dir_down:
 			_vision.set_rotation_degrees(90)
+			
 
-func update_perceptions():
-	perceptions.current_v = current_v
-	perceptions.current_patrol_point = current_patrol_point
-	perceptions.facing_dir = facing_dir
+##############
+#PROCESS STUFF
+##############
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	update()
-	send_perceptions()
+	if(!Engine.is_editor_hint()):
+		update()
+		send_perceptions()
 
 func _physics_process(delta):
+	if(!Engine.is_editor_hint()):
 		#apply velocity thru physics engine
 		apply_force(current_v)
