@@ -4,12 +4,14 @@ extends State
 signal one_shot_animate(animation : String)
 signal stop_motion
 signal turn_off_head_collider
+signal play_sound(resource_name : String)
 
 func process(_delta: float) -> void:
 	pass
 
 func physics_process(_delta: float) -> void:
 	if(!ai_state_machine.get_perceptions().one_shot_animating):
+		play_sound.emit("res://audio/soundFX/smallCollide.wav")
 		ai_state_machine.transition_to("knockedout")
 
 func enter(_msg := {}) -> void:

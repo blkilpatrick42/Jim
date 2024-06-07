@@ -24,7 +24,7 @@ var opposing_team
 @export var hat_spriteframes : SpriteFrames
 @export var top_spriteframes : SpriteFrames
 @export var bottom_spriteframes : SpriteFrames
-@export var start_facing_dir = direction.right
+var start_facing_dir = direction.right
 
 var current_v = Vector2(0,0) #force applied this physics frame
 
@@ -44,6 +44,8 @@ func _ready():
 	set_up_nav_agent()
 	set_up_character_base()
 	set_up_mobster_team()
+	update_perceptions()
+	send_perceptions()
 	#for updating character composition in the editor
 	if(Engine.is_editor_hint()):
 		queue_redraw()
@@ -54,6 +56,7 @@ func set_up_character_base():
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
+	_character_base.stand_dir("")
 
 func set_up_nav_agent():
 	#nav agent setup stuff
@@ -111,8 +114,7 @@ func detect_sparks():
 			spark not in perceptions.colliding_nodes &&
 			spark.position.distance_to(position) < detection_distance):
 				perceptions.colliding_nodes.append(spark)
-	
-	#clean out null nodes
+	#clean out null nodes from sparks queue-freeing
 	var iter = 0
 	while iter < len(perceptions.colliding_nodes):
 		if not is_instance_valid(perceptions.colliding_nodes[iter]):
@@ -146,9 +148,11 @@ func _on_advance_navigation():
 
 func _on_turn_right():
 	_character_base.turn_right()
+	perceptions.facing_dir = _character_base.get_facing_dir()
 	
 func _on_turn_left():
 	_character_base.turn_left()
+	perceptions.facing_dir = _character_base.get_facing_dir()
 
 func _on_stand_dir(stand : String):
 	if(stand == ""):
@@ -176,6 +180,10 @@ func _on_stop_motion():
 	_character_base.set_animation_scale_ratio(1)
 	current_v = Vector2(0,0)
 
+func _on_play_sound(resource_name: String):
+	sound_player.stream = load(resource_name)
+	sound_player.play()
+
 ##########################################################################################
 #MAINTENENCE- functions that maintain the mobster's physical and observational consistency
 ##########################################################################################
@@ -183,7 +191,6 @@ func _on_stop_motion():
 func update():
 	update_vision()
 	update_perceptions()
-
 
 func update_vision():
 	match(_character_base.get_facing_dir()):
@@ -195,7 +202,6 @@ func update_vision():
 			_vision.set_rotation_degrees(270)
 		direction.down:
 			_vision.set_rotation_degrees(90)
-			
 
 ##############
 #PROCESS STUFF
@@ -204,10 +210,11 @@ func update_vision():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!Engine.is_editor_hint()):
-		update()
-		send_perceptions()
+		pass
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
+		update()
+		send_perceptions()
 		#apply velocity thru physics engine
 		apply_force(current_v)

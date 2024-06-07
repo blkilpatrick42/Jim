@@ -33,7 +33,6 @@ lock_rotation = true
 linear_damp = 5.0
 script = ExtResource("1_w1g6n")
 base_spriteframes = ExtResource("2_qkhc6")
-start_facing_dir = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
@@ -74,7 +73,7 @@ scale = Vector2(2.73187, 1.213)
 shape = SubResource("RectangleShape2D_bh1f3")
 
 [node name="ai_state_machine" parent="." instance=ExtResource("4_54gx6")]
-initial_state = NodePath("look")
+initial_state = NodePath("idle")
 
 [node name="idle" parent="ai_state_machine" instance=ExtResource("6_aktij")]
 
@@ -100,5 +99,6 @@ initial_state = NodePath("look")
 [connection signal="turn_on_head_collider" from="ai_state_machine/recovering" to="." method="_on_enable_head_collider"]
 [connection signal="animate" from="ai_state_machine/knockedout" to="." method="_on_play_animation"]
 [connection signal="one_shot_animate" from="ai_state_machine/falling" to="." method="_on_play_one_shot_animation"]
+[connection signal="play_sound" from="ai_state_machine/falling" to="." method="_on_play_sound"]
 [connection signal="stop_motion" from="ai_state_machine/falling" to="." method="_on_stop_motion"]
 [connection signal="turn_off_head_collider" from="ai_state_machine/falling" to="." method="_on_disable_head_collider"]

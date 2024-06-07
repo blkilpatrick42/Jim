@@ -848,23 +848,18 @@ position = Vector2(2119, -153)
 
 [node name="Red_Mobster" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-924, 505)
-start_facing_dir = null
 
 [node name="Red_Mobster5" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-745, 811)
-start_facing_dir = null
 
 [node name="Red_Mobster6" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-614, 816)
-start_facing_dir = null
 
 [node name="Red_Mobster2" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-727, 509)
-start_facing_dir = null
 
 [node name="Red_Mobster3" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-647, 969)
-start_facing_dir = null
 
 [node name="blank_npc2" parent="daylight_affected_canvas/ysort" instance=ExtResource("8_1uumc")]
 position = Vector2(198, -576)

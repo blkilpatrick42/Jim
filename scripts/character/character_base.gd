@@ -65,8 +65,9 @@ func set_speed_scales(scale):
 		_bottom.set_speed_scale(scale)
 
 func stand_dir(direction):
-	facing_dir = direction
-	play_animation(str("stand_",direction))
+	if(direction != ""):
+		facing_dir = direction
+	play_animation(str("stand_",facing_dir))
 
 func walk_dir(direction):
 	facing_dir = direction
@@ -108,7 +109,7 @@ func turn_right():
 		direction.right:
 			facing_dir = direction.down
 		direction.down:
-			facing_dir =  direction.left
+			facing_dir = direction.left
 		direction.left:
 			facing_dir = direction.up
 		direction.up:
@@ -123,7 +124,7 @@ func turn_left():
 		direction.left:
 			facing_dir = direction.down
 		direction.up:
-			facing_dir =  direction.left
+			facing_dir = direction.left
 
 #scales the animation speed to a given scaler. base and remainder must add up to 1 for 
 #this to work.
