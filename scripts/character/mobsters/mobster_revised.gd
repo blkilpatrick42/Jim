@@ -173,6 +173,7 @@ func _on_enable_head_collider():
 	_head_collider.disabled = false
 
 func _on_stop_motion():
+	_character_base.set_animation_scale_ratio(1)
 	current_v = Vector2(0,0)
 
 ##########################################################################################

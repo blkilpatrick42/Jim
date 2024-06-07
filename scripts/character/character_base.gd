@@ -140,6 +140,9 @@ func set_animation_scale(base, remainder, scalar, top_speed):
 	else:
 		set_speed_scales(1)
 
+func set_animation_scale_ratio(ratio):
+	set_speed_scales(ratio)
+
 func set_spriteframes(base, hat, top, bottom):
 	if(_base_sprite != null):
 		_base_sprite.sprite_frames = base
