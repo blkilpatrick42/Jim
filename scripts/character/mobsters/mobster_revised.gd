@@ -210,7 +210,8 @@ func update_vision():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!Engine.is_editor_hint()):
-		pass
+		update()
+		send_perceptions()
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):

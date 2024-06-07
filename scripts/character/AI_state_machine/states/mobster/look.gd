@@ -39,6 +39,7 @@ func enter(_msg := {}) -> void:
 	timer.one_shot = true
 	add_child(timer)
 	timer.start(turn_wait_time_secs)
+	stand.emit("")
 
 func exit() -> void:
 	timer.queue_free()
