@@ -59,7 +59,6 @@ collision_mask = 19
 [node name="character_base" parent="." instance=ExtResource("4_uvj0t")]
 position = Vector2(0, -1)
 base_spriteframes = ExtResource("2_fuhx0")
-facing_dir = "right"
 
 [node name="head_shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

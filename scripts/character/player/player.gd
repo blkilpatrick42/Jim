@@ -65,13 +65,13 @@ func _ready():
 func get_input():
 	if(!control_frozen):
 		#orient and player according to input
-		if Input.is_action_pressed("right"):
+		if Input.is_action_pressed(direction.right):
 			_character_base.face_right()
-		else: if Input.is_action_pressed("left"):
+		else: if Input.is_action_pressed(direction.left):
 			_character_base.face_left()
-		else: if Input.is_action_pressed("up"):
+		else: if Input.is_action_pressed(direction.up):
 			_character_base.face_up()
-		else: if Input.is_action_pressed("down"):
+		else: if Input.is_action_pressed(direction.down):
 			_character_base.face_down()
 		handle_pickup()
 		handle_throw()
@@ -138,7 +138,7 @@ func pick_up():
 		holding_object = false
 
 func dash():
-	if(!is_dashing && Input.get_vector("left", "right", "up", "down").length() > 0):
+	if(!is_dashing && Input.get_vector(direction.left, direction.right, direction.up, direction.down).length() > 0):
 		if(can_dash):
 			sound_player.stream = load("res://audio/soundFX/woosh.wav")
 			sound_player.play()
@@ -151,17 +151,17 @@ func speed():
 
 func update_grabber():
 	match(_character_base.get_facing_dir()):
-		_character_base.facing_dir_right:
+		direction.right:
 			_grabber.set_rotation_degrees(270) 
-		_character_base.facing_dir_left:
+		direction.left:
 			_grabber.set_rotation_degrees(90)
-		_character_base.facing_dir_up:
+		direction.up:
 			_grabber.set_rotation_degrees(180)
-		_character_base.facing_dir_down:
+		direction.down:
 			_grabber.set_rotation_degrees(0)
 
 func move_jim():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+	var input_direction = Input.get_vector(direction.left, direction.right, direction.up, direction.down)
 	
 	#accelerate if we have't hit max
 	if(input_direction.length() != 0 && speed() < top_speed):

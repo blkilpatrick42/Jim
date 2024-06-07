@@ -66,7 +66,6 @@ base_spriteframes = ExtResource("2_ai6r1")
 hat_spriteframes = SubResource("SpriteFrames_smo0f")
 top_spriteframes = SubResource("SpriteFrames_smo0f")
 bottom_spriteframes = SubResource("SpriteFrames_smo0f")
-facing_dir = "right"
 
 [node name="tough_luck" type="Sprite2D" parent="."]
 visible = false

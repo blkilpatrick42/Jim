@@ -4,7 +4,6 @@ extends RigidBody2D
 var sound_player := AudioStreamPlayer2D.new()
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var _shadow = $shadow
 @onready var _head_collider = $head_shape
 
 @export var current_patrol_point :Node2D = null
@@ -25,7 +24,7 @@ var opposing_team
 @export var hat_spriteframes : SpriteFrames
 @export var top_spriteframes : SpriteFrames
 @export var bottom_spriteframes : SpriteFrames
-@export var facing_dir = "right"
+@export var start_facing_dir = direction.right
 
 var current_v = Vector2(0,0) #force applied this physics frame
 
@@ -50,7 +49,7 @@ func _ready():
 		queue_redraw()
 
 func set_up_character_base():
-	_character_base.set_facing_dir(facing_dir)
+	_character_base.set_facing_dir(start_facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,
 	top_spriteframes,
@@ -60,7 +59,6 @@ func set_up_nav_agent():
 	#nav agent setup stuff
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = nav_target_reached_distance
-	call_deferred("actor_setup") #set up navigation
 
 func set_up_sound_player():
 	sound_player.max_distance = 500
@@ -76,9 +74,9 @@ func set_up_mobster_team():
 	perceptions.team = team
 	perceptions.opposing_team = opposing_team
 
-##########################################################################
+#################################################################
 #PERCEPTIONS- functions which deal with the mobster's perceptions
-##########################################################################
+#################################################################
 
 func send_perceptions():
 	if(_ai_state_machine != null):
@@ -86,11 +84,41 @@ func send_perceptions():
 
 func update_perceptions():
 	perceptions.current_v = current_v
-	perceptions.facing_dir = facing_dir
+	perceptions.facing_dir = _character_base.get_facing_dir()
 	perceptions.position = position
 	perceptions.linear_velocity = linear_velocity
 	perceptions.speed = linear_velocity.length()
 	
+	detect_sparks()
+	
+	#check if currently playing one-shot animation has ended
+	if(perceptions.one_shot_animating &&
+	_character_base.get_base_current_frame() == _character_base.get_base_animation_framecount() - 1):
+		perceptions.one_shot_animating = false
+
+func _on_body_entered(body: Node):
+	perceptions.colliding_nodes.append(body)
+
+func _on_body_exited(body: Node):
+	var node_index = perceptions.colliding_nodes.find(body)
+	perceptions.colliding_nodes.remove_at(node_index)
+	
+func detect_sparks():
+	var sparks = get_tree().get_nodes_in_group("spark")
+	var detection_distance = 16
+	for spark in sparks:
+		if(is_instance_valid(spark) &&
+			spark not in perceptions.colliding_nodes &&
+			spark.position.distance_to(position) < detection_distance):
+				perceptions.colliding_nodes.append(spark)
+	
+	#clean out null nodes
+	var iter = 0
+	while iter < len(perceptions.colliding_nodes):
+		if not is_instance_valid(perceptions.colliding_nodes[iter]):
+			perceptions.colliding_nodes.remove_at(iter)
+		else:
+			iter += 1
 
 #######################################################################################
 #ACTIONS- signal functions that cause the mobster to take some action in the game world
@@ -124,29 +152,47 @@ func _on_turn_left():
 
 func _on_stand_dir(stand : String):
 	if(stand == ""):
-		_character_base.stand_dir(_character_base.facing_dir)
+		_character_base.stand_dir(perceptions.facing_dir)
 		_character_base.set_animation_scale(0.4, 0.6,perceptions.speed,top_speed)
 	else:
 		_character_base.stand_dir(stand)
 		_character_base.set_animation_scale(0.4, 0.6,perceptions.speed,top_speed)
 
-################################################################################
+func _on_play_one_shot_animation(animation_name: String):
+	if(perceptions.one_shot_animating == false):
+		perceptions.one_shot_animating = true
+		_character_base.play_animation(animation_name)
+
+func _on_play_animation(animation_name: String):
+	_character_base.play_animation(animation_name)
+
+func _on_disable_head_collider():
+	_head_collider.disabled = true
+
+func _on_enable_head_collider():
+	_head_collider.disabled = false
+
+func _on_stop_motion():
+	current_v = Vector2(0,0)
+
+##########################################################################################
 #MAINTENENCE- functions that maintain the mobster's physical and observational consistency
-################################################################################
+##########################################################################################
 
 func update():
 	update_vision()
 	update_perceptions()
 
+
 func update_vision():
 	match(_character_base.get_facing_dir()):
-		_character_base.facing_dir_right:
+		direction.right:
 			_vision.set_rotation_degrees(0) 
-		_character_base.facing_dir_left:
+		direction.left:
 			_vision.set_rotation_degrees(180)
-		_character_base.facing_dir_up:
+		direction.up:
 			_vision.set_rotation_degrees(270)
-		_character_base.facing_dir_down:
+		direction.down:
 			_vision.set_rotation_degrees(90)
 			
 

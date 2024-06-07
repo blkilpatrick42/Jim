@@ -3,9 +3,6 @@ extends State
 
 signal stand(direction : String)
 
-func update_perceptions(perceptions: Perceptions):
-	pass
-
 func process(_delta: float) -> void:
 	pass
 

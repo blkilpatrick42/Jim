@@ -122,18 +122,6 @@ func _process(delta):
 		position = (playerRef.position + Vector2(0, -player_y_offset))
 		
 
-#func _physics_process(delta):
-#	if(linear_velocity.length() > spark_velocity):
-#		set_collision_mask_value(1,false)
-#		set_collision_mask_value(3,true)
-#		set_collision_layer_value(1,false)
-#		set_collision_layer_value(3,true)
-#	else:
-#		set_collision_mask_value(1,true)
-#		set_collision_mask_value(3,false)
-#		set_collision_layer_value(1,true)
-#		set_collision_layer_value(3,false)
-
 func _integrate_forces(state):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
 		local_collision_pos = state.get_contact_local_position(0)

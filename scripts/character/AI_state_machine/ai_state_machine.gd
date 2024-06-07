@@ -8,7 +8,7 @@ signal transitioned(state_name)
 
 @onready var state: State = get_node(initial_state)
 
-var perceptions : MobsterPerceptions
+var perceptions : MobsterPerceptions = MobsterPerceptions.new()
 
 func _ready():
 	# The state machine assigns itself to the State objects' state_machine property.
@@ -21,7 +21,6 @@ func get_perceptions():
 
 func receive_perceptions(host_perceptions: MobsterPerceptions):
 		perceptions = host_perceptions
-		var blah = 0
 
 func _process(delta: float):
 	if(!Engine.is_editor_hint()):

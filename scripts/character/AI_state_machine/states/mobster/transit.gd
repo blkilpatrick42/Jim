@@ -20,11 +20,16 @@ func process(_delta: float) -> void:
 	pass
 
 func physics_process(_delta: float) -> void:
-	nav_target_reached = get_host_nav_target_reached()
-	if(!nav_target_reached):
-		advance_navigation.emit()
+	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
+		for node in ai_state_machine.get_perceptions().colliding_nodes:
+			if(is_instance_valid(node) && node.is_in_group("spark")):
+				ai_state_machine.transition_to("falling")
 	else:
-		ai_state_machine.transition_to("look")
+		nav_target_reached = get_host_nav_target_reached()
+		if(!nav_target_reached):
+			advance_navigation.emit()
+		else:
+			ai_state_machine.transition_to("look")
 
 func enter(_msg := {}) -> void:
 	if(current_patrol_point == null):

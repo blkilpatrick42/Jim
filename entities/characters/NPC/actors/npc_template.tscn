@@ -34,4 +34,3 @@ texture = ExtResource("3_iby7g")
 [node name="character_base" parent="." instance=ExtResource("3_h13pd")]
 position = Vector2(0, -1)
 base_spriteframes = ExtResource("2_cp75f")
-facing_dir = "right"

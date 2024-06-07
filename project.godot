@@ -82,6 +82,7 @@ start={
 2d_physics/layer_6="red bullets"
 2d_physics/layer_7="blu mobs"
 2d_physics/layer_8="blu bullets"
+2d_physics/layer_9="spark"
 
 [physics]
 
