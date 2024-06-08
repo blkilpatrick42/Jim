@@ -124,6 +124,7 @@ func has_line_of_sight_to_object(obj):
 	if(_raycast.is_colliding() && _raycast.get_collider() == obj):
 		return true
 	else:
+		perceptions.nodes_in_vision.erase(obj)
 		return false
 
 func check_vision():
