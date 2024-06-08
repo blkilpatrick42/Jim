@@ -1,6 +1,16 @@
 class_name ai_state_machine
 extends Node
 
+#states
+const idle = "idle"
+const look = "look"
+const transit = "transit"
+const falling = "falling"
+const knockedout = "knockedout"
+const recovering = "recovering"
+const exclaiming = "exclaiming"
+const shooting = "shooting"
+
 # Emitted when transitioning to a new state.
 signal transitioned(state_name)
 

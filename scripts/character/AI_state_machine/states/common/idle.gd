@@ -7,7 +7,7 @@ func process(_delta: float) -> void:
 	pass
 
 func physics_process(_delta: float) -> void:
-	ai_state_machine.transition_to("look")
+	ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	pass

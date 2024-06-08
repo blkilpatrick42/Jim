@@ -1,297 +1,123 @@
 @tool
 extends RigidBody2D
 
-@export var alertable = true
+var sound_player := AudioStreamPlayer2D.new()
 
 var question_bubble = preload("res://entities/characters/NPC/mobsters/communication/question.tscn")
 var exclaim_bubble = preload("res://entities/characters/NPC/mobsters/communication/exclaim.tscn")
 var red_bullet = preload("res://entities/characters/NPC/mobsters/red_bullet.tscn")
 var blu_bullet = preload("res://entities/characters/NPC/mobsters/blu_bullet.tscn")
-var sound_player := AudioStreamPlayer2D.new()
 
-const team_blu = "blu"
-const team_red = "red"
-
-@export var team = "red"
-var opposing_team 
-
-var safe_velocity = Vector2(0,0)
-
-#AI STATES
-const state_inert = "inert"
-
-#Patrol state
-const state_patrol = "patrol"
-const sub_state_patrol_transit = "patrol_transit"
-const sub_state_patrol_look = "patrol_look"
-var patrol_look_time_secs = 1
-var timer_look := Timer.new() 
-var patrol_look_turns = 0
-@export var current_patrol_point :Node2D = null
-
-#knockout state
-const state_knockout = "knockout"
-const sub_state_knockout_falling = "knockout_falling"
-const sub_state_knockout_sleep = "knockout_sleep"
-const sub_state_knockout_recover = "knockout_recover"
-var knockout_sleep_time_secs = 10
-var timer_knockout_sleep := Timer.new() 
-
-#investigate state
-const state_investigate = "investigate"
-const sub_state_investigate_question = "investigate_question"
-var investigate_question_time_secs = 3
-var timer_investigate_question := Timer.new() 
-var commotion_notice_distance = 192
-
-#alert state
-const state_alert = "alert"
-const sub_state_alert_exclaiming = "alert_exclaim"
-const sub_state_alert_shoot_gun = "alert_shoot_gun"
-const alert_exclaim_time_secs = 1
-var timer_alert_exclaim := Timer.new() 
-var alert_target = null
-
-#gun-related variables
-const bust_num_sweeps = 2
-const burst_bullets_per_sweep = 4
-const burst_num_bullets = bust_num_sweeps * burst_bullets_per_sweep
-const burst_cool_down_secs = 2
-var timer_burst_cool_down := Timer.new() 
-const time_between_shots_secs = 0.3
-var timer_between_shots := Timer.new() 
-const shoot_arc_degrees = 50 #keep it even
-var num_bullets_fired = 0
-var lower_bound = 0
-var upper_bound = 0
-var reverse_sweep = false
-var burst_cool_down = false
-
-#states where the mobster is vulnerable to being knocked out
-var fall_vulnerable_states = [state_patrol, state_investigate]
-
-#states where the mobster is able to become alerted
-var alertable_states = [state_patrol, state_investigate]
-
-#groups which will send mobster into alert state
-var alertable_groups = ["player", "mobster"]
-
-#enemy the mobster is "targeting"
-var AI_target_pos = Vector2(0,0) #last point where the target was seen
-var AI_target_obj = null #reference to the target itself
-
-#radius for which navigation targets are considered "reached"
-var nav_target_reached = 32
-
-#distance at which sparks will cause mobsters to be knocked out
-var spark_knockout_distance = 16
-
-#State vars
-@export var state = state_patrol
-@export var sub_state = sub_state_patrol_look
-
-@onready var _character_base = $character_base
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var _raycast: RayCast2D = $RayCast2D
-@onready var _vision = $vision
-@onready var _shadow = $shadow
 @onready var _head_collider = $head_shape
 
+@export var current_patrol_point :Node2D = null
+
+#mobster team
+const team_red = "red"
+const team_blu = "blu"
+@export var team = team_red
+var opposing_team 
+
+#perceptors
+@onready var _raycast: RayCast2D = $RayCast2D
+@onready var _vision = $vision
+
+#character composition
+@onready var _character_base = $character_base
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
 @export var top_spriteframes : SpriteFrames
 @export var bottom_spriteframes : SpriteFrames
-@export var facing_dir = "right"
+var start_facing_dir = direction.right
 
-var current_v = Vector2(0,0) #The force which will be applied to the mobster this frame
-var top_speed = 125000
-var random = RandomNumberGenerator.new()
+var current_v = Vector2(0,0) #force applied this physics frame
 
-var immobilized = false
+#data type representing mobster's knowledge of itself and its surroundings
+var perceptions: MobsterPerceptions = MobsterPerceptions.new()
+
+#state machine reference
+@onready var _ai_state_machine = $ai_state_machine
+
+const top_speed = 125000
+const nav_target_reached_distance = 32 #distance at which nav target is considered reached
+const nav_path_resolution = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sound_player.max_distance = 500
-	sound_player.attenuation = 2
-	add_child(sound_player)
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = 32.0
-	initialize_timers()
-	call_deferred("actor_setup") #set up navigation
-	
-	#set up character base
-	_character_base.set_facing_dir(facing_dir)
+	set_up_sound_player()
+	set_up_nav_agent()
+	set_up_character_base()
+	set_up_mobster_team()
+	update_perceptions()
+	send_perceptions()
+	#for updating character composition in the editor
+	if(Engine.is_editor_hint()):
+		queue_redraw()
+
+func set_up_character_base():
+	_character_base.set_facing_dir(start_facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
-	
+	_character_base.stand_dir("")
+
+func set_up_nav_agent():
+	#nav agent setup stuff
+	navigation_agent.path_desired_distance = 4.0
+	navigation_agent.target_desired_distance = nav_target_reached_distance
+
+func set_up_sound_player():
+	sound_player.max_distance = 500
+	sound_player.attenuation = 2
+	add_child(sound_player)
+
+func set_up_mobster_team():
 	add_to_group(team)
 	if(team == team_red):
 		opposing_team = team_blu
 	else: if (team == team_blu):
 		opposing_team = team_red
+	perceptions.team = team
+	perceptions.opposing_team = opposing_team
+
+#################################################################
+#PERCEPTIONS- functions which deal with the mobster's perceptions
+#################################################################
+
+func send_perceptions():
+	if(_ai_state_machine != null):
+		_ai_state_machine.receive_perceptions(perceptions)
+
+func update_perceptions():
+	perceptions.current_v = current_v
+	perceptions.facing_dir = _character_base.get_facing_dir()
+	perceptions.position = position
+	perceptions.linear_velocity = linear_velocity
+	perceptions.speed = linear_velocity.length()
 	
-	if(Engine.is_editor_hint()):
-		queue_redraw()
-
-func initialize_timers():
-	timer_look.one_shot = true
-	timer_knockout_sleep.one_shot = true
-	timer_investigate_question.one_shot = true
-	timer_alert_exclaim.one_shot = true
-	timer_burst_cool_down.one_shot = true
-	timer_between_shots.one_shot = true
-	add_child(timer_look)
-	add_child(timer_knockout_sleep)
-	add_child(timer_investigate_question)
-	add_child(timer_alert_exclaim)
-	add_child(timer_burst_cool_down)
-	add_child(timer_between_shots)
-
-func actor_setup():
-	# Wait for the first physics frame so the NavigationServer can sync.
-	await get_tree().physics_frame
+	if(perceptions.target_obj != null):
+		if(has_line_of_sight_to_object(perceptions.target_obj)):
+			perceptions.target_pos = perceptions.target_obj.position
+			perceptions.has_line_of_sight_to_target = true
+		else:
+			perceptions.has_line_of_sight_to_target = false
 	
-func set_movement_target(movement_target: Vector2):
-	navigation_agent.target_position = movement_target
-
-func fall():
-	immobilized = true
-	state = state_knockout
-	_head_collider.disabled = true
-	sub_state = sub_state_knockout_falling
-	timer_knockout_sleep.start(knockout_sleep_time_secs)
-	_character_base.play_animation(str("fall_",_character_base.facing_dir))
-
-func recover():
-	sub_state = sub_state_knockout_recover
-	_character_base.play_animation(str("recover_",_character_base.facing_dir))
-
-func face_AI_target_pos():
-	var vector_to_target = position.direction_to(AI_target_pos)
-	_character_base.face_to_vector(vector_to_target)
-
-func speed():
-	return linear_velocity.length()
-
-func create_question_bubble():
-	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
-	sound_player.play()
-	var questionBubble = question_bubble.instantiate()
-	self.add_child(questionBubble)
-
-func create_exclaim_bubble():
-	var exclaimBubble = exclaim_bubble.instantiate()
-	self.add_child(exclaimBubble)
-
-func update_vision():
-	match(_character_base.get_facing_dir()):
-		_character_base.facing_dir_right:
-			_vision.set_rotation_degrees(0) 
-		_character_base.facing_dir_left:
-			_vision.set_rotation_degrees(180)
-		_character_base.facing_dir_up:
-			_vision.set_rotation_degrees(270)
-		_character_base.facing_dir_down:
-			_vision.set_rotation_degrees(90)
-
-func go_alert():
-	sound_player.stream = load("res://audio/soundFX/alert.wav")
-	sound_player.play()
-	immobilized = true
-	_character_base.stand_dir(_character_base.get_facing_dir())
-	create_exclaim_bubble()
-	state = state_alert
-	sub_state = sub_state_alert_exclaiming
-	timer_alert_exclaim.start(alert_exclaim_time_secs)
-
-func leave_alert():
-	immobilized = false
-	create_question_bubble()
-	state = state_patrol
-	sub_state = sub_state_patrol_look
-
-func investigate_commotion(commotion_position :Vector2):
-	immobilized = true
-	create_question_bubble()
-	AI_target_pos = commotion_position
-	face_AI_target_pos()
-	_character_base.stand_dir(_character_base.facing_dir)
-	state = state_investigate
-	timer_investigate_question.start(investigate_question_time_secs)
-	sub_state = sub_state_investigate_question
-
-func set_shoort_arc_bounds():
-	var half_arc = shoot_arc_degrees / 2
-	match(_character_base.get_facing_dir()):
-		_character_base.facing_dir_right:
-			lower_bound = 0 - half_arc
-			upper_bound = 0 + half_arc
-		_character_base.facing_dir_left:
-			lower_bound = 180 - half_arc
-			upper_bound = 180 + half_arc
-		_character_base.facing_dir_up:
-			lower_bound = 270 - half_arc
-			upper_bound = 270 + half_arc
-		_character_base.facing_dir_down:
-			lower_bound = 90 - half_arc
-			upper_bound = 90 + half_arc
+	check_vision()
+	detect_sparks()
 	
+	#check if currently playing one-shot animation has ended
+	if(perceptions.one_shot_animating &&
+	_character_base.get_base_current_frame() == _character_base.get_base_animation_framecount() - 1):
+		perceptions.one_shot_animating = false
 
-func create_bullet():
-	var bullet_spawn_point = position
-	var half_arc = shoot_arc_degrees / 2
-	var spawn_distance = 20
-	var gun_pos_tweak = 5
-	match(_character_base.get_facing_dir()):
-		_character_base.facing_dir_right:
-			bullet_spawn_point = bullet_spawn_point + Vector2(spawn_distance,0)
-		_character_base.facing_dir_left:
-			bullet_spawn_point = bullet_spawn_point + Vector2(-spawn_distance,0)
-		_character_base.facing_dir_up:
-			bullet_spawn_point = bullet_spawn_point + Vector2(gun_pos_tweak,-spawn_distance)
-		_character_base.facing_dir_down:
-			bullet_spawn_point = bullet_spawn_point + Vector2(-gun_pos_tweak,spawn_distance)
-	
-	var new_bullet
-	if(team == team_red):
-		new_bullet = red_bullet.instantiate()
-	else: if(team == team_blu):
-		new_bullet = blu_bullet.instantiate()
-	get_parent().add_child(new_bullet)
-	
-	var arc_segment_degrees = shoot_arc_degrees / burst_bullets_per_sweep
-	var current_segment = num_bullets_fired 
-	while(current_segment > burst_bullets_per_sweep):
-		reverse_sweep = !reverse_sweep
-		current_segment = current_segment - burst_bullets_per_sweep
-	
-	var current_arc = 0
-	if(reverse_sweep):
-		current_arc = (upper_bound - (arc_segment_degrees * current_segment))
-	else:
-		current_arc = (lower_bound + (arc_segment_degrees * current_segment))
-	
-	new_bullet.rotation_degrees = current_arc
-	new_bullet.position = bullet_spawn_point
-	new_bullet.apply_velocity()
-	new_bullet.create_spark_benign() #muzzle flash
-	sound_player.stream = load("res://audio/soundFX/gunshot.wav")
-	sound_player.play()
+func _on_body_entered(body: Node):
+	perceptions.colliding_nodes.append(body)
 
-func shoot_burst():
-	immobilized = true
-	_character_base.play_animation(str("shoot_",_character_base.get_facing_dir()))
-	
-	if(timer_between_shots.is_stopped() 
-		&& num_bullets_fired < burst_num_bullets):
-		create_bullet()
-		num_bullets_fired = num_bullets_fired + 1
-		timer_between_shots.start(time_between_shots_secs)
-	else: if(num_bullets_fired >= burst_num_bullets):
-		burst_cool_down = true
-		timer_burst_cool_down.start(burst_cool_down_secs)
+func _on_body_exited(body: Node):
+	var node_index = perceptions.colliding_nodes.find(body)
+	perceptions.colliding_nodes.remove_at(node_index)
 
 func has_line_of_sight_to_object(obj):
 	_raycast.set_target_position(obj.global_position - _raycast.global_position)
@@ -301,207 +127,168 @@ func has_line_of_sight_to_object(obj):
 		return false
 
 func check_vision():
-	if(state in alertable_states):
-		if (_vision.is_colliding()):
+	if (_vision.is_colliding()):
+			var detected_nodes: Array[Node] = []
 			var iterator = 0
 			while(iterator < _vision.get_collision_count()):
 				var entity = _vision.get_collider(iterator)
-				if(entity != null):
-					for group in alertable_groups:
-						if(entity.is_in_group(group) &&
-						has_line_of_sight_to_object(entity) &&
-						alertable &&
-						state != state_alert):
-							if(entity.is_in_group("player") || is_enemy_mobster(entity)):
-								go_alert()
-								AI_target_obj = entity
-								AI_target_pos = AI_target_obj.position
+				if(entity != null && 
+				has_line_of_sight_to_object(entity)):
+					detected_nodes.append(entity)
 				iterator = iterator + 1
+			perceptions.nodes_in_vision = detected_nodes
 
-func is_enemy_mobster(entity):
-	if(entity.is_in_group("mobster") 
-	&& entity.is_in_group(opposing_team)):
-		return true
-	else:
-		return false
-
-func advance_navigation():
-	var mobsters = get_tree().get_nodes_in_group("mobster")
-	var mobster_near_target = false
-	for mob in mobsters:
-		if(navigation_agent.target_position.distance_to(mob.position) <= nav_target_reached):
-			mobster_near_target = true
+func detect_sparks():
+	var sparks = get_tree().get_nodes_in_group("spark")
+	var detection_distance = 16
+	for spark in sparks:
+		if(is_instance_valid(spark) &&
+			spark not in perceptions.colliding_nodes &&
+			spark.position.distance_to(position) < detection_distance):
+				perceptions.colliding_nodes.append(spark)
+	#clean out null nodes from sparks queue-freeing
+	var iter = 0
+	while iter < len(perceptions.colliding_nodes):
+		if not is_instance_valid(perceptions.colliding_nodes[iter]):
+			perceptions.colliding_nodes.remove_at(iter)
 		else:
-			mobster_near_target = false
-		#advance along path towards movement target
-	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached && !mobster_near_target):
+			iter += 1
+
+###################################################################################################
+#ACTIONS- signal functions and helpers that cause the mobster to take some action in the game world
+###################################################################################################
+
+func _on_create_bullet(create_pos: Vector2, rotation_deg):
+	var new_bullet
+	if(team == team_red):
+		new_bullet = red_bullet.instantiate()
+	else: if(team == team_blu):
+		new_bullet = blu_bullet.instantiate()
+	get_parent().add_child(new_bullet)
+	
+	new_bullet.rotation_degrees = rotation_deg
+	new_bullet.position = create_pos
+	new_bullet.apply_velocity()
+	new_bullet.create_spark_benign() #muzzle flash
+	sound_player.stream = load("res://audio/soundFX/gunshot.wav")
+	sound_player.play()
+
+func _on_set_nav_target(pos : Vector2):
+	perceptions.nav_target_reached = false
+	navigation_agent.target_position = pos
+
+#move mobster along A* navigation path towards navigation target
+#and animate accordingly
+func _on_advance_navigation():
+	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached_distance):
+		perceptions.nav_target_reached = false
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 		current_v = current_agent_position.direction_to(next_path_position) * top_speed
 	else:
-		current_v = current_v * 0
+		current_v = perceptions.current_v * 0
+		perceptions.nav_target_reached = true
+	#handle animation
+	_character_base.face_to_vector(current_v)
+	_character_base.animate_sprite_by_vector(current_v, (linear_velocity.length() >= top_speed))
+	var base = 0.4
+	var remainder = 0.6
+	_character_base.set_animation_scale(base,remainder,perceptions.speed,top_speed)
 
-#############
-#AI STATE CODE 
-#\/\/\/\/\/\/\/
-#PATROL STATE
-func handle_AI():
-	match(state):
-		state_patrol:
-			patrol()
-		state_knockout:
-			knockout()
-		state_alert:
-			alert()
-		state_investigate:
-			investigate()
+func _on_turn_right():
+	_character_base.turn_right()
+	perceptions.facing_dir = _character_base.get_facing_dir()
+	
+func _on_turn_left():
+	_character_base.turn_left()
+	perceptions.facing_dir = _character_base.get_facing_dir()
 
-func patrol():
-	match(sub_state):
-		sub_state_patrol_transit:
-			patrol_transit()
-		sub_state_patrol_look:
-			patrol_look()
+func _on_stand_dir(stand : String):
+	if(stand == ""):
+		_character_base.stand_dir(perceptions.facing_dir)
+		_character_base.set_animation_scale_ratio(1)
+	else:
+		_character_base.stand_dir(stand)
+		_character_base.set_animation_scale_ratio(1)
 
-func patrol_transit():
+func _on_play_one_shot_animation(animation_name: String):
+	if(perceptions.one_shot_animating == false):
+		perceptions.one_shot_animating = true
+		_character_base.play_animation(animation_name)
 
-	if (position.distance_to(navigation_agent.target_position) <= nav_target_reached):
-		timer_look.start(patrol_look_time_secs)
-		patrol_look_turns = 0
-		sub_state = sub_state_patrol_look
+func _on_play_animation(animation_name: String):
+	_character_base.play_animation(animation_name)
 
-func patrol_look():
-	var num_look_turns = 4 #complete rotation
-	if(timer_look.is_stopped()):
-		timer_look.start(patrol_look_time_secs)
-		if(patrol_look_turns < num_look_turns):
-			patrol_look_turns = patrol_look_turns + 1
-			_character_base.turn_right()
-		else: 
-			patrol_look_turns = 0
-			if(current_patrol_point != null &&
-			current_patrol_point.has_next_point &&
-			!current_patrol_point.next_point.is_occupied()):
-				current_patrol_point = current_patrol_point.next_point
-				set_movement_target(current_patrol_point.position)
-				sub_state = sub_state_patrol_transit
-			else: if(current_patrol_point == null):
-				patrol_look_turns = 4
+func _on_disable_head_collider():
+	_head_collider.disabled = true
 
-#KNOCKOUT STATE
-func knockout():
-	match(sub_state):
-		sub_state_knockout_falling:
-			knockout_falling()
-		sub_state_knockout_sleep:
-			knockout_sleep()
-		sub_state_knockout_recover:
-			knockout_recovering()
+func _on_enable_head_collider():
+	_head_collider.disabled = false
 
-func knockout_falling():
-	#NOTE THAT THIS WILL BREAK IF ALL FALLING ANIMATIONS DO NOT HAVE EQUIVALENT FRAMECOUNTS
-	if(_character_base.get_base_current_frame() == _character_base.get_base_animation_framecount("fall_right")-1):
-		sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
-		sound_player.play()
-		sub_state = sub_state_knockout_sleep
-		_character_base.play_animation(str("fallen_",_character_base.get_facing_dir()))
+func _on_stop_motion():
+	_character_base.set_animation_scale_ratio(1)
+	current_v = Vector2(0,0)
 
-func knockout_sleep():
-	if(timer_knockout_sleep.is_stopped()):
-		recover()
+func _on_play_sound(resource_name: String):
+	sound_player.stream = load(resource_name)
+	sound_player.play()
 
-func knockout_recovering():
-	if(_character_base.get_base_current_frame()  == _character_base.get_base_animation_framecount("recover_right")-1):
-		state = state_patrol
-		sub_state = sub_state_patrol_look
-		_head_collider.disabled = false
-		immobilized = false
+func _on_question_bubble():
+	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
+	sound_player.play()
+	var questionBubble = question_bubble.instantiate()
+	self.add_child(questionBubble)
 
-#INVESTIGATE STATE
-func investigate():
-	match(sub_state):
-		sub_state_investigate_question:
-			investigate_question()
+func _on_exclaim_bubble():
+	sound_player.stream = load("res://audio/soundFX/alert.wav")
+	sound_player.play()
+	var exclaimBubble = exclaim_bubble.instantiate()
+	self.add_child(exclaimBubble)
 
-func investigate_question():
-	if(timer_investigate_question.is_stopped()):
-		state = state_patrol
-		sub_state = sub_state_patrol_look
-		immobilized = false
+func _on_set_ai_target_position():
+	perceptions.target_pos = perceptions.target_obj.position
 
-#ALERT STATE
-func alert():
-	match(sub_state):
-		sub_state_alert_exclaiming:
-			alert_exclaiming()
-		sub_state_alert_shoot_gun:
-			alert_shooting()
+func _on_set_ai_target(entity : Node):
+	perceptions.target_obj = entity
+	perceptions.target_pos = perceptions.target_obj.position
 
-func alert_exclaiming():
-	#TODO: state should go into alert attack mode
-	if(timer_alert_exclaim.is_stopped()):
-		sub_state = sub_state_alert_shoot_gun
-		burst_cool_down = false
-		set_shoort_arc_bounds()
+func _on_face_ai_target_pos():
+	var vector_to_target = position.direction_to(perceptions.target_pos)
+	_character_base.face_to_vector(vector_to_target)
+	perceptions.facing_dir = _character_base.get_facing_dir()
 
-func alert_shooting():
-	if(has_line_of_sight_to_object(AI_target_obj)):
-		AI_target_pos = AI_target_obj.position
-		face_AI_target_pos()
-		set_shoort_arc_bounds()
-		
-	if(!burst_cool_down):
-		shoot_burst()
-	else: if(timer_burst_cool_down.is_stopped()):
-		num_bullets_fired = 0
-		burst_cool_down = false
-		if(!has_line_of_sight_to_object(AI_target_obj)):
-			leave_alert()
-		
+##########################################################################################
+#MAINTENENCE- functions that maintain the mobster's physical and observational consistency
+##########################################################################################
 
-#/\/\/\/\/\/\/\
-#AI STATE CODE 
-#############
+func update():
+	update_vision()
+	update_perceptions()
 
+func update_vision():
+	match(_character_base.get_facing_dir()):
+		direction.right:
+			_vision.set_rotation_degrees(0) 
+		direction.left:
+			_vision.set_rotation_degrees(180)
+		direction.up:
+			_vision.set_rotation_degrees(270)
+		direction.down:
+			_vision.set_rotation_degrees(90)
+
+##############
+#PROCESS STUFF
+##############
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!Engine.is_editor_hint()):
-		check_vision()
-		
-		#process AI state
-		handle_AI()
-		
-		if(!immobilized):
-			_character_base.set_animation_scale(0.4, 0.6,speed(),top_speed)
-		
-		update_vision()
-		
-		#check and see if the mobster ought to be knocked out
-		if(state in fall_vulnerable_states):
-			var sparks = get_tree().get_nodes_in_group("spark")
-			for spark in sparks:
-				if (global_position.distance_to(spark.global_position) < spark_knockout_distance):
-					fall()
-			
-		#check to see if there's any commotions nearby which should be investigated
-		if(state != state_investigate &&
-		state != state_alert &&
-		state in alertable_states):
-			var commotions = get_tree().get_nodes_in_group("commotion")
-			for commotion in commotions:
-				if (global_position.distance_to(commotion.global_position) < commotion_notice_distance &&
-					state in alertable_states &&
-					state != state_investigate):
-					investigate_commotion(commotion.global_position)
-				
+		update()
+		send_perceptions()
+
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
-		if(!immobilized):
-			_character_base.face_to_vector(current_v)
-			_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
-			advance_navigation()
-		else:
-			current_v = current_v * 0
-		
+		update()
+		send_perceptions()
 		#apply velocity thru physics engine
 		apply_force(current_v)
-

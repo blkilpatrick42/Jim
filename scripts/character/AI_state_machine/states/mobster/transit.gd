@@ -1,10 +1,11 @@
-class_name s
+class_name Transit_State
 extends State
 
 var current_patrol_point :Node2D = null
 
 signal set_nav_target(pos : Vector2)
 signal advance_navigation
+signal set_target(target : Node)
 
 var nav_target_reached = false
 var setup_done = false
@@ -23,13 +24,19 @@ func physics_process(_delta: float) -> void:
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
 		for node in ai_state_machine.get_perceptions().colliding_nodes:
 			if(is_instance_valid(node) && node.is_in_group("spark")):
-				ai_state_machine.transition_to("falling")
+				ai_state_machine.transition_to(ai_state_machine.falling)
 	else:
+		var player = get_tree().get_first_node_in_group("player")
+		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
+		if(nodes_in_vision.has(player)):
+			set_target.emit(player)
+			ai_state_machine.transition_to(ai_state_machine.exclaiming)
+			return
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):
 			advance_navigation.emit()
 		else:
-			ai_state_machine.transition_to("look")
+			ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	if(current_patrol_point == null):

@@ -10,7 +10,7 @@ func process(_delta: float) -> void:
 func physics_process(_delta: float) -> void:
 	if(!ai_state_machine.get_perceptions().one_shot_animating):
 		turn_on_head_collider.emit()
-		ai_state_machine.transition_to("look")
+		ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	one_shot_animate.emit(str("recover_",ai_state_machine.get_perceptions().facing_dir))
