@@ -1,15 +1,13 @@
-class_name Look_State
+class_name Investigate_State
 extends State
 
-signal turn_right
-signal turn_left
-signal stand(direction : String)
-signal set_target(target : Node)
+signal question_bubble()
+signal set_target(node : Node)
+signal face_pos(pos : Vector2)
 
-const turn_wait_time_secs = 2
-const num_turns = 4
-var current_num_turns = 0
 var timer : Timer
+var investigate_time_secs = 3
+var heard_pos : Vector2
 
 func process(_delta: float) -> void:
 	pass
@@ -20,37 +18,28 @@ func sparks_are_colliding():
 				return true
 	return false
 
-func physics_process(_delta: float):
+func physics_process(_delta: float) -> void:
+	face_pos.emit(heard_pos)
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
 		sparks_are_colliding()):
 			ai_state_machine.transition_to(ai_state_machine.falling)
 	else:
 		var player = get_tree().get_first_node_in_group("player")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
-		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			ai_state_machine.transition_to(ai_state_machine.exclaiming)
 			return
-		if(nodes_in_hearing.size() > 0):
-			ai_state_machine.transition_to(ai_state_machine.investigate)
-			return
 		if(timer.is_stopped()):
-			if(current_num_turns < num_turns):
-				turn_right.emit()
-				current_num_turns = current_num_turns + 1
-				timer.start(turn_wait_time_secs)
-				stand.emit("")
-			else:
-				ai_state_machine.transition_to(ai_state_machine.transit)
+			ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	timer = Timer.new()
-	current_num_turns = 0
 	timer.one_shot = true
 	add_child(timer)
-	timer.start(turn_wait_time_secs)
-	stand.emit("")
+	timer.start(investigate_time_secs)
+	question_bubble.emit()
+	heard_pos = ai_state_machine.get_perceptions().nodes_in_hearing[0].global_position
 
 func exit() -> void:
 	timer.queue_free()

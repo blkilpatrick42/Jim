@@ -105,6 +105,7 @@ func update_perceptions():
 			perceptions.has_line_of_sight_to_target = false
 	
 	check_vision()
+	check_hearing()
 	detect_sparks()
 	
 	#check if currently playing one-shot animation has ended
@@ -138,6 +139,15 @@ func check_vision():
 					detected_nodes.append(entity)
 				iterator = iterator + 1
 			perceptions.nodes_in_vision = detected_nodes
+
+func check_hearing():
+	var commotion_notice_distance = 192
+	var commotions = get_tree().get_nodes_in_group("commotion")
+	var nodes_in_hearing: Array[Node] = []
+	for commotion in commotions:
+		if (global_position.distance_to(commotion.global_position) < commotion_notice_distance):
+			nodes_in_hearing.append(commotion)
+	perceptions.nodes_in_hearing = nodes_in_hearing
 
 func detect_sparks():
 	var sparks = get_tree().get_nodes_in_group("spark")
@@ -255,6 +265,11 @@ func _on_set_ai_target(entity : Node):
 
 func _on_face_ai_target_pos():
 	var vector_to_target = position.direction_to(perceptions.target_pos)
+	_character_base.face_to_vector(vector_to_target)
+	perceptions.facing_dir = _character_base.get_facing_dir()
+
+func _on_face_pos(pos : Vector2):
+	var vector_to_target = position.direction_to(pos)
 	_character_base.face_to_vector(vector_to_target)
 	perceptions.facing_dir = _character_base.get_facing_dir()
 

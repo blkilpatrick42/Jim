@@ -28,9 +28,13 @@ func physics_process(_delta: float) -> void:
 	else:
 		var player = get_tree().get_first_node_in_group("player")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
+		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			ai_state_machine.transition_to(ai_state_machine.exclaiming)
+			return
+		if(nodes_in_hearing.size() > 0):
+			ai_state_machine.transition_to(ai_state_machine.investigate)
 			return
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):
