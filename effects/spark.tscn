@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcd4cw7785qx"]
+
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_cmwch"]
+[ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_ra2sb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52w83"]
+radius = 16.0
+
+[node name="spark" type="RigidBody2D" groups=["commotion", "spark"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_cmwch")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["commotion", "spark"]]
+position = Vector2(0, 8)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("2_ra2sb")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["commotion", "spark"]]
+shape = SubResource("CircleShape2D_52w83")

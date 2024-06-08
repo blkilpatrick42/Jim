@@ -10,7 +10,7 @@ var will_pickup = false
 var showing_arrow = false
 var distance_for_pickup = 100
 var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
-var spark = preload("res://entities/effects/spark.tscn")
+var spark = preload("res://effects/spark.tscn")
 var arrow_instance = null 
 
 var sound_player := AudioStreamPlayer2D.new()
@@ -121,18 +121,6 @@ func _process(delta):
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
 		position = (playerRef.position + Vector2(0, -player_y_offset))
 		
-
-#func _physics_process(delta):
-#	if(linear_velocity.length() > spark_velocity):
-#		set_collision_mask_value(1,false)
-#		set_collision_mask_value(3,true)
-#		set_collision_layer_value(1,false)
-#		set_collision_layer_value(3,true)
-#	else:
-#		set_collision_mask_value(1,true)
-#		set_collision_mask_value(3,false)
-#		set_collision_layer_value(1,true)
-#		set_collision_layer_value(3,false)
 
 func _integrate_forces(state):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 

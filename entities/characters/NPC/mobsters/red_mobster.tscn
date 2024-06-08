@@ -1,0 +1,125 @@
+[gd_scene load_steps=18 format=3 uid="uid://dpruoc10tcsh5"]
+
+[ext_resource type="Script" path="res://scripts/character/mobsters/mobster.gd" id="1_1jg0u"]
+[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_qkhc6"]
+[ext_resource type="PackedScene" uid="uid://ri414jkdjpq4" path="res://entities/characters/character_base.tscn" id="3_bnvdq"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_wq4dt"]
+[ext_resource type="PackedScene" uid="uid://biwoi1biy4ynx" path="res://entities/characters/NPC/AI state machine/ai_state_machine.tscn" id="4_54gx6"]
+[ext_resource type="PackedScene" uid="uid://bfnemblcg0xd0" path="res://entities/characters/NPC/AI state machine/common states/idle.tscn" id="6_aktij"]
+[ext_resource type="PackedScene" uid="uid://bpelaxvbqvfrx" path="res://entities/characters/NPC/AI state machine/mobster states/look.tscn" id="7_myd16"]
+[ext_resource type="PackedScene" uid="uid://b7m035wp3iahk" path="res://entities/characters/NPC/AI state machine/mobster states/transit.tscn" id="8_h0bke"]
+[ext_resource type="PackedScene" uid="uid://dklravegv5df4" path="res://entities/characters/NPC/AI state machine/mobster states/falling.tscn" id="9_sqnsv"]
+[ext_resource type="PackedScene" uid="uid://bw37u3cb3kwex" path="res://entities/characters/NPC/AI state machine/mobster states/knockedout.tscn" id="10_l3guu"]
+[ext_resource type="PackedScene" uid="uid://b4m4vrwifa8r" path="res://entities/characters/NPC/AI state machine/mobster states/recovering.tscn" id="11_llr5s"]
+[ext_resource type="PackedScene" uid="uid://ceineov6onqsj" path="res://entities/characters/NPC/AI state machine/mobster states/exclaiming.tscn" id="12_j4cnk"]
+[ext_resource type="PackedScene" uid="uid://cmo6fikyn618x" path="res://entities/characters/NPC/AI state machine/mobster states/shooting.tscn" id="13_ionir"]
+[ext_resource type="PackedScene" uid="uid://ba1hebt16y7ww" path="res://entities/characters/NPC/AI state machine/mobster states/investigate.tscn" id="14_xqrgg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68bjs"]
+size = Vector2(19.9688, 13.2813)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ldxv5"]
+points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1f3"]
+size = Vector2(5.49072, 16.4881)
+
+[node name="red_mobster" type="RigidBody2D" groups=["mobster"]]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 273
+mass = 1000.0
+gravity_scale = 0.0
+max_contacts_reported = 3
+contact_monitor = true
+lock_rotation = true
+linear_damp = 5.0
+script = ExtResource("1_1jg0u")
+base_spriteframes = ExtResource("2_qkhc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0.015625, 7.35938)
+shape = SubResource("RectangleShape2D_68bjs")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 4.0
+target_desired_distance = 32.0
+radius = 64.0
+neighbor_distance = 1000.0
+max_neighbors = 5
+time_horizon_agents = 5.0
+
+[node name="vision" type="ShapeCast2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+shape = SubResource("ConvexPolygonShape2D_ldxv5")
+target_position = Vector2(0, 0)
+collision_mask = 65
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 1)
+texture = ExtResource("3_wq4dt")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 81
+
+[node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
+position = Vector2(0, -1)
+base_spriteframes = ExtResource("2_qkhc6")
+
+[node name="head_shape" type="CollisionShape2D" parent="."]
+position = Vector2(6.22479e-06, -4.49997)
+rotation = 1.57079
+scale = Vector2(2.73187, 1.213)
+shape = SubResource("RectangleShape2D_bh1f3")
+
+[node name="ai_state_machine" parent="." instance=ExtResource("4_54gx6")]
+initial_state = NodePath("idle")
+
+[node name="idle" parent="ai_state_machine" instance=ExtResource("6_aktij")]
+
+[node name="look" parent="ai_state_machine" instance=ExtResource("7_myd16")]
+
+[node name="transit" parent="ai_state_machine" instance=ExtResource("8_h0bke")]
+
+[node name="recovering" parent="ai_state_machine" instance=ExtResource("9_sqnsv")]
+
+[node name="knockedout" parent="ai_state_machine" instance=ExtResource("10_l3guu")]
+
+[node name="falling" parent="ai_state_machine" instance=ExtResource("11_llr5s")]
+
+[node name="exclaiming" parent="ai_state_machine" instance=ExtResource("12_j4cnk")]
+
+[node name="shooting" parent="ai_state_machine" instance=ExtResource("13_ionir")]
+
+[node name="investigate" parent="ai_state_machine" instance=ExtResource("14_xqrgg")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="stand" from="ai_state_machine/idle" to="." method="_on_stand_dir"]
+[connection signal="set_target" from="ai_state_machine/look" to="." method="_on_set_ai_target"]
+[connection signal="stand" from="ai_state_machine/look" to="." method="_on_stand_dir"]
+[connection signal="turn_left" from="ai_state_machine/look" to="." method="_on_turn_left"]
+[connection signal="turn_right" from="ai_state_machine/look" to="." method="_on_turn_right"]
+[connection signal="advance_navigation" from="ai_state_machine/transit" to="." method="_on_advance_navigation"]
+[connection signal="set_nav_target" from="ai_state_machine/transit" to="." method="_on_set_nav_target"]
+[connection signal="set_target" from="ai_state_machine/transit" to="." method="_on_set_ai_target"]
+[connection signal="one_shot_animate" from="ai_state_machine/recovering" to="." method="_on_play_one_shot_animation"]
+[connection signal="turn_on_head_collider" from="ai_state_machine/recovering" to="." method="_on_enable_head_collider"]
+[connection signal="animate" from="ai_state_machine/knockedout" to="." method="_on_play_animation"]
+[connection signal="one_shot_animate" from="ai_state_machine/falling" to="." method="_on_play_one_shot_animation"]
+[connection signal="play_sound" from="ai_state_machine/falling" to="." method="_on_play_sound"]
+[connection signal="stop_motion" from="ai_state_machine/falling" to="." method="_on_stop_motion"]
+[connection signal="turn_off_head_collider" from="ai_state_machine/falling" to="." method="_on_disable_head_collider"]
+[connection signal="exclaim_bubble" from="ai_state_machine/exclaiming" to="." method="_on_exclaim_bubble"]
+[connection signal="stand" from="ai_state_machine/exclaiming" to="." method="_on_stand_dir"]
+[connection signal="stop" from="ai_state_machine/exclaiming" to="." method="_on_stop_motion"]
+[connection signal="face_target" from="ai_state_machine/shooting" to="." method="_on_face_ai_target_pos"]
+[connection signal="play_animation" from="ai_state_machine/shooting" to="." method="_on_play_animation"]
+[connection signal="question_bubble" from="ai_state_machine/shooting" to="." method="_on_question_bubble"]
+[connection signal="shoot" from="ai_state_machine/shooting" to="." method="_on_create_bullet"]
+[connection signal="face_pos" from="ai_state_machine/investigate" to="." method="_on_face_pos"]
+[connection signal="question_bubble" from="ai_state_machine/investigate" to="." method="_on_question_bubble"]
+[connection signal="set_target" from="ai_state_machine/investigate" to="." method="_on_set_ai_target"]

@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://d07pd61fdcupd" path="res://sprites/spritesheets/spriteframes/interface/dash_get.tres" id="2_11knr"]
 
 [node name="dash_get" type="Node2D" groups=["interface"]]
+z_index = 5
 script = ExtResource("1_tn4tf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://0238pavltllm"]
+
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_4s75q"]
+[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="2_1ohae"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_486n2"]
+bounce = 0.61
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_inwym"]
+radius = 6.0
+
+[node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_486n2")
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 2.0
+script = ExtResource("1_4s75q")
+force_factor = 700
+
+[node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+texture = ExtResource("2_1ohae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_inwym")
