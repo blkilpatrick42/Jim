@@ -123,3 +123,5 @@ initial_state = NodePath("idle")
 [connection signal="face_pos" from="ai_state_machine/investigate" to="." method="_on_face_pos"]
 [connection signal="question_bubble" from="ai_state_machine/investigate" to="." method="_on_question_bubble"]
 [connection signal="set_target" from="ai_state_machine/investigate" to="." method="_on_set_ai_target"]
+[connection signal="stand" from="ai_state_machine/investigate" to="." method="_on_stand_dir"]
+[connection signal="stop" from="ai_state_machine/investigate" to="." method="_on_stop_motion"]
