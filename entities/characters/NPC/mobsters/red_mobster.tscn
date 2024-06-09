@@ -24,7 +24,7 @@ points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1f3"]
 size = Vector2(5.49072, 16.4881)
 
-[node name="red_mobster" type="RigidBody2D" groups=["mobster"]]
+[node name="mobster" type="RigidBody2D" groups=["mobster"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 273

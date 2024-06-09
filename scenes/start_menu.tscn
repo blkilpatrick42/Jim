@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba16c0124dsb3"]
+
+[ext_resource type="Texture2D" uid="uid://b76rttfua10ki" path="res://sprites/start_screen/starfiend_back.png" id="1_tkgca"]
+[ext_resource type="PackedScene" uid="uid://cquyj6k5qf206" path="res://entities/start screen/attribution.tscn" id="2_7x5ri"]
+[ext_resource type="PackedScene" uid="uid://nytcodu5ljvj" path="res://entities/start screen/starfield.tscn" id="3_savhb"]
+[ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://entities/start screen/starfield_far.tscn" id="4_8yvp3"]
+[ext_resource type="Script" path="res://scenes/menu_manager.gd" id="5_2mx2p"]
+[ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://entities/start screen/starfield_farthest.tscn" id="5_re6l0"]
+[ext_resource type="AudioStream" uid="uid://b3pbwf0l1i5mh" path="res://audio/music/starfield_theme.wav" id="7_0owee"]
+
+[node name="start_menu" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="StarfiendBack" type="Sprite2D" parent="."]
+scale = Vector2(2.89687, 2.89688)
+texture = ExtResource("1_tkgca")
+
+[node name="starfield" parent="." instance=ExtResource("3_savhb")]
+visible = false
+position = Vector2(0, 0)
+timer_wait_secs = 0.02
+
+[node name="starfield_far" parent="." instance=ExtResource("4_8yvp3")]
+position = Vector2(0, 0)
+timer_wait_secs = 0.1
+
+[node name="starfield_farthest" parent="." instance=ExtResource("5_re6l0")]
+position = Vector2(0, 0)
+timer_wait_secs = 0.5
+
+[node name="manager" type="Node" parent="."]
+script = ExtResource("5_2mx2p")
+
+[node name="attribution" parent="manager" instance=ExtResource("2_7x5ri")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0owee")
+volume_db = -12.855
+autoplay = true

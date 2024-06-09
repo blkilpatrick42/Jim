@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://nytcodu5ljvj"]
+
+[ext_resource type="Script" path="res://scripts/start screen/starfield.gd" id="1_6xui1"]
+[ext_resource type="Texture2D" uid="uid://deyc51340jcb8" path="res://sprites/start_screen/starfiend_near.png" id="2_q5vn1"]
+
+[node name="starfield" type="Node2D"]
+position = Vector2(0, -411)
+script = ExtResource("1_6xui1")
+
+[node name="panel1" type="Sprite2D" parent="."]
+texture = ExtResource("2_q5vn1")
+
+[node name="panel2" type="Sprite2D" parent="."]
+position = Vector2(0, -480)
+texture = ExtResource("2_q5vn1")
+
+[node name="panel3" type="Sprite2D" parent="."]
+position = Vector2(0, 480)
+texture = ExtResource("2_q5vn1")
