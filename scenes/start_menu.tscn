@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cquyj6k5qf206" path="res://entities/start screen/attribution.tscn" id="2_7x5ri"]
 [ext_resource type="PackedScene" uid="uid://nytcodu5ljvj" path="res://entities/start screen/starfield.tscn" id="3_savhb"]
 [ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://entities/start screen/starfield_far.tscn" id="4_8yvp3"]
-[ext_resource type="Script" path="res://scenes/menu_manager.gd" id="5_2mx2p"]
+[ext_resource type="Script" path="res://scripts/start screen/menu_manager.gd" id="5_l1xrc"]
 [ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://entities/start screen/starfield_farthest.tscn" id="5_re6l0"]
 [ext_resource type="AudioStream" uid="uid://b3pbwf0l1i5mh" path="res://audio/music/starfield_theme.wav" id="7_0owee"]
 
@@ -31,7 +31,7 @@ position = Vector2(0, 0)
 timer_wait_secs = 0.5
 
 [node name="manager" type="Node" parent="."]
-script = ExtResource("5_2mx2p")
+script = ExtResource("5_l1xrc")
 
 [node name="attribution" parent="manager" instance=ExtResource("2_7x5ri")]
 
