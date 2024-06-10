@@ -4,6 +4,8 @@ extends State
 signal question_bubble()
 signal set_target(node : Node)
 signal face_pos(pos : Vector2)
+signal stop()
+signal stand(dir : String)
 
 var timer : Timer
 var investigate_time_secs = 3
@@ -19,7 +21,6 @@ func sparks_are_colliding():
 	return false
 
 func physics_process(_delta: float) -> void:
-	face_pos.emit(heard_pos)
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
 		sparks_are_colliding()):
 			ai_state_machine.transition_to(ai_state_machine.falling)
@@ -40,6 +41,9 @@ func enter(_msg := {}) -> void:
 	timer.start(investigate_time_secs)
 	question_bubble.emit()
 	heard_pos = ai_state_machine.get_perceptions().nodes_in_hearing[0].global_position
+	stop.emit()
+	face_pos.emit(heard_pos)
+	stand.emit("")
 
 func exit() -> void:
 	timer.queue_free()

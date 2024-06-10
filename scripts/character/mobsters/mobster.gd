@@ -269,7 +269,7 @@ func _on_face_ai_target_pos():
 	perceptions.facing_dir = _character_base.get_facing_dir()
 
 func _on_face_pos(pos : Vector2):
-	var vector_to_target = position.direction_to(pos)
+	var vector_to_target = global_position.direction_to(pos)
 	_character_base.face_to_vector(vector_to_target)
 	perceptions.facing_dir = _character_base.get_facing_dir()
 
