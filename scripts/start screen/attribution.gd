@@ -11,10 +11,10 @@ var timer_fade := Timer.new()
 var motion_pic_fade_alpha = 0.0
 var logo_fade_alpha = 0.0
 
-var fading_in = true
+var fading_in = false
 var holding = false
 var fading_out = false
-var done = false
+var done = true
 
 var fade_step = 0.025
 

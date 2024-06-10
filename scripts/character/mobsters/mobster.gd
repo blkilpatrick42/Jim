@@ -8,7 +8,10 @@ var exclaim_bubble = preload("res://entities/characters/NPC/mobsters/communicati
 var red_bullet = preload("res://entities/characters/NPC/mobsters/red_bullet.tscn")
 var blu_bullet = preload("res://entities/characters/NPC/mobsters/blu_bullet.tscn")
 
-@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+var red_base = preload("res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres")
+var blu_base = preload("res://sprites/spritesheets/spriteframes/characters/base/blu_mobster_base.tres")
+
+@onready var _navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _head_collider = $head_shape
 
 @export var current_patrol_point :Node2D = null
@@ -39,6 +42,8 @@ var perceptions: MobsterPerceptions = MobsterPerceptions.new()
 #state machine reference
 @onready var _ai_state_machine = $ai_state_machine
 
+var random = RandomNumberGenerator.new()
+
 const top_speed = 125000
 const nav_target_reached_distance = 32 #distance at which nav target is considered reached
 const nav_path_resolution = 4
@@ -47,8 +52,8 @@ const nav_path_resolution = 4
 func _ready():
 	set_up_sound_player()
 	set_up_nav_agent()
-	set_up_character_base()
 	set_up_mobster_team()
+	set_up_character_base()
 	update_perceptions()
 	send_perceptions()
 	#for updating character composition in the editor
@@ -56,6 +61,11 @@ func _ready():
 		queue_redraw()
 
 func set_up_character_base():
+	if(team == team_red):
+		base_spriteframes = red_base
+	else: if(team == team_blu):
+		base_spriteframes = blu_base
+		
 	_character_base.set_facing_dir(start_facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,
@@ -65,8 +75,8 @@ func set_up_character_base():
 
 func set_up_nav_agent():
 	#nav agent setup stuff
-	navigation_agent.path_desired_distance = 4.0
-	navigation_agent.target_desired_distance = nav_target_reached_distance
+	_navigation_agent.path_desired_distance = 4.0
+	_navigation_agent.target_desired_distance = nav_target_reached_distance
 
 func set_up_sound_player():
 	sound_player.max_distance = 500
@@ -169,6 +179,70 @@ func detect_sparks():
 #ACTIONS- signal functions and helpers that cause the mobster to take some action in the game world
 ###################################################################################################
 
+
+func has_clear_shot(point : Vector2):
+	return true #todo: remove once basic testing is done
+	#TODO: definitely not going to work vector space is fucky come back later and revise
+	#TODO: also needs to incorporate raycast code ah jeez
+#	var north = Vector2(0,-1)
+#	var east = Vector2(1,0)
+#	var south = Vector2(0,1)
+#	var west = Vector2(-1,0)
+#	var directions = [north, east, south, west]
+#	for dir in directions:
+#		var angle = dir.angle_to(point)
+#		if(angle <= shoot_arc_degrees/2 ||
+#		   angle >= - shoot_arc_degrees/2):
+#			return true
+#	return false
+
+func get_nearest_point_on_mesh(point : Vector2):
+	var rid = _navigation_agent.get_navigation_map()
+	return NavigationServer2D.map_get_closest_point(rid, point)
+
+func get_strafe_point():
+	var strafe_distance_step = nav_target_reached_distance * 2
+	var strafe_steps = 2
+	var iterator = 1
+	var valid_points = []
+	while(iterator <= strafe_steps):
+		var step = strafe_distance_step * iterator
+
+		var north = get_nearest_point_on_mesh(Vector2(position.x, position.y - step))
+		if(has_clear_shot(north)):
+			valid_points.append(north)
+		var northEast = get_nearest_point_on_mesh(Vector2(position.x + step, position.y - step))
+		if(has_clear_shot(northEast)):
+			valid_points.append(northEast)
+		var east = get_nearest_point_on_mesh(Vector2(position.x + step, position.y))
+		if(has_clear_shot(east)):
+			valid_points.append(east)
+		var southEast = get_nearest_point_on_mesh(Vector2(position.x + step, position.y + step))
+		if(has_clear_shot(southEast)):
+			valid_points.append(southEast)
+		var south = get_nearest_point_on_mesh(Vector2(position.x, position.y + step))
+		if(has_clear_shot(south)):
+			valid_points.append(south)
+		var soutWest = get_nearest_point_on_mesh(Vector2(position.x - step, position.y + step))
+		if(has_clear_shot(soutWest)):
+			valid_points.append(soutWest)
+		var west = get_nearest_point_on_mesh(Vector2(position.x - step, position.y))
+		if(has_clear_shot(west)):
+			valid_points.append(west)
+		var northWest = get_nearest_point_on_mesh(Vector2(position.x + step, position.y))
+		if(has_clear_shot(northWest)):
+			valid_points.append(northWest)
+		iterator = iterator + 1
+
+	if(valid_points.size() > 0):
+		var strafe_point = valid_points[random.randi_range(0,valid_points.size() -1 )]
+		return strafe_point
+	else:
+		return position
+
+func _on_set_strafe_point():
+	_on_set_nav_target(get_strafe_point())
+
 func _on_create_bullet(create_pos: Vector2, rotation_deg):
 	var new_bullet
 	if(team == team_red):
@@ -186,16 +260,16 @@ func _on_create_bullet(create_pos: Vector2, rotation_deg):
 
 func _on_set_nav_target(pos : Vector2):
 	perceptions.nav_target_reached = false
-	navigation_agent.target_position = pos
+	_navigation_agent.target_position = pos
 
 #move mobster along A* navigation path towards navigation target
 #and animate accordingly
-func _on_advance_navigation():
-	if (position.distance_to(navigation_agent.target_position) >= nav_target_reached_distance):
+func _on_advance_navigation(speed : int):
+	if (position.distance_to(_navigation_agent.target_position) >= nav_target_reached_distance):
 		perceptions.nav_target_reached = false
 		var current_agent_position: Vector2 = global_position
-		var next_path_position: Vector2 = navigation_agent.get_next_path_position()
-		current_v = current_agent_position.direction_to(next_path_position) * top_speed
+		var next_path_position: Vector2 = _navigation_agent.get_next_path_position()
+		current_v = current_agent_position.direction_to(next_path_position) * speed
 	else:
 		current_v = perceptions.current_v * 0
 		perceptions.nav_target_reached = true

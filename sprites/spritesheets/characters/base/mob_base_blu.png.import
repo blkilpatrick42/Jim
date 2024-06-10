@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl4v0igdpvh1c"
-path="res://.godot/imported/blu_mob_base.png-e43cf99a46b0ac98ac5c893422e2508f.ctex"
+path="res://.godot/imported/mob_base_blu.png-3382f826be032a63ed5f14e07564f06f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/characters/base/blu_mob_base.png"
-dest_files=["res://.godot/imported/blu_mob_base.png-e43cf99a46b0ac98ac5c893422e2508f.ctex"]
+source_file="res://sprites/spritesheets/characters/base/mob_base_blu.png"
+dest_files=["res://.godot/imported/mob_base_blu.png-3382f826be032a63ed5f14e07564f06f.ctex"]
 
 [params]
 

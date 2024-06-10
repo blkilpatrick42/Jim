@@ -38,7 +38,7 @@ func physics_process(_delta: float) -> void:
 			return
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):
-			advance_navigation.emit()
+			advance_navigation.emit(125000)
 		else:
 			ai_state_machine.transition_to(ai_state_machine.look)
 

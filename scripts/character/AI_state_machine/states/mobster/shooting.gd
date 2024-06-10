@@ -91,6 +91,8 @@ func physics_process(_delta: float) -> void:
 		if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 			question_bubble.emit()
 			ai_state_machine.transition_to(ai_state_machine.look)
+		else:
+			ai_state_machine.transition_to(ai_state_machine.strafing)
 
 func enter(_msg := {}) -> void:
 	timer_burst_cool_down = Timer.new()

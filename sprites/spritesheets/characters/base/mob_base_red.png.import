@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctgcuhk1vst82"
-path="res://.godot/imported/red_mob_base.png-e35e5d66d12f2604efdadb253903f52d.ctex"
+path="res://.godot/imported/mob_base_red.png-4e2c5923623f8c772159236dcfe58020.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/spritesheets/characters/base/red_mob_base.png"
-dest_files=["res://.godot/imported/red_mob_base.png-e35e5d66d12f2604efdadb253903f52d.ctex"]
+source_file="res://sprites/spritesheets/characters/base/mob_base_red.png"
+dest_files=["res://.godot/imported/mob_base_red.png-4e2c5923623f8c772159236dcfe58020.ctex"]
 
 [params]
 

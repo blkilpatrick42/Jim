@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://0058jlrkqxbj"]
+
+[ext_resource type="Texture2D" uid="uid://cj2srapid4i13" path="res://sprites/spritesheets/mobster/die_skull.png" id="1_ol4ir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v41mi"]
+atlas = ExtResource("1_ol4ir")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7kl"]
+atlas = ExtResource("1_ol4ir")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0lyl"]
+atlas = ExtResource("1_ol4ir")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mogp6"]
+atlas = ExtResource("1_ol4ir")
+region = Rect2(48, 0, 16, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v41mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0lyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mogp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mogp6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

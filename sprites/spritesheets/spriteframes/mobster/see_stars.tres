@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://fmhv5enmsgn3"]
+
+[ext_resource type="Texture2D" uid="uid://d04msrhicd2ng" path="res://sprites/spritesheets/mobster/seeing_stars.png" id="1_axpqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wevud"]
+atlas = ExtResource("1_axpqk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df6op"]
+atlas = ExtResource("1_axpqk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pny3"]
+atlas = ExtResource("1_axpqk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg64n"]
+atlas = ExtResource("1_axpqk")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wevud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df6op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pny3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg64n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

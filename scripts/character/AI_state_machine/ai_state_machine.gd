@@ -10,6 +10,7 @@ const knockedout = "knockedout"
 const recovering = "recovering"
 const exclaiming = "exclaiming"
 const shooting = "shooting"
+const strafing = "strafing"
 const investigate = "investigate"
 
 # Emitted when transitioning to a new state.

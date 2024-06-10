@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://kmdvvmso2r8o"]
+[gd_scene load_steps=56 format=3 uid="uid://kmdvvmso2r8o"]
 
 [ext_resource type="Script" path="res://scripts/utility/teleporter_link.gd" id="1_85abk"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="3_fohp5"]
@@ -24,7 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://d3q58k74gxjnl" path="res://entities/dynamic world/matte_painting_test.tscn" id="17_mgj8o"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/dynamic world/door1.tscn" id="18_m106v"]
 [ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/dynamic world/door_frame.tscn" id="18_qehjh"]
-[ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/characters/NPC/mobsters/red_mobster.tscn" id="19_x45wg"]
+[ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/characters/NPC/mobsters/mobster.tscn" id="19_x45wg"]
+[ext_resource type="SpriteFrames" uid="uid://cpe2jw8jk1hqg" path="res://sprites/spritesheets/spriteframes/characters/base/blu_mobster_base.tres" id="25_agxnk"]
 
 [sub_resource type="GDScript" id="GDScript_rsnvh"]
 script/source = "extends AudioStreamPlayer2D
@@ -152,6 +153,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="dev_layer" type="CanvasLayer" parent="."]
 layer = 4
+visible = false
 
 [node name="ocean_sound" type="AudioStreamPlayer2D" parent="dev_layer"]
 position = Vector2(240, 2072)
@@ -612,7 +614,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="daylight_affected_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(28, -198)
+position = Vector2(-1118, 374)
 hat_spriteframes = ExtResource("7_xgh3y")
 top_spriteframes = ExtResource("8_38bov")
 
@@ -851,6 +853,11 @@ position = Vector2(-924, 505)
 
 [node name="Red_Mobster5" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-745, 811)
+
+[node name="Blu_Mobster7" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
+position = Vector2(-1215, 725)
+team = "blu"
+base_spriteframes = ExtResource("25_agxnk")
 
 [node name="Red_Mobster6" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-614, 816)

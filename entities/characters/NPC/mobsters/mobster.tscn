@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpruoc10tcsh5"]
+[gd_scene load_steps=19 format=3 uid="uid://dpruoc10tcsh5"]
 
 [ext_resource type="Script" path="res://scripts/character/mobsters/mobster.gd" id="1_1jg0u"]
 [ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_qkhc6"]
-[ext_resource type="PackedScene" uid="uid://ri414jkdjpq4" path="res://entities/characters/character_base.tscn" id="3_bnvdq"]
+[ext_resource type="PackedScene" uid="uid://h6t3cjbjhfv7" path="res://entities/characters/character_base.tscn" id="3_bnvdq"]
 [ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_wq4dt"]
 [ext_resource type="PackedScene" uid="uid://biwoi1biy4ynx" path="res://entities/characters/NPC/AI state machine/ai_state_machine.tscn" id="4_54gx6"]
 [ext_resource type="PackedScene" uid="uid://bfnemblcg0xd0" path="res://entities/characters/NPC/AI state machine/common states/idle.tscn" id="6_aktij"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ceineov6onqsj" path="res://entities/characters/NPC/AI state machine/mobster states/exclaiming.tscn" id="12_j4cnk"]
 [ext_resource type="PackedScene" uid="uid://cmo6fikyn618x" path="res://entities/characters/NPC/AI state machine/mobster states/shooting.tscn" id="13_ionir"]
 [ext_resource type="PackedScene" uid="uid://ba1hebt16y7ww" path="res://entities/characters/NPC/AI state machine/mobster states/investigate.tscn" id="14_xqrgg"]
+[ext_resource type="PackedScene" uid="uid://dho06ar37ptst" path="res://entities/characters/NPC/AI state machine/mobster states/strafing.tscn" id="15_yjha7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68bjs"]
 size = Vector2(19.9688, 13.2813)
@@ -51,6 +52,7 @@ max_neighbors = 5
 time_horizon_agents = 5.0
 
 [node name="vision" type="ShapeCast2D" parent="."]
+visible = false
 self_modulate = Color(1, 1, 0, 1)
 shape = SubResource("ConvexPolygonShape2D_ldxv5")
 target_position = Vector2(0, 0)
@@ -96,6 +98,8 @@ initial_state = NodePath("idle")
 
 [node name="investigate" parent="ai_state_machine" instance=ExtResource("14_xqrgg")]
 
+[node name="strafing" parent="ai_state_machine" instance=ExtResource("15_yjha7")]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="stand" from="ai_state_machine/idle" to="." method="_on_stand_dir"]
@@ -125,3 +129,5 @@ initial_state = NodePath("idle")
 [connection signal="set_target" from="ai_state_machine/investigate" to="." method="_on_set_ai_target"]
 [connection signal="stand" from="ai_state_machine/investigate" to="." method="_on_stand_dir"]
 [connection signal="stop" from="ai_state_machine/investigate" to="." method="_on_stop_motion"]
+[connection signal="advance_navigation" from="ai_state_machine/strafing" to="." method="_on_advance_navigation"]
+[connection signal="set_strafe_point" from="ai_state_machine/strafing" to="." method="_on_set_strafe_point"]
