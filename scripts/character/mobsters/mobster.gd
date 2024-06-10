@@ -23,7 +23,8 @@ const team_blu = "blu"
 var opposing_team 
 
 #perceptors
-@onready var _raycast: RayCast2D = $RayCast2D
+@onready var _passive_raycast: RayCast2D = $passive_raycast
+@onready var _active_raycast: RayCast2D = $active_raycast
 @onready var _vision = $vision
 
 #character composition
@@ -108,7 +109,7 @@ func update_perceptions():
 	perceptions.speed = linear_velocity.length()
 	
 	if(perceptions.target_obj != null):
-		if(has_line_of_sight_to_object(perceptions.target_obj)):
+		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
 			perceptions.target_pos = perceptions.target_obj.position
 			perceptions.has_line_of_sight_to_target = true
 		else:
@@ -130,9 +131,20 @@ func _on_body_exited(body: Node):
 	var node_index = perceptions.colliding_nodes.find(body)
 	perceptions.colliding_nodes.remove_at(node_index)
 
-func has_line_of_sight_to_object(obj):
-	_raycast.set_target_position(obj.global_position - _raycast.global_position)
-	if(_raycast.is_colliding() && _raycast.get_collider() == obj):
+#we need a passive raycast for use with regular vision cchecking
+#or else there will be race conditions as we check for line-of-sight
+#to target obj
+func passive_has_line_of_sight_to_object(obj):
+	_passive_raycast.set_target_position(obj.global_position - _passive_raycast.global_position)
+	if(_passive_raycast.is_colliding() && _passive_raycast.get_collider() == obj):
+		return true
+	else:
+		perceptions.nodes_in_vision.erase(obj)
+		return false
+
+func active_has_line_of_sight_to_object(obj):
+	_active_raycast.set_target_position(obj.global_position - _active_raycast.global_position)
+	if(_active_raycast.is_colliding() && _active_raycast.get_collider() == obj):
 		return true
 	else:
 		perceptions.nodes_in_vision.erase(obj)
@@ -145,7 +157,7 @@ func check_vision():
 			while(iterator < _vision.get_collision_count()):
 				var entity = _vision.get_collider(iterator)
 				if(entity != null && 
-				has_line_of_sight_to_object(entity)):
+				passive_has_line_of_sight_to_object(entity)):
 					detected_nodes.append(entity)
 				iterator = iterator + 1
 			perceptions.nodes_in_vision = detected_nodes
