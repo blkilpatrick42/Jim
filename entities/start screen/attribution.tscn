@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/start screen/attribution.gd" id="1_hcyew"]
 [ext_resource type="Texture2D" uid="uid://ddc5iel3kx8nw" path="res://sprites/start_screen/motionpicture.png" id="2_p4i8m"]
-[ext_resource type="Texture2D" uid="uid://dqdsvhjlosu6t" path="res://sprites/start_screen/jimlandlogo.png" id="3_mdvnh"]
+[ext_resource type="Texture2D" uid="uid://42naiihosfjk" path="res://sprites/start_screen/dire_logo.png" id="3_pk3lc"]
 
 [node name="attribution" type="Node2D"]
 script = ExtResource("1_hcyew")
 
 [node name="motion_pic" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, -1.59595e-16)
 position = Vector2(2, -34)
 texture = ExtResource("2_p4i8m")
 
 [node name="logo" type="Sprite2D" parent="."]
-texture = ExtResource("3_mdvnh")
+self_modulate = Color(1, 1, 1, -1.59595e-16)
+texture = ExtResource("3_pk3lc")
