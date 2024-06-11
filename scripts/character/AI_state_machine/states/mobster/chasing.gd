@@ -3,9 +3,9 @@ extends State
 
 var current_patrol_point :Node2D = null
 
-signal set_strafe_point()
-signal advance_navigation
-signal set_target(target : Node)
+signal set_nav_target(pos: Vector2)
+signal advance_navigation(speed: int)
+signal question_bubble
 
 var nav_target_reached = false
 var setup_done = false
@@ -28,12 +28,17 @@ func physics_process(_delta: float) -> void:
 	else:
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):
-			advance_navigation.emit(250000)
+			advance_navigation.emit(400000)
 		else:
-			ai_state_machine.transition_to(ai_state_machine.shooting)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.shooting)
+			else:
+				question_bubble.emit()
+				ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
-	set_strafe_point.emit()
+	var last_seen_pos = ai_state_machine.get_perceptions().target_pos
+	set_nav_target.emit(last_seen_pos)
 
 func exit() -> void:
 	pass

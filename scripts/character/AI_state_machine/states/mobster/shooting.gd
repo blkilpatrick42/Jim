@@ -89,8 +89,7 @@ func physics_process(_delta: float) -> void:
 		burst_cool_down = false
 		num_bullets_fired = 0
 		if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-			question_bubble.emit()
-			ai_state_machine.transition_to(ai_state_machine.look)
+			ai_state_machine.transition_to(ai_state_machine.chasing)
 		else:
 			ai_state_machine.transition_to(ai_state_machine.strafing)
 

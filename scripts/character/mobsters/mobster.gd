@@ -269,6 +269,10 @@ func _on_set_nav_target(pos : Vector2):
 	perceptions.nav_target_reached = false
 	_navigation_agent.target_position = pos
 
+func _on_set_nav_target_nearest_mesh(pos : Vector2):
+	var point = get_nearest_point_on_mesh(pos)
+	_on_set_nav_target(point)
+	
 #move mobster along A* navigation path towards navigation target
 #and animate accordingly
 func _on_advance_navigation(speed : int):
