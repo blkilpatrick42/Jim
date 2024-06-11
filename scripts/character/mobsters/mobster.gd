@@ -131,9 +131,9 @@ func _on_body_exited(body: Node):
 	var node_index = perceptions.colliding_nodes.find(body)
 	perceptions.colliding_nodes.remove_at(node_index)
 
-#we need a passive raycast for use with regular vision cchecking
-#or else there will be race conditions as we check for line-of-sight
-#to target obj
+#we need a separate passive raycast for use with regular vision checking
+#or else there will be race conditions fighting over the ray-cast object as we
+#check for line of sight 
 func passive_has_line_of_sight_to_object(obj):
 	_passive_raycast.set_target_position(obj.global_position - _passive_raycast.global_position)
 	if(_passive_raycast.is_colliding() && _passive_raycast.get_collider() == obj):
@@ -193,20 +193,12 @@ func detect_sparks():
 
 
 func has_clear_shot(point : Vector2):
-	return true #todo: remove once basic testing is done
-	#TODO: definitely not going to work vector space is fucky come back later and revise
-	#TODO: also needs to incorporate raycast code ah jeez
-#	var north = Vector2(0,-1)
-#	var east = Vector2(1,0)
-#	var south = Vector2(0,1)
-#	var west = Vector2(-1,0)
-#	var directions = [north, east, south, west]
-#	for dir in directions:
-#		var angle = dir.angle_to(point)
-#		if(angle <= shoot_arc_degrees/2 ||
-#		   angle >= - shoot_arc_degrees/2):
-#			return true
-#	return false
+	var bounds = 32
+	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
+	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
+		return true
+	else:
+		return false
 
 func get_nearest_point_on_mesh(point : Vector2):
 	var rid = _navigation_agent.get_navigation_map()
