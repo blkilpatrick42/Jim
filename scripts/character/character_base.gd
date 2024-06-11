@@ -8,9 +8,13 @@ extends Node2D
 @export var hat_spriteframes : SpriteFrames = null
 @export var top_spriteframes : SpriteFrames = null
 @export var bottom_spriteframes : SpriteFrames = null
+var arms_raised = false
 
 #current facing direction
 var facing_dir = direction.right
+
+func set_arms_raised(raised):
+	arms_raised = raised
 
 func get_facing_dir():
 	return facing_dir
@@ -67,11 +71,18 @@ func set_speed_scales(scale):
 func stand_dir(direction):
 	if(direction != ""):
 		facing_dir = direction
-	play_animation(str("stand_",facing_dir))
+	var animation = str("stand_",facing_dir)
+	if(arms_raised):
+		animation = str(animation,"_arms")
+	play_animation(animation)
 
 func walk_dir(direction):
-	facing_dir = direction
-	play_animation(str("walk_",direction))
+	if(direction != ""):
+		facing_dir = direction
+	var animation = str("walk_",facing_dir)
+	if(arms_raised):
+		animation = str(animation,"_arms")
+	play_animation(animation)
 
 func set_all_materials(material):
 	if(_base_sprite.sprite_frames != null):

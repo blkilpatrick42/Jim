@@ -115,13 +115,18 @@ func set_current_v(vect : Vector2):
 func stop():
 	current_v = Vector2(0,0)
 
+func set_holding_object(is_holding):
+	holding_object = is_holding
+	_character_base.set_arms_raised(is_holding)
+		
+
 func throw():
 	if(holding_object):
 		sound_player.stream = load("res://audio/soundFX/woosh.wav")
 		sound_player.play()
 		grabbed_object.throw(_character_base.get_facing_dir())
 		grabbed_object = null
-		holding_object = false
+		set_holding_object(false)
 
 func pick_up():
 	if(will_grab_object != null && !holding_object):
@@ -129,13 +134,13 @@ func pick_up():
 		sound_player.play()
 		will_grab_object.pick_up()
 		grabbed_object = will_grab_object
-		holding_object = true
+		set_holding_object(true)
 	else: if(holding_object):
 		sound_player.stream = load("res://audio/soundFX/putdown.wav")
 		sound_player.play()
 		grabbed_object.put_down(_character_base.get_facing_dir())
 		grabbed_object = null
-		holding_object = false
+		set_holding_object(false)
 
 func dash():
 	if(!is_dashing && Input.get_vector(direction.left, direction.right, direction.up, direction.down).length() > 0):

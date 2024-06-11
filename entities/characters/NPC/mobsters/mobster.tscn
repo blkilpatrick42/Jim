@@ -64,6 +64,7 @@ position = Vector2(0, 1)
 texture = ExtResource("3_wq4dt")
 
 [node name="passive_raycast" type="RayCast2D" parent="."]
+scale = Vector2(1.00083, 1.00596)
 target_position = Vector2(0, 0)
 collision_mask = 81
 

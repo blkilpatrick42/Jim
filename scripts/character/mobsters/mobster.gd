@@ -49,6 +49,9 @@ const top_speed = 125000
 const nav_target_reached_distance = 32 #distance at which nav target is considered reached
 const nav_path_resolution = 4
 
+const max_hit_points = 3
+var hit_points = max_hit_points
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_up_sound_player()
