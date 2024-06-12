@@ -23,7 +23,9 @@ var settings_max_index = 3
 var video_max_index = 4
 @onready var video_label = $menu/settings_canvas/video_label
 @onready var resolution_label = $menu/settings_canvas/video_canvas/resolution
-var resolution = Vector2(640,360)
+var supported_resolutions = [Vector2(640,360), Vector2(640,400), Vector2(720,360), Vector2(764,400)]
+var resolution_index = 0
+#var resolution = supported_resolutions[0]
 @onready var integer_scaling_label = $menu/settings_canvas/video_canvas/integer_scaling
 var integer_scaling = true
 @onready var full_screen_label = $menu/settings_canvas/video_canvas/full_screen
@@ -115,7 +117,11 @@ func get_input():
 				current_max_index = video_max_index
 				if (Input.is_action_just_pressed("pickup")):
 					if(select_index == 0): #RESOLUTION
-							pass 
+							if(resolution_index < supported_resolutions.size() -1):
+								resolution_index += 1
+							else:
+								resolution_index = 0 
+							get_viewport().content_scale_size = supported_resolutions[resolution_index]
 					if(select_index == 1): #INTEGER SCALING
 						integer_scaling = !integer_scaling
 						if(integer_scaling):
@@ -181,6 +187,7 @@ func _process(delta):
 			
 	if(settings_active):
 		if(video_settings_active):
+			var resolution = supported_resolutions[resolution_index]
 			resolution_label.text = str("RESOLUTION:\n",str(str(resolution.x,"x"),resolution.y))
 			var int_scaling_str = "ON"
 			if(!integer_scaling):

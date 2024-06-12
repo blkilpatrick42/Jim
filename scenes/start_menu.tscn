@@ -22,10 +22,12 @@ timer_wait_secs = 0.02
 
 [node name="starfield_far" parent="." instance=ExtResource("4_8yvp3")]
 position = Vector2(0, 0)
+scale = Vector2(2, 2)
 timer_wait_secs = 0.1
 
 [node name="starfield_farthest" parent="." instance=ExtResource("5_re6l0")]
 position = Vector2(0, 0)
+scale = Vector2(2, 2)
 timer_wait_secs = 0.5
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
