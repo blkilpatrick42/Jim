@@ -618,7 +618,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="daylight_affected_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(-1118, 374)
+position = Vector2(282, -228)
 hat_spriteframes = ExtResource("7_xgh3y")
 top_spriteframes = ExtResource("8_38bov")
 
