@@ -5,6 +5,7 @@ signal shoot(pos : Vector2, rotation_deg)
 signal play_animation(name : String)
 signal question_bubble()
 signal face_target()
+signal stop_motion()
 
 #gun-related variables
 const bust_num_sweeps = 2
@@ -94,6 +95,7 @@ func physics_process(_delta: float) -> void:
 			ai_state_machine.transition_to(ai_state_machine.strafing)
 
 func enter(_msg := {}) -> void:
+	stop_motion.emit()
 	timer_burst_cool_down = Timer.new()
 	timer_burst_cool_down.one_shot = true
 	add_child(timer_burst_cool_down)

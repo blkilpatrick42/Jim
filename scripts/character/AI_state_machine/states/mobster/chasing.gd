@@ -30,11 +30,11 @@ func physics_process(_delta: float) -> void:
 		if(!nav_target_reached):
 			advance_navigation.emit(400000)
 		else:
-			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+			question_bubble.emit()
+			ai_state_machine.transition_to(ai_state_machine.look)
+			
+		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.shooting)
-			else:
-				question_bubble.emit()
-				ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	var last_seen_pos = ai_state_machine.get_perceptions().target_pos
