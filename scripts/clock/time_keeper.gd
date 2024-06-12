@@ -66,7 +66,7 @@ func get_input():
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	get_input()
-	if(!get_parent().get_tree().paused):
+	if(!is_menu_paused):
 		#calculate clock
 		if(timer_world.is_stopped()):
 			timer_world.start(hour_length_seconds)
