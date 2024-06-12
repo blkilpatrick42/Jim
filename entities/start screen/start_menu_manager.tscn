@@ -45,3 +45,125 @@ offset_bottom = 31.0
 text = "QUIT"
 label_settings = SubResource("LabelSettings_0j45f")
 metadata/_edit_use_anchors_ = true
+
+[node name="settings_canvas" type="CanvasLayer" parent="menu"]
+follow_viewport_enabled = true
+
+[node name="audio_canvas" type="CanvasLayer" parent="menu/settings_canvas"]
+
+[node name="video_canvas" type="CanvasLayer" parent="menu/settings_canvas"]
+follow_viewport_enabled = true
+
+[node name="resolution" type="Label" parent="menu/settings_canvas/video_canvas"]
+anchors_preset = -1
+anchor_left = -0.103
+anchor_top = -0.147
+anchor_right = 0.103
+anchor_bottom = -0.032
+offset_left = -0.0799942
+offset_top = -0.0800018
+offset_right = 0.0799942
+offset_bottom = -2.48
+text = "RESOLUTION:
+640 x 360"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="integer_scaling" type="Label" parent="menu/settings_canvas/video_canvas"]
+anchors_preset = -1
+anchor_left = -0.103
+anchor_top = -0.019
+anchor_right = 0.103
+anchor_bottom = 0.089
+offset_left = -0.0799942
+offset_top = -0.159999
+offset_right = 0.0799942
+offset_bottom = -0.0400009
+text = "INTEGER SCALING:
+ON
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="full_screen" type="Label" parent="menu/settings_canvas/video_canvas"]
+anchors_preset = -1
+anchor_left = -0.103
+anchor_top = 0.108
+anchor_right = 0.103
+anchor_bottom = 0.217
+offset_left = -0.0799942
+offset_top = 0.119999
+offset_right = 0.0799942
+offset_bottom = -0.120003
+text = "FULL SCREEN:
+OFF
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="video_back_label" type="Label" parent="menu/settings_canvas/video_canvas"]
+anchors_preset = -1
+anchor_left = -0.031
+anchor_top = 0.247
+anchor_right = 0.031
+anchor_bottom = 0.293
+offset_left = -0.16
+offset_top = 0.0799942
+offset_right = 0.16
+offset_bottom = 22.52
+text = "BACK
+
+"
+label_settings = SubResource("LabelSettings_0j45f")
+metadata/_edit_use_anchors_ = true
+
+[node name="audio_label" type="Label" parent="menu/settings_canvas"]
+anchors_preset = -1
+anchor_left = -0.034
+anchor_top = -0.098
+anchor_right = 0.034
+anchor_bottom = -0.05
+offset_left = -0.239998
+offset_top = -0.719997
+offset_right = 0.239998
+text = "AUDIO
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="video_label" type="Label" parent="menu/settings_canvas"]
+anchors_preset = -1
+anchor_left = -0.033
+anchor_top = -0.031
+anchor_right = 0.033
+anchor_bottom = 0.016
+offset_left = 0.119999
+offset_top = 0.160001
+offset_right = -0.119999
+offset_bottom = 4.24
+text = "VIDEO
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="settings_back_label" type="Label" parent="menu/settings_canvas"]
+anchors_preset = -1
+anchor_left = -0.031
+anchor_top = 0.036
+anchor_right = 0.031
+anchor_bottom = 0.077
+offset_left = -0.16
+offset_top = 0.039999
+offset_right = 0.16
+offset_bottom = 24.28
+text = "BACK
+
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
