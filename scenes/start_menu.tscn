@@ -10,7 +10,6 @@
 [node name="start_menu" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="StarfiendBack" type="Sprite2D" parent="."]
 scale = Vector2(2.89687, 2.89688)
