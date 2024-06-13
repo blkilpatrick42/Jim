@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciw22wbkgnx0c"]
+
+[ext_resource type="Script" path="res://scripts/menus/start_menu_manager.gd" id="1_ueoro"]
+[ext_resource type="FontFile" uid="uid://8fl7yecdpp08" path="res://fonts/Tiny5-Regular.ttf" id="3_0jywf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0j45f"]
+font = ExtResource("3_0jywf")
+
+[node name="start_menu" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.328
+offset_top = -163.04
+offset_right = 255.328
+offset_bottom = 163.04
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ueoro")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="start_game_label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "START
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="settings_label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="quit_label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
