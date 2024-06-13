@@ -7,6 +7,7 @@ var timer_fade := Timer.new()
 var fade_quotient = 0.0
 var time_between_fades_secs = 1.0
 var fading = false
+var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,16 +17,17 @@ func _ready():
 	time_keeper = get_tree().get_nodes_in_group("time_keeper")[0]
 	
 
+#TODO: eventually this will have to be moved I think, at least if we want
+#it to be possible for the player to die in an indoor space. 
 func fade_to_black():
 	if(!fading):
 		fading = true
 		fade_quotient = light_level / fade_time
 		timer_fade.start(time_between_fades_secs)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(!fading):
+	if(!fading && !paused):
 		var clock = time_keeper.clock
 		match clock:
 			0: 

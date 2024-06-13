@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://oiophcuvjr5f"]
+
+[ext_resource type="Script" path="res://entities/menu/pause menu/pause_menu_manager.gd" id="1_avk54"]
+[ext_resource type="FontFile" uid="uid://8fl7yecdpp08" path="res://fonts/Tiny5-Regular.ttf" id="2_eel3a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0j45f"]
+font = ExtResource("2_eel3a")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="pause_menu" type="MarginContainer" parent="."]
+process_mode = 3
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avk54")
+
+[node name="CenterContainer" type="CenterContainer" parent="pause_menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/CenterContainer"]
+layout_mode = 2
+
+[node name="settings_label" type="Label" parent="pause_menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="quit_label" type="Label" parent="pause_menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT TO START MENU"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu"]
+z_index = -10
+layout_mode = 2
+color = Color(0, 0, 0, 0.513726)

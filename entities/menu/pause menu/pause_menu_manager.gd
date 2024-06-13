@@ -1,6 +1,6 @@
 extends MarginContainer
 
-@onready var start_label = $CenterContainer/VBoxContainer/start_game_label
+#@onready var resume_label = $CenterContainer/VBoxContainer/resume_game_label
 @onready var settings_label = $CenterContainer/VBoxContainer/settings_label
 @onready var quit_label = $CenterContainer/VBoxContainer/quit_label
 
@@ -8,13 +8,8 @@ var settings_menu = preload("res://entities/menu/settings menu/settings_menu.tsc
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []
-var menu_alpha = 0
-var menu_alpha_step_size = 0.025
-var alpha_step_time_secs = 0.05
-var done_fading = false
-
+var menu_alpha = 1
 var sound_player := AudioStreamPlayer2D.new()
-var timer = Timer.new()
 
 func advance_index():
 	select_index += 1
@@ -46,60 +41,41 @@ func update_selection():
 		iterator+=1
 
 func handle_selection():
-	if(select_index == 0): #start
-		get_tree().change_scene_to_file("res://scenes/dev_base_3.tscn") #TODO: game select menu
-	elif(select_index == 1): #settings
+	if(select_index == 0): #settings
 		var child_settings_menu = settings_menu.instantiate()
 		active_child_menu = child_settings_menu
 		get_parent().add_child(child_settings_menu)
-	elif(select_index == 2): #quit
-		get_tree().quit()
+	elif(select_index == 1): #quit to start menu
+		get_parent().get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/start_menu.tscn") #TODO: ask if they are sure
 		
 func handle_input():
-	if(done_fading):
-		if Input.is_action_just_pressed(direction.up):
-			if(select_index > 0):
-				reduce_index()
-			else:
-				block_index()
-		if Input.is_action_just_pressed(direction.down):
-			if(select_index < labels.size()-1):
-				advance_index()
-			else:
-				block_index()
-		if Input.is_action_just_pressed("pickup"):
-			handle_selection()
-	else: #skip the fading
-		if (Input.is_action_just_pressed("start")||
-		Input.is_action_just_pressed("pickup")):
-			menu_alpha = 1
-			set_labels_alpha(menu_alpha)
-			return
+	if Input.is_action_just_pressed(direction.up):
+		if(select_index > 0):
+			reduce_index()
+		else:
+			block_index()
+	if Input.is_action_just_pressed(direction.down):
+		if(select_index < labels.size()-1):
+			advance_index()
+		else:
+			block_index()
+	if Input.is_action_just_pressed("pickup"):
+		handle_selection()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.one_shot = true
-	add_child(timer)
-	timer.start(alpha_step_time_secs)
 	add_child(sound_player)
-	labels = [start_label, settings_label, quit_label]
+	labels = [settings_label, quit_label]
 	set_labels_alpha(menu_alpha)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(active_child_menu == null):
 		handle_input()
-		#fade in menu
-		if(!done_fading && timer.is_stopped()):
-			menu_alpha += menu_alpha_step_size
-			set_labels_alpha(menu_alpha)
-			timer.start(alpha_step_time_secs)
-			if(menu_alpha >= 1):
-				done_fading = true
-		else: if (done_fading): #once the menu is faded in
-			menu_alpha = 1
-			set_labels_alpha(menu_alpha)
-			update_selection()
+		menu_alpha = 1
+		set_labels_alpha(menu_alpha)
+		update_selection()
 	else: #sub_menu is active
 		menu_alpha = 0.0
 		set_labels_alpha(menu_alpha)

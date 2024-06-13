@@ -75,7 +75,7 @@ func handle_input():
 		else:
 			block_index()
 	if Input.is_action_just_pressed(direction.down):
-		if(select_index < labels.size()):
+		if(select_index < labels.size()-1):
 			advance_index()
 		else:
 			block_index()

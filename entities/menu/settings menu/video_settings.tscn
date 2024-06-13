@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ewwvy7f1xvm1"]
 
-[ext_resource type="Script" path="res://scripts/menus/video_settings.gd" id="1_31xkl"]
+[ext_resource type="Script" path="res://scripts/menus/video_settings.gd" id="1_5ixgh"]
 [ext_resource type="FontFile" uid="uid://8fl7yecdpp08" path="res://fonts/Tiny5-Regular.ttf" id="1_lu682"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0j45f"]
 font = ExtResource("1_lu682")
 
 [node name="video_canvas" type="MarginContainer"]
+process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,7 +19,7 @@ offset_right = 66.0
 offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_31xkl")
+script = ExtResource("1_5ixgh")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2

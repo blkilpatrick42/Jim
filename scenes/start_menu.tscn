@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba16c0124dsb3"]
+[gd_scene load_steps=6 format=3 uid="uid://ba16c0124dsb3"]
 
 [ext_resource type="Texture2D" uid="uid://b76rttfua10ki" path="res://sprites/start_screen/starfiend_back.png" id="1_tkgca"]
-[ext_resource type="PackedScene" uid="uid://nytcodu5ljvj" path="res://entities/start screen/starfield.tscn" id="3_savhb"]
-[ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://entities/start screen/starfield_far.tscn" id="4_8yvp3"]
-[ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://entities/start screen/starfield_farthest.tscn" id="5_re6l0"]
-[ext_resource type="PackedScene" uid="uid://ciw22wbkgnx0c" path="res://entities/start screen/start_menu_manager.tscn" id="6_ucxi6"]
+[ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://entities/menu/start menu/starfield_far.tscn" id="4_8yvp3"]
+[ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://entities/menu/start menu/starfield_farthest.tscn" id="5_re6l0"]
+[ext_resource type="PackedScene" uid="uid://ciw22wbkgnx0c" path="res://entities/menu/start menu/start_menu_manager.tscn" id="6_ucxi6"]
 [ext_resource type="AudioStream" uid="uid://b3pbwf0l1i5mh" path="res://audio/music/starfield_theme.wav" id="7_0owee"]
 
 [node name="start_menu" type="Node2D"]
@@ -15,24 +14,17 @@
 scale = Vector2(2.89687, 2.89688)
 texture = ExtResource("1_tkgca")
 
-[node name="starfield" parent="." instance=ExtResource("3_savhb")]
-visible = false
-position = Vector2(0, 0)
-timer_wait_secs = 0.02
-
-[node name="starfield_far" parent="." instance=ExtResource("4_8yvp3")]
-position = Vector2(0, 0)
+[node name="starfield" parent="." instance=ExtResource("4_8yvp3")]
 scale = Vector2(2, 2)
-timer_wait_secs = 0.1
+timer_wait_secs = 0.3
 
-[node name="starfield_farthest" parent="." instance=ExtResource("5_re6l0")]
-position = Vector2(0, 0)
+[node name="starfield_far" parent="." instance=ExtResource("5_re6l0")]
 scale = Vector2(2, 2)
-timer_wait_secs = 0.5
+timer_wait_secs = 0.8
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_0owee")
 volume_db = -12.855
 autoplay = true
 
-[node name="manager" parent="." instance=ExtResource("6_ucxi6")]
+[node name="start_menu" parent="." instance=ExtResource("6_ucxi6")]

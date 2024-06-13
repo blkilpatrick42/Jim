@@ -1,5 +1,7 @@
 extends Control
 
+var pause_menu = preload("res://entities/menu/pause menu/pause_menu_manager.tscn")
+
 @export var clock = 0
 @export var hour_length_seconds = 30
 var sound_player := AudioStreamPlayer.new()
@@ -16,6 +18,8 @@ var restart_wait_sec = 30
 
 var player_ref = null
 
+var pause_menu_ref = null
+
 #Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(sound_player)
@@ -31,20 +35,23 @@ func _ready():
 	player_ref = get_parent().get_tree().get_nodes_in_group("player")[0]
 
 func toggle_pause_parent_tree():
-	if(!get_parent().get_tree().paused):	
-		get_parent().get_tree().paused = true	
+	if(!get_parent().get_tree().paused):
+		get_parent().get_tree().paused = true
 	else:
 		get_parent().get_tree().paused = false
 
 func toggle_menu_pause():
 	if(!is_game_over):
 		if(!is_menu_paused):
+			pause_menu_ref = pause_menu.instantiate()
+			player_ref.add_child(pause_menu_ref)
 			is_menu_paused = true
 			sound_player.stream = load("res://audio/soundFX/opened.wav")
 			sound_player.play()
 			toggle_pause_parent_tree()
 			timer_song.start(play_song_wait_sec)
 		else:
+			pause_menu_ref.queue_free()
 			is_menu_paused = false
 			is_playing_song = false
 			sound_player.stream = load("res://audio/soundFX/closed.wav")
