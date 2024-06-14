@@ -13,6 +13,7 @@ const shooting = "shooting"
 const strafing = "strafing"
 const investigate = "investigate"
 const chasing = "chasing"
+const dead = "dead"
 
 # Emitted when transitioning to a new state.
 signal transitioned(state_name)

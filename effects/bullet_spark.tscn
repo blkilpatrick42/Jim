@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8wyce4n4n6a5"]
+[gd_scene load_steps=3 format=3 uid="uid://c8wyce4n4n6a5"]
 
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_ff0id"]
 [ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_yajik"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_52w83"]
 
 [node name="spark" type="Node2D" groups=["spark"]]
 script = ExtResource("1_ff0id")
@@ -13,8 +11,3 @@ position = Vector2(0, 8)
 scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("2_yajik")
 offset = Vector2(0, -32)
-
-[node name="Area2D" type="Area2D" parent="." groups=["spark"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["spark"]]
-shape = SubResource("CircleShape2D_52w83")

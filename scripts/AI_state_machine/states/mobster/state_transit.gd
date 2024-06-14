@@ -6,6 +6,7 @@ var current_patrol_point :Node2D = null
 signal set_nav_target(pos : Vector2)
 signal advance_navigation
 signal set_target(target : Node)
+signal reduce_health()
 
 var nav_target_reached = false
 var setup_done = false
@@ -20,27 +21,44 @@ func get_host_nav_target_reached():
 func process(_delta: float) -> void:
 	pass
 
-func physics_process(_delta: float) -> void:
-	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
-		for node in ai_state_machine.get_perceptions().colliding_nodes:
+func sparks_are_colliding():
+	for node in ai_state_machine.get_perceptions().colliding_nodes:
 			if(is_instance_valid(node) && node.is_in_group("spark")):
-				ai_state_machine.transition_to(ai_state_machine.falling)
+				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+					reduce_health.emit()
+				return true
+	return false
+
+func physics_process(_delta: float) -> void:
+	#check for knockout
+	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
+		sparks_are_colliding()):
+			ai_state_machine.transition_to(ai_state_machine.falling)
 	else:
+		#check for targets
 		var player = get_tree().get_first_node_in_group("player")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
+		for node in nodes_in_vision:
+			if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+			node.is_in_group("mobster")):
+				set_target.emit(node)
+				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					return
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
-			ai_state_machine.transition_to(ai_state_machine.exclaiming)
-			return
-		if(nodes_in_hearing.size() > 0):
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+		elif(nodes_in_hearing.size() > 0):
 			ai_state_machine.transition_to(ai_state_machine.investigate)
-			return
-		nav_target_reached = get_host_nav_target_reached()
-		if(!nav_target_reached):
-			advance_navigation.emit(125000)
+		#transit code
 		else:
-			ai_state_machine.transition_to(ai_state_machine.look)
+			nav_target_reached = get_host_nav_target_reached()
+			if(!nav_target_reached):
+				advance_navigation.emit(125000)
+			else:
+				ai_state_machine.transition_to(ai_state_machine.look)
 
 func enter(_msg := {}) -> void:
 	if(current_patrol_point == null):

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7m035wp3iahk"]
+
+[ext_resource type="Script" path="res://scripts/AI_state_machine/states/mobster/state_transit.gd" id="1_muem2"]
+
+[node name="transit" type="Node"]
+script = ExtResource("1_muem2")

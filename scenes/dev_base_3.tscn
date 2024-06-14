@@ -166,7 +166,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="daylight_affected_canvas/ysort" instance=ExtResource("5_cif7j")]
-position = Vector2(151, 70)
+position = Vector2(-1117, 382)
 hat_spriteframes = ExtResource("7_xgh3y")
 top_spriteframes = ExtResource("8_38bov")
 
@@ -404,7 +404,20 @@ position = Vector2(-924, 505)
 position = Vector2(-745, 811)
 
 [node name="Blu_Mobster7" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
-position = Vector2(-1215, 725)
+position = Vector2(-1051, 696)
+collision_layer = 64
+team = "blu"
+base_spriteframes = ExtResource("25_agxnk")
+
+[node name="Blu_Mobster8" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
+position = Vector2(-981, 808)
+collision_layer = 64
+team = "blu"
+base_spriteframes = ExtResource("25_agxnk")
+
+[node name="Blu_Mobster9" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
+position = Vector2(-1003, 908)
+collision_layer = 64
 team = "blu"
 base_spriteframes = ExtResource("25_agxnk")
 

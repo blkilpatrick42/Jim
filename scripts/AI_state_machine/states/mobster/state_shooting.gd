@@ -5,6 +5,7 @@ signal shoot(pos : Vector2, rotation_deg)
 signal play_animation(name : String)
 signal face_target()
 signal stop_motion()
+signal reduce_health()
 
 #gun-related variables
 const bust_num_sweeps = 2
@@ -79,19 +80,32 @@ func shoot_burst():
 		burst_cool_down = true
 		timer_burst_cool_down.start(burst_cool_down_secs)	
 
+func sparks_are_colliding():
+	for node in ai_state_machine.get_perceptions().colliding_nodes:
+			if(is_instance_valid(node) && node.is_in_group("spark")):
+				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+					reduce_health.emit()
+					return true
+	return false
+
 func process(_delta: float) -> void:
 	pass
 
 func physics_process(_delta: float) -> void:
-	if(!burst_cool_down):
-		shoot_burst()
-	if(timer_burst_cool_down.is_stopped() && burst_cool_down):
-		burst_cool_down = false
-		num_bullets_fired = 0
-		if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-			ai_state_machine.transition_to(ai_state_machine.chasing)
-		else:
-			ai_state_machine.transition_to(ai_state_machine.strafing)
+	#check for enemy bullet collisions
+	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
+		sparks_are_colliding()):
+			ai_state_machine.transition_to(ai_state_machine.falling)
+	else: #shooting code
+		if(!burst_cool_down):
+			shoot_burst()
+		if(timer_burst_cool_down.is_stopped() && burst_cool_down):
+			burst_cool_down = false
+			num_bullets_fired = 0
+			if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.chasing)
+			else:
+				ai_state_machine.transition_to(ai_state_machine.strafing)
 
 func enter(_msg := {}) -> void:
 	stop_motion.emit()

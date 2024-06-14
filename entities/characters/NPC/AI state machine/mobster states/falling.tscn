@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dklravegv5df4"]
-
-[ext_resource type="Script" path="res://scripts/character/AI_state_machine/states/mobster/recovering.gd" id="1_j5dim"]
-
-[node name="recovering" type="Node"]
-script = ExtResource("1_j5dim")

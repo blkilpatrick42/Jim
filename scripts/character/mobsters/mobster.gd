@@ -5,6 +5,7 @@ var sound_player := AudioStreamPlayer2D.new()
 
 var question_bubble = preload("res://entities/characters/NPC/mobsters/communication/question.tscn")
 var exclaim_bubble = preload("res://entities/characters/NPC/mobsters/communication/exclaim.tscn")
+var die_skull = preload("res://effects/kill_skull.tscn")
 var red_bullet = preload("res://entities/characters/NPC/mobsters/red_bullet.tscn")
 var blu_bullet = preload("res://entities/characters/NPC/mobsters/blu_bullet.tscn")
 
@@ -13,6 +14,7 @@ var blu_base = preload("res://sprites/spritesheets/spriteframes/characters/base/
 
 @onready var _navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var _head_collider = $head_shape
+@onready var _body_collider = $CollisionShape2D
 
 @export var current_patrol_point :Node2D = null
 
@@ -91,8 +93,18 @@ func set_up_mobster_team():
 	add_to_group(team)
 	if(team == team_red):
 		opposing_team = team_blu
+		set_collision_layer_value(2,true)
+		set_collision_layer_value(7,false)
+		_passive_raycast.set_collision_mask_value(7,true)
+		_active_raycast.set_collision_mask_value(7,true)
+		_vision.set_collision_mask_value(7,true)
 	else: if (team == team_blu):
 		opposing_team = team_red
+		set_collision_layer_value(7,true)
+		set_collision_layer_value(2,false)
+		_passive_raycast.set_collision_mask_value(2,true)
+		_active_raycast.set_collision_mask_value(2,true)
+		_vision.set_collision_mask_value(2,true)
 	perceptions.team = team
 	perceptions.opposing_team = opposing_team
 
@@ -110,6 +122,7 @@ func update_perceptions():
 	perceptions.position = position
 	perceptions.linear_velocity = linear_velocity
 	perceptions.speed = linear_velocity.length()
+	perceptions.hit_points = hit_points
 	
 	if(perceptions.target_obj != null):
 		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
@@ -166,7 +179,7 @@ func check_vision():
 			perceptions.nodes_in_vision = detected_nodes
 
 func check_hearing():
-	var commotion_notice_distance = 192
+	var commotion_notice_distance = 224
 	var commotions = get_tree().get_nodes_in_group("commotion")
 	var nodes_in_hearing: Array[Node] = []
 	for commotion in commotions:
@@ -176,7 +189,7 @@ func check_hearing():
 
 func detect_sparks():
 	var sparks = get_tree().get_nodes_in_group("spark")
-	var detection_distance = 16
+	var detection_distance = 24
 	for spark in sparks:
 		if(is_instance_valid(spark) &&
 			spark not in perceptions.colliding_nodes &&
@@ -246,6 +259,19 @@ func get_strafe_point():
 		return strafe_point
 	else:
 		return position
+
+func _on_queue_free():
+	queue_free()
+
+func _on_disable_all_collision():
+	_on_disable_head_collider()
+	_body_collider.disabled = true
+
+func _on_reduce_hit_points():
+	hit_points -= 1
+
+func _on_add_hit_points():
+	hit_points += 1
 
 func _on_set_strafe_point():
 	_on_set_nav_target(get_strafe_point())
@@ -334,6 +360,12 @@ func _on_question_bubble():
 	sound_player.play()
 	var questionBubble = question_bubble.instantiate()
 	self.add_child(questionBubble)
+
+func _on_die_skull():
+	sound_player.stream = load("res://audio/soundFX/voice/low_sine_voice/1.wav")
+	sound_player.play()
+	var skull = die_skull.instantiate()
+	self.add_child(skull)
 
 func _on_exclaim_bubble():
 	sound_player.stream = load("res://audio/soundFX/alert.wav")

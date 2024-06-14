@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dho06ar37ptst"]
+
+[ext_resource type="Script" path="res://scripts/AI_state_machine/states/mobster/state_strafing.gd" id="1_2eyvt"]
+
+[node name="strafing" type="Node"]
+script = ExtResource("1_2eyvt")

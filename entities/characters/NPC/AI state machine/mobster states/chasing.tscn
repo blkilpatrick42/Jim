@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ovha522agghg"]
-
-[ext_resource type="Script" path="res://scripts/character/AI_state_machine/states/mobster/chasing.gd" id="1_2oi3c"]
-
-[node name="chasing" type="Node"]
-script = ExtResource("1_2oi3c")

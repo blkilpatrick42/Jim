@@ -5,6 +5,7 @@ signal turn_right
 signal turn_left
 signal stand(direction : String)
 signal set_target(target : Node)
+signal reduce_health()
 
 const turn_wait_time_secs = 2
 const num_turns = 4
@@ -17,26 +18,36 @@ func process(_delta: float) -> void:
 func sparks_are_colliding():
 	for node in ai_state_machine.get_perceptions().colliding_nodes:
 			if(is_instance_valid(node) && node.is_in_group("spark")):
+				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+					reduce_health.emit()
 				return true
 	return false
 
 func physics_process(_delta: float):
+	#check knockout
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
 		sparks_are_colliding()):
 			ai_state_machine.transition_to(ai_state_machine.falling)
 	else:
+		#check for targets
 		var player = get_tree().get_first_node_in_group("player")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
+		for node in nodes_in_vision:
+			if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+			node.is_in_group("mobster")):
+				set_target.emit(node)
+				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					return
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.exclaiming)
-			return
-		if(nodes_in_hearing.size() > 0):
+		elif(nodes_in_hearing.size() > 0):
 			ai_state_machine.transition_to(ai_state_machine.investigate)
-			return
-		if(timer.is_stopped()):
+		#look state code
+		elif(timer.is_stopped()):
 			if(current_num_turns < num_turns):
 				turn_right.emit()
 				current_num_turns = current_num_turns + 1
