@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_k3g4i"]
 [ext_resource type="SpriteFrames" uid="uid://cva0t3qolt7sn" path="res://sprites/spritesheets/spriteframes/mobster/question.tres" id="2_g5uov"]
 
-[node name="question" type="Node2D"]
+[node name="question" type="Node2D" groups=["question"]]
 script = ExtResource("1_k3g4i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]

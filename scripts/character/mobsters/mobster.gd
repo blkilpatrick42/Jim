@@ -54,6 +54,10 @@ const nav_path_resolution = 4
 const max_hit_points = 3
 var hit_points = max_hit_points
 
+var invincibility_timer = Timer.new()
+var damage_collision_layer : int
+var is_invincible = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_up_sound_player()
@@ -62,6 +66,10 @@ func _ready():
 	set_up_character_base()
 	update_perceptions()
 	send_perceptions()
+	
+	invincibility_timer.one_shot = true
+	add_child(invincibility_timer)
+	
 	#for updating character composition in the editor
 	if(Engine.is_editor_hint()):
 		queue_redraw()
@@ -93,18 +101,20 @@ func set_up_mobster_team():
 	add_to_group(team)
 	if(team == team_red):
 		opposing_team = team_blu
-		set_collision_layer_value(2,true)
-		set_collision_layer_value(7,false)
-		_passive_raycast.set_collision_mask_value(7,true)
-		_active_raycast.set_collision_mask_value(7,true)
-		_vision.set_collision_mask_value(7,true)
+		damage_collision_layer = 2
+		set_collision_layer_value(damage_collision_layer,true) #base collision layer
+		set_collision_layer_value(10,true) #collision layer for raycasts
+		_passive_raycast.set_collision_mask_value(11,true)
+		_active_raycast.set_collision_mask_value(11,true)
+		_vision.set_collision_mask_value(11,true)
 	else: if (team == team_blu):
 		opposing_team = team_red
-		set_collision_layer_value(7,true)
-		set_collision_layer_value(2,false)
-		_passive_raycast.set_collision_mask_value(2,true)
-		_active_raycast.set_collision_mask_value(2,true)
-		_vision.set_collision_mask_value(2,true)
+		damage_collision_layer = 7
+		set_collision_layer_value(damage_collision_layer,true)#base collision layer
+		set_collision_layer_value(11,true) #collision layer for raycasts
+		_passive_raycast.set_collision_mask_value(10,true)
+		_active_raycast.set_collision_mask_value(10,true)
+		_vision.set_collision_mask_value(10,true)
 	perceptions.team = team
 	perceptions.opposing_team = opposing_team
 
@@ -123,6 +133,7 @@ func update_perceptions():
 	perceptions.linear_velocity = linear_velocity
 	perceptions.speed = linear_velocity.length()
 	perceptions.hit_points = hit_points
+	perceptions.invincible = is_invincible
 	
 	if(perceptions.target_obj != null):
 		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
@@ -189,7 +200,7 @@ func check_hearing():
 
 func detect_sparks():
 	var sparks = get_tree().get_nodes_in_group("spark")
-	var detection_distance = 24
+	var detection_distance = 20
 	for spark in sparks:
 		if(is_instance_valid(spark) &&
 			spark not in perceptions.colliding_nodes &&
@@ -207,6 +218,16 @@ func detect_sparks():
 #ACTIONS- signal functions and helpers that cause the mobster to take some action in the game world
 ###################################################################################################
 
+func go_invincible():
+	invincibility_timer.start(3)
+	_character_base.start_flashing()
+	is_invincible = true
+	set_collision_layer_value(damage_collision_layer,false)
+
+func go_vincible():
+	_character_base.stop_flashing()
+	is_invincible = false
+	set_collision_layer_value(damage_collision_layer,true)
 
 func has_clear_shot(point : Vector2):
 	var bounds = 32
@@ -268,6 +289,7 @@ func _on_disable_all_collision():
 	_body_collider.disabled = true
 
 func _on_reduce_hit_points():
+	go_invincible()
 	hit_points -= 1
 
 func _on_add_hit_points():
@@ -397,6 +419,8 @@ func _on_face_pos(pos : Vector2):
 func update():
 	update_vision()
 	update_perceptions()
+	if(is_invincible && invincibility_timer.is_stopped()):
+		go_vincible()
 
 func update_vision():
 	match(_character_base.get_facing_dir()):

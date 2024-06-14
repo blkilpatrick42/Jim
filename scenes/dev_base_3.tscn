@@ -101,7 +101,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fb5nx"]
 vertices = PackedVector2Array(-1194, 480, -1197, 473, -1040, 472, -1072, 504, -939, 867, -928, 1045, -1038, 1044, -1033, 918, -935, 777, -1041, 882, -1044, 769, -1005, 763, -1002, 734, -1045, 720, -1009, 547, -969, 503, -972, 549, -975, 473, -1077, 720, -1078, 673, -1075.27, 669.886)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9, 10, 11), PackedInt32Array(12, 11, 10, 13, 14), PackedInt32Array(15, 16, 14, 3, 2, 17), PackedInt32Array(13, 18, 19, 20), PackedInt32Array(20, 3, 14, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1038, 1044, -928, 1045, -939, 867, -935, 777, -1005, 763, -1002, 734, -1009, 547, -972, 549, -969, 503, -975, 473, -1040, 472, -1197, 473, -1194, 480, -1072, 504, -1075.27, 669.886, -1078, 673, -1077, 720, -1045, 720, -1044, 769, -1041, 882, -1033, 918)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1038, 1044, -928, 1045, -939, 867, -935, 777, -1005, 763, -1002, 734, -1009, 547, -972, 549, -969, 503, -975, 473, -1040, 472, -1197, 473, -1194, 480, -1056, 491, -1075.27, 669.886, -1078, 673, -1077, 720, -1045, 720, -1044, 769, -1041, 882, -1033, 918)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8oemv"]
@@ -405,19 +405,19 @@ position = Vector2(-745, 811)
 
 [node name="Blu_Mobster7" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-1051, 696)
-collision_layer = 64
+collision_layer = 1088
 team = "blu"
 base_spriteframes = ExtResource("25_agxnk")
 
 [node name="Blu_Mobster8" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-981, 808)
-collision_layer = 64
+collision_layer = 1088
 team = "blu"
 base_spriteframes = ExtResource("25_agxnk")
 
 [node name="Blu_Mobster9" parent="daylight_affected_canvas/ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-1003, 908)
-collision_layer = 64
+collision_layer = 1088
 team = "blu"
 base_spriteframes = ExtResource("25_agxnk")
 

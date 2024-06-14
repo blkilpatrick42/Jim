@@ -29,7 +29,7 @@ size = Vector2(4.75862, 16.4881)
 
 [node name="mobster" type="RigidBody2D" groups=["mobster"]]
 y_sort_enabled = true
-collision_layer = 2
+collision_layer = 514
 collision_mask = 273
 mass = 1000.0
 gravity_scale = 0.0
@@ -58,7 +58,7 @@ visible = false
 self_modulate = Color(1, 1, 0, 1)
 shape = SubResource("ConvexPolygonShape2D_ldxv5")
 target_position = Vector2(0, 0)
-collision_mask = 65
+collision_mask = 1089
 
 [node name="shadow" type="Sprite2D" parent="."]
 z_index = -1
@@ -68,11 +68,11 @@ texture = ExtResource("3_wq4dt")
 [node name="passive_raycast" type="RayCast2D" parent="."]
 scale = Vector2(1.00083, 1.00596)
 target_position = Vector2(0, 0)
-collision_mask = 81
+collision_mask = 1105
 
 [node name="active_raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
-collision_mask = 81
+collision_mask = 1105
 
 [node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
 position = Vector2(0, -1)

@@ -9,6 +9,10 @@ extends Node2D
 @export var top_spriteframes : SpriteFrames = null
 @export var bottom_spriteframes : SpriteFrames = null
 var arms_raised = false
+var flashing = false
+var is_visible = true
+
+var flashing_timer = Timer.new() 
 
 #current facing direction
 var facing_dir = direction.right
@@ -167,13 +171,33 @@ func set_spriteframes(base, hat, top, bottom):
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func set_visibility(value : bool):
+	_base_sprite.visible = value
+	_hat.visible = value
+	_top.visible = value
+	_bottom.visible = value
+
+func start_flashing():
+	flashing = true
+
+func stop_flashing():
+	flashing = false
+	is_visible = true
+	set_visibility(is_visible)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_spriteframes(base_spriteframes,
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
+	flashing_timer.one_shot = true
+	add_child(flashing_timer)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if(flashing && flashing_timer.is_stopped()):
+		flashing_timer.start(0.05)
+		is_visible = !is_visible
+		set_visibility(is_visible)
+		

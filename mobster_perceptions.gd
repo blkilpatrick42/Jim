@@ -7,4 +7,5 @@ var has_line_of_sight_to_target = false
 var team = ""
 var opposing_team = ""
 var hit_points
+var invincible = false
 

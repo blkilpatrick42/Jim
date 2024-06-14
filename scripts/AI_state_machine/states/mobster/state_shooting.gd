@@ -13,7 +13,7 @@ const burst_bullets_per_sweep = 4
 const burst_num_bullets = bust_num_sweeps * burst_bullets_per_sweep
 const burst_cool_down_secs = 2
 var timer_burst_cool_down : Timer
-const time_between_shots_secs = 0.3
+const time_between_shots_secs = 0.4
 var timer_between_shots : Timer
 const shoot_arc_degrees = 50 #keep it even
 var num_bullets_fired = 0
@@ -80,12 +80,20 @@ func shoot_burst():
 		burst_cool_down = true
 		timer_burst_cool_down.start(burst_cool_down_secs)	
 
-func sparks_are_colliding():
-	for node in ai_state_machine.get_perceptions().colliding_nodes:
-			if(is_instance_valid(node) && node.is_in_group("spark")):
-				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
-					reduce_health.emit()
-					return true
+func handle_sparks():
+	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
+		for node in ai_state_machine.get_perceptions().colliding_nodes:
+				if(is_instance_valid(node) && node.is_in_group("spark")):
+					if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+					!ai_state_machine.get_perceptions().invincible):
+						reduce_health.emit()
+						return true
+	return false
+
+func handle_death():
+	if(ai_state_machine.get_perceptions().hit_points <= 0):
+		ai_state_machine.transition_to(ai_state_machine.falling)
+		return true
 	return false
 
 func process(_delta: float) -> void:
@@ -93,9 +101,10 @@ func process(_delta: float) -> void:
 
 func physics_process(_delta: float) -> void:
 	#check for enemy bullet collisions
-	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0 &&
-		sparks_are_colliding()):
-			ai_state_machine.transition_to(ai_state_machine.falling)
+	if(handle_sparks()):
+		return
+	elif(handle_death()):
+		return
 	else: #shooting code
 		if(!burst_cool_down):
 			shoot_burst()
