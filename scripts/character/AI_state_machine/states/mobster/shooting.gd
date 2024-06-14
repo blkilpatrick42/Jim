@@ -3,7 +3,6 @@ extends State
 
 signal shoot(pos : Vector2, rotation_deg)
 signal play_animation(name : String)
-signal question_bubble()
 signal face_target()
 signal stop_motion()
 

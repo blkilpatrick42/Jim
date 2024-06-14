@@ -29,7 +29,8 @@ func physics_process(_delta: float) -> void:
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
-			ai_state_machine.transition_to(ai_state_machine.exclaiming)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.exclaiming)
 			return
 		if(timer.is_stopped()):
 			ai_state_machine.transition_to(ai_state_machine.look)

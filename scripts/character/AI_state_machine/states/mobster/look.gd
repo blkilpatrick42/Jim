@@ -30,7 +30,8 @@ func physics_process(_delta: float):
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
-			ai_state_machine.transition_to(ai_state_machine.exclaiming)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.exclaiming)
 			return
 		if(nodes_in_hearing.size() > 0):
 			ai_state_machine.transition_to(ai_state_machine.investigate)

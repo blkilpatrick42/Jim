@@ -130,7 +130,6 @@ initial_state = NodePath("idle")
 [connection signal="stop" from="ai_state_machine/exclaiming" to="." method="_on_stop_motion"]
 [connection signal="face_target" from="ai_state_machine/shooting" to="." method="_on_face_ai_target_pos"]
 [connection signal="play_animation" from="ai_state_machine/shooting" to="." method="_on_play_animation"]
-[connection signal="question_bubble" from="ai_state_machine/shooting" to="." method="_on_question_bubble"]
 [connection signal="shoot" from="ai_state_machine/shooting" to="." method="_on_create_bullet"]
 [connection signal="stop_motion" from="ai_state_machine/shooting" to="." method="_on_stop_motion"]
 [connection signal="face_pos" from="ai_state_machine/investigate" to="." method="_on_face_pos"]

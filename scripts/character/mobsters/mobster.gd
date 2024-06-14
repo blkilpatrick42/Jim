@@ -209,7 +209,7 @@ func get_nearest_point_on_mesh(point : Vector2):
 
 func get_strafe_point():
 	var strafe_distance_step = nav_target_reached_distance * 2
-	var strafe_steps = 2
+	var strafe_steps = 1
 	var iterator = 1
 	var valid_points = []
 	while(iterator <= strafe_steps):

@@ -34,7 +34,7 @@ func physics_process(_delta: float) -> void:
 			ai_state_machine.transition_to(ai_state_machine.look)
 			
 		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.shooting)
+				ai_state_machine.transition_to(ai_state_machine.strafing)
 
 func enter(_msg := {}) -> void:
 	var last_seen_pos = ai_state_machine.get_perceptions().target_pos
