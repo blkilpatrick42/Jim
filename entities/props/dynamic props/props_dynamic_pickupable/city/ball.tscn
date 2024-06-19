@@ -9,10 +9,10 @@ bounce = 0.61
 [sub_resource type="CircleShape2D" id="CircleShape2D_inwym"]
 radius = 6.0
 
-[node name="prop_name_here" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
+[node name="ball" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
 collision_layer = 8
-collision_mask = 27
+collision_mask = 91
 physics_material_override = SubResource("PhysicsMaterial_486n2")
 gravity_scale = 0.0
 max_contacts_reported = 1

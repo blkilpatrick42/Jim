@@ -74,6 +74,9 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func set_team(team_name : String):
+	team = team_name
+
 func set_up_character_base():
 	if(team == team_red):
 		base_spriteframes = red_base
@@ -219,7 +222,7 @@ func detect_sparks():
 ###################################################################################################
 
 func go_invincible():
-	invincibility_timer.start(3)
+	invincibility_timer.start(1.5)
 	_character_base.start_flashing()
 	is_invincible = true
 	set_collision_layer_value(damage_collision_layer,false)

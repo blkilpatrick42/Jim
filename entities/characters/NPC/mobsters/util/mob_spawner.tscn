@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://drd02mj512eme"]
+
+[ext_resource type="Script" path="res://entities/characters/NPC/mobsters/util/mob_spawner.gd" id="1_7r8sn"]
+[ext_resource type="Texture2D" uid="uid://d0vsdunoa4hux" path="res://sprites/game_world/mob_spawner.png" id="2_8fou4"]
+
+[node name="MobSpawner" type="Node2D"]
+modulate = Color(1, 1, 1, 0.294118)
+script = ExtResource("1_7r8sn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8fou4")
