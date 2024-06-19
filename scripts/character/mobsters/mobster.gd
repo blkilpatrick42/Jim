@@ -233,7 +233,7 @@ func go_vincible():
 	set_collision_layer_value(damage_collision_layer,true)
 
 func has_clear_shot(point : Vector2):
-	var bounds = 32
+	var bounds = 24
 	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
 	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
 		return true
@@ -246,7 +246,7 @@ func get_nearest_point_on_mesh(point : Vector2):
 
 func get_strafe_point():
 	var strafe_distance_step = nav_target_reached_distance * 2
-	var strafe_steps = 1
+	var strafe_steps = 2
 	var iterator = 1
 	var valid_points = []
 	while(iterator <= strafe_steps):

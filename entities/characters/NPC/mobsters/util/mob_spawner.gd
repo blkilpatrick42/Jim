@@ -14,7 +14,7 @@ func _ready():
 	visible = false
 	respawn_timer.one_shot = true
 	add_child(respawn_timer)
-	ysort_node = get_tree().get_first_node_in_group("ysort")
+	ysort_node = get_tree().get_first_node_in_group("daylight_affected_ysort")
 	respawn_timer.start(timer_time_seconds)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
