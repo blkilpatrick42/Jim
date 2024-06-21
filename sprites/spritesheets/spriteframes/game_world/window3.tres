@@ -1,0 +1,103 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bi52quexnfo78"]
+
+[ext_resource type="Texture2D" uid="uid://c4nlqe7w4jkoj" path="res://sprites/game_world/window3.png" id="2_wj0yj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hlm4"]
+atlas = ExtResource("2_wj0yj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agioi"]
+atlas = ExtResource("2_wj0yj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twfpq"]
+atlas = ExtResource("2_wj0yj")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hlm4")
+}],
+"loop": true,
+"name": &"dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twfpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agioi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

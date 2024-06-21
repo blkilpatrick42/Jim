@@ -1,0 +1,80 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b1dyv233lnkga"]
+
+[ext_resource type="Texture2D" uid="uid://btbh5qtlhhrvn" path="res://sprites/game_world/pizza_neon.png" id="1_inat5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdn6j"]
+atlas = ExtResource("1_inat5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uur8f"]
+atlas = ExtResource("1_inat5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ribdi"]
+atlas = ExtResource("1_inat5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p1h4"]
+atlas = ExtResource("1_inat5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4gxn"]
+atlas = ExtResource("1_inat5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g31xx"]
+atlas = ExtResource("1_inat5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boe5j"]
+atlas = ExtResource("1_inat5")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdn6j")
+}],
+"loop": true,
+"name": &"off",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uur8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ribdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p1h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4gxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g31xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boe5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boe5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uur8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boe5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uur8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boe5j")
+}],
+"loop": true,
+"name": &"running",
+"speed": 2.0
+}]

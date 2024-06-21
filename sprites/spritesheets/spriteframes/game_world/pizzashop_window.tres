@@ -1,0 +1,103 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://b8nwuxikxw8sf"]
+
+[ext_resource type="Texture2D" uid="uid://0f305dt64b6p" path="res://sprites/game_world/pizzashop_window.png" id="1_83cl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lmht"]
+atlas = ExtResource("1_83cl8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1415w"]
+atlas = ExtResource("1_83cl8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im041"]
+atlas = ExtResource("1_83cl8")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lmht")
+}],
+"loop": true,
+"name": &"dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1415w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im041")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

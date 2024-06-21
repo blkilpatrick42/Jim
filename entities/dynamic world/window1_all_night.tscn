@@ -17,5 +17,5 @@ enabled = false
 color = Color(1, 1, 0.541176, 1)
 texture = ExtResource("3_cq07u")
 script = ExtResource("4_xfeb7")
-turns_on = 17
-turns_off = 6
+turns_on = 18
+turns_off = 7

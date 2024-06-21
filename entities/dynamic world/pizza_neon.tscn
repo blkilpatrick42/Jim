@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61l5rhox2220"]
+
+[ext_resource type="SpriteFrames" uid="uid://b1dyv233lnkga" path="res://sprites/spritesheets/spriteframes/game_world/pizza_neon.tres" id="1_o6exq"]
+[ext_resource type="Script" path="res://run_anim_to_clock.gd" id="2_dlm0n"]
+
+[node name="PizzaNeon" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_o6exq")
+animation = &"running"
+script = ExtResource("2_dlm0n")
+turns_on = 12
+turns_off = 22
