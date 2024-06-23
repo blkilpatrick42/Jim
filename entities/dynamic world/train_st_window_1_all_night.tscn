@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c66yvth0jdecv"]
+
+[ext_resource type="SpriteFrames" uid="uid://dpvvvofn2g41j" path="res://sprites/spritesheets/spriteframes/game_world/train_stat_window_1.tres" id="1_c64hi"]
+[ext_resource type="Script" path="res://scripts/clock/clock_anim.gd" id="2_uwuo1"]
+[ext_resource type="Texture2D" uid="uid://7xytxntsgyls" path="res://sprites/lights/diffuse_circle.png" id="3_s2ova"]
+[ext_resource type="Script" path="res://scripts/clock/timed_light.gd" id="4_0kcmm"]
+
+[node name="train_st_window_1_all_night" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_c64hi")
+script = ExtResource("2_uwuo1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.2, 0.2)
+enabled = false
+color = Color(1, 1, 0.541176, 1)
+texture = ExtResource("3_s2ova")
+script = ExtResource("4_0kcmm")
+turns_on = 18
+turns_off = 7
