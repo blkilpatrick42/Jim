@@ -434,11 +434,9 @@ collision_layer = 1602
 
 [node name="mobster5" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-649, 806)
-collision_layer = 514
 
 [node name="mobster6" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("19_x45wg")]
 position = Vector2(-758, 502)
-collision_layer = 514
 
 [node name="TileMap_mid" type="TileMap" parent="daylight_affected_section"]
 z_index = 2

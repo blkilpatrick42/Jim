@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://70py3s8or8pa"]
+
+[ext_resource type="Texture2D" uid="uid://br085rgpdogkl" path="res://sprites/game_world/train_track.png" id="1_g02xb"]
+
+[node name="TrainTracks" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g02xb")
+offset = Vector2(0, -96)
