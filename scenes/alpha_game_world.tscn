@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=74 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="Script" path="res://scenes/auto_transparency_tilemap.gd" id="2_y8u7f"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="2_yfk64"]
@@ -155,10 +155,16 @@ size = Vector2(189, 80)
 size = Vector2(321, 113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4x61"]
-size = Vector2(224.5, 211.5)
+size = Vector2(206.75, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xlko"]
+size = Vector2(224, 258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llijg"]
 size = Vector2(160, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko2q8"]
+size = Vector2(159, 353)
 
 [node name="alpha_game_world" type="Node2D"]
 z_as_relative = false
@@ -1128,20 +1134,20 @@ position = Vector2(-122.5, 586.5)
 shape = SubResource("RectangleShape2D_oycyn")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="dev_layer/invisible_wall_block_4_south"]
-position = Vector2(-378.5, 619.5)
+position = Vector2(-386.375, 564.5)
 shape = SubResource("RectangleShape2D_g4x61")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="dev_layer/invisible_wall_block_4_south"]
-position = Vector2(-522.75, 380.75)
-shape = SubResource("RectangleShape2D_g4x61")
+position = Vector2(-523, 403)
+shape = SubResource("RectangleShape2D_7xlko")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="dev_layer/invisible_wall_block_4_south"]
 position = Vector2(-715, 391)
 shape = SubResource("RectangleShape2D_llijg")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="dev_layer/invisible_wall_block_4_south"]
-position = Vector2(-715, 391)
-shape = SubResource("RectangleShape2D_llijg")
+position = Vector2(-874.5, 259.5)
+shape = SubResource("RectangleShape2D_ko2q8")
 
 [connection signal="body_entered" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_entered"]
 [connection signal="body_exited" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_exited"]
