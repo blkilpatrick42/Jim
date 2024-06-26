@@ -4,8 +4,8 @@ var is_occluding_player = false
 @onready var sprite = $Sprite2D
 
 var timer = Timer.new()
-var fade_step_degree = 0.1
-var fade_step_time = 0.2
+var fade_step_degree = 0.05
+var fade_step_time = 0.05
 var faded_alpha = 0.5
 var current_alpha = 1
 

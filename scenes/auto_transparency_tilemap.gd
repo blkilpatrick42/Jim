@@ -3,8 +3,8 @@ extends TileMap
 var is_occluding_player = false
 
 var timer = Timer.new()
-var fade_step_degree = 0.1
-var fade_step_time = 0.2
+var fade_step_degree = 0.05
+var fade_step_time = 0.05
 var faded_alpha = 0.5
 var current_alpha = 1
 
@@ -12,8 +12,6 @@ var current_alpha = 1
 func _ready():
 	timer.one_shot = true
 	add_child(timer)
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
