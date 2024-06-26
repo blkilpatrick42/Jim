@@ -1,10 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh2vssi64lbgs"]
+[gd_scene load_steps=5 format=3 uid="uid://dh2vssi64lbgs"]
 
 [ext_resource type="Texture2D" uid="uid://br085rgpdogkl" path="res://sprites/game_world/train_track.png" id="1_0khg3"]
+[ext_resource type="Script" path="res://entities/props/static props/city/auto_transparency_sprite.gd" id="1_vrd6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cc5q"]
+size = Vector2(16, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14bso"]
+size = Vector2(325, 100)
 
 [node name="TrainTracks" type="Node2D"]
+script = ExtResource("1_vrd6i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["above_player"]]
 texture = ExtResource("1_0khg3")
 offset = Vector2(0, -96)
 flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(40, 7.5)
+shape = SubResource("RectangleShape2D_6cc5q")
+
+[node name="vision_collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vision_collider"]
+position = Vector2(6.5, -109)
+shape = SubResource("RectangleShape2D_14bso")
+
+[connection signal="body_entered" from="vision_collider" to="." method="_on_vision_collider_body_entered"]
+[connection signal="body_exited" from="vision_collider" to="." method="_on_vision_collider_body_exited"]

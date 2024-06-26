@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://0cgmkcatxxns"]
+
+[ext_resource type="Texture2D" uid="uid://cq8rsnq8nhonu" path="res://sprites/props/police_barrier.png" id="1_i8ke7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dnn2"]
+size = Vector2(64, 24)
+
+[node name="PoliceBarrier" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i8ke7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_1dnn2")
