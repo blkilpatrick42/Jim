@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f4ap5fclw2kc"
-path="res://.godot/imported/police_barrier_hor.png-e791337797cd07fbb087d76e9e2b6ca2.ctex"
+path="res://.godot/imported/police_barrier_vert.png-466440bdc6bea9d410cc75ea62d515ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/police_barrier_hor.png"
-dest_files=["res://.godot/imported/police_barrier_hor.png-e791337797cd07fbb087d76e9e2b6ca2.ctex"]
+source_file="res://sprites/props/police_barrier_vert.png"
+dest_files=["res://.godot/imported/police_barrier_vert.png-466440bdc6bea9d410cc75ea62d515ad.ctex"]
 
 [params]
 
