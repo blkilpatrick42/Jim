@@ -233,7 +233,7 @@ func go_vincible():
 	set_collision_layer_value(damage_collision_layer,true)
 
 func has_clear_shot(point : Vector2):
-	var bounds = 8
+	var bounds = 24
 	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
 	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
 		return true
