@@ -327,7 +327,7 @@ func _on_set_nav_target_nearest_mesh(pos : Vector2):
 #move mobster along A* navigation path towards navigation target
 #and animate accordingly
 func _on_advance_navigation(speed : int):
-	if (position.distance_to(_navigation_agent.target_position) >= nav_target_reached_distance):
+	if (global_position.distance_to(_navigation_agent.target_position) >= nav_target_reached_distance):
 		perceptions.nav_target_reached = false
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = _navigation_agent.get_next_path_position()
