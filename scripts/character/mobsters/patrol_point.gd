@@ -5,6 +5,7 @@ extends Node2D
 @export var prev_point = Node2D
 @export var has_prev_point = false
 
+var random = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,12 @@ func _ready():
 
 func has_next_point():
 	return next_points.size() > 0
+
+func get_next_point():
+	if(has_next_point()):
+		return next_points[randi_range(0, next_points.size() - 1)]
+	else:
+		return prev_point
 
 func is_occupied():
 	var mobsters = get_tree().get_nodes_in_group("mobster")

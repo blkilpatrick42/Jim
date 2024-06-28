@@ -2,7 +2,7 @@ extends Node2D
 
 var mobster = preload("res://entities/characters/NPC/mobsters/mobster.tscn")
 
-var max_mobs_per_team = 6
+var max_mobs_per_team = 20
 
 var respawn_timer = Timer.new()
 var timer_time_seconds = 30

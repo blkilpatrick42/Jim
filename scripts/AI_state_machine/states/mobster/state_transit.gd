@@ -84,7 +84,7 @@ func enter(_msg := {}) -> void:
 				current_patrol_point = patrol_point
 	else:
 		if(current_patrol_point.has_next_point):
-			current_patrol_point = current_patrol_point.next_point
+			current_patrol_point = current_patrol_point.get_next_point()
 	
 	if(current_patrol_point != null):
 		set_nav_target.emit(current_patrol_point.position)
