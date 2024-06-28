@@ -1,6 +1,7 @@
-[gd_scene load_steps=177 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=181 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_q7f00"]
+[ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_o5f0b"]
 [ext_resource type="Script" path="res://scripts/auto_transparency_tilemap.gd" id="2_y8u7f"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="2_yfk64"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/characters/player/player.tscn" id="3_p6yc5"]
@@ -8,12 +9,14 @@
 [ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="5_amahm"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/dynamic world/door1.tscn" id="5_ee3u6"]
 [ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/dynamic world/door_frame.tscn" id="6_ahid3"]
+[ext_resource type="PackedScene" uid="uid://1htqc5w43g1e" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/pizza.tscn" id="6_jnxtx"]
 [ext_resource type="PackedScene" uid="uid://durd7oart1xoi" path="res://entities/dynamic world/pizzashop_window.tscn" id="6_xee7u"]
 [ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/static props/city/lightPole_right.tscn" id="7_2p4j4"]
 [ext_resource type="PackedScene" uid="uid://cc56jcruw17be" path="res://entities/dynamic world/window2_all_night.tscn" id="7_5r1in"]
 [ext_resource type="PackedScene" uid="uid://c61l5rhox2220" path="res://entities/dynamic world/pizza_neon.tscn" id="8_5wax4"]
 [ext_resource type="PackedScene" uid="uid://cvw0h3o72k4yp" path="res://entities/props/static props/city/lightPole_left.tscn" id="8_8rkc8"]
 [ext_resource type="PackedScene" uid="uid://0cgmkcatxxns" path="res://entities/props/static props/city/police_barrier.tscn" id="9_d5q3q"]
+[ext_resource type="SpriteFrames" uid="uid://cpe2jw8jk1hqg" path="res://sprites/spritesheets/spriteframes/characters/base/blu_mobster_base.tres" id="9_hle2q"]
 [ext_resource type="PackedScene" uid="uid://kamax630ji7y" path="res://entities/dynamic world/window3_all_night.tscn" id="10_gk670"]
 [ext_resource type="PackedScene" uid="uid://cgq4w0va0oofp" path="res://entities/dynamic world/window_5_all_night.tscn" id="11_60yii"]
 [ext_resource type="PackedScene" uid="uid://ktygs8x1m8a5" path="res://entities/props/static props/city/police_barrier_vert.tscn" id="11_don5s"]
@@ -29,6 +32,7 @@
 [ext_resource type="Script" path="res://scripts/clock/outdoor_light.gd" id="20_rbrsn"]
 [ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="27_8qldy"]
 [ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/characters/NPC/mobsters/mobster.tscn" id="28_4hwjv"]
+[ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/ball.tscn" id="32_15q2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p8v"]
 size = Vector2(33, 193.5)
@@ -1166,8 +1170,9 @@ next_points = [NodePath("../patrol_point2")]
 position = Vector2(-2149, 373)
 next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point8")]
 
-[node name="patrol_point8" parent="dev_layer" instance=ExtResource("1_q7f00")]
+[node name="patrol_point8" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2146, 655)
+next_points = [NodePath("../patrol_point9"), NodePath("../patrol_point7")]
 
 [node name="patrol_point9" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1948, 653)
@@ -1253,6 +1258,17 @@ next_points = [NodePath("../patrol_point28")]
 [node name="patrol_point30" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1663, -1311)
 next_points = [NodePath("../patrol_point28")]
+
+[node name="MobSpawner" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+position = Vector2(-2042, 645)
+
+[node name="MobSpawner2" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+position = Vector2(-2072, -1248)
+spawner_team = "blu"
+
+[node name="MobSpawner3" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+position = Vector2(-2450, -627)
+spawner_team = "blu"
 
 [node name="daylight_affected_section" type="Node2D" parent="."]
 process_mode = 1
@@ -1428,16 +1444,64 @@ z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 
+[node name="prop_name_here" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("6_jnxtx")]
+position = Vector2(-1278.73, -283.805)
+
 [node name="Jim" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("3_p6yc5")]
-position = Vector2(-1652, -58)
+position = Vector2(-215, -297)
 hat_spriteframes = ExtResource("4_3g0ka")
 top_spriteframes = ExtResource("5_amahm")
 
-[node name="mobster" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+[node name="red_mobster" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
 position = Vector2(-1667, 207)
+
+[node name="blu_mobster" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-1646, -1139)
+collision_layer = 1602
+team = "blu"
+base_spriteframes = ExtResource("9_hle2q")
+
+[node name="blu_mobster2" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2074, -1317)
+collision_layer = 1602
+team = "blu"
+base_spriteframes = ExtResource("9_hle2q")
+
+[node name="blu_mobster3" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2420, -1148)
+collision_layer = 1602
+team = "blu"
+base_spriteframes = ExtResource("9_hle2q")
+
+[node name="blu_mobster4" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2427, -703)
+collision_layer = 1602
+team = "blu"
+base_spriteframes = ExtResource("9_hle2q")
+
+[node name="blu_mobster5" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-1663, -554)
+collision_layer = 1602
+team = "blu"
+base_spriteframes = ExtResource("9_hle2q")
+
+[node name="red_mobster2" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2406, 190)
+
+[node name="red_mobster3" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2040, 662)
+
+[node name="red_mobster4" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2138, -49)
+
+[node name="red_mobster5" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("28_4hwjv")]
+position = Vector2(-2442, -278)
 
 [node name="game_world" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
+
+[node name="prop_name_here" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("6_jnxtx")]
+position = Vector2(-1278.73, -283.805)
 
 [node name="pizzashop_window" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("6_xee7u")]
 position = Vector2(-200, -392)
@@ -2229,6 +2293,12 @@ position = Vector2(-3144, -776)
 
 [node name="TrainTracks42" parent="daylight_affected_section/daylight_affected_ysort/game_world/train_tracks" instance=ExtResource("18_35ymi")]
 position = Vector2(-3240, -776)
+
+[node name="ball" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("32_15q2p")]
+position = Vector2(-124, -252)
+
+[node name="prop_name_here2" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("6_jnxtx")]
+position = Vector2(-256, -288)
 
 [node name="Tile_mid_sketch" type="TileMap" parent="daylight_affected_section"]
 z_index = 2

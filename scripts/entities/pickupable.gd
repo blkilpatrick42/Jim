@@ -55,16 +55,16 @@ func throw(direction):
 		match(direction):
 			"left":
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
 			"right":
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
 			"up":
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
 			"down":
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, player_y_offset))
 
 func pick_up():
 	if(will_pickup):
@@ -84,16 +84,16 @@ func put_down(direction):
 		match(direction):
 			"left":
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(playerRef.position + Vector2(-player_y_offset, 0))
+				set_physics_pos(playerRef.global_position + Vector2(-player_y_offset, 0))
 			"right":
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(playerRef.position + Vector2(player_y_offset, 0))
+				set_physics_pos(playerRef.global_position + Vector2(player_y_offset, 0))
 			"up":
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(playerRef.position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
 			"down":
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(playerRef.position + Vector2(0, player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(0, player_y_offset))
 			
 		
 	
@@ -119,7 +119,7 @@ func _process(delta):
 		
 	if(picked_up):
 		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		position = (playerRef.position + Vector2(0, -player_y_offset))
+		global_position = (playerRef.global_position + Vector2(0, -player_y_offset))
 		
 
 func _integrate_forces(state):
@@ -129,7 +129,7 @@ func _integrate_forces(state):
 			can_spark = false
 			var nSpark = spark.instantiate()
 			get_parent().add_child(nSpark)
-			nSpark.position = local_collision_pos
+			nSpark.global_position = local_collision_pos
 			if(can_make_noise):
 				can_make_noise = false
 				sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
