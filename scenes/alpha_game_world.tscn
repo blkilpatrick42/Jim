@@ -1,7 +1,7 @@
 [gd_scene load_steps=177 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_q7f00"]
-[ext_resource type="Script" path="res://scenes/auto_transparency_tilemap.gd" id="2_y8u7f"]
+[ext_resource type="Script" path="res://scripts/auto_transparency_tilemap.gd" id="2_y8u7f"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="2_yfk64"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/characters/player/player.tscn" id="3_p6yc5"]
 [ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/hat/cap_0.tres" id="4_3g0ka"]

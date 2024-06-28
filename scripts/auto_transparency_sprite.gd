@@ -1,5 +1,6 @@
 extends Node2D
 
+var is_transparent = false
 var is_occluding_player = false
 @onready var sprite = $Sprite2D
 
@@ -15,10 +16,16 @@ func _ready():
 	add_child(timer)
 	pass # Replace with function body.
 
+func get_input():
+	if Input.is_action_pressed("transparency"):
+			is_transparent = true
+	else:
+			is_transparent = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(is_occluding_player):
+	get_input()
+	if(is_occluding_player || is_transparent):
 		if(timer.is_stopped() && current_alpha > faded_alpha):
 			timer.start(fade_step_time)
 			current_alpha -= fade_step_degree

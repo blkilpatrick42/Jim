@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh2vssi64lbgs"]
 
 [ext_resource type="Texture2D" uid="uid://br085rgpdogkl" path="res://sprites/game_world/train_track.png" id="1_0khg3"]
-[ext_resource type="Script" path="res://entities/props/static props/city/auto_transparency_sprite.gd" id="1_vrd6i"]
+[ext_resource type="Script" path="res://scripts/auto_transparency_sprite.gd" id="1_vrd6i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cc5q"]
 size = Vector2(16, 17)
