@@ -140,7 +140,7 @@ func update_perceptions():
 	
 	if(perceptions.target_obj != null):
 		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
-			perceptions.target_pos = perceptions.target_obj.position
+			perceptions.target_pos = perceptions.target_obj.global_position
 			perceptions.has_line_of_sight_to_target = true
 		else:
 			perceptions.has_line_of_sight_to_target = false
@@ -207,7 +207,7 @@ func detect_sparks():
 	for spark in sparks:
 		if(is_instance_valid(spark) &&
 			spark not in perceptions.colliding_nodes &&
-			spark.position.distance_to(position) < detection_distance):
+			spark.global_position.distance_to(global_position) < detection_distance):
 				perceptions.colliding_nodes.append(spark)
 	#clean out null nodes from sparks queue-freeing
 	var iter = 0
@@ -233,7 +233,7 @@ func go_vincible():
 	set_collision_layer_value(damage_collision_layer,true)
 
 func has_clear_shot(point : Vector2):
-	var bounds = 24
+	var bounds = 8
 	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
 	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
 		return true
@@ -282,7 +282,7 @@ func get_strafe_point():
 		var strafe_point = valid_points[random.randi_range(0,valid_points.size() -1 )]
 		return strafe_point
 	else:
-		return position
+		return global_position
 
 func _on_queue_free():
 	queue_free()
@@ -399,14 +399,14 @@ func _on_exclaim_bubble():
 	self.add_child(exclaimBubble)
 
 func _on_set_ai_target_position():
-	perceptions.target_pos = perceptions.target_obj.position
+	perceptions.target_pos = perceptions.target_obj.global_position
 
 func _on_set_ai_target(entity : Node):
 	perceptions.target_obj = entity
-	perceptions.target_pos = perceptions.target_obj.position
+	perceptions.target_pos = perceptions.target_obj.global_position
 
 func _on_face_ai_target_pos():
-	var vector_to_target = position.direction_to(perceptions.target_pos)
+	var vector_to_target = global_position.direction_to(perceptions.target_pos)
 	_character_base.face_to_vector(vector_to_target)
 	perceptions.facing_dir = _character_base.get_facing_dir()
 
