@@ -47,7 +47,7 @@ func update_selection():
 
 func handle_selection():
 	if(select_index == 0): #start
-		get_tree().change_scene_to_file("res://scenes/dev_base_3.tscn") #TODO: game select menu
+		get_tree().change_scene_to_file("res://scenes/alpha_game_world.tscn") #TODO: game select menu
 	elif(select_index == 1): #settings
 		var child_settings_menu = settings_menu.instantiate()
 		active_child_menu = child_settings_menu

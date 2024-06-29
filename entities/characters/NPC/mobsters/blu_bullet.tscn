@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhgmf56i5l3cv"]
+[gd_scene load_steps=5 format=3 uid="uid://bhgmf56i5l3cv"]
 
 [ext_resource type="Script" path="res://scripts/character/mobsters/bullet.gd" id="1_i11gr"]
 [ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/mobster/bullet.png" id="2_yno6h"]
+[ext_resource type="AudioStream" uid="uid://dab2bmcr4prlv" path="res://audio/soundFX/mob/bullet_whoosh.wav" id="3_brf2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xemyf"]
 size = Vector2(8, 6)
@@ -21,5 +22,10 @@ shape = SubResource("RectangleShape2D_xemyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_yno6h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_brf2n")
+autoplay = true
+max_distance = 64.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,7 +5,7 @@ var mobster = preload("res://entities/characters/NPC/mobsters/mobster.tscn")
 var max_mobs_per_team = 20
 
 var respawn_timer = Timer.new()
-var timer_time_seconds = 30
+var new_mobster_timer_len_secs = 90
 var ysort_node
 @export var spawner_team = "red"
 
@@ -15,7 +15,7 @@ func _ready():
 	respawn_timer.one_shot = true
 	add_child(respawn_timer)
 	ysort_node = get_tree().get_first_node_in_group("daylight_affected_ysort")
-	respawn_timer.start(timer_time_seconds)
+	respawn_timer.start(new_mobster_timer_len_secs)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -31,4 +31,4 @@ func _process(delta):
 		new_mob.set_team(spawner_team)
 		ysort_node.add_child(new_mob)
 		new_mob.position = position
-		respawn_timer.start(timer_time_seconds)
+		respawn_timer.start(new_mobster_timer_len_secs)

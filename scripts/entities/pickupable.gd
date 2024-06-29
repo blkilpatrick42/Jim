@@ -55,10 +55,10 @@ func throw(direction):
 		match(direction):
 			"left":
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(-player_y_offset, 0))
 			"right":
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
+				set_physics_pos(playerRef.global_position + Vector2(player_y_offset, 0))
 			"up":
 				throw_force = Vector2(0,-force_factor)
 				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
