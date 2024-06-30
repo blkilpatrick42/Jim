@@ -1,0 +1,77 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dcdtrpoj6jnir"]
+
+[ext_resource type="Texture2D" uid="uid://b1wo40nm0xidm" path="res://sprites/spritesheets/mobster/red_exclaim.png" id="1_x31om"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngml8"]
+atlas = ExtResource("1_x31om")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5e01"]
+atlas = ExtResource("1_x31om")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a7e8"]
+atlas = ExtResource("1_x31om")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqm3p"]
+atlas = ExtResource("1_x31om")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bo18"]
+atlas = ExtResource("1_x31om")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmtys"]
+atlas = ExtResource("1_x31om")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3776"]
+atlas = ExtResource("1_x31om")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8yq0"]
+atlas = ExtResource("1_x31om")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knund"]
+atlas = ExtResource("1_x31om")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngml8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5e01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a7e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqm3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bo18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmtys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3776")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8yq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knund")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knund")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

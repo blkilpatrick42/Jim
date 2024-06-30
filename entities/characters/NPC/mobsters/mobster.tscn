@@ -154,6 +154,7 @@ initial_state = NodePath("idle")
 [connection signal="set_nav_target" from="ai_state_machine/chasing" to="." method="_on_set_nav_target_nearest_mesh"]
 [connection signal="set_target" from="ai_state_machine/chasing" to="." method="_on_set_ai_target"]
 [connection signal="animate" from="ai_state_machine/dead" to="." method="_on_play_animation"]
+[connection signal="blood" from="ai_state_machine/dead" to="." method="_on_blood"]
 [connection signal="die_skull" from="ai_state_machine/dead" to="." method="_on_die_skull"]
 [connection signal="disable_collision" from="ai_state_machine/dead" to="." method="_on_disable_all_collision"]
 [connection signal="queue_free" from="ai_state_machine/dead" to="." method="_on_queue_free"]

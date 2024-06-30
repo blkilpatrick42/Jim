@@ -3,8 +3,11 @@ extends RigidBody2D
 
 var sound_player := AudioStreamPlayer2D.new()
 
+var blood = preload("res://effects/blood.tscn")
 var question_bubble = preload("res://entities/characters/NPC/mobsters/communication/question.tscn")
 var exclaim_bubble = preload("res://entities/characters/NPC/mobsters/communication/exclaim.tscn")
+var exclaim_bubble_blu = preload("res://entities/characters/NPC/mobsters/communication/exclaim_blu.tscn")
+var exclaim_bubble_red = preload("res://entities/characters/NPC/mobsters/communication/exclaim_red.tscn")
 var die_skull = preload("res://effects/kill_skull.tscn")
 var red_bullet = preload("res://entities/characters/NPC/mobsters/red_bullet.tscn")
 var blu_bullet = preload("res://entities/characters/NPC/mobsters/blu_bullet.tscn")
@@ -386,6 +389,10 @@ func _on_question_bubble():
 	var questionBubble = question_bubble.instantiate()
 	self.add_child(questionBubble)
 
+func _on_blood():
+	var blood = blood.instantiate()
+	self.add_child(blood)
+
 func _on_die_skull():
 	sound_player.stream = load("res://audio/soundFX/voice/low_sine_voice/1.wav")
 	sound_player.play()
@@ -395,7 +402,14 @@ func _on_die_skull():
 func _on_exclaim_bubble():
 	sound_player.stream = load("res://audio/soundFX/alert.wav")
 	sound_player.play()
-	var exclaimBubble = exclaim_bubble.instantiate()
+	var exclaimBubble
+	if(perceptions.target_obj.is_in_group("player")):
+		exclaimBubble = exclaim_bubble.instantiate()
+	else:
+		if(team == team_blu):
+			exclaimBubble = exclaim_bubble_red.instantiate()
+		else:
+			exclaimBubble = exclaim_bubble_blu.instantiate()
 	self.add_child(exclaimBubble)
 
 func _on_set_ai_target_position():

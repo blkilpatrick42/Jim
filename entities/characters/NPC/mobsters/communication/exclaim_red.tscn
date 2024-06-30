@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2c1gnamtfpp7"]
+
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_wxxg8"]
+[ext_resource type="SpriteFrames" uid="uid://dcdtrpoj6jnir" path="res://sprites/spritesheets/spriteframes/mobster/exclaime_red.tres" id="2_bv8uk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lqkf"]
+light_mode = 1
+
+[node name="exclaim" type="Node2D" groups=["commotion", "exclaim"]]
+script = ExtResource("1_wxxg8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
+material = SubResource("CanvasItemMaterial_4lqkf")
+position = Vector2(16, 0)
+sprite_frames = ExtResource("2_bv8uk")
+offset = Vector2(0, -32)

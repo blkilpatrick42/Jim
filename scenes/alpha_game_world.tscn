@@ -1,10 +1,11 @@
-[gd_scene load_steps=181 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=182 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_q7f00"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_o5f0b"]
 [ext_resource type="Script" path="res://scripts/auto_transparency_tilemap.gd" id="2_y8u7f"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="2_yfk64"]
 [ext_resource type="PackedScene" uid="uid://c21jsew46j2v0" path="res://entities/characters/player/player.tscn" id="3_p6yc5"]
+[ext_resource type="AudioStream" uid="uid://ckjcyxtrrgebm" path="res://audio/music/pizza_delivery_theme_sketch.wav" id="3_p7vmg"]
 [ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/hat/cap_0.tres" id="4_3g0ka"]
 [ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="5_amahm"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/dynamic world/door1.tscn" id="5_ee3u6"]
@@ -1270,6 +1271,18 @@ spawner_team = "blu"
 position = Vector2(-2450, -627)
 spawner_team = "blu"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="dev_layer"]
+position = Vector2(-2336, -818)
+stream = ExtResource("3_p7vmg")
+volume_db = -9.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="dev_layer"]
+position = Vector2(-2304, 90)
+stream = ExtResource("3_p7vmg")
+volume_db = -9.0
+autoplay = true
+
 [node name="daylight_affected_section" type="Node2D" parent="."]
 process_mode = 1
 
@@ -1444,9 +1457,6 @@ z_index = 3
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="prop_name_here" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("6_jnxtx")]
-position = Vector2(-1278.73, -283.805)
-
 [node name="Jim" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("3_p6yc5")]
 position = Vector2(-215, -297)
 hat_spriteframes = ExtResource("4_3g0ka")
@@ -1499,9 +1509,6 @@ position = Vector2(-2442, -278)
 
 [node name="game_world" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
-
-[node name="prop_name_here" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("6_jnxtx")]
-position = Vector2(-1278.73, -283.805)
 
 [node name="pizzashop_window" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("6_xee7u")]
 position = Vector2(-200, -392)

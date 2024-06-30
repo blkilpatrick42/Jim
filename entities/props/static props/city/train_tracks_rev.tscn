@@ -17,12 +17,14 @@ texture = ExtResource("1_g02xb")
 offset = Vector2(0, -96)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-40, 7)
 shape = SubResource("RectangleShape2D_f4t5x")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-4, -105)
