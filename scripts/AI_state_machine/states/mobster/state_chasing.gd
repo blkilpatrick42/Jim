@@ -50,7 +50,8 @@ func physics_process(_delta: float) -> void:
 		return
 	else:
 		#mobster takes priority over player
-		if(ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
+		if(ai_state_machine.get_perceptions().target_obj != null &&
+		ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
 			var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 			for node in nodes_in_vision:
 				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
