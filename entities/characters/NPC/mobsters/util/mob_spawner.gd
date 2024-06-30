@@ -30,5 +30,5 @@ func _process(delta):
 		var new_mob = mobster.instantiate()
 		new_mob.set_team(spawner_team)
 		ysort_node.add_child(new_mob)
-		new_mob.position = position
+		new_mob.global_position = global_position
 		respawn_timer.start(new_mobster_timer_len_secs)

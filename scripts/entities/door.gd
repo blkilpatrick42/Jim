@@ -4,6 +4,8 @@ var sound_player := AudioStreamPlayer.new()
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _collision_shape = $StaticBody2D/CollisionShape2D
 
+@export var opens_for_groups: Array[String]
+
 var opened = false
 var opening = false
 var closing = false
@@ -29,35 +31,36 @@ func close():
 		_animated_sprite.play("close")
 		closing = true
 
-func player_is_close():
-	var player_ref = get_tree().get_first_node_in_group("player")
-	if (position.distance_to(player_ref.position) <= open_distance):
-		return true
-	else:
-		return false
+func opener_is_near():
+	var retVal = false
+	for group in opens_for_groups:
+		for obj in get_tree().get_nodes_in_group(group):
+			if (global_position.distance_to(obj.global_position) <= open_distance):
+				retVal = true
+	return retVal
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#player has to stand near the door for a period of time for it to open
-	if(opened == false && !waiting_to_open && player_is_close()):
+	#opener has to stand near the door for a period of time for it to open
+	if(opened == false && !waiting_to_open && opener_is_near()):
 		waiting_to_open = true
 		open_close_timer.start((open_close_time_secs))
 	
-	#if that period of time has elapsed and the player is still there, open
-	if(open_close_timer.is_stopped() && waiting_to_open && player_is_close()):
+	#if that period of time has elapsed and the opener is still there, open
+	if(open_close_timer.is_stopped() && waiting_to_open && opener_is_near()):
 		open()
-	else: if(open_close_timer.is_stopped() && waiting_to_open && !player_is_close()):
+	else: if(open_close_timer.is_stopped() && waiting_to_open && !opener_is_near()):
 		waiting_to_open = false
 	
-	#if the player leaves the door and it is open, it will start a timer to close itself
-	if(opened && !player_is_close() && !waiting_to_close):
+	#if the opener leaves the door and it is open, it will start a timer to close itself
+	if(opened && !opener_is_near() && !waiting_to_close):
 		waiting_to_close = true
 		open_close_timer.start((open_close_time_secs))
 	
-	#if that period of time has elapsed and the player is still gone, close
-	if(open_close_timer.is_stopped() && waiting_to_close && !player_is_close()):
+	#if that period of time has elapsed and the opener is still gone, close
+	if(open_close_timer.is_stopped() && waiting_to_close && !opener_is_near()):
 		close()
-	else: if(open_close_timer.is_stopped() && waiting_to_close && player_is_close()):
+	else: if(open_close_timer.is_stopped() && waiting_to_close && opener_is_near()):
 		waiting_to_close = false
 	
 	var last_frame_open = _animated_sprite.sprite_frames.get_frame_count("open")-1 
