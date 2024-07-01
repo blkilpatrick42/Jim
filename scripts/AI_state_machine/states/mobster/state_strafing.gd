@@ -26,10 +26,6 @@ func handle_sparks():
 					!ai_state_machine.get_perceptions().invincible):
 						reduce_health.emit()
 						return true
-					elif(!ai_state_machine.get_perceptions().invincible &&
-					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
-						ai_state_machine.transition_to(ai_state_machine.falling)
-						return true
 	return false
 
 func handle_death():

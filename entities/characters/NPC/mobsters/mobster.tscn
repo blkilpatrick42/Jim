@@ -126,6 +126,7 @@ initial_state = NodePath("idle")
 [connection signal="one_shot_animate" from="ai_state_machine/recovering" to="." method="_on_play_one_shot_animation"]
 [connection signal="turn_on_head_collider" from="ai_state_machine/recovering" to="." method="_on_enable_head_collider"]
 [connection signal="animate" from="ai_state_machine/knockedout" to="." method="_on_play_animation"]
+[connection signal="reduce_health" from="ai_state_machine/knockedout" to="." method="_on_reduce_hit_points"]
 [connection signal="one_shot_animate" from="ai_state_machine/falling" to="." method="_on_play_one_shot_animation"]
 [connection signal="play_sound" from="ai_state_machine/falling" to="." method="_on_play_sound"]
 [connection signal="stop_motion" from="ai_state_machine/falling" to="." method="_on_stop_motion"]

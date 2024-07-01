@@ -175,12 +175,26 @@ func passive_has_line_of_sight_to_object(obj):
 		perceptions.nodes_in_vision.erase(obj)
 		return false
 
+func passive_has_line_of_sight_to_point(point: Vector2):
+	_passive_raycast.set_target_position(point - _passive_raycast.global_position)
+	if(!_passive_raycast.is_colliding()):
+		return true
+	else:
+		return false
+
 func active_has_line_of_sight_to_object(obj):
 	_active_raycast.set_target_position(obj.global_position - _active_raycast.global_position)
 	if(_active_raycast.is_colliding() && _active_raycast.get_collider() == obj):
 		return true
 	else:
 		perceptions.nodes_in_vision.erase(obj)
+		return false
+
+func active_has_line_of_sight_to_point(point: Vector2):
+	_active_raycast.set_target_position(point)
+	if(!_active_raycast.is_colliding()):
+		return true
+	else:
 		return false
 
 func check_vision():
@@ -238,7 +252,8 @@ func go_vincible():
 func has_clear_shot(point : Vector2):
 	var bounds = 24
 	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
-	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
+	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds) &&
+	active_has_line_of_sight_to_point(point)):
 		return true
 	else:
 		return false
@@ -248,8 +263,8 @@ func get_nearest_point_on_mesh(point : Vector2):
 	return NavigationServer2D.map_get_closest_point(rid, point)
 
 func get_strafe_point():
-	var strafe_distance_step = nav_target_reached_distance * 2
-	var strafe_steps = 2
+	var strafe_distance_step = nav_target_reached_distance
+	var strafe_steps = 6
 	var iterator = 1
 	var valid_points = []
 	while(iterator <= strafe_steps):

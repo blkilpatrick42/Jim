@@ -12,6 +12,8 @@ var nav_target_reached = false
 var setup_done = false
 var host_position
 
+const distance_to_break_current_point = 128
+
 func get_host_position():
 	return ai_state_machine.get_perceptions().position
 
@@ -73,15 +75,25 @@ func physics_process(_delta: float) -> void:
 			else:
 				ai_state_machine.transition_to(ai_state_machine.look)
 
-func enter(_msg := {}) -> void:
-	if(current_patrol_point == null):
-		var patrol_points = get_tree().get_nodes_in_group("patrol_point")
-		current_patrol_point = patrol_points[0]
-		for patrol_point in patrol_points:
-			var distance_to_current_point = get_host_position().distance_to(current_patrol_point.position)
-			var distance_to_other_point = get_host_position().distance_to(patrol_point.position)
-			if(distance_to_other_point < distance_to_current_point):
-				current_patrol_point = patrol_point
+func distance_to_current_point() -> int:
+	return get_host_position().distance_to(current_patrol_point.position)
+
+func distance_to_position(pos: Vector2):
+	return get_host_position().distance_to(pos)
+
+func current_point_to_closest_point():
+	var patrol_points = get_tree().get_nodes_in_group("patrol_point")
+	current_patrol_point = patrol_points[0]
+	for patrol_point in patrol_points:
+		var distance_to_current_point = distance_to_current_point()
+		var distance_to_other_point = distance_to_position(patrol_point.position)
+		if(distance_to_other_point < distance_to_current_point):
+			current_patrol_point = patrol_point
+
+func enter(_msg := {}) -> void:		
+	if(current_patrol_point == null ||
+	distance_to_current_point() > distance_to_break_current_point):
+		current_point_to_closest_point()
 	else:
 		if(current_patrol_point.has_next_point):
 			current_patrol_point = current_patrol_point.get_next_point()

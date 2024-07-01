@@ -73,7 +73,8 @@ func shoot_burst():
 	play_animation.emit(str("shoot_",ai_state_machine.get_perceptions().facing_dir))
 	if(timer_between_shots.is_stopped() 
 		&& num_bullets_fired < burst_num_bullets):
-		create_bullet()
+		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+			create_bullet()
 		num_bullets_fired = num_bullets_fired + 1
 		timer_between_shots.start(time_between_shots_secs)
 	else: if(num_bullets_fired >= burst_num_bullets):
