@@ -25,7 +25,6 @@ func physics_process(_delta: float) -> void:
 		ai_state_machine.transition_to(ai_state_machine.recovering)
 
 func enter(_msg := {}) -> void:
-	
 	animate.emit(str("fallen_",ai_state_machine.perceptions.facing_dir))
 	timer.one_shot = true
 	add_child(timer)

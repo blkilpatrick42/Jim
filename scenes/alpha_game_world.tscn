@@ -1,4 +1,4 @@
-[gd_scene load_steps=191 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=192 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_q7f00"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_o5f0b"]
@@ -329,6 +329,9 @@ size = Vector2(31.7573, 256)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tai16"]
 size = Vector2(192, 256)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tu6t"]
+size = Vector2(32, 30)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_785em"]
 size = Vector2(128.563, 287.5)
 
@@ -393,9 +396,9 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7j8fg"]
-vertices = PackedVector2Array(-1963, -557, -1960, -557, -1961, -488, -1963, -488, -1804, -363, -1803, -259, -1804, -259, -1805, -259, -1804, -364, -1788, -365, -1793, -367, -1787, -489, -1793, -481, -1919, -482, -1921, -390, -1946, -352, -1985, -353, -1986, -436)
+vertices = PackedVector2Array(-1963, -557, -1960, -557, -1961, -488, -1963, -488, -1804, -363, -1803, -259, -1804, -259, -1805, -259, -1804, -364, -1784, -404, -1788, -405, -1787, -489, -1793, -481, -1919, -482, -1921, -390, -1946, -352, -1985, -353, -1986, -436)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(4, 6, 7), PackedInt32Array(4, 7, 8), PackedInt32Array(9, 4, 8, 10), PackedInt32Array(11, 9, 10, 12), PackedInt32Array(2, 11, 12, 13), PackedInt32Array(13, 14, 15, 16, 17, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1804, -259, -1803, -259, -1804, -363, -1788, -365, -1787, -489, -1961, -488, -1960, -557, -1963, -557, -1963, -488, -1986, -436, -1985, -353, -1946, -352, -1921, -390, -1919, -482, -1793, -481, -1793, -367, -1804, -364, -1805, -259)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1804, -259, -1803, -259, -1804, -363, -1786, -398, -1787, -489, -1961, -488, -1960, -557, -1963, -557, -1963, -488, -1986, -436, -1985, -353, -1946, -352, -1921, -390, -1919, -482, -1793, -481, -1794, -401, -1804, -364, -1805, -259)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -1084,6 +1087,10 @@ shape = SubResource("RectangleShape2D_r1287")
 position = Vector2(-2107, -429)
 shape = SubResource("RectangleShape2D_tai16")
 
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
+position = Vector2(-2219, -542)
+shape = SubResource("RectangleShape2D_7tu6t")
+
 [node name="CollisionShape2D39" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
 position = Vector2(-2267.28, 34.75)
 shape = SubResource("RectangleShape2D_785em")
@@ -1181,10 +1188,6 @@ navigation_polygon = SubResource("NavigationPolygon_xi58u")
 [node name="NavigationRegion2D9" type="NavigationRegion2D" parent="dev_layer"]
 navigation_polygon = SubResource("NavigationPolygon_q2nw0")
 
-[node name="NavigationRegion2D25" type="NavigationRegion2D" parent="dev_layer"]
-position = Vector2(-42, -1)
-navigation_polygon = SubResource("NavigationPolygon_q2nw0")
-
 [node name="NavigationRegion2D10" type="NavigationRegion2D" parent="dev_layer"]
 navigation_polygon = SubResource("NavigationPolygon_aft5s")
 
@@ -1230,132 +1233,129 @@ navigation_polygon = SubResource("NavigationPolygon_5vf6c")
 
 [node name="patrol_point" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1638, 273)
-next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point19")]
+next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point4"), NodePath("../patrol_point19")]
 
 [node name="patrol_point2" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2416, 742)
-next_points = [NodePath("../patrol_point3"), NodePath("../patrol_point8")]
+next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point8"), NodePath("../patrol_point3")]
 
 [node name="patrol_point3" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2042, 723)
-next_points = [NodePath("../patrol_point8"), NodePath("../patrol_point9"), NodePath("../patrol_point4")]
+next_points = [NodePath("../patrol_point2"), NodePath("../patrol_point8"), NodePath("../patrol_point9"), NodePath("../patrol_point4")]
 
 [node name="patrol_point4" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1667, 738)
-next_points = [NodePath("../patrol_point"), NodePath("../patrol_point9")]
+next_points = [NodePath("../patrol_point3"), NodePath("../patrol_point9"), NodePath("../patrol_point")]
 
 [node name="patrol_point5" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2037, 272)
-next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point12"), NodePath("../patrol_point11")]
+next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point"), NodePath("../patrol_point7"), NodePath("../patrol_point10"), NodePath("../patrol_point12"), NodePath("../patrol_point11")]
 
 [node name="patrol_point6" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2427, 278)
-next_points = [NodePath("../patrol_point2")]
+next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point3"), NodePath("../patrol_point5")]
 
 [node name="patrol_point7" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2149, 373)
-next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point8")]
+next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point6")]
 
 [node name="patrol_point8" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2146, 655)
-next_points = [NodePath("../patrol_point9"), NodePath("../patrol_point7")]
+next_points = [NodePath("../patrol_point2"), NodePath("../patrol_point3"), NodePath("../patrol_point9"), NodePath("../patrol_point7")]
 
-[node name="patrol_point31" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point31" parent="dev_layer" instance=ExtResource("1_q7f00")]
 position = Vector2(-2268, 557)
-next_points = [NodePath("../patrol_point8"), NodePath("../patrol_point2")]
 
 [node name="patrol_point9" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1948, 653)
-next_points = [NodePath("../patrol_point10")]
+next_points = [NodePath("../patrol_point10"), NodePath("../patrol_point8"), NodePath("../patrol_point3"), NodePath("../patrol_point4")]
 
 [node name="patrol_point10" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1936, 362)
-next_points = [NodePath("../patrol_point7"), NodePath("../patrol_point5"), NodePath("../patrol_point5"), NodePath("../patrol_point5")]
+next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point")]
 
 [node name="patrol_point11" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1936, 21)
-next_points = [NodePath("../patrol_point15")]
+next_points = [NodePath("../patrol_point12"), NodePath("../patrol_point5"), NodePath("../patrol_point15")]
 
 [node name="patrol_point12" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2155, 25)
-next_points = [NodePath("../patrol_point15"), null]
+next_points = [NodePath("../patrol_point11"), NodePath("../patrol_point15"), NodePath("../patrol_point5")]
 
 [node name="patrol_point13" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2426, -205)
-next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point15"), NodePath("../patrol_point14")]
+next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point15"), NodePath("../patrol_point24")]
 
-[node name="patrol_point18" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point18" parent="dev_layer" instance=ExtResource("1_q7f00")]
 position = Vector2(-2220, -388)
-next_points = [NodePath("../patrol_point15"), NodePath("../patrol_point13")]
 
 [node name="patrol_point14" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1658, -200)
-next_points = [NodePath("../patrol_point21"), NodePath("../patrol_point15")]
+next_points = [NodePath("../patrol_point15"), NodePath("../patrol_point22"), NodePath("../patrol_point21"), NodePath("../patrol_point16"), NodePath("../patrol_point19")]
 
 [node name="patrol_point15" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2049, -222)
-next_points = [NodePath("../patrol_point13")]
+next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point14"), NodePath("../patrol_point11"), NodePath("../patrol_point12")]
 
 [node name="patrol_point16" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1278, -212)
-next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point20")]
+next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point20"), NodePath("../patrol_point17")]
 
 [node name="patrol_point17" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1301, 30)
-next_points = [NodePath("../patrol_point16")]
+next_points = [NodePath("../patrol_point16"), NodePath("../patrol_point19")]
 
 [node name="patrol_point19" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1662, 30)
-next_points = [NodePath("../patrol_point17"), NodePath("../patrol_point14")]
+next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point"), NodePath("../patrol_point17")]
 
 [node name="patrol_point20" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1275, -468)
-next_points = [NodePath("../patrol_point21")]
+next_points = [NodePath("../patrol_point16"), NodePath("../patrol_point21")]
 
 [node name="patrol_point21" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1666, -469)
-next_points = [NodePath("../patrol_point27")]
+next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point20"), NodePath("."), NodePath("../patrol_point27")]
 
 [node name="patrol_point22" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1958, -431)
-next_points = [NodePath("../patrol_point14")]
+next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point23")]
 
 [node name="patrol_point23" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1959, -612)
-next_points = [NodePath("../patrol_point22")]
+next_points = [NodePath("../patrol_point22"), NodePath("../patrol_point24")]
 
 [node name="patrol_point24" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2430, -613)
-next_points = [NodePath("../patrol_point23"), NodePath("../patrol_point13")]
+next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point23"), NodePath("../patrol_point25")]
 
 [node name="patrol_point25" parent="dev_layer" node_paths=PackedStringArray("next_points", "prev_point") instance=ExtResource("1_q7f00")]
 position = Vector2(-2428, -1062)
-next_points = [NodePath("../patrol_point29"), NodePath("../patrol_point24"), NodePath("../patrol_point24"), NodePath("../patrol_point24")]
+next_points = [NodePath("../patrol_point26"), NodePath("../patrol_point29"), NodePath("../patrol_point24")]
 prev_point = NodePath("../patrol_point24")
 
 [node name="patrol_point26" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2068, -1071)
-next_points = [NodePath("../patrol_point25")]
+next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point25"), NodePath("../patrol_point28")]
 
 [node name="patrol_point27" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1665, -1067)
-next_points = [NodePath("../patrol_point26"), NodePath("../patrol_point30")]
+next_points = [NodePath("../patrol_point21"), NodePath("../patrol_point26"), NodePath("../patrol_point30")]
 
 [node name="patrol_point28" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2077, -1241)
-next_points = [NodePath("../patrol_point26")]
+next_points = [NodePath("../patrol_point30"), NodePath("../patrol_point29"), NodePath("../patrol_point26")]
 
-[node name="patrol_point32" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point32" parent="dev_layer" instance=ExtResource("1_q7f00")]
 position = Vector2(-2060, -1402)
-next_points = [NodePath("../patrol_point26")]
 
 [node name="patrol_point29" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2437, -1299)
-next_points = [NodePath("../patrol_point28")]
+next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point25")]
 
 [node name="patrol_point30" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1663, -1311)
-next_points = [NodePath("../patrol_point28")]
+next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point28")]
 
 [node name="MobSpawner" parent="dev_layer" instance=ExtResource("2_o5f0b")]
 position = Vector2(-2268, 527)
@@ -1558,7 +1558,7 @@ z_as_relative = false
 y_sort_enabled = true
 
 [node name="Jim" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("3_p6yc5")]
-position = Vector2(-2217, -340)
+position = Vector2(-229, -312)
 hat_spriteframes = ExtResource("4_3g0ka")
 top_spriteframes = ExtResource("5_amahm")
 no_clip = true

@@ -3,7 +3,7 @@ extends State
 
 signal one_shot_animate(animation : String)
 signal stop_motion
-signal turn_off_head_collider
+signal turn_off_collision
 signal play_sound(resource_name : String)
 
 func process(_delta: float) -> void:
@@ -22,7 +22,7 @@ func enter(_msg := {}) -> void:
 	var facing_dir = ai_state_machine.get_perceptions().facing_dir
 	one_shot_animate.emit(str("fall_", facing_dir))
 	stop_motion.emit()
-	turn_off_head_collider.emit()
+	turn_off_collision.emit()
 
 func exit() -> void:
 	pass

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8wyce4n4n6a5"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_ff0id"]
+[ext_resource type="Script" path="res://scripts/effects/spark.gd" id="1_725sw"]
 [ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_yajik"]
 
 [node name="spark" type="Node2D" groups=["spark"]]
-script = ExtResource("1_ff0id")
+script = ExtResource("1_725sw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["spark"]]
 position = Vector2(0, 8)

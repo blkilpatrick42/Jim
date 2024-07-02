@@ -157,6 +157,7 @@ func update_perceptions():
 	_character_base.get_base_current_frame() == _character_base.get_base_animation_framecount() - 1):
 		perceptions.one_shot_animating = false
 
+
 func _on_body_entered(body: Node):
 	perceptions.colliding_nodes.append(body)
 
@@ -263,8 +264,8 @@ func get_nearest_point_on_mesh(point : Vector2):
 	return NavigationServer2D.map_get_closest_point(rid, point)
 
 func get_strafe_point():
-	var strafe_distance_step = nav_target_reached_distance
-	var strafe_steps = 6
+	var strafe_distance_step = 4
+	var strafe_steps = 32
 	var iterator = 1
 	var valid_points = []
 	while(iterator <= strafe_steps):
@@ -325,6 +326,7 @@ func _on_create_bullet(create_pos: Vector2, rotation_deg):
 		new_bullet = red_bullet.instantiate()
 	else: if(team == team_blu):
 		new_bullet = blu_bullet.instantiate()
+	new_bullet.set_source_obj(self)
 	get_parent().add_child(new_bullet)
 	
 	new_bullet.rotation_degrees = rotation_deg
