@@ -132,6 +132,14 @@ func send_perceptions():
 	if(_ai_state_machine != null):
 		_ai_state_machine.receive_perceptions(perceptions)
 
+func update_line_of_sight_to_target():
+	if(perceptions.target_obj != null):
+		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
+			perceptions.target_pos = perceptions.target_obj.global_position
+			perceptions.has_line_of_sight_to_target = true
+		else:
+			perceptions.has_line_of_sight_to_target = false
+
 func update_perceptions():
 	perceptions.current_v = current_v
 	perceptions.facing_dir = _character_base.get_facing_dir()
@@ -141,13 +149,7 @@ func update_perceptions():
 	perceptions.hit_points = hit_points
 	perceptions.invincible = is_invincible
 	
-	if(perceptions.target_obj != null):
-		if(active_has_line_of_sight_to_object(perceptions.target_obj)):
-			perceptions.target_pos = perceptions.target_obj.global_position
-			perceptions.has_line_of_sight_to_target = true
-		else:
-			perceptions.has_line_of_sight_to_target = false
-	
+	update_line_of_sight_to_target()
 	check_vision()
 	check_hearing()
 	detect_sparks()
@@ -253,11 +255,38 @@ func go_vincible():
 func has_clear_shot(point : Vector2):
 	var bounds = 24
 	if((point.x < perceptions.target_pos.x + bounds && point.x > perceptions.target_pos.x - bounds) ||
-	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds) &&
-	active_has_line_of_sight_to_point(point)):
+	(point.y < perceptions.target_pos.y + bounds && point.y > perceptions.target_pos.y - bounds)):
 		return true
 	else:
 		return false
+
+#to prevent mobs from overlapping, we adjust every nav point to include some randomness
+func get_adjusted_point(pos: Vector2) -> Vector2:
+	var strafe_distance_step = 3
+	var strafe_steps = 16
+	var iterator = 1
+	var valid_points = []
+	while(iterator <= strafe_steps):
+		var step = strafe_distance_step * iterator
+		var north = get_nearest_point_on_mesh(Vector2(pos.x, pos.y - step))
+		valid_points.append(north)
+		var northEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y - step))
+		valid_points.append(northEast)
+		var east = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
+		valid_points.append(east)
+		var southEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y + step))
+		valid_points.append(southEast)
+		var south = get_nearest_point_on_mesh(Vector2(pos.x, pos.y + step))
+		valid_points.append(south)
+		var soutWest = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y + step))
+		valid_points.append(soutWest)
+		var west = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y))
+		valid_points.append(west)
+		var northWest = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
+		valid_points.append(northWest)
+		iterator = iterator + 1
+	var adjusted_point = valid_points[random.randi_range(0,valid_points.size() -1 )]
+	return adjusted_point
 
 func get_nearest_point_on_mesh(point : Vector2):
 	var rid = _navigation_agent.get_navigation_map()
@@ -338,17 +367,13 @@ func _on_create_bullet(create_pos: Vector2, rotation_deg):
 
 func _on_set_nav_target(pos : Vector2):
 	perceptions.nav_target_reached = false
-	_navigation_agent.target_position = pos
-
-func _on_set_nav_target_nearest_mesh(pos : Vector2):
-	var point = get_nearest_point_on_mesh(pos)
-	_on_set_nav_target(point)
+	_navigation_agent.target_position = get_adjusted_point(pos)
 	
 #move mobster along A* navigation path towards navigation target
 #and animate accordingly
 func _on_advance_navigation(speed : int):
-	if (global_position.distance_to(_navigation_agent.target_position) >= nav_target_reached_distance):
-		perceptions.nav_target_reached = false
+	if (!perceptions.nav_target_reached &&
+	global_position.distance_to(_navigation_agent.target_position) >= nav_target_reached_distance):
 		var current_agent_position: Vector2 = global_position
 		var next_path_position: Vector2 = _navigation_agent.get_next_path_position()
 		current_v = current_agent_position.direction_to(next_path_position) * speed
@@ -427,6 +452,7 @@ func _on_exclaim_bubble():
 			exclaimBubble = exclaim_bubble_red.instantiate()
 		else:
 			exclaimBubble = exclaim_bubble_blu.instantiate()
+	exclaimBubble.set_source_obj(perceptions.target_obj)
 	self.add_child(exclaimBubble)
 
 func _on_set_ai_target_position():
@@ -434,6 +460,8 @@ func _on_set_ai_target_position():
 
 func _on_set_ai_target(entity : Node):
 	perceptions.target_obj = entity
+	update_line_of_sight_to_target()
+	send_perceptions()
 	perceptions.target_pos = perceptions.target_obj.global_position
 
 func _on_face_ai_target_pos():
@@ -483,3 +511,11 @@ func _physics_process(delta):
 		send_perceptions()
 		#apply velocity thru physics engine
 		apply_force(current_v)
+		var mobs = get_tree().get_nodes_in_group("mobster")
+		#var push_dir : Vector2 = Vector2(0,0)
+		#for mob in mobs:
+			#if(global_position.distance_to(mob.global_position) < 16):
+				#var dir : Vector2 = global_position - mob.global_position
+				#dir = -dir.normalized()
+				#break
+		#apply_force(push_dir * 125000)

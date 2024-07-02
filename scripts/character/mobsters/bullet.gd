@@ -34,9 +34,9 @@ func create_spark_benign():
 	sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
 	sound_player.play()
 	var new_spark = spark.instantiate()
+	new_spark.remove_from_group("spark")
 	get_parent().call_deferred("add_child", new_spark)
 	new_spark.position = position
-	new_spark.remove_from_group("spark")
 
 func create_spark_deadly():
 	sound_player.stream = load("res://audio/soundFX/bigCollide.wav")

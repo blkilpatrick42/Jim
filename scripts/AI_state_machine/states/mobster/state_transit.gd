@@ -34,6 +34,7 @@ func handle_sparks():
 						set_target.emit(assailant_obj)
 						if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 							ai_state_machine.transition_to(ai_state_machine.exclaiming)
+							#TODO: else: flee!
 						return true
 					elif(!ai_state_machine.get_perceptions().invincible &&
 					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
@@ -70,6 +71,13 @@ func physics_process(_delta: float) -> void:
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.exclaiming)
 		elif(nodes_in_hearing.size() > 0):
+			for node in nodes_in_hearing:
+				if(node.is_in_group("exclaim")):
+					var source_obj = node.get_source_obj()
+					if(source_obj.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+						set_target.emit(source_obj)
+						ai_state_machine.transition_to(ai_state_machine.exclaiming)
+						return
 			ai_state_machine.transition_to(ai_state_machine.investigate)
 		#transit code
 		else:

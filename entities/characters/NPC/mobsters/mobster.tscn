@@ -30,7 +30,7 @@ size = Vector2(4.75862, 16.4881)
 [node name="mobster" type="RigidBody2D" groups=["mobster"]]
 y_sort_enabled = true
 collision_layer = 514
-collision_mask = 273
+collision_mask = 17
 mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true
@@ -68,11 +68,11 @@ texture = ExtResource("3_wq4dt")
 [node name="passive_raycast" type="RayCast2D" parent="."]
 scale = Vector2(1.00083, 1.00596)
 target_position = Vector2(0, 0)
-collision_mask = 1105
+collision_mask = 1041
 
 [node name="active_raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
-collision_mask = 1105
+collision_mask = 1041
 
 [node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
 position = Vector2(0, -1)
@@ -152,7 +152,7 @@ initial_state = NodePath("idle")
 [connection signal="advance_navigation" from="ai_state_machine/chasing" to="." method="_on_advance_navigation"]
 [connection signal="question_bubble" from="ai_state_machine/chasing" to="." method="_on_question_bubble"]
 [connection signal="reduce_health" from="ai_state_machine/chasing" to="." method="_on_reduce_hit_points"]
-[connection signal="set_nav_target" from="ai_state_machine/chasing" to="." method="_on_set_nav_target_nearest_mesh"]
+[connection signal="set_nav_target" from="ai_state_machine/chasing" to="." method="_on_set_nav_target"]
 [connection signal="set_target" from="ai_state_machine/chasing" to="." method="_on_set_ai_target"]
 [connection signal="animate" from="ai_state_machine/dead" to="." method="_on_play_animation"]
 [connection signal="blood" from="ai_state_machine/dead" to="." method="_on_blood"]

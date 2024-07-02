@@ -26,6 +26,11 @@ func handle_sparks():
 					if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
 					!ai_state_machine.get_perceptions().invincible):
 						reduce_health.emit()
+						var assailant_obj = node.get_source_obj()
+						set_target.emit(assailant_obj)
+						if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+							ai_state_machine.transition_to(ai_state_machine.exclaiming)
+							#TODO: else: flee!
 						return true
 					elif(!ai_state_machine.get_perceptions().invincible &&
 					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
@@ -50,15 +55,32 @@ func physics_process(_delta: float) -> void:
 		return
 	else:
 		#mobster takes priority over player
-		if(ai_state_machine.get_perceptions().target_obj != null &&
-		ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
-			var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
-			for node in nodes_in_vision:
-				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
-				node.is_in_group("mobster")):
-					set_target.emit(node)
+		var player = get_tree().get_first_node_in_group("player")
+		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
+		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
+		for node in nodes_in_vision:
+			if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+			node.is_in_group("mobster") && node != ai_state_machine.get_perceptions().target_obj):
+				set_target.emit(node)
+				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 					ai_state_machine.transition_to(ai_state_machine.exclaiming)
 					return
+		if(ai_state_machine.get_perceptions().target_obj != null &&
+		ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
+			nodes_in_vision.has(player)):
+			set_target.emit(player)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+		#
+		#if(ai_state_machine.get_perceptions().target_obj != null &&
+		#ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
+			#var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
+			#for node in nodes_in_vision:
+				#if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+				#node.is_in_group("mobster")):
+					#set_target.emit(node)
+					#ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					#return
 		
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):

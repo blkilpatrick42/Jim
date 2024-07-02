@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2c1gnamtfpp7"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_wxxg8"]
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy_source.gd" id="1_cv4o6"]
 [ext_resource type="SpriteFrames" uid="uid://dcdtrpoj6jnir" path="res://sprites/spritesheets/spriteframes/mobster/exclaime_red.tres" id="2_bv8uk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lqkf"]
 light_mode = 1
 
 [node name="exclaim" type="Node2D" groups=["commotion", "exclaim"]]
-script = ExtResource("1_wxxg8")
+script = ExtResource("1_cv4o6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
 material = SubResource("CanvasItemMaterial_4lqkf")
