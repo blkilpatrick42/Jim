@@ -1263,8 +1263,9 @@ next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point6")]
 position = Vector2(-2146, 655)
 next_points = [NodePath("../patrol_point2"), NodePath("../patrol_point3"), NodePath("../patrol_point9"), NodePath("../patrol_point7")]
 
-[node name="patrol_point31" parent="dev_layer" instance=ExtResource("1_q7f00")]
+[node name="patrol_point31" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2268, 557)
+next_points = [NodePath("../patrol_point2")]
 
 [node name="patrol_point9" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1948, 653)
@@ -1286,8 +1287,9 @@ next_points = [NodePath("../patrol_point11"), NodePath("../patrol_point15"), Nod
 position = Vector2(-2426, -205)
 next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point15"), NodePath("../patrol_point24")]
 
-[node name="patrol_point18" parent="dev_layer" instance=ExtResource("1_q7f00")]
+[node name="patrol_point18" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2220, -388)
+next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point15"), NodePath("../patrol_point14")]
 
 [node name="patrol_point14" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1658, -200)
@@ -1346,8 +1348,9 @@ next_points = [NodePath("../patrol_point21"), NodePath("../patrol_point26"), Nod
 position = Vector2(-2077, -1241)
 next_points = [NodePath("../patrol_point30"), NodePath("../patrol_point29"), NodePath("../patrol_point26")]
 
-[node name="patrol_point32" parent="dev_layer" instance=ExtResource("1_q7f00")]
+[node name="patrol_point32" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2060, -1402)
+next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point26")]
 
 [node name="patrol_point29" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2437, -1299)
