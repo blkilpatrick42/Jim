@@ -43,7 +43,7 @@ var immobilized = false
 func _ready():
 	add_child(sound_player)
 	
-		#set up character base
+	#set up character base
 	_character_base.set_facing_dir(facing_dir)
 	_character_base.set_spriteframes(base_spriteframes,
 	hat_spriteframes,

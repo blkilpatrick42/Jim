@@ -1125,230 +1125,238 @@ shape = SubResource("RectangleShape2D_g6olc")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/StaticBody2D"]
 polygon = PackedVector2Array(-3309, 1102, -2618, 1077, -2617, 979, -2524, 885, -2525, 753, -2556, 720, -2584, 720, -2622, 688, -2621, 626, -2555, 568, -2553, 499, -2522, 471, -2524, 369, -2556, 344, -2558, 278, -2523, 245, -2521, 145, -2553, 112, -2584, 111, -2622, 81, -2619, 18, -2589, -5, -2587, -116, -2650, -167, -2653, -271, -2590, -328, -2588, -461, -2622, -489, -2620, -522, -2556, -584, -2556, -688, -2621, -749, -2731, -752, -2765, -719, -2764, -847, -2635, -847, -2571, -904, -2571, -974, -2541, -1002, -2541, -1166, -2604, -1225, -2602, -1296, -2541, -1354, -2538, -1602, -3017, -1601)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="dev_layer"]
+[node name="navmeshes" type="Node2D" parent="dev_layer"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_3m5s8")
 
-[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_4nigm")
 
-[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_2o632")
 
-[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_mxsnl")
 
-[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_lpsqc")
 metadata/_edit_group_ = true
 
-[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_pqtaa")
 
-[node name="NavigationRegion2D7" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D7" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_7j8fg")
 
-[node name="NavigationRegion2D8" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D8" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_xi58u")
 
-[node name="NavigationRegion2D9" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D9" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_q2nw0")
 
-[node name="NavigationRegion2D10" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D10" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_aft5s")
 
-[node name="NavigationRegion2D11" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D11" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_bnnpt")
 
-[node name="NavigationRegion2D12" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D12" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_xqr4v")
 
-[node name="NavigationRegion2D13" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D13" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_jm2h5")
 
-[node name="NavigationRegion2D14" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D14" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_f5a12")
 
-[node name="NavigationRegion2D15" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D15" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_ysw2u")
 
-[node name="NavigationRegion2D16" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D16" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_l76iu")
 
-[node name="NavigationRegion2D17" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D17" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_0wrdr")
 
-[node name="NavigationRegion2D18" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D18" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 position = Vector2(-3, 75)
 navigation_polygon = SubResource("NavigationPolygon_v1gx7")
 
-[node name="NavigationRegion2D19" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D19" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_1544g")
 
-[node name="NavigationRegion2D20" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D20" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_1x2b4")
 
-[node name="NavigationRegion2D21" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D21" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_mft02")
 
-[node name="NavigationRegion2D22" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D22" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_s7ikg")
 
-[node name="NavigationRegion2D23" type="NavigationRegion2D" parent="dev_layer"]
+[node name="NavigationRegion2D23" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_5vf6c")
 
-[node name="patrol_point" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="NavigationRegion2D24" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
+navigation_polygon = SubResource("NavigationPolygon_x8jeh")
+
+[node name="patrol_points" type="Node2D" parent="dev_layer"]
+
+[node name="patrol_point" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1638, 273)
 next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point4"), NodePath("../patrol_point19")]
 
-[node name="patrol_point2" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point2" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2416, 742)
 next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point8"), NodePath("../patrol_point3")]
 
-[node name="patrol_point3" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point3" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2042, 723)
 next_points = [NodePath("../patrol_point2"), NodePath("../patrol_point8"), NodePath("../patrol_point9"), NodePath("../patrol_point4")]
 
-[node name="patrol_point4" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point4" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1667, 738)
 next_points = [NodePath("../patrol_point3"), NodePath("../patrol_point9"), NodePath("../patrol_point")]
 
-[node name="patrol_point5" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point5" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2037, 272)
 next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point"), NodePath("../patrol_point7"), NodePath("../patrol_point10"), NodePath("../patrol_point12"), NodePath("../patrol_point11")]
 
-[node name="patrol_point6" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point6" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2427, 278)
 next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point3"), NodePath("../patrol_point5")]
 
-[node name="patrol_point7" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point7" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2149, 373)
 next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point6")]
 
-[node name="patrol_point8" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point8" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2146, 655)
 next_points = [NodePath("../patrol_point2"), NodePath("../patrol_point3"), NodePath("../patrol_point9"), NodePath("../patrol_point7")]
 
-[node name="patrol_point31" parent="dev_layer" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
+[node name="patrol_point31" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
 position = Vector2(-2268, 557)
 next_points = [NodePath("../patrol_point2")]
 
-[node name="patrol_point9" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point9" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1948, 653)
 next_points = [NodePath("../patrol_point10"), NodePath("../patrol_point8"), NodePath("../patrol_point3"), NodePath("../patrol_point4")]
 
-[node name="patrol_point10" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point10" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1936, 362)
 next_points = [NodePath("../patrol_point5"), NodePath("../patrol_point")]
 
-[node name="patrol_point11" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point11" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1936, 21)
 next_points = [NodePath("../patrol_point12"), NodePath("../patrol_point5"), NodePath("../patrol_point15")]
 
-[node name="patrol_point12" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point12" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2155, 25)
 next_points = [NodePath("../patrol_point11"), NodePath("../patrol_point15"), NodePath("../patrol_point5")]
 
-[node name="patrol_point13" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point13" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2426, -205)
 next_points = [NodePath("../patrol_point6"), NodePath("../patrol_point15"), NodePath("../patrol_point24")]
 
-[node name="patrol_point18" parent="dev_layer" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
+[node name="patrol_point18" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
 position = Vector2(-2220, -388)
 next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point15"), NodePath("../patrol_point14")]
 
-[node name="patrol_point14" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point14" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1658, -200)
 next_points = [NodePath("../patrol_point15"), NodePath("../patrol_point22"), NodePath("../patrol_point21"), NodePath("../patrol_point16"), NodePath("../patrol_point19")]
 
-[node name="patrol_point15" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point15" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2049, -222)
 next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point14"), NodePath("../patrol_point11"), NodePath("../patrol_point12")]
 
-[node name="patrol_point16" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point16" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1278, -212)
 next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point20"), NodePath("../patrol_point17")]
 
-[node name="patrol_point17" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point17" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1301, 30)
 next_points = [NodePath("../patrol_point16"), NodePath("../patrol_point19")]
 
-[node name="patrol_point19" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point19" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1662, 30)
 next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point"), NodePath("../patrol_point17")]
 
-[node name="patrol_point20" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point20" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1275, -468)
 next_points = [NodePath("../patrol_point16"), NodePath("../patrol_point21")]
 
-[node name="patrol_point21" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point21" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1666, -469)
 next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point20"), NodePath("."), NodePath("../patrol_point27")]
 
-[node name="patrol_point22" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point22" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1958, -431)
 next_points = [NodePath("../patrol_point14"), NodePath("../patrol_point23")]
 
-[node name="patrol_point23" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point23" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1959, -612)
 next_points = [NodePath("../patrol_point22"), NodePath("../patrol_point24")]
 
-[node name="patrol_point24" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point24" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2430, -613)
 next_points = [NodePath("../patrol_point13"), NodePath("../patrol_point23"), NodePath("../patrol_point25")]
 
-[node name="patrol_point25" parent="dev_layer" node_paths=PackedStringArray("next_points", "prev_point") instance=ExtResource("1_q7f00")]
+[node name="patrol_point25" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points", "prev_point") instance=ExtResource("1_q7f00")]
 position = Vector2(-2428, -1062)
 next_points = [NodePath("../patrol_point26"), NodePath("../patrol_point29"), NodePath("../patrol_point24")]
 prev_point = NodePath("../patrol_point24")
 
-[node name="patrol_point26" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point26" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2068, -1071)
 next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point25"), NodePath("../patrol_point28")]
 
-[node name="patrol_point27" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point27" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1665, -1067)
 next_points = [NodePath("../patrol_point21"), NodePath("../patrol_point26"), NodePath("../patrol_point30")]
 
-[node name="patrol_point28" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point28" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2077, -1241)
 next_points = [NodePath("../patrol_point30"), NodePath("../patrol_point29"), NodePath("../patrol_point26")]
 
-[node name="patrol_point32" parent="dev_layer" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
+[node name="patrol_point32" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") groups=["spawner_point"] instance=ExtResource("1_q7f00")]
 position = Vector2(-2060, -1402)
 next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point26")]
 
-[node name="patrol_point29" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point29" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-2437, -1299)
 next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point25")]
 
-[node name="patrol_point30" parent="dev_layer" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
+[node name="patrol_point30" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("1_q7f00")]
 position = Vector2(-1663, -1311)
 next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point28")]
 
-[node name="MobSpawner" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+[node name="mob_spawners" type="Node2D" parent="dev_layer"]
+
+[node name="MobSpawner" parent="dev_layer/mob_spawners" instance=ExtResource("2_o5f0b")]
 position = Vector2(-2268, 527)
 
-[node name="MobSpawner2" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+[node name="MobSpawner2" parent="dev_layer/mob_spawners" instance=ExtResource("2_o5f0b")]
 position = Vector2(-2065, -1422)
 spawner_team = "blu"
 
-[node name="MobSpawner3" parent="dev_layer" instance=ExtResource("2_o5f0b")]
+[node name="MobSpawner3" parent="dev_layer/mob_spawners" instance=ExtResource("2_o5f0b")]
 position = Vector2(-2221, -445)
 spawner_team = "blu"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="dev_layer"]
+[node name="audio_players" type="Node2D" parent="dev_layer"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2336, -818)
 stream = ExtResource("3_p7vmg")
 volume_db = -9.0
 metadata/_edit_group_ = true
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="dev_layer"]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2304, 90)
 stream = ExtResource("3_p7vmg")
 volume_db = -9.0
-
-[node name="NavigationRegion2D24" type="NavigationRegion2D" parent="dev_layer"]
-navigation_polygon = SubResource("NavigationPolygon_x8jeh")
 
 [node name="daylight_affected_section" type="Node2D" parent="."]
 process_mode = 1
@@ -1564,11 +1572,10 @@ position = Vector2(-1667, -1135)
 team = "blu"
 base_spriteframes = ExtResource("9_hle2q")
 
-[node name="Jim" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("3_p6yc5")]
+[node name="Player" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("3_p6yc5")]
 position = Vector2(-229, -312)
 hat_spriteframes = ExtResource("4_3g0ka")
 top_spriteframes = ExtResource("5_amahm")
-no_clip = true
 
 [node name="game_world" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true

@@ -106,6 +106,7 @@ func set_up_nav_agent():
 func set_up_sound_player():
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
+	sound_player.volume_db = -18
 	add_child(sound_player)
 
 func set_up_mobster_team():

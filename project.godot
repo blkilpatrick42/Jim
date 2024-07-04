@@ -99,6 +99,7 @@ transparency={
 2d_physics/layer_10="red mobs vision"
 2d_physics/layer_11="blu mobs vision"
 2d_physics/layer_12="reactive props"
+2d_physics/layer_13="player damage"
 
 [physics]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1j4y414s6la6"]
 
-[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_lqgja"]
-[ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="2_ivf4v"]
-[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="3_t0jff"]
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_faoel"]
+[ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="2_knw2h"]
+[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="3_vnl2e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2p830"]
 bounce = 0.1
@@ -21,14 +21,14 @@ lock_rotation = true
 max_contacts_reported = 1
 contact_monitor = true
 linear_damp = 2.0
-script = ExtResource("1_lqgja")
+script = ExtResource("1_faoel")
 force_factor = 1000
 
 [node name="sprite" type="AnimatedSprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
 position = Vector2(0, -3)
-sprite_frames = ExtResource("2_ivf4v")
-script = ExtResource("3_t0jff")
+sprite_frames = ExtResource("2_knw2h")
+script = ExtResource("3_vnl2e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true

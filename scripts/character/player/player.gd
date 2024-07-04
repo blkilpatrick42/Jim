@@ -5,6 +5,7 @@ extends RigidBody2D
 @onready var _grabber = $grabber
 @onready var _tough_luck = $tough_luck
 @onready var _collision = $CollisionShape2D
+@onready var _ui = $ui_canvas/player_ui
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -14,7 +15,6 @@ extends RigidBody2D
 
 @export var no_clip = false
 
-#TODO: get this working with character composition (will be an absolute bastard wah)
 var player_die = preload("res://entities/characters/player/player_die.tscn") 
 var dash_get = preload("res://interface/dash_get.tscn")
 var die_material = preload("res://entities/characters/player/die_material.tres")
@@ -40,6 +40,12 @@ var grabbed_object = null
 var control_frozen = false
 var current_v = Vector2(0,0)
 
+var max_hp = 3
+var current_hp = 3
+var is_invincible = false
+var invincibility_timer := Timer.new()
+var damage_collision_layer = 13
+
 var dead = false
 
 func _ready():
@@ -47,9 +53,11 @@ func _ready():
 	
 	timer_dash.one_shot = true
 	timer_dash_regen.one_shot = true
+	invincibility_timer.one_shot = true
 	add_child(sound_player)
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
+	add_child(invincibility_timer)
 	sound_player.volume_db = -12
 	
 	#set up character base
@@ -61,6 +69,17 @@ func _ready():
 	
 	if(Engine.is_editor_hint()):
 		queue_redraw()
+
+func go_invincible():
+	invincibility_timer.start(1.5)
+	_character_base.start_flashing()
+	is_invincible = true
+	set_collision_layer_value(damage_collision_layer,false)
+
+func go_vincible():
+	_character_base.stop_flashing()
+	is_invincible = false
+	set_collision_layer_value(damage_collision_layer,true)
 
 func get_input():
 	if(!control_frozen):
@@ -76,11 +95,27 @@ func get_input():
 		handle_pickup()
 		handle_throw()
 		handle_dash()
-		move_jim()
+		move()
+
+func get_current_hp():
+	return current_hp
+
+func increment_hp():
+	if(current_hp < max_hp):
+		current_hp = current_hp + 1
+		_ui.update_hearts(current_hp)
+
+func reduce_hp():
+	current_hp = current_hp - 1
+	_ui.update_hearts(current_hp)
+	if(current_hp == 0):
+		die()
+	else:
+		go_invincible()
 
 func _on_body_entered(body:Node):
 	if(body.is_in_group("bullet")):
-		die()
+		reduce_hp()
 
 func die():
 	if(!dead):
@@ -165,7 +200,7 @@ func update_grabber():
 		direction.down:
 			_grabber.set_rotation_degrees(0)
 
-func move_jim():
+func move():
 	var input_direction = Input.get_vector(direction.left, direction.right, direction.up, direction.down)
 	
 	#accelerate if we have't hit max
@@ -217,6 +252,10 @@ func _physics_process(delta):
 		if(!dead):
 			get_input()
 			apply_force(current_v)
+			if(invincibility_timer.is_stopped() &&
+			is_invincible == true):
+				go_vincible()
+			_ui.update_hearts(current_hp)
 		
 
 
