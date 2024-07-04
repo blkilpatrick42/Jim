@@ -31,6 +31,7 @@ var opposing_team
 #perceptors
 @onready var _passive_raycast: RayCast2D = $passive_raycast
 @onready var _active_raycast: RayCast2D = $active_raycast
+@onready var _reactive_raycast: RayCast2D = $reactive_raycast
 @onready var _vision = $vision
 
 #character composition
@@ -143,6 +144,16 @@ func update_line_of_sight_to_target():
 			perceptions.has_line_of_sight_to_target = true
 		else:
 			perceptions.has_line_of_sight_to_target = false
+		
+		#separate raycasts and perception var for checking line-of-sight
+		#to reactive props (like the Pizza)
+		#we do this so that items do not block sightline checks for
+		#combat targets
+		if(reactive_has_line_of_sight_to_object(perceptions.target_obj)):
+			perceptions.target_pos = perceptions.target_obj.global_position
+			perceptions.reactive_has_line_of_sight_to_target = true
+		else:
+			perceptions.reactive_has_line_of_sight_to_target = false
 
 func update_perceptions():
 	perceptions.current_v = current_v
@@ -203,6 +214,14 @@ func active_has_line_of_sight_to_point(point: Vector2):
 	if(!_active_raycast.is_colliding()):
 		return true
 	else:
+		return false
+
+func reactive_has_line_of_sight_to_object(obj):
+	_reactive_raycast.set_target_position(obj.global_position - _reactive_raycast.global_position)
+	if(_reactive_raycast.is_colliding() && _reactive_raycast.get_collider() == obj):
+		return true
+	else:
+		perceptions.nodes_in_vision.erase(obj)
 		return false
 
 func check_vision():

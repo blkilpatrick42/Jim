@@ -66,7 +66,7 @@ func physics_process(_delta: float) -> void:
 		!ai_state_machine.perceptions.holding_object &&
 		!pizza.is_picked_up()):
 			set_target.emit(pizza)
-			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+			if(ai_state_machine.get_perceptions().reactive_has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.enticed)
 				return
 		#investigate
