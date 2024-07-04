@@ -356,6 +356,12 @@ func _on_put_down():
 		held_obj = null
 		set_holding_object(false)
 
+func _put_down_and_destroy():
+	if(holding_object):
+		held_obj.put_down(direction.get_opposite(_character_base.get_facing_dir()))
+		held_obj.queue_free()
+		set_holding_object(false)
+
 func _on_queue_free():
 	queue_free()
 

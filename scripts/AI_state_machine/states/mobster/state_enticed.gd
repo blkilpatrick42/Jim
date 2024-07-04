@@ -88,7 +88,7 @@ func physics_process(_delta: float) -> void:
 				else:
 					if(!pizza_ref.is_picked_up()):
 						pick_up.emit(pizza_ref)
-						ai_state_machine.transition_to(ai_state_machine.transit) #TODO: make returning
+						ai_state_machine.transition_to(ai_state_machine.returning) 
 					else:
 						stop_movement.emit()
 						ai_state_machine.transition_to(ai_state_machine.look)

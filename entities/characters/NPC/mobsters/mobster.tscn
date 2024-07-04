@@ -64,7 +64,7 @@ collision_mask = 2049
 
 [node name="shadow" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(0, 1)
+position = Vector2(0, -3)
 texture = ExtResource("3_wq4dt")
 
 [node name="passive_raycast" type="RayCast2D" parent="."]
@@ -180,3 +180,8 @@ initial_state = NodePath("idle")
 [connection signal="set_nav_target" from="ai_state_machine/enticed" to="." method="_on_set_unadjusted_nav_target"]
 [connection signal="set_target" from="ai_state_machine/enticed" to="." method="_on_set_ai_target"]
 [connection signal="stop_movement" from="ai_state_machine/enticed" to="." method="_on_stop_motion"]
+[connection signal="advance_navigation" from="ai_state_machine/returning" to="." method="_on_advance_navigation"]
+[connection signal="drop_and_destroy_item" from="ai_state_machine/returning" to="." method="_put_down_and_destroy"]
+[connection signal="reduce_health" from="ai_state_machine/returning" to="." method="_on_reduce_hit_points"]
+[connection signal="set_nav_target" from="ai_state_machine/returning" to="." method="_on_set_unadjusted_nav_target"]
+[connection signal="set_target" from="ai_state_machine/returning" to="." method="_on_set_ai_target"]

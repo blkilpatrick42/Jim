@@ -78,7 +78,7 @@ func physics_process(_delta: float) -> void:
 			advance_navigation.emit(400000)
 		else:
 			if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				question_bubble.emit()
+				#question_bubble.emit()
 				ai_state_machine.transition_to(ai_state_machine.look)
 				return
 				
