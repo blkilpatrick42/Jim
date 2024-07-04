@@ -5,6 +5,7 @@ var sound_player := AudioStreamPlayer2D.new()
 
 var blood = preload("res://effects/blood.tscn")
 var question_bubble = preload("res://entities/characters/NPC/mobsters/communication/question.tscn")
+var pizza_bubble = preload("res://entities/characters/NPC/mobsters/communication/pizza_bubble.tscn")
 var exclaim_bubble = preload("res://entities/characters/NPC/mobsters/communication/exclaim.tscn")
 var exclaim_bubble_blu = preload("res://entities/characters/NPC/mobsters/communication/exclaim_blu.tscn")
 var exclaim_bubble_red = preload("res://entities/characters/NPC/mobsters/communication/exclaim_red.tscn")
@@ -60,18 +61,21 @@ var hit_points = max_hit_points
 var invincibility_timer = Timer.new()
 var damage_collision_layer : int
 var is_invincible = false
+var holding_object = false
+var held_obj : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_up_sound_player()
-	set_up_nav_agent()
-	set_up_mobster_team()
 	set_up_character_base()
-	update_perceptions()
-	send_perceptions()
-	
-	invincibility_timer.one_shot = true
-	add_child(invincibility_timer)
+	if(!Engine.is_editor_hint()):
+		set_up_sound_player()
+		set_up_nav_agent()
+		set_up_mobster_team()	
+		update_perceptions()
+		send_perceptions()
+		
+		invincibility_timer.one_shot = true
+		add_child(invincibility_timer)
 	
 	#for updating character composition in the editor
 	if(Engine.is_editor_hint()):
@@ -148,6 +152,7 @@ func update_perceptions():
 	perceptions.speed = linear_velocity.length()
 	perceptions.hit_points = hit_points
 	perceptions.invincible = is_invincible
+	perceptions.holding_object = holding_object
 	
 	update_line_of_sight_to_target()
 	check_vision()
@@ -241,6 +246,10 @@ func detect_sparks():
 #ACTIONS- signal functions and helpers that cause the mobster to take some action in the game world
 ###################################################################################################
 
+func set_holding_object(is_holding):
+	holding_object = is_holding
+	_character_base.set_arms_raised(is_holding)
+
 func go_invincible():
 	invincibility_timer.start(1.5)
 	_character_base.start_flashing()
@@ -260,77 +269,73 @@ func has_clear_shot(point : Vector2):
 	else:
 		return false
 
-#to prevent mobs from overlapping, we adjust every nav point to include some randomness
-func get_adjusted_point(pos: Vector2) -> Vector2:
-	var strafe_distance_step = 3
-	var strafe_steps = 16
-	var iterator = 1
-	var valid_points = []
-	while(iterator <= strafe_steps):
-		var step = strafe_distance_step * iterator
-		var north = get_nearest_point_on_mesh(Vector2(pos.x, pos.y - step))
-		valid_points.append(north)
-		var northEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y - step))
-		valid_points.append(northEast)
-		var east = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
-		valid_points.append(east)
-		var southEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y + step))
-		valid_points.append(southEast)
-		var south = get_nearest_point_on_mesh(Vector2(pos.x, pos.y + step))
-		valid_points.append(south)
-		var soutWest = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y + step))
-		valid_points.append(soutWest)
-		var west = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y))
-		valid_points.append(west)
-		var northWest = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
-		valid_points.append(northWest)
-		iterator = iterator + 1
-	var adjusted_point = valid_points[random.randi_range(0,valid_points.size() -1 )]
-	return adjusted_point
-
 func get_nearest_point_on_mesh(point : Vector2):
 	var rid = _navigation_agent.get_navigation_map()
 	return NavigationServer2D.map_get_closest_point(rid, point)
 
+func get_stepped_points_from_pos(pos: Vector2, num_steps, step_distance) -> Array[Vector2]:
+	var iterator = 1
+	var points : Array[Vector2] = []
+	while(iterator <= num_steps):
+		var step = step_distance * iterator
+		var north = get_nearest_point_on_mesh(Vector2(pos.x, pos.y - step))
+		points.append(north)
+		var northEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y - step))
+		points.append(northEast)
+		var east = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
+		points.append(east)
+		var southEast = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y + step))
+		points.append(southEast)
+		var south = get_nearest_point_on_mesh(Vector2(pos.x, pos.y + step))
+		points.append(south)
+		var soutWest = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y + step))
+		points.append(soutWest)
+		var west = get_nearest_point_on_mesh(Vector2(pos.x - step, pos.y))
+		points.append(west)
+		var northWest = get_nearest_point_on_mesh(Vector2(pos.x + step, pos.y))
+		points.append(northWest)
+		iterator = iterator + 1
+	return points
+
+#to prevent mobs from overlapping, we adjust every nav point to include some randomness
+func get_adjusted_point(pos: Vector2) -> Vector2:
+	var distance_step = 3
+	var num_steps = 16
+	var points = get_stepped_points_from_pos(pos, num_steps, distance_step)
+	var adjusted_point = points[random.randi_range(0,points.size() -1 )]
+	return adjusted_point
+
 func get_strafe_point():
 	var strafe_distance_step = 4
 	var strafe_steps = 32
-	var iterator = 1
+	var points = get_stepped_points_from_pos(global_position, strafe_steps, strafe_distance_step)
+	
 	var valid_points = []
-	while(iterator <= strafe_steps):
-		var step = strafe_distance_step * iterator
-
-		var north = get_nearest_point_on_mesh(Vector2(position.x, position.y - step))
-		if(has_clear_shot(north)):
-			valid_points.append(north)
-		var northEast = get_nearest_point_on_mesh(Vector2(position.x + step, position.y - step))
-		if(has_clear_shot(northEast)):
-			valid_points.append(northEast)
-		var east = get_nearest_point_on_mesh(Vector2(position.x + step, position.y))
-		if(has_clear_shot(east)):
-			valid_points.append(east)
-		var southEast = get_nearest_point_on_mesh(Vector2(position.x + step, position.y + step))
-		if(has_clear_shot(southEast)):
-			valid_points.append(southEast)
-		var south = get_nearest_point_on_mesh(Vector2(position.x, position.y + step))
-		if(has_clear_shot(south)):
-			valid_points.append(south)
-		var soutWest = get_nearest_point_on_mesh(Vector2(position.x - step, position.y + step))
-		if(has_clear_shot(soutWest)):
-			valid_points.append(soutWest)
-		var west = get_nearest_point_on_mesh(Vector2(position.x - step, position.y))
-		if(has_clear_shot(west)):
-			valid_points.append(west)
-		var northWest = get_nearest_point_on_mesh(Vector2(position.x + step, position.y))
-		if(has_clear_shot(northWest)):
-			valid_points.append(northWest)
-		iterator = iterator + 1
-
+	for point in points:
+		if(has_clear_shot(point)):
+			valid_points.append(point)
+			
 	if(valid_points.size() > 0):
 		var strafe_point = valid_points[random.randi_range(0,valid_points.size() -1 )]
 		return strafe_point
 	else:
 		return global_position
+
+func _on_pick_up(pick_up_obj : Node):
+	if(!holding_object):
+		sound_player.stream = load("res://audio/soundFX/pickup.wav")
+		sound_player.play()
+		pick_up_obj.pick_up(self)
+		held_obj = pick_up_obj
+		set_holding_object(true)
+
+func _on_put_down():
+	if(holding_object):
+		sound_player.stream = load("res://audio/soundFX/putdown.wav")
+		sound_player.play()
+		held_obj.put_down(direction.get_opposite(_character_base.get_facing_dir()))
+		held_obj = null
+		set_holding_object(false)
 
 func _on_queue_free():
 	queue_free()
@@ -368,7 +373,11 @@ func _on_create_bullet(create_pos: Vector2, rotation_deg):
 func _on_set_nav_target(pos : Vector2):
 	perceptions.nav_target_reached = false
 	_navigation_agent.target_position = get_adjusted_point(pos)
-	
+
+func _on_set_unadjusted_nav_target(pos : Vector2):
+	perceptions.nav_target_reached = false
+	_navigation_agent.target_position = get_nearest_point_on_mesh(pos)
+
 #move mobster along A* navigation path towards navigation target
 #and animate accordingly
 func _on_advance_navigation(speed : int):
@@ -430,6 +439,12 @@ func _on_question_bubble():
 	sound_player.play()
 	var questionBubble = question_bubble.instantiate()
 	self.add_child(questionBubble)
+
+func _on_pizza_bubble():
+	sound_player.stream = load("res://audio/soundFX/voice/sine_voice/1.wav")
+	sound_player.play()
+	var pizzaBubble = pizza_bubble.instantiate()
+	self.add_child(pizzaBubble)
 
 func _on_blood():
 	var blood = blood.instantiate()
@@ -512,10 +527,3 @@ func _physics_process(delta):
 		#apply velocity thru physics engine
 		apply_force(current_v)
 		var mobs = get_tree().get_nodes_in_group("mobster")
-		#var push_dir : Vector2 = Vector2(0,0)
-		#for mob in mobs:
-			#if(global_position.distance_to(mob.global_position) < 16):
-				#var dir : Vector2 = global_position - mob.global_position
-				#dir = -dir.normalized()
-				#break
-		#apply_force(push_dir * 125000)

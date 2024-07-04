@@ -47,6 +47,7 @@ func physics_process(_delta: float):
 	else:
 		#check for targets
 		var player = get_tree().get_first_node_in_group("player")
+		var pizza = get_tree().get_first_node_in_group("pizza")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		for node in nodes_in_vision:
@@ -69,6 +70,13 @@ func physics_process(_delta: float):
 						ai_state_machine.transition_to(ai_state_machine.exclaiming)
 						return
 			ai_state_machine.transition_to(ai_state_machine.investigate)
+		elif(nodes_in_vision.has(pizza) && 
+		!ai_state_machine.perceptions.holding_object &&
+		!pizza.is_picked_up()):
+			set_target.emit(pizza)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.enticed)
+				return
 		#look state code
 		elif(timer.is_stopped()):
 			if(current_num_turns < num_turns):

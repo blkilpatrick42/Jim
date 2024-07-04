@@ -74,7 +74,7 @@ collision_mask = 2065
 
 [node name="active_raycast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
-collision_mask = 2065
+collision_mask = 1041
 
 [node name="character_base" parent="." instance=ExtResource("3_bnvdq")]
 position = Vector2(0, -3)
@@ -133,17 +133,13 @@ initial_state = NodePath("idle")
 [connection signal="turn_on_head_collider" from="ai_state_machine/recovering" to="." method="_on_enable_head_collider"]
 [connection signal="animate" from="ai_state_machine/knockedout" to="." method="_on_play_animation"]
 [connection signal="reduce_health" from="ai_state_machine/knockedout" to="." method="_on_reduce_hit_points"]
-[connection signal="drop_item" from="ai_state_machine/falling" to="." method="_on_put_down"]
 [connection signal="one_shot_animate" from="ai_state_machine/falling" to="." method="_on_play_one_shot_animation"]
 [connection signal="play_sound" from="ai_state_machine/falling" to="." method="_on_play_sound"]
 [connection signal="stop_motion" from="ai_state_machine/falling" to="." method="_on_stop_motion"]
 [connection signal="turn_off_collision" from="ai_state_machine/falling" to="." method="_on_disable_all_collision"]
-[connection signal="drop_item" from="ai_state_machine/exclaiming" to="." method="_on_put_down"]
 [connection signal="exclaim_bubble" from="ai_state_machine/exclaiming" to="." method="_on_exclaim_bubble"]
-[connection signal="reduce_health" from="ai_state_machine/exclaiming" to="." method="_on_reduce_hit_points"]
 [connection signal="stand" from="ai_state_machine/exclaiming" to="." method="_on_stand_dir"]
 [connection signal="stop" from="ai_state_machine/exclaiming" to="." method="_on_stop_motion"]
-[connection signal="drop_item" from="ai_state_machine/shooting" to="." method="_on_put_down"]
 [connection signal="face_target" from="ai_state_machine/shooting" to="." method="_on_face_ai_target_pos"]
 [connection signal="play_animation" from="ai_state_machine/shooting" to="." method="_on_play_animation"]
 [connection signal="reduce_health" from="ai_state_machine/shooting" to="." method="_on_reduce_hit_points"]
@@ -175,4 +171,3 @@ initial_state = NodePath("idle")
 [connection signal="reduce_health" from="ai_state_machine/enticed" to="." method="_on_reduce_hit_points"]
 [connection signal="set_nav_target" from="ai_state_machine/enticed" to="." method="_on_set_unadjusted_nav_target"]
 [connection signal="set_target" from="ai_state_machine/enticed" to="." method="_on_set_ai_target"]
-[connection signal="stop_movement" from="ai_state_machine/enticed" to="." method="_on_stop_motion"]

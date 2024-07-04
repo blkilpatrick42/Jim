@@ -13,6 +13,8 @@ const shooting = "shooting"
 const strafing = "strafing"
 const investigate = "investigate"
 const chasing = "chasing"
+const enticed = "enticed"
+const returning = "returning"
 const dead = "dead"
 
 # Emitted when transitioning to a new state.

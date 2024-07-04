@@ -4,6 +4,7 @@ extends RigidBody2D
 var sound_player := AudioStreamPlayer2D.new()
 
 var spark = preload("res://effects/bullet_spark.tscn")
+var benign_spark = preload("res://effects/benign_spark.tscn")
 
 var speed = 185
 var velocity = Vector2.RIGHT
@@ -13,7 +14,7 @@ var source_obj :Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sound_player.max_distance = 500
-	#sound_player.attenuation = 2
+	sound_player.attenuation = 2
 	add_child(sound_player)
 	self.add_to_group(team)
 	match(team):
@@ -33,8 +34,7 @@ func set_source_obj(obj:Node):
 func create_spark_benign():
 	sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
 	sound_player.play()
-	var new_spark = spark.instantiate()
-	new_spark.remove_from_group("spark")
+	var new_spark = benign_spark.instantiate()
 	get_parent().call_deferred("add_child", new_spark)
 	new_spark.position = position
 

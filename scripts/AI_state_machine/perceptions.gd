@@ -11,3 +11,4 @@ var one_shot_animating = false
 var colliding_nodes: Array[Node] = []
 var nodes_in_vision: Array[Node] = []
 var nodes_in_hearing: Array[Node] = []
+var holding_object = false

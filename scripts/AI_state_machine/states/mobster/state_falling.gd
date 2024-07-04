@@ -5,6 +5,7 @@ signal one_shot_animate(animation : String)
 signal stop_motion
 signal turn_off_collision
 signal play_sound(resource_name : String)
+signal drop_item()
 
 func process(_delta: float) -> void:
 	pass
@@ -23,6 +24,7 @@ func enter(_msg := {}) -> void:
 	one_shot_animate.emit(str("fall_", facing_dir))
 	stop_motion.emit()
 	turn_off_collision.emit()
+	drop_item.emit()
 
 func exit() -> void:
 	pass

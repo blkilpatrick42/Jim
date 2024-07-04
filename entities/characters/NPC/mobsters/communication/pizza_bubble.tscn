@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1b33mtb58dn0"]
+
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_u6six"]
+[ext_resource type="SpriteFrames" uid="uid://ceee8o28cixew" path="res://sprites/spritesheets/spriteframes/mobster/pizza_bubble.tres" id="2_sumu8"]
+
+[node name="pizza_bubble" type="Node2D"]
+script = ExtResource("1_u6six")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
+position = Vector2(16, 0)
+sprite_frames = ExtResource("2_sumu8")
+offset = Vector2(0, -32)

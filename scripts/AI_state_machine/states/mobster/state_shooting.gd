@@ -6,6 +6,7 @@ signal play_animation(name : String)
 signal face_target()
 signal stop_motion()
 signal reduce_health()
+signal drop_item()
 
 #gun-related variables
 const bust_num_sweeps = 2
@@ -119,6 +120,7 @@ func physics_process(_delta: float) -> void:
 
 func enter(_msg := {}) -> void:
 	stop_motion.emit()
+	drop_item.emit()
 	timer_burst_cool_down = Timer.new()
 	timer_burst_cool_down.one_shot = true
 	add_child(timer_burst_cool_down)

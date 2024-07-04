@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://r5plnkxg1o1j"]
+
+[ext_resource type="Script" path="res://scripts/character/mobsters/patrol_point.gd" id="1_hr0tb"]
+[ext_resource type="SpriteFrames" uid="uid://bhasc4hba2oa3" path="res://sprites/spritesheets/spriteframes/characters/base/red_mobster_base.tres" id="2_l8d81"]
+
+[node name="patrol_point" type="Node2D" groups=["patrol_point", "spawner_point"]]
+script = ExtResource("1_hr0tb")
+
+[node name="patrol_point" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.329412)
+sprite_frames = ExtResource("2_l8d81")

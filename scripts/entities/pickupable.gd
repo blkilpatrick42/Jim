@@ -21,7 +21,9 @@ var new_position = Vector2(0, 0)
 var throw_force = Vector2(0, 0)
 var thrown = false
 
-var player_y_offset = 24
+var pickup_actor_ref : Node = null
+
+var y_offset = 24
 
 @export var spark_time_secs :float = 0.5 #time after being thrown in which a spark is created on collide
 var timer_spark := Timer.new()
@@ -36,64 +38,64 @@ func _ready():
 	timer_spark.one_shot = true
 	add_child(timer_spark)
 	sound_player.max_distance = 500
-	sound_player.attenuation = 2
+	#sound_player.attenuation = 2
 	add_child(sound_player)
-	sound_player.volume_db = -20
+	#sound_player.volume_db = -20
 
 func set_physics_pos(vector2):
 	should_reset = true
 	new_position = vector2
 
-func throw(direction):
+func is_picked_up():
+	return picked_up
+
+func throw(dir):
 	if(picked_up):
 		thrown = true
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
-		var playerRef = get_tree().get_nodes_in_group("player")[0]
 		timer_spark.start(spark_time_secs)
 		can_spark = true
-		match(direction):
-			"left":
+		match(dir):
+			direction.left:
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(-player_y_offset, 0))
-			"right":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(-y_offset, 0))
+			direction.right:
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(player_y_offset, 0))
-			"up":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(y_offset, 0))
+			direction.up:
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
-			"down":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -y_offset))
+			direction.down:
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(playerRef.global_position + Vector2(0, player_y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, y_offset))
 
-func pick_up():
-	if(will_pickup):
-		#teleport WAY out of bounds so that we don't
-		#end up with an invisible prop messing with
-		#physics stuff
-		set_physics_pos(Vector2(-1000100, -1000100)) 
-		_collision_shape.set_deferred("disabled", true)
-		picked_up = true
-		will_pickup = false
+func pick_up(actor_ref : Node):
+	#teleport WAY out of bounds so that we don't
+	#end up with an invisible prop messing with
+	#physics stuff
+	_collision_shape.disabled = true
+	pickup_actor_ref = actor_ref
+	picked_up = true
+	will_pickup = false
 
-func put_down(direction):
+func put_down(dir):
 	if(picked_up):
 		picked_up = false
-		_collision_shape.set_deferred("disabled", false)
-		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		match(direction):
-			"left":
+		_collision_shape.disabled = false
+		match(dir):
+			direction.left:
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(-player_y_offset, 0))
-			"right":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(-y_offset, 0))
+			direction.right:
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(playerRef.global_position + Vector2(player_y_offset, 0))
-			"up":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(y_offset, 0))
+			direction.up:
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(playerRef.global_position + Vector2(0, -player_y_offset))
-			"down":
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -y_offset))
+			direction.down:
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(playerRef.global_position + Vector2(0, player_y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, y_offset))
 			
 		
 	
@@ -118,8 +120,7 @@ func _process(delta):
 		arrow_instance.position = position
 		
 	if(picked_up):
-		var playerRef = get_tree().get_nodes_in_group("player")[0]
-		global_position = (playerRef.global_position + Vector2(0, -player_y_offset))
+		global_position = (pickup_actor_ref.global_position + Vector2(0, -y_offset))
 		
 
 func _integrate_forces(state):
@@ -130,10 +131,8 @@ func _integrate_forces(state):
 			var nSpark = spark.instantiate()
 			get_parent().add_child(nSpark)
 			nSpark.global_position = local_collision_pos
-			if(can_make_noise):
-				can_make_noise = false
-				sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
-				sound_player.play()
+			sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
+			sound_player.play()
 		else:
 			if(can_make_noise):
 				can_make_noise = false
@@ -149,6 +148,5 @@ func _integrate_forces(state):
 		state.apply_central_impulse(throw_force)
 		thrown = false
 
-#func _physics_process(delta):
 
 

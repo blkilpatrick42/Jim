@@ -9,7 +9,6 @@ signal set_target(target : Node)
 signal reduce_health()
 
 var nav_target_reached = false
-var setup_done = false
 var host_position
 
 const distance_to_break_current_point = 128
@@ -57,6 +56,7 @@ func physics_process(_delta: float) -> void:
 	else:
 		#check for targets
 		var player = get_tree().get_first_node_in_group("player")
+		var pizza = get_tree().get_first_node_in_group("pizza")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		for node in nodes_in_vision:
@@ -79,6 +79,13 @@ func physics_process(_delta: float) -> void:
 						ai_state_machine.transition_to(ai_state_machine.exclaiming)
 						return
 			ai_state_machine.transition_to(ai_state_machine.investigate)
+		elif(nodes_in_vision.has(pizza) && 
+		!ai_state_machine.perceptions.holding_object &&
+		!pizza.is_picked_up()):
+			set_target.emit(pizza)
+			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+				ai_state_machine.transition_to(ai_state_machine.enticed)
+				return
 		#transit code
 		else:
 			nav_target_reached = get_host_nav_target_reached()
@@ -112,8 +119,6 @@ func enter(_msg := {}) -> void:
 	
 	if(current_patrol_point != null):
 		set_nav_target.emit(current_patrol_point.position)
-		
-	setup_done = true
 
 func exit() -> void:
 	pass

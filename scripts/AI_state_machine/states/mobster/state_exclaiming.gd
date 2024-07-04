@@ -5,6 +5,7 @@ signal stop()
 signal exclaim_bubble()
 signal stand(dir :String)
 signal reduce_health()
+signal drop_item()
 
 var pause_time = 2
 var timer : Timer

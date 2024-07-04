@@ -132,7 +132,7 @@ func pick_up():
 	if(will_grab_object != null && !holding_object):
 		sound_player.stream = load("res://audio/soundFX/pickup.wav")
 		sound_player.play()
-		will_grab_object.pick_up()
+		will_grab_object.pick_up(self)
 		grabbed_object = will_grab_object
 		set_holding_object(true)
 	else: if(holding_object):

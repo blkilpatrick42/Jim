@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmrbmx0sedvf5"]
+
+[ext_resource type="Script" path="res://scripts/utility/animation_destroy_source.gd" id="1_ouv3r"]
+[ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_w5eee"]
+
+[node name="spark" type="Node2D"]
+script = ExtResource("1_ouv3r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("2_w5eee")
+offset = Vector2(0, -32)

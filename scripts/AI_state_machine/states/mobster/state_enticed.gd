@@ -1,23 +1,26 @@
-class_name Chasing_State
+class_name Enticed_State
 extends State
 
-var current_patrol_point :Node2D = null
-
-signal set_nav_target(pos: Vector2)
-signal advance_navigation(speed: int)
-signal question_bubble
-signal reduce_health()
+signal set_nav_target(pos : Vector2)
+signal advance_navigation
 signal set_target(target : Node)
+signal pick_up(node: Node)
+signal reduce_health()
+signal pizza_bubble()
+signal stop_movement()
 
 var nav_target_reached = false
-var setup_done = false
 var host_position
+var pizza_ref : Node = null
 
 func get_host_position():
 	return ai_state_machine.get_perceptions().position
 
 func get_host_nav_target_reached():
 	return ai_state_machine.get_perceptions().nav_target_reached
+
+func process(_delta: float) -> void:
+	pass
 
 func handle_sparks():
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
@@ -44,60 +47,60 @@ func handle_death():
 		return true
 	return false
 
-func process(_delta: float) -> void:
-	pass
-
 func physics_process(_delta: float) -> void:
-	#check knockout
+	#check for knockout
 	if(handle_sparks()):
 		return
 	elif(handle_death()):
 		return
 	else:
-		#mobster takes priority over player
+		#check for targets
 		var player = get_tree().get_first_node_in_group("player")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		for node in nodes_in_vision:
 			if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
-			node.is_in_group("mobster") && node != ai_state_machine.get_perceptions().target_obj &&
-			!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
+			node.is_in_group("mobster")):
 				set_target.emit(node)
 				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 					ai_state_machine.transition_to(ai_state_machine.exclaiming)
 					return
-		if(ai_state_machine.get_perceptions().target_obj != null &&
-		ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
-			nodes_in_vision.has(player)):
+		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.exclaiming)
-		#
-		#if(ai_state_machine.get_perceptions().target_obj != null &&
-		#ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
-			#var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
-			#for node in nodes_in_vision:
-				#if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
-				#node.is_in_group("mobster")):
-					#set_target.emit(node)
-					#ai_state_machine.transition_to(ai_state_machine.exclaiming)
-					#return
-		
-		nav_target_reached = get_host_nav_target_reached()
-		if(!nav_target_reached):
-			advance_navigation.emit(400000)
+		elif(nodes_in_hearing.size() > 0):
+			for node in nodes_in_hearing:
+				if(node.is_in_group("exclaim")):
+					var source_obj = node.get_source_obj()
+					if(source_obj.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+						set_target.emit(source_obj)
+						ai_state_machine.transition_to(ai_state_machine.exclaiming)
+						return
+		#enticed code
 		else:
-			if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				question_bubble.emit()
+			if(pizza_ref != null && 
+			!pizza_ref.is_picked_up() &&
+			ai_state_machine.perceptions.has_line_of_sight_to_target):
+				nav_target_reached = get_host_nav_target_reached()
+				if(!nav_target_reached):
+					advance_navigation.emit(125000)
+				else:
+					if(!pizza_ref.is_picked_up()):
+						pick_up.emit(pizza_ref)
+						ai_state_machine.transition_to(ai_state_machine.transit) #TODO: make returning
+					else:
+						stop_movement.emit()
+						ai_state_machine.transition_to(ai_state_machine.look)
+			else:
+				stop_movement.emit()
 				ai_state_machine.transition_to(ai_state_machine.look)
-				return
-				
-		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-			ai_state_machine.transition_to(ai_state_machine.strafing)
 
 func enter(_msg := {}) -> void:
-	var last_seen_pos = ai_state_machine.get_perceptions().target_pos
-	set_nav_target.emit(last_seen_pos)
+	pizza_bubble.emit()
+	pizza_ref = get_tree().get_first_node_in_group("pizza")
+	set_nav_target.emit(pizza_ref.global_position)
+	set_target.emit(pizza_ref)
 
 func exit() -> void:
 	pass

@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://ceee8o28cixew"]
+
+[ext_resource type="Texture2D" uid="uid://dc8tfoq2x4swv" path="res://sprites/spritesheets/mobster/pizzaBubble.png" id="1_jf1c5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lltud"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx187"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6vwn"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l66sy"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bafd"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvuhi"]
+atlas = ExtResource("1_jf1c5")
+region = Rect2(0, 0, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lltud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx187")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6vwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l66sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bafd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvuhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvuhi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
