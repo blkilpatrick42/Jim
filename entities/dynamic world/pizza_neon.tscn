@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c61l5rhox2220"]
 
 [ext_resource type="SpriteFrames" uid="uid://b1dyv233lnkga" path="res://sprites/spritesheets/spriteframes/game_world/pizza_neon.tres" id="1_o6exq"]
-[ext_resource type="Script" path="res://run_anim_to_clock.gd" id="2_dlm0n"]
+[ext_resource type="Script" path="res://scripts/utility/run_anim_to_clock.gd" id="2_dlm0n"]
 
 [node name="PizzaNeon" type="Node2D"]
 

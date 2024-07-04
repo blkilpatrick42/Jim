@@ -67,11 +67,12 @@ func physics_process(_delta: float) -> void:
 					ai_state_machine.transition_to(ai_state_machine.exclaiming)
 					return
 		if(ai_state_machine.get_perceptions().target_obj != null &&
-		ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
+		!ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
 			nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+				return
 		
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):

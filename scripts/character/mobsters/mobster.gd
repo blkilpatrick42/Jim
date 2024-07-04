@@ -378,7 +378,7 @@ func _on_add_hit_points():
 	hit_points += 1
 
 func _on_set_strafe_point():
-	_on_set_nav_target(get_strafe_point())
+	_on_set_unadjusted_nav_target(get_strafe_point())
 
 func _on_create_bullet(create_pos: Vector2, rotation_deg):
 	var new_bullet

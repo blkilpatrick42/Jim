@@ -8,6 +8,8 @@ extends Node2D
 @export var exit_x_push = 0
 @export var exit_y_push = 0
 @export var exit_only = false
+@export var reparent_to_daylight = false
+@export var reparent_to_no_daylight = false
 
 var entering = false
 var exiting = false
@@ -21,8 +23,13 @@ var timer_fade := Timer.new()
 
 var player_ref = null
 
+var daylight_affected_ysort : Node
+var no_daylight_ysort : Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	daylight_affected_ysort = get_tree().get_first_node_in_group("daylight_affected_ysort")
+	no_daylight_ysort = get_tree().get_first_node_in_group("no_daylight_ysort")
 	timer_fade.one_shot = true
 	add_child(timer_fade)
 
@@ -48,6 +55,10 @@ func enter():
 		fade_alpha = 1
 		update_fade_alpha()
 		player_ref.position = linked_teleporter.position
+		if(reparent_to_daylight):
+			player_ref.reparent(daylight_affected_ysort)
+		if(reparent_to_no_daylight):
+			player_ref.reparent(no_daylight_ysort)
 		linked_teleporter.player_ref = player_ref
 		linked_teleporter.timer_fade.start(teleport_step_secs)
 		linked_teleporter.exiting = true
