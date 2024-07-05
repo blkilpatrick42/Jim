@@ -69,13 +69,13 @@ func _process(delta):
 		
 		#passive NPC
 		if(ai_directive == alert_passive &&
-		self.position.distance_to(player_ref.position) < talk_radius):	
-			var vector_to_player = position.direction_to(player_ref.position)
+		self.global_position.distance_to(player_ref.global_position) < talk_radius):	
+			var vector_to_player = global_position.direction_to(player_ref.global_position)
 			_character_base.face_to_vector(vector_to_player)
 		
 		#handle passive text printing
 		if(has_passive_text):
-			will_talk = self.position.distance_to(player_ref.position) < talk_radius
+			will_talk = self.global_position.distance_to(player_ref.global_position) < talk_radius
 			if(!talking && will_talk):
 				speech_instance = speech_bubble.instantiate()
 				self.add_child(speech_instance)
@@ -100,7 +100,7 @@ func _process(delta):
 				showing_bubble = false
 				
 			if(showing_bubble):
-				bubble_instance.position = position
+				bubble_instance.global_position = global_position
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):

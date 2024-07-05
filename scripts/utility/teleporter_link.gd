@@ -35,7 +35,7 @@ func _ready():
 
 func _draw():
 	if(linked_teleporter != null):
-		draw_line(Vector2(), get_transform().affine_inverse() * linked_teleporter.position, Color(0,0,1,1), -1)
+		draw_line(Vector2(), get_transform().affine_inverse() * linked_teleporter.global_position, Color(0,0,1,1), -1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -54,7 +54,7 @@ func enter():
 	else: if(fade_alpha >= 1):
 		fade_alpha = 1
 		update_fade_alpha()
-		player_ref.position = linked_teleporter.position
+		player_ref.global_position = linked_teleporter.global_position
 		if(reparent_to_daylight):
 			player_ref.reparent(daylight_affected_ysort)
 		if(reparent_to_no_daylight):

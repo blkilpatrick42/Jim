@@ -871,6 +871,8 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_85abk")
 exit_only = null
+reparent_to_daylight = null
+reparent_to_no_daylight = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/invisible_wall_apt_1"]
 position = Vector2(-160, -229)

@@ -58,7 +58,7 @@ func _ready():
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	add_child(invincibility_timer)
-	sound_player.volume_db = -12
+	sound_player.volume_db = -18
 	
 	#set up character base
 	_character_base.set_facing_dir(facing_dir)

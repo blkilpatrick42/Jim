@@ -9,7 +9,7 @@ bounce = 0.05
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjers"]
 radius = 7.0
-height = 20.0
+height = 16.0
 
 [node name="pizza" type="RigidBody2D" groups=["dynamic", "pickupable", "pizza", "prop"]]
 y_sort_enabled = true

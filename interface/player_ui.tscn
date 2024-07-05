@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://mcdceuvq1y5j"]
 
-[ext_resource type="Script" path="res://scripts/character/player/player_ui.gd" id="1_cmicr"]
+[ext_resource type="Script" path="res://scripts/character/player/player_ui.gd" id="1_nbha7"]
 [ext_resource type="SpriteFrames" uid="uid://bmgpmudv15sq" path="res://sprites/spritesheets/spriteframes/interface/health_heart.tres" id="1_vp1fm"]
 
 [node name="player_ui" type="Control"]
@@ -9,7 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 632.0
 offset_bottom = 320.0
-script = ExtResource("1_cmicr")
+script = ExtResource("1_nbha7")
 
 [node name="health_meter" type="MarginContainer" parent="."]
 layout_mode = 0

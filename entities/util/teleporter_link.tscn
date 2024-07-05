@@ -11,6 +11,8 @@ z_index = 500
 position = Vector2(0, -2)
 script = ExtResource("1_323ya")
 exit_only = null
+reparent_to_daylight = null
+reparent_to_no_daylight = null
 
 [node name="patrol_point" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.329412)

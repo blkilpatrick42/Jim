@@ -23,7 +23,9 @@ var thrown = false
 
 var pickup_actor_ref : Node = null
 
-var y_offset = 24
+var base_offset = 24
+var y_sort_offset = 15
+var original_offset : Vector2
 
 @export var spark_time_secs :float = 0.5 #time after being thrown in which a spark is created on collide
 var timer_spark := Timer.new()
@@ -35,6 +37,7 @@ var local_collision_pos = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_offset = sprite.offset
 	timer_spark.one_shot = true
 	add_child(timer_spark)
 	sound_player.max_distance = 500
@@ -51,7 +54,9 @@ func is_picked_up():
 
 func throw(dir):
 	if(picked_up):
+		sprite.offset = original_offset
 		thrown = true
+		reparent(pickup_actor_ref.get_parent())
 		picked_up = false
 		_collision_shape.set_deferred("disabled", false)
 		timer_spark.start(spark_time_secs)
@@ -59,43 +64,44 @@ func throw(dir):
 		match(dir):
 			direction.left:
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(-y_offset, 0))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(-base_offset, 0))
 			direction.right:
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(y_offset, 0))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(base_offset, 0))
 			direction.up:
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -base_offset))
 			direction.down:
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, base_offset))
 
 func pick_up(actor_ref : Node):
-	#teleport WAY out of bounds so that we don't
-	#end up with an invisible prop messing with
-	#physics stuff
-	_collision_shape.disabled = true
+	sprite.offset = Vector2(0,-y_sort_offset)
+	_collision_shape.set_deferred("disabled", true)
 	pickup_actor_ref = actor_ref
+	reparent(actor_ref)
 	picked_up = true
 	will_pickup = false
 
 func put_down(dir):
 	if(picked_up):
+		sprite.offset = original_offset
+		reparent(pickup_actor_ref.get_parent())
 		picked_up = false
-		_collision_shape.disabled = false
+		_collision_shape.set_deferred("disabled", false)
 		match(dir):
 			direction.left:
 				throw_force = Vector2(-force_factor,0)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(-y_offset, 0))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(-base_offset, 0))
 			direction.right:
 				throw_force = Vector2(force_factor,0)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(y_offset, 0))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(base_offset, 0))
 			direction.up:
 				throw_force = Vector2(0,-force_factor)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, -base_offset))
 			direction.down:
 				throw_force = Vector2(0,force_factor)
-				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, y_offset))
+				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, base_offset))
 			
 		
 	
@@ -120,13 +126,14 @@ func _process(delta):
 		arrow_instance.position = position
 		
 	if(picked_up):
-		global_position = (pickup_actor_ref.global_position + Vector2(0, -y_offset))
+		global_position = (pickup_actor_ref.global_position + Vector2(0, -base_offset+y_sort_offset))
 		
 
 func _integrate_forces(state):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
 		local_collision_pos = state.get_contact_local_position(0)
-		if(!timer_spark.is_stopped() && can_spark):
+		if(!timer_spark.is_stopped() && can_spark && 
+		!state.get_contact_collider_object(0).is_in_group("player")):
 			can_spark = false
 			var nSpark = spark.instantiate()
 			get_parent().add_child(nSpark)
