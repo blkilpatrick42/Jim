@@ -56,9 +56,8 @@ func throw(dir):
 	if(picked_up):
 		sprite.offset = original_offset
 		thrown = true
-		reparent(pickup_actor_ref.get_parent())
 		picked_up = false
-		_collision_shape.set_deferred("disabled", false)
+		_collision_shape.disabled = false
 		timer_spark.start(spark_time_secs)
 		can_spark = true
 		match(dir):
@@ -77,18 +76,16 @@ func throw(dir):
 
 func pick_up(actor_ref : Node):
 	sprite.offset = Vector2(0,-y_sort_offset)
-	_collision_shape.set_deferred("disabled", true)
+	_collision_shape.disabled = true
 	pickup_actor_ref = actor_ref
-	reparent(actor_ref)
 	picked_up = true
 	will_pickup = false
 
 func put_down(dir):
 	if(picked_up):
 		sprite.offset = original_offset
-		reparent(pickup_actor_ref.get_parent())
 		picked_up = false
-		_collision_shape.set_deferred("disabled", false)
+		_collision_shape.disabled = false
 		match(dir):
 			direction.left:
 				throw_force = Vector2(-force_factor,0)

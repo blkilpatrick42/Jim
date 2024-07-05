@@ -2,8 +2,8 @@ extends Control
 
 var pause_menu = preload("res://entities/menu/pause menu/pause_menu_manager.tscn")
 
-@export var clock = 0
-@export var hour_length_seconds = 30
+@export var clock = 0.0
+@export var hour_length_seconds = 30.0
 var sound_player := AudioStreamPlayer.new()
 var is_menu_paused = false
 var is_game_over = false
@@ -34,6 +34,15 @@ func _ready():
 	timer_world.start(hour_length_seconds)
 	ambient_dark = get_tree().get_nodes_in_group("ambient_dark")[0]
 	player_ref = get_parent().get_tree().get_nodes_in_group("player")[0]
+
+func get_hour_length_seconds():
+	return hour_length_seconds
+
+func get_time_as_ratio_of_full_day() -> float:
+	var ratio = 0.0
+	ratio = (clock+1.0)/24.0
+	ratio += ((hour_length_seconds - timer_world.time_left)/hour_length_seconds) * (1.0/24.0)
+	return ratio
 
 func toggle_pause_parent_tree():
 	if(!get_parent().get_tree().paused):

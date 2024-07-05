@@ -920,6 +920,4 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_0hrht")
-clock = 11
-hour_length_seconds = 15
 metadata/_edit_use_anchors_ = true

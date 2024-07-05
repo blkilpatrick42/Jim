@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=204 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_q7f00"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_o5f0b"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://ckjcyxtrrgebm" path="res://audio/music/pizza_delivery_theme_sketch.wav" id="3_p7vmg"]
 [ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/hat/cap_0.tres" id="4_3g0ka"]
 [ext_resource type="PackedScene" uid="uid://u6uyhyfhf4v5" path="res://entities/util/teleporter_link.tscn" id="4_c07nw"]
+[ext_resource type="Script" path="res://scripts/clock/clock_sound.gd" id="4_usguo"]
+[ext_resource type="AudioStream" uid="uid://ce83s1d6itlvp" path="res://audio/music/Nothin_Theme_Loop.wav" id="5_2j6mq"]
 [ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="5_amahm"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/dynamic world/door1.tscn" id="5_ee3u6"]
 [ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/dynamic world/door_frame.tscn" id="6_ahid3"]
@@ -27,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://x7bvvgi7f2uk" path="res://entities/dynamic world/window_door_1.tscn" id="14_wbeur"]
 [ext_resource type="PackedScene" uid="uid://e3sohpentkkp" path="res://entities/props/static props/train_stat_12hr_clock.tscn" id="15_nw2ee"]
 [ext_resource type="PackedScene" uid="uid://c66yvth0jdecv" path="res://entities/dynamic world/train_st_window_1_all_night.tscn" id="15_uaimp"]
+[ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/ball.tscn" id="16_5vgso"]
 [ext_resource type="PackedScene" uid="uid://bwjchx0ehilg4" path="res://entities/dynamic world/train_st_window_2_all_night.tscn" id="16_dg0ov"]
 [ext_resource type="PackedScene" uid="uid://tk0wlft2lk84" path="res://entities/dynamic world/window_4_all_night.tscn" id="17_5jwld"]
 [ext_resource type="PackedScene" uid="uid://dh2vssi64lbgs" path="res://entities/props/static props/city/train_tracks.tscn" id="17_21vht"]
@@ -34,10 +37,10 @@
 [ext_resource type="Script" path="res://scripts/clock/outdoor_light.gd" id="20_rbrsn"]
 [ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="27_8qldy"]
 [ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/characters/NPC/mobsters/mobster.tscn" id="28_4hwjv"]
-[ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/ball.tscn" id="32_15q2p"]
 [ext_resource type="TileSet" uid="uid://dfyrmia6itd31" path="res://sprites/tilesets/indoor_test_set_1.tres" id="34_pa3jw"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/characters/NPC/actors/npc_template.tscn" id="36_dcwsq"]
 [ext_resource type="Texture2D" uid="uid://b10t8ytydcew3" path="res://sprites/props/delivery_counter.png" id="37_m7gjw"]
+[ext_resource type="PackedScene" uid="uid://dmop2hkofessp" path="res://entities/props/static props/12hr_clock.tscn" id="38_r3qr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p8v"]
 size = Vector2(32, 192.75)
@@ -478,16 +481,16 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l76iu"]
-vertices = PackedVector2Array(-1270, -263, -1277, -262, -1278, -458, -1270, -458, -985, -467, -982, -268, -993, -268, -995, -457, -1593, -469, -1593, -458)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 3), PackedInt32Array(8, 3, 2), PackedInt32Array(8, 2, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1593, -469, -985, -467, -982, -268, -993, -268, -995, -457, -1270, -458, -1270, -263, -1277, -262, -1278, -458, -1593, -458)])
+vertices = PackedVector2Array(-1270, -263, -1277, -262, -1278, -458, -1270, -458, -985, -467, -982, -268, -993, -268, -995, -457, -1419, -469, -1593, -458, -1420, -469, -1593, -469)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 3), PackedInt32Array(8, 3, 2), PackedInt32Array(8, 2, 9, 10), PackedInt32Array(10, 9, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1593, -469, -1420, -469, -1419, -469, -985, -467, -982, -268, -993, -268, -995, -457, -1270, -458, -1270, -263, -1277, -262, -1278, -458, -1593, -458)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0wrdr"]
-vertices = PackedVector2Array(-1418, -994, -1596, -987, -1596, -991, -1417, -996, -1416, -469, -1422, -469)
+vertices = PackedVector2Array(-1418, -994, -1596, -987, -1596, -991, -1417, -996, -1419, -469, -1420, -469)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1422, -469, -1416, -469, -1417, -996, -1596, -991, -1596, -987, -1418, -994)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1420, -469, -1419, -469, -1417, -996, -1596, -991, -1596, -987, -1418, -994)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -1406,16 +1409,34 @@ spawner_team = "blu"
 
 [node name="audio_players" type="Node2D" parent="dev_layer"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
+[node name="labyrinth1" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2336, -818)
 stream = ExtResource("3_p7vmg")
 volume_db = -9.0
-metadata/_edit_group_ = true
+autoplay = true
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
+[node name="labyrinth1-2" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2304, 90)
 stream = ExtResource("3_p7vmg")
 volume_db = -9.0
+autoplay = true
+
+[node name="central_safe_zone" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
+position = Vector2(259, -162)
+volume_db = -26.0
+autoplay = true
+script = ExtResource("4_usguo")
+play_6 = "music/A Tree With Silver Dollar Leaves.mp3"
+play_12 = "music/test_song.wav"
+play_17 = "music/twilight_theme.wav"
+
+[node name="pizzeria_interior" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
+position = Vector2(32857, -26682)
+stream = ExtResource("5_2j6mq")
+volume_db = -26.0
+pitch_scale = 0.9
+autoplay = true
+max_distance = 500.0
 
 [node name="teleporters" type="Node2D" parent="dev_layer"]
 
@@ -1556,7 +1577,7 @@ position = Vector2(-1095, -535.25)
 shape = SubResource("RectangleShape2D_cke2r")
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="daylight_affected_section/Tile_top_occluding/Area2D"]
-position = Vector2(-1400, -535.5)
+position = Vector2(-1400, -535)
 shape = SubResource("RectangleShape2D_cxgve")
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="daylight_affected_section/Tile_top_occluding/Area2D"]
@@ -1654,6 +1675,12 @@ position = Vector2(-229, -312)
 hat_spriteframes = ExtResource("4_3g0ka")
 top_spriteframes = ExtResource("5_amahm")
 
+[node name="pizza" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("6_jnxtx")]
+position = Vector2(-160, -301)
+
+[node name="basketball" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("16_5vgso")]
+position = Vector2(-141, -217)
+
 [node name="game_world" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
 
@@ -1724,7 +1751,7 @@ position = Vector2(842, 380)
 position = Vector2(-683, -336)
 
 [node name="PoliceBarrier24" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("11_don5s")]
-position = Vector2(-694, -389)
+position = Vector2(-696, -384)
 
 [node name="PoliceBarrier25" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("11_don5s")]
 position = Vector2(-697, -286)
@@ -2159,6 +2186,7 @@ position = Vector2(-777, -941)
 
 [node name="door8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("5_ee3u6")]
 position = Vector2(-778, -953)
+opens_for_groups = Array[String](["player"])
 
 [node name="door_frame3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("6_ahid3")]
 position = Vector2(-488, 83)
@@ -2470,12 +2498,6 @@ position = Vector2(-3144, -776)
 [node name="TrainTracks42" parent="daylight_affected_section/daylight_affected_ysort/game_world/train_tracks" instance=ExtResource("18_35ymi")]
 position = Vector2(-3240, -776)
 
-[node name="ball" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("32_15q2p")]
-position = Vector2(-124, -252)
-
-[node name="prop_name_here2" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("6_jnxtx")]
-position = Vector2(-194, -298)
-
 [node name="Tile_mid_sketch" type="TileMap" parent="daylight_affected_section"]
 z_index = 2
 z_as_relative = false
@@ -2544,6 +2566,9 @@ offset = Vector2(0, 8)
 z_index = 4
 position = Vector2(32872, -26608)
 
+[node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("38_r3qr3")]
+position = Vector2(32903, -26832)
+
 [node name="pizza" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("6_jnxtx")]
 position = Vector2(32872, -26822)
 
@@ -2568,8 +2593,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_8qldy")
-clock = 12
-hour_length_seconds = 3
+clock = 12.0
+hour_length_seconds = 3.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_entered"]
