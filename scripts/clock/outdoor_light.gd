@@ -1,18 +1,16 @@
 extends CanvasModulate
 
 var time_keeper = null
-var light_level = 1
+var fade_level = 0.0 
 var fade_time = 3.0
 var timer_fade := Timer.new()
-var fade_quotient = 0.0
-var time_between_fades_secs = 1.0
+var fade_quotient = 0.05
+var time_between_fades_secs = 0.05
 var fading = false
 var paused = false
 
 var interpolation_gradient = Gradient.new()
-var interpolation_points = 60
-var interp_points_per_sec = 1
-var timer_interpolation := Timer.new()
+var fade_out_interpolation = Gradient.new()
 
 var colors := {
 	0.0:      Color(0.514, 0.522, 0.667), #12:00am
@@ -45,11 +43,9 @@ var colors := {
 func _ready():
 	timer_fade.one_shot = true
 	add_child(timer_fade)
-	timer_interpolation.one_shot = true
-	add_child(timer_interpolation)
 	visible = true
 	time_keeper = get_tree().get_nodes_in_group("time_keeper")[0]
-	set_color( Color(light_level,light_level,light_level,1) )
+	set_color( Color(1,1,1,1) )
 	interpolation_gradient.offsets = colors.keys()
 	interpolation_gradient.colors = colors.values()
 	
@@ -59,15 +55,19 @@ func _ready():
 func fade_to_black():
 	if(!fading):
 		fading = true
-		fade_quotient = light_level / fade_time
+		#fade_quotient = light_level / fade_time
 		timer_fade.start(time_between_fades_secs)
-
+		var day_ratio = time_keeper.get_time_as_ratio_of_full_day()
+		fade_out_interpolation.colors = [interpolation_gradient.sample(day_ratio), Color.BLACK]
+		fade_out_interpolation.offsets = [0.0, 1.0]
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!fading && !paused):
 		var day_ratio = time_keeper.get_time_as_ratio_of_full_day()
 		set_color(interpolation_gradient.sample(day_ratio))
-	else: if (timer_fade.is_stopped() && light_level > 0):
-		light_level = light_level - fade_quotient
-		timer_fade.start(time_between_fades_secs)
-		set_color( Color(light_level,light_level,light_level,1) )
+	else: 
+		if (timer_fade.is_stopped() && fade_level < 1):
+			fade_level = fade_level + fade_quotient
+			timer_fade.start(time_between_fades_secs)
+			set_color( fade_out_interpolation.sample(fade_level) )

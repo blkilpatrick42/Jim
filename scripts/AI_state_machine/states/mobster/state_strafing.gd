@@ -48,7 +48,7 @@ func physics_process(_delta: float) -> void:
 		if(ai_state_machine.get_perceptions().target_obj.is_in_group("player")):
 			var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 			for node in nodes_in_vision:
-				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+				if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
 				node.is_in_group("mobster")):
 					set_target.emit(node)
 					ai_state_machine.transition_to(ai_state_machine.exclaiming)

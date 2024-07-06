@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var mobster = preload("res://entities/characters/NPC/mobsters/mobster.tscn")
 
 var max_mobs_per_team = 20
