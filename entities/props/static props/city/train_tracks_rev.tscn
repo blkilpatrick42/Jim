@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://70py3s8or8pa"]
+[gd_scene load_steps=6 format=3 uid="uid://70py3s8or8pa"]
 
 [ext_resource type="Texture2D" uid="uid://br085rgpdogkl" path="res://sprites/game_world/train_track.png" id="1_g02xb"]
 [ext_resource type="Script" path="res://scripts/utility/auto_transparency_sprite.gd" id="1_p5n2p"]
+[ext_resource type="Texture2D" uid="uid://bdbcrlpfc1o84" path="res://sprites/lights/square_shadow.png" id="3_s7jfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4t5x"]
 size = Vector2(16, 18)
@@ -29,6 +30,12 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-4, -105)
 shape = SubResource("RectangleShape2D_yputd")
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0.5, -72.5)
+scale = Vector2(2.96875, 4.46875)
+texture = ExtResource("3_s7jfl")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_vision_collider_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_vision_collider_body_exited"]

@@ -472,6 +472,9 @@ func _on_pizza_bubble():
 	var pizzaBubble = pizza_bubble.instantiate()
 	self.add_child(pizzaBubble)
 
+#func _on_die():
+	#
+
 func _on_blood():
 	var blood = blood.instantiate()
 	self.add_child(blood)

@@ -15,9 +15,9 @@ var entering = false
 var exiting = false
 
 var fade_alpha = 0.0
-var fade_step = 0.1
+var fade_step = 0.05
 
-var fade_step_secs = 0.1
+var fade_step_secs = 0.05
 var teleport_step_secs = 0.5
 var timer_fade := Timer.new()
 

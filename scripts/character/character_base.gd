@@ -44,6 +44,12 @@ func set_facing_dir(facingDir):
 func get_base_current_frame():
 	return _base_sprite.frame
 
+func adjust_offset(new_offset: Vector2):
+	_base_sprite.offset = new_offset
+	_hat.offset = new_offset
+	_top.offset = new_offset
+	_bottom.offset = new_offset
+
 func get_base_animation_framecount(animation_name: String = ""):
 	var base_animation_framecount
 	if(animation_name == ""):
