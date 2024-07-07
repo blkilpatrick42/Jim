@@ -3,10 +3,10 @@ extends Node2D
 
 var mobster = preload("res://entities/characters/NPC/mobsters/mobster.tscn")
 
-var max_mobs_per_team = 20
+var max_mobs_per_team = 15
 
 var respawn_timer = Timer.new()
-var new_mobster_timer_len_secs = 30#90
+var new_mobster_timer_len_secs = 60
 var ysort_node
 @export var spawner_team = "red"
 

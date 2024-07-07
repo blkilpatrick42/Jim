@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://di1o2hnov0d5"]
+
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_nwtck"]
+[ext_resource type="Texture2D" uid="uid://dlvuidixijb7q" path="res://sprites/props/bottle.png" id="2_7sd7o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1gs3y"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(8, 10)
+
+[node name="bottle" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 91
+physics_material_override = SubResource("PhysicsMaterial_1gs3y")
+gravity_scale = 0.0
+lock_rotation = true
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 4.0
+script = ExtResource("1_nwtck")
+force_factor = 1000
+
+[node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+texture = ExtResource("2_7sd7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_x7wqg")

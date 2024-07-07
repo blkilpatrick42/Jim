@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6lxboyeldjgg"]
+
+[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_b42oy"]
+[ext_resource type="Texture2D" uid="uid://jbkbp7b1xrl2" path="res://sprites/props/Brick.png" id="2_eca1u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1gs3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(16, 10)
+
+[node name="brick" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 91
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_1gs3y")
+gravity_scale = 0.0
+lock_rotation = true
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 2.0
+script = ExtResource("1_b42oy")
+force_factor = 1000
+
+[node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+texture = ExtResource("2_eca1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
+y_sort_enabled = true
+shape = SubResource("RectangleShape2D_x7wqg")

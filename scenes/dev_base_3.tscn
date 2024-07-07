@@ -10,7 +10,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bfvoxxrcwphnp" path="res://sprites/spritesheets/spriteframes/characters/hat/cap_0.tres" id="7_xgh3y"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/characters/NPC/actors/npc_template.tscn" id="8_1uumc"]
 [ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="8_38bov"]
-[ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/dynamic props/dynamic_dumpster.tscn" id="8_bkbhp"]
+[ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/dynamic props/city/dynamic_dumpster.tscn" id="8_bkbhp"]
 [ext_resource type="AudioStream" uid="uid://bhi7v38hdrhv6" path="res://audio/soundFX/environment/ocean_waves.wav" id="10_lp4y7"]
 [ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/static props/city/lightPole_right.tscn" id="11_w3tfl"]
 [ext_resource type="PackedScene" uid="uid://chr3rbwyea60o" path="res://entities/dynamic world/window1_all_night.tscn" id="13_jdlpd"]

@@ -6,6 +6,7 @@ extends RigidBody2D
 @onready var _tough_luck = $tough_luck
 @onready var _collision = $CollisionShape2D
 @onready var _ui = $ui_canvas/player_ui
+@onready var _camera = $Camera2D
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -48,16 +49,26 @@ var damage_collision_layer = 13
 
 var dead = false
 
+var zoom_out_value = 0.5
+var regular_zoom_value = 1
+var camera_zoom = regular_zoom_value
+var zoom_timer := Timer.new()
+var zoom_step = 0.01
+var zoom_step_time_secs = 0.01
+var zooming_out = false
+
 func _ready():
 	_collision.disabled = no_clip
 	
 	timer_dash.one_shot = true
 	timer_dash_regen.one_shot = true
 	invincibility_timer.one_shot = true
+	zoom_timer.one_shot = true
 	add_child(sound_player)
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	add_child(invincibility_timer)
+	add_child(zoom_timer)
 	sound_player.volume_db = -18
 	
 	#set up character base
@@ -95,6 +106,7 @@ func get_input():
 		handle_pickup()
 		handle_throw()
 		handle_dash()
+		handle_zoom()
 		move()
 
 func get_current_hp():
@@ -140,6 +152,30 @@ func handle_dash():
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
 			throw()
+
+func handle_zoom():
+	if Input.is_action_just_pressed("zoom"):
+		if(zooming_out):
+			zooming_out = false
+		else:
+			zooming_out = true
+		zoom_timer.start(zoom_step_time_secs)
+
+func determine_camera_zoom():
+	if(zooming_out &&
+	zoom_timer.is_stopped() &&
+	camera_zoom > zoom_out_value):
+		camera_zoom -= zoom_step
+		_camera.zoom = Vector2(camera_zoom,camera_zoom)
+		zoom_timer.start(zoom_step_time_secs)
+	else:
+		if(!zooming_out &&
+		zoom_timer.is_stopped() &&
+		camera_zoom < regular_zoom_value):
+			camera_zoom += zoom_step
+			_camera.zoom = Vector2(camera_zoom,camera_zoom)
+			zoom_timer.start(zoom_step_time_secs)
+		
 
 func set_control_frozen(value):
 	control_frozen = value
@@ -246,6 +282,8 @@ func _process(_delta):
 				sound_player.play()
 				can_dash = true
 				add_child(dash_get.instantiate())
+			
+			determine_camera_zoom()
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
