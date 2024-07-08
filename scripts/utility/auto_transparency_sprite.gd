@@ -7,7 +7,7 @@ var is_occluding_player = false
 var timer = Timer.new()
 var fade_step_degree = 0.05
 var fade_step_time = 0.05
-var faded_alpha = 0.5
+var faded_alpha = 0.25
 var current_alpha = 1
 
 # Called when the node enters the scene tree for the first time.

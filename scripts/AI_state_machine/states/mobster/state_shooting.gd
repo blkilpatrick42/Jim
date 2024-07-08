@@ -23,6 +23,8 @@ var upper_bound = 0
 var reverse_sweep = false
 var burst_cool_down = false
 
+var random = RandomNumberGenerator.new()
+
 func set_shoort_arc_bounds():
 	var half_arc = shoot_arc_degrees / 2
 	match(ai_state_machine.get_perceptions().facing_dir):
@@ -76,6 +78,11 @@ func shoot_burst():
 		&& num_bullets_fired < burst_num_bullets):
 		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 			create_bullet()
+		else:
+			#for each bullet they don't see you, coin toss 
+			#to determine if they give chase
+			if(random.randi_range(0,1) > 0): 
+				ai_state_machine.transition_to(ai_state_machine.chasing)
 		num_bullets_fired = num_bullets_fired + 1
 		timer_between_shots.start(time_between_shots_secs)
 	else: if(num_bullets_fired >= burst_num_bullets):

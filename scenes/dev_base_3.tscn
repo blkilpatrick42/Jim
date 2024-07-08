@@ -505,8 +505,6 @@ autoplay = true
 max_distance = 1250.0
 attenuation = 2.00001
 script = ExtResource("4_7sj5j")
-play_11 = "music/test_song.wav"
-play_18 = "music/Nothin_Theme.wav"
 
 [node name="field_sound" type="AudioStreamPlayer2D" parent="dev_layer"]
 position = Vector2(-54, 829)
@@ -516,7 +514,6 @@ autoplay = true
 max_distance = 1000.0
 attenuation = 2.00001
 script = ExtResource("4_7sj5j")
-play_5 = "music/A Tree With Silver Dollar Leaves.mp3"
 
 [node name="teleporter_link" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
 position = Vector2(376, -311)

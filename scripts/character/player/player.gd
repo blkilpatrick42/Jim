@@ -22,10 +22,10 @@ var die_material = preload("res://entities/characters/player/die_material.tres")
 
 var sound_player := AudioStreamPlayer.new()
 
-var normal_speed = 50000
-var dash_speed = 250000
+const normal_speed = 50000
+const dash_speed = 250000
 var acceleration_quotient = normal_speed
-var top_speed = 180
+const top_speed = 180
 
 var can_dash = true
 var is_dashing = false
@@ -41,7 +41,7 @@ var grabbed_object = null
 var control_frozen = false
 var current_v = Vector2(0,0)
 
-var max_hp = 3
+const max_hp = 3
 var current_hp = 3
 var is_invincible = false
 var invincibility_timer := Timer.new()
@@ -49,26 +49,25 @@ var damage_collision_layer = 13
 
 var dead = false
 
-var zoom_out_value = 0.5
-var regular_zoom_value = 1
-var camera_zoom = regular_zoom_value
-var zoom_timer := Timer.new()
-var zoom_step = 0.01
-var zoom_step_time_secs = 0.01
-var zooming_out = false
+const pan_x_max = 96
+const pan_y_max = 96
+var pan_timer := Timer.new()
+const pan_step = 2
+const pan_step_time_secs = 0.005
+var camera_offset = Vector2(0,0)
+
 
 func _ready():
 	_collision.disabled = no_clip
-	
 	timer_dash.one_shot = true
 	timer_dash_regen.one_shot = true
 	invincibility_timer.one_shot = true
-	zoom_timer.one_shot = true
+	pan_timer.one_shot = true
 	add_child(sound_player)
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	add_child(invincibility_timer)
-	add_child(zoom_timer)
+	add_child(pan_timer)
 	sound_player.volume_db = -18
 	
 	#set up character base
@@ -77,6 +76,8 @@ func _ready():
 	hat_spriteframes,
 	top_spriteframes,
 	bottom_spriteframes)
+	
+	pan_timer.start(pan_step_time_secs)
 	
 	if(Engine.is_editor_hint()):
 		queue_redraw()
@@ -106,7 +107,7 @@ func get_input():
 		handle_pickup()
 		handle_throw()
 		handle_dash()
-		handle_zoom()
+		handle_camera_pan()
 		move()
 
 func get_current_hp():
@@ -128,6 +129,66 @@ func reduce_hp():
 func _on_body_entered(body:Node):
 	if(body.is_in_group("bullet")):
 		reduce_hp()
+
+func handle_camera_pan():
+	var pan_direction = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
+	
+	#add dead zone for joysticks
+	if(pan_direction.x < 0.1 && pan_direction.x > -0.1):
+		pan_direction.x = 0
+	if(pan_direction.y < 0.1 && pan_direction.y > -0.1):
+		pan_direction.y = 0
+	
+	if(pan_timer.is_stopped()):
+		var destination_x = pan_direction.x * pan_x_max
+		var destination_y = pan_direction.y * pan_y_max
+		var max_vector = Vector2(pan_x_max,pan_y_max)
+		
+		#pan x
+		if(camera_offset.length() < max_vector.length()):
+			if(destination_x > 0):
+				if(camera_offset.x < destination_x):
+					camera_offset = camera_offset + Vector2(pan_step,0)
+			elif(destination_x < 0):
+				if(camera_offset.x > destination_x):
+					camera_offset = camera_offset + Vector2(-pan_step,0)
+		
+		#return x to center
+		if(pan_direction.x == 0):
+			if(camera_offset.x > 0):
+				camera_offset = camera_offset + Vector2(-pan_step,0)
+			elif(camera_offset.x < 0):
+				camera_offset = camera_offset + Vector2(pan_step,0)
+			
+		#pan y
+		if(camera_offset.length() < max_vector.length()):
+			if(destination_y > 0):
+				if(camera_offset.y < destination_y):
+					camera_offset = camera_offset + Vector2(0,pan_step)
+			elif(destination_y < 0):
+				if(camera_offset.y > destination_y):
+					camera_offset = camera_offset + Vector2(0,-pan_step)
+			
+		#return y to center
+		if(pan_direction.y == 0):
+			if(camera_offset.y > 0):
+				camera_offset = camera_offset + Vector2(0,-pan_step)
+			elif(camera_offset.y < 0):
+				camera_offset = camera_offset + Vector2(0,pan_step)
+			
+		pan_timer.start(pan_step_time_secs)
+	
+	#snap to center
+	if(pan_direction.x == 0 &&
+	camera_offset.x < pan_step && 
+	camera_offset.x > -pan_step):
+		camera_offset.x = 0
+	if(pan_direction.y == 0 &&
+	camera_offset.y < pan_step && 
+	camera_offset.y > -pan_step):
+		camera_offset.y = 0
+	
+	_camera.set_offset(camera_offset)
 
 func die():
 	if(!dead):
@@ -152,30 +213,6 @@ func handle_dash():
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
 			throw()
-
-func handle_zoom():
-	if Input.is_action_just_pressed("zoom"):
-		if(zooming_out):
-			zooming_out = false
-		else:
-			zooming_out = true
-		zoom_timer.start(zoom_step_time_secs)
-
-func determine_camera_zoom():
-	if(zooming_out &&
-	zoom_timer.is_stopped() &&
-	camera_zoom > zoom_out_value):
-		camera_zoom -= zoom_step
-		_camera.zoom = Vector2(camera_zoom,camera_zoom)
-		zoom_timer.start(zoom_step_time_secs)
-	else:
-		if(!zooming_out &&
-		zoom_timer.is_stopped() &&
-		camera_zoom < regular_zoom_value):
-			camera_zoom += zoom_step
-			_camera.zoom = Vector2(camera_zoom,camera_zoom)
-			zoom_timer.start(zoom_step_time_secs)
-		
 
 func set_control_frozen(value):
 	control_frozen = value
@@ -283,7 +320,7 @@ func _process(_delta):
 				can_dash = true
 				add_child(dash_get.instantiate())
 			
-			determine_camera_zoom()
+			
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
