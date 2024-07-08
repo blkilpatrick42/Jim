@@ -134,9 +134,9 @@ func handle_camera_pan():
 	var pan_direction = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
 	
 	#add dead zone for joysticks
-	if(pan_direction.x < 0.1 && pan_direction.x > -0.1):
+	if(pan_direction.x < 0.3 && pan_direction.x > -0.3):
 		pan_direction.x = 0
-	if(pan_direction.y < 0.1 && pan_direction.y > -0.1):
+	if(pan_direction.y < 0.3 && pan_direction.y > -0.3):
 		pan_direction.y = 0
 	
 	if(pan_timer.is_stopped()):
