@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2bs10kaiset"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_6rw1a"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_clppb"]
+[ext_resource type="SpriteFrames" uid="uid://b6grq4ppef8v2" path="res://sprites/spritesheets/spriteframes/portrait/test3.tres" id="3_xpyen"]
+
+[node name="Multichar_test" type="Node2D"]
+position = Vector2(125, -8)
+script = ExtResource("1_6rw1a")
+trunk = NodePath("whats up")
+
+[node name="whats up" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
+position = Vector2(-195, -18)
+speaker_text = "Hey, what's up?"
+speech_options = Array[String](["Too busy", "Not much"])
+option_branches = [NodePath("../too busy"), NodePath("../not much")]
+voice = "sine_voice"
+speaker_name = "delivery"
+
+[node name="too busy" parent="." instance=ExtResource("2_clppb")]
+position = Vector2(-362, 179)
+speaker_text = "I'll leave you to it, then"
+voice = "sine_voice"
+speaker_name = "delivery"
+
+[node name="not much" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
+position = Vector2(0, 219)
+speaker_text = "Yeah, there's not a lot to do around here"
+option_branches = [NodePath("../not much2")]
+voice = "sine_voice"
+speaker_name = "delivery"
+
+[node name="not much2" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
+position = Vector2(-2, 475)
+speaker_text = "Could always try doing your jobs"
+speaker_portrait = ExtResource("3_xpyen")
+option_branches = [NodePath("../notmuch3")]
+voice = "low_sine_voice"
+speaker_name = "cook"
+
+[node name="notmuch3" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
+position = Vector2(0, 757)
+speaker_text = "These pies are getting cold"
+speaker_portrait = ExtResource("3_xpyen")
+option_branches = [NodePath("../notmuch4")]
+voice = "low_sine_voice"
+speaker_name = "cook"
+
+[node name="notmuch4" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
+position = Vector2(-2, 1034)
+speaker_text = "Don't look at me"
+option_branches = [NodePath("../notmuch5")]
+voice = "sine_voice"
+speaker_name = "delivery"
+
+[node name="notmuch5" parent="." instance=ExtResource("2_clppb")]
+position = Vector2(6, 1339)
+speaker_text = "I've done my time for today"
+voice = "sine_voice"
+speaker_name = "delivery"

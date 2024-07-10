@@ -28,6 +28,7 @@ force_factor = 1000
 y_sort_enabled = true
 position = Vector2(0, -3)
 sprite_frames = ExtResource("2_knw2h")
+animation = &"1"
 script = ExtResource("3_vnl2e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]

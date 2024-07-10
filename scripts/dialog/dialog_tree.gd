@@ -23,6 +23,9 @@ func get_speaker_text() -> String:
 func get_speech_options() -> Array[String]:
 	return current_branch.get_speech_options()
 
+func get_speaker_name() -> String:
+	return current_branch.get_speaker_name()
+
 func get_speech_option(index : int) -> String:
 	return current_branch.get_speech_options()[index]
 

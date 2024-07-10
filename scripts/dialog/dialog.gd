@@ -21,6 +21,8 @@ func _ready():
 
 func play_current_branch():
 	responding = false
+	if(tree.get_speaker_name() != null):
+		speaker_node = get_tree().get_first_node_in_group(tree.get_speaker_name())
 	_ResponseBubble.visible = false
 	_DialogBubble.visible = true
 	_DialogBubble.set_portrait(tree.get_speaker_portrait(), tree.get_speaker_emote())

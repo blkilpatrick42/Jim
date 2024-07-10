@@ -90,14 +90,15 @@ func _process(delta):
 		#handle passive text printing
 		if(has_passive_text):
 			will_talk = self.global_position.distance_to(player_ref.global_position) < talk_radius
-			if(!talking && will_talk):
+			if(!player_ref.in_dialog && !talking && will_talk):
 				speech_instance = speech_bubble.instantiate()
 				self.add_child(speech_instance)
 				speech_instance.play_passive_text(passive_text, voice)
 				talking = true
-			else: if (!will_talk && talking && speech_instance.ready_to_disappear):
-				speech_instance = self.get_node("speech_bubble")
-				self.remove_child(speech_instance)
+			else: if (speech_instance != null && 
+			player_ref.in_dialog || 
+			!will_talk && talking && speech_instance.ready_to_disappear):
+				speech_instance.queue_free()
 				talking = false
 				
 	#	#update speech bubble's presence

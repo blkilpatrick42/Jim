@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvfsle14quvae"]
+[gd_scene load_steps=9 format=3 uid="uid://bvfsle14quvae"]
 
 [ext_resource type="Script" path="res://scripts/dialog/dialog_bubble.gd" id="1_0ipjp"]
 [ext_resource type="Texture2D" uid="uid://bfkanef1y4kmx" path="res://sprites/dialog/dialog_bubble.png" id="1_cqxuj"]
@@ -8,6 +8,15 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jm16r"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qahwf"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_080c4"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ofqnb"]
+light_mode = 1
+
 [node name="DialogBubble" type="Node2D"]
 material = SubResource("CanvasItemMaterial_jm16r")
 position = Vector2(-48, -96)
@@ -15,19 +24,21 @@ script = ExtResource("1_0ipjp")
 
 [node name="bubble" type="Sprite2D" parent="."]
 z_index = 7
+material = SubResource("CanvasItemMaterial_qahwf")
 texture = ExtResource("1_cqxuj")
 
 [node name="portrait" type="AnimatedSprite2D" parent="."]
 z_index = 7
+material = SubResource("CanvasItemMaterial_080c4")
 position = Vector2(-65, -18)
 sprite_frames = ExtResource("2_vex8v")
 
 [node name="Label" type="Label" parent="."]
 z_index = 7
+material = SubResource("CanvasItemMaterial_ofqnb")
 offset_top = -60.0
 offset_right = 111.0
 offset_bottom = 44.0
-text = "Ah jeez, do we have to?"
 label_settings = ExtResource("4_w0fqp")
 horizontal_alignment = 1
 vertical_alignment = 1

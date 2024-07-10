@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var settings_label = $CenterContainer/VBoxContainer/settings_label
 @onready var quit_label = $CenterContainer/VBoxContainer/quit_label
 
-var settings_menu = preload("res://menu/start menu/settings_menu.tscn")
+var settings_menu = preload("res://menu/settings menu/settings_menu.tscn")
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []

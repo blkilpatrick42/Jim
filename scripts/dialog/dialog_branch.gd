@@ -11,9 +11,13 @@ extends Node2D
 @export var speech_options : Array[String]
 @export var option_branches: Array[dialog_branch]
 @export var voice : String
+@export var speaker_name : String
 
 func get_speaker_portrait():
 	return speaker_portrait
+
+func get_speaker_name():
+	return speaker_name
 
 func get_speaker_text():
 	return speaker_text

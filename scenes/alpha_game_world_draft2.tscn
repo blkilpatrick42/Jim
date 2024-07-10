@@ -1,4 +1,4 @@
-[gd_scene load_steps=250 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=253 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_oro3k"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_sol2d"]
@@ -49,6 +49,7 @@
 [ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="42_bbuo3"]
 [ext_resource type="PackedScene" uid="uid://b7j6mfbfspirp" path="res://dialog/dialog trees/multiline_test.tscn" id="43_lj01s"]
 [ext_resource type="PackedScene" uid="uid://de47euexev0l8" path="res://dialog/dialog trees/test_tree.tscn" id="44_854c4"]
+[ext_resource type="PackedScene" uid="uid://b2bs10kaiset" path="res://dialog/dialog trees/multichar_test.tscn" id="49_w58sk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p8v"]
 size = Vector2(32, 192.75)
@@ -184,6 +185,9 @@ size = Vector2(160, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko2q8"]
 size = Vector2(160, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q007p"]
+size = Vector2(90, 111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvmls"]
 size = Vector2(128, 224.5)
@@ -461,6 +465,9 @@ size = Vector2(26, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alk5d"]
 size = Vector2(224, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl76e"]
+size = Vector2(120, 114.5)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3m5s8"]
 vertices = PackedVector2Array(-2396, 338, -2362, 326, -2362, 343, -2460, 371, -2481, 337, -2482, 363, -2503, 272, -2489, 211, -2466, 211, -2495, 299, -2507, 299, -2498, 336, -2489, 497, -2460, 501, -1596, 210, -1597, 812, -1725, 818, -1725, 723, -1722, 700, -2491, 518, -2374, 533, -2490, 530, -1725, 328, -1725, 209, -1880, 724, -1907, 698, -1907, 687, -1755, 687, -2364, 509, -2374, 568, -2360, 645, -2372, 618, -2373, 662, -2349, 697, -2352, 719, -2294, 820, -2491, 820, -2500, 756, -2493, 746, -2490, 744, -2469, 724, -2268, 720, -2286, 695, -2285, 694, -2281, 694, -2279, 695, -2179, 691, -2114, 722, -2172, 687, -1943, 702, -1929, 798, -2100, 792)
@@ -998,6 +1005,15 @@ shape = SubResource("RectangleShape2D_llijg")
 position = Vector2(-875, 306.5)
 shape = SubResource("RectangleShape2D_ko2q8")
 
+[node name="prop_wall" type="StaticBody2D" parent="dev_layer/invisible_walls/central_safe_zone"]
+collision_layer = 4096
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/prop_wall"]
+position = Vector2(-166, -356.5)
+shape = SubResource("RectangleShape2D_q007p")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
 [node name="labyrinth_west" type="Node2D" parent="dev_layer/invisible_walls"]
 
 [node name="all_blocks" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_west"]
@@ -1377,9 +1393,9 @@ shape = SubResource("RectangleShape2D_8s2m7")
 position = Vector2(-907, -765.25)
 shape = SubResource("RectangleShape2D_g6olc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_west"]
+[node name="rock_wall" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_west"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
 polygon = PackedVector2Array(-3309, 1102, -2618, 1077, -2617, 979, -2524, 885, -2525, 753, -2556, 720, -2584, 720, -2622, 688, -2621, 626, -2588, 596, -2588, 500, -2526, 479, -2524, 369, -2556, 344, -2558, 278, -2523, 245, -2521, 145, -2553, 112, -2584, 111, -2622, 81, -2619, 18, -2589, -5, -2587, -116, -2650, -167, -2653, -271, -2590, -328, -2588, -461, -2622, -489, -2620, -522, -2556, -584, -2556, -688, -2621, -749, -2731, -752, -2765, -719, -2764, -847, -2635, -847, -2571, -904, -2571, -974, -2541, -1002, -2541, -1166, -2604, -1225, -2602, -1296, -2541, -1354, -2538, -1602, -3017, -1601)
 
 [node name="pizzeria_interior" type="Node2D" parent="dev_layer/invisible_walls"]
@@ -1417,6 +1433,15 @@ shape = SubResource("RectangleShape2D_k4rba")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="dev_layer/invisible_walls/pizzeria_interior/StaticBody2D"]
 position = Vector2(32869, -26871)
 shape = SubResource("RectangleShape2D_alk5d")
+
+[node name="prop_wall2" type="StaticBody2D" parent="dev_layer/invisible_walls/pizzeria_interior"]
+collision_layer = 4096
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/invisible_walls/pizzeria_interior/prop_wall2"]
+position = Vector2(32838, -26452.3)
+shape = SubResource("RectangleShape2D_sl76e")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
 
 [node name="navmeshes" type="Node2D" parent="dev_layer"]
 
@@ -2865,17 +2890,6 @@ position = Vector2(-1945, -1160)
 position = Vector2(-1929, 217)
 lock_rotation = true
 
-[node name="dialog_tester" parent="daylight_affected_section/daylight_affected_ysort" node_paths=PackedStringArray("branching_dialog") instance=ExtResource("38_u63at")]
-position = Vector2(-76, -334)
-ai_directive = "alert_passive"
-branching_dialog = NodePath("TestTree")
-
-[node name="MultilineTest" parent="daylight_affected_section/daylight_affected_ysort/dialog_tester" instance=ExtResource("43_lj01s")]
-visible = false
-
-[node name="TestTree" parent="daylight_affected_section/daylight_affected_ysort/dialog_tester" instance=ExtResource("44_854c4")]
-visible = false
-
 [node name="Tile_mid_sketch" type="TileMap" parent="daylight_affected_section"]
 z_index = 2
 z_as_relative = false
@@ -2927,8 +2941,9 @@ opens_for_groups = Array[String](["player"])
 [node name="door2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
 position = Vector2(32936, -26841)
 
-[node name="npc_cook" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("38_u63at")]
+[node name="npc_cook" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" groups=["cook"] instance=ExtResource("38_u63at")]
 position = Vector2(32872, -26841)
+mass = 10000.0
 talk_radius = 64
 has_passive_text = true
 ai_directive = "alert_passive"
@@ -2949,6 +2964,21 @@ position = Vector2(32872, -26608)
 
 [node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("41_17l7n")]
 position = Vector2(32903, -26832)
+
+[node name="dialog_tester" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" node_paths=PackedStringArray("branching_dialog") groups=["delivery"] instance=ExtResource("38_u63at")]
+position = Vector2(32840, -26807)
+mass = 10000.0
+ai_directive = "alert_passive"
+branching_dialog = NodePath("Multichar_test")
+
+[node name="MultilineTest" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/dialog_tester" instance=ExtResource("43_lj01s")]
+visible = false
+
+[node name="TestTree" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/dialog_tester" instance=ExtResource("44_854c4")]
+visible = false
+
+[node name="Multichar_test" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/dialog_tester" instance=ExtResource("49_w58sk")]
+visible = false
 
 [node name="TileMap_mid" type="TileMap" parent="no_daylight_layer/no_daylight_section"]
 z_index = 2

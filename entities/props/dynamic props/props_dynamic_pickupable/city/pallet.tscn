@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp2q2v6gqduni"]
+[gd_scene load_steps=5 format=3 uid="uid://bm3jn7af53g8f"]
 
 [ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_au76p"]
 [ext_resource type="Texture2D" uid="uid://20cjojtewy46" path="res://sprites/props/pallet.png" id="2_c1ke1"]
@@ -11,7 +11,7 @@ size = Vector2(16, 10)
 [node name="wooden_pallet" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
 collision_layer = 8
-collision_mask = 31
+collision_mask = 4127
 mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_1gs3y")
 gravity_scale = 0.0

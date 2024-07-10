@@ -12,7 +12,7 @@ size = Vector2(16, 13)
 [node name="tire" type="RigidBody2D" groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
 collision_layer = 8
-collision_mask = 91
+collision_mask = 4187
 mass = 4.0
 physics_material_override = SubResource("PhysicsMaterial_1gs3y")
 gravity_scale = 0.0

@@ -79,7 +79,7 @@ func handle_input():
 			advance_index()
 		else:
 			block_index()
-	if Input.is_action_just_pressed("pickup"):
+	if Input.is_action_just_pressed("interact"):
 		handle_selection()
 
 # Called when the node enters the scene tree for the first time.
