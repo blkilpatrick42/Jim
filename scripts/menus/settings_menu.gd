@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var video_label = $CenterContainer/VBoxContainer/video_label
 @onready var back_label = $CenterContainer/VBoxContainer/back_label
 
-var video_settings_menu = preload("res://entities/menu/settings menu/video_settings.tscn")
+var video_settings_menu = preload("res://menu/settings menu/video_settings.tscn")
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []
@@ -61,7 +61,7 @@ func handle_input():
 			advance_index()
 		else:
 			block_index()
-	if Input.is_action_just_pressed("pickup"):
+	if Input.is_action_just_pressed("interact"):
 		handle_selection()
 
 # Called when the node enters the scene tree for the first time.

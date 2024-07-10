@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://de47euexev0l8"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_h7gjl"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_a0x0x"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_h7gjl")
+trunk = NodePath("trunk")
+
+[node name="trunk" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_a0x0x")]
+speaker_text = "Did you want to talk about something?"
+speech_options = Array[String](["Yes", "No"])
+option_branches = [NodePath("../YES"), NodePath("../NO")]
+voice = "sine_voice"
+
+[node name="YES" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_a0x0x")]
+position = Vector2(182, 206)
+speaker_text = "Alright, what's on your mind?"
+speech_options = Array[String](["Pizza", "Tacos"])
+option_branches = [NodePath("../pizza"), NodePath("../tacos")]
+voice = "sine_voice"
+
+[node name="NO" parent="." instance=ExtResource("2_a0x0x")]
+position = Vector2(-166, 210)
+speaker_text = "Fine then..."
+voice = "sine_voice"
+
+[node name="pizza" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_a0x0x")]
+position = Vector2(383, 387)
+speaker_text = "Now you're talkin'"
+option_branches = [NodePath("../right")]
+voice = "sine_voice"
+
+[node name="tacos" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_a0x0x")]
+position = Vector2(127, 411)
+speaker_text = "Eh"
+option_branches = [NodePath("../wrong")]
+voice = "sine_voice"
+
+[node name="wrong" parent="." instance=ExtResource("2_a0x0x")]
+position = Vector2(108, 608)
+speaker_text = "Better luck next time"
+voice = "sine_voice"
+
+[node name="right" parent="." instance=ExtResource("2_a0x0x")]
+position = Vector2(444, 639)
+speaker_text = "Let's get that money"
+voice = "sine_voice"

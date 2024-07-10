@@ -1,6 +1,6 @@
 extends Control
 
-var pause_menu = preload("res://entities/menu/pause menu/pause_menu_manager.tscn")
+var pause_menu = preload("res://menu/pause menu/pause_menu_manager.tscn")
 
 @export var clock = 0.0
 @export var hour_length_seconds = 30.0

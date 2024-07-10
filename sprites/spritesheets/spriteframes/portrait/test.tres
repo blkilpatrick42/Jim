@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bd4fcmk4fufn1"]
 
-[ext_resource type="Texture2D" uid="uid://5gn2w1nb5g2c" path="res://sprites/portraits/test_1.png" id="1_rvphy"]
-[ext_resource type="Texture2D" uid="uid://sqqkmmua63hr" path="res://sprites/portraits/test_2.png" id="2_legrr"]
-[ext_resource type="Texture2D" uid="uid://dxidhvucyndq3" path="res://sprites/portraits/test_3.png" id="3_oo6dr"]
-[ext_resource type="Texture2D" uid="uid://rfcgig121lim" path="res://sprites/portraits/test_4.png" id="4_goo21"]
-[ext_resource type="Texture2D" uid="uid://c4bx5nvjse4rg" path="res://sprites/portraits/test_5.png" id="5_lxvvn"]
+[ext_resource type="Texture2D" uid="uid://5gn2w1nb5g2c" path="res://sprites/dialog/portraits/test_1.png" id="1_rvphy"]
+[ext_resource type="Texture2D" uid="uid://sqqkmmua63hr" path="res://sprites/dialog/portraits/test_2.png" id="2_legrr"]
+[ext_resource type="Texture2D" uid="uid://dxidhvucyndq3" path="res://sprites/dialog/portraits/test_3.png" id="3_oo6dr"]
+[ext_resource type="Texture2D" uid="uid://rfcgig121lim" path="res://sprites/dialog/portraits/test_4.png" id="4_goo21"]
+[ext_resource type="Texture2D" uid="uid://c4bx5nvjse4rg" path="res://sprites/dialog/portraits/test_5.png" id="5_lxvvn"]
 
 [resource]
 animations = [{

@@ -34,9 +34,11 @@ var dash_regen_time_secs = 5
 var timer_dash := Timer.new()
 var timer_dash_regen := Timer.new()
 
+var in_dialog = false
+var dialog_panning = false
+
 var holding_object = false
 var will_grab_object = null
-var will_talk_npc = null
 var grabbed_object = null
 var control_frozen = false
 var current_v = Vector2(0,0)
@@ -55,7 +57,6 @@ var pan_timer := Timer.new()
 var pan_step = 4
 const pan_step_time_secs = 0.005
 var camera_offset = Vector2(0,0)
-
 
 func _ready():
 	_collision.disabled = no_clip
@@ -82,6 +83,16 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func enter_dialog():
+	in_dialog = true
+	control_frozen = true
+	dialog_panning = true
+	
+func exit_dialog():
+	in_dialog = false
+	control_frozen = false
+	dialog_panning = false
+
 func go_invincible():
 	invincibility_timer.start(1.5)
 	_character_base.start_flashing()
@@ -104,7 +115,7 @@ func get_input():
 			_character_base.face_up()
 		else: if Input.is_action_pressed(direction.down):
 			_character_base.face_down()
-		handle_pickup()
+		handle_interact()
 		handle_throw()
 		handle_dash()
 		handle_camera_pan()
@@ -132,11 +143,13 @@ func _on_body_entered(body:Node):
 
 func handle_camera_pan():
 	var pan_direction = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
+	if(dialog_panning):
+		pan_direction = Vector2(0,-1)
 	
 	#add dead zone for joysticks
-	if(pan_direction.x < 0.3 && pan_direction.x > -0.3):
+	if(pan_direction.x < 0.4 && pan_direction.x > -0.4):
 		pan_direction.x = 0
-	if(pan_direction.y < 0.3 && pan_direction.y > -0.3):
+	if(pan_direction.y < 0.4 && pan_direction.y > -0.4):
 		pan_direction.y = 0
 	
 	if(pan_timer.is_stopped()):
@@ -220,9 +233,13 @@ func die():
 		die_guy.start_dyin(_character_base.get_facing_dir())
 		dead = true
 
-func handle_pickup():
-	if Input.is_action_just_pressed("pickup"):
-			pick_up()
+func handle_interact():
+	if Input.is_action_just_pressed("interact"):
+			if(_grabber.is_colliding()):
+					var grabObj = _grabber.get_collider(0)
+					if(grabObj.is_in_group("interactable")):
+						grabObj.interact()
+			handle_pick_up()
 
 func handle_dash():
 	if Input.is_action_just_pressed("dash"):
@@ -254,7 +271,7 @@ func throw():
 		grabbed_object = null
 		set_holding_object(false)
 
-func pick_up():
+func handle_pick_up():
 	if(will_grab_object != null && !holding_object):
 		sound_player.stream = load("res://audio/soundFX/pickup.wav")
 		sound_player.play()
@@ -308,6 +325,7 @@ func _process(_delta):
 			_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
 			update_grabber()
 			will_grab_object = null
+			#check grabber for pick-upable objects
 			if(!holding_object):
 				var grabObj = null
 				
@@ -320,7 +338,10 @@ func _process(_delta):
 				grabObj.is_in_group("pickupable")):
 					grabObj.will_pickup = true
 					will_grab_object = grabObj
-			
+			#check grabber for talk-to-able NPC's
+			if(!in_dialog):
+				#TODO: intitiate the talkies
+				pass
 			#stop dash if timer has been esceeded
 			if(is_dashing):
 				acceleration_quotient = dash_speed
@@ -344,6 +365,8 @@ func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
 		if(!dead):
 			get_input()
+			if(dialog_panning):
+				handle_camera_pan()
 			apply_force(current_v)
 			if(invincibility_timer.is_stopped() &&
 			is_invincible == true):

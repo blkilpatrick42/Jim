@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cquyj6k5qf206"]
+
+[ext_resource type="Script" path="res://scripts/start screen/attribution.gd" id="1_4yql4"]
+[ext_resource type="Texture2D" uid="uid://ddc5iel3kx8nw" path="res://sprites/start_screen/motionpicture.png" id="2_o1t74"]
+[ext_resource type="Texture2D" uid="uid://42naiihosfjk" path="res://sprites/start_screen/dire_logo.png" id="3_4ws16"]
+
+[node name="attribution" type="Node2D"]
+script = ExtResource("1_4yql4")
+
+[node name="motion_pic" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, -1.59595e-16)
+position = Vector2(2, -34)
+texture = ExtResource("2_o1t74")
+
+[node name="logo" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, -1.59595e-16)
+texture = ExtResource("3_4ws16")

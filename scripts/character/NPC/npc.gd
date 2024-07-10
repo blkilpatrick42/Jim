@@ -21,10 +21,14 @@ const alert_passive = "alert_passive"
 @export var passive_text = ""
 @export var monologue_text = ""
 
+@export var branching_dialog : dialog_tree
+var dialog = preload("res://dialog/dialog.tscn")
+var dialog_manager : Node
+
 @onready var _character_base = $character_base
 
 var can_talk_bubble = preload("res://interface/can_talk_bubble.tscn")
-var speech_bubble = preload("res://interface/speech_bubble.tscn")
+var speech_bubble = preload("res://dialog/speech_bubble.tscn")
 var talking = false
 var will_talk = false
 var showing_bubble = false
@@ -57,6 +61,16 @@ func _ready():
 	
 func set_will_talk_false():
 	will_talk = false
+
+func interact():
+	if (branching_dialog != null):
+		dialog_manager = dialog.instantiate()
+		dialog_manager.set_speaker_node(self)
+		add_child(dialog_manager)
+		var player_ref = get_tree().get_nodes_in_group("player")[0]
+		player_ref.enter_dialog()
+		dialog_manager.set_tree_and_start_dialog(branching_dialog)
+	
 
 func speed():
 	return linear_velocity.length()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=250 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=249 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_oro3k"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_sol2d"]
@@ -48,7 +48,6 @@
 [ext_resource type="PackedScene" uid="uid://bqua037h47acu" path="res://entities/props/dynamic props/city/dynamic_dumpster.tscn" id="41_c40pm"]
 [ext_resource type="Script" path="res://scripts/clock/time_keeper.gd" id="42_bbuo3"]
 [ext_resource type="PackedScene" uid="uid://b7j6mfbfspirp" path="res://dialog/dialog trees/multiline_test.tscn" id="43_lj01s"]
-[ext_resource type="PackedScene" uid="uid://de47euexev0l8" path="res://dialog/dialog trees/test_tree.tscn" id="44_854c4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p8v"]
 size = Vector2(32, 192.75)
@@ -2867,13 +2866,9 @@ lock_rotation = true
 
 [node name="dialog_tester" parent="daylight_affected_section/daylight_affected_ysort" node_paths=PackedStringArray("branching_dialog") instance=ExtResource("38_u63at")]
 position = Vector2(-76, -334)
-ai_directive = "alert_passive"
-branching_dialog = NodePath("TestTree")
+branching_dialog = NodePath("MultilineTest")
 
 [node name="MultilineTest" parent="daylight_affected_section/daylight_affected_ysort/dialog_tester" instance=ExtResource("43_lj01s")]
-visible = false
-
-[node name="TestTree" parent="daylight_affected_section/daylight_affected_ysort/dialog_tester" instance=ExtResource("44_854c4")]
 visible = false
 
 [node name="Tile_mid_sketch" type="TileMap" parent="daylight_affected_section"]

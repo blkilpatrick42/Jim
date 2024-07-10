@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://buefc6dloj5kx"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_bubble.gd" id="1_6wwqt"]
+[ext_resource type="Texture2D" uid="uid://bfkanef1y4kmx" path="res://sprites/dialog/dialog_bubble.png" id="2_okya3"]
+[ext_resource type="LabelSettings" uid="uid://ca2608v2da05w" path="res://dialog/bubble_settings.tres" id="3_btuch"]
+[ext_resource type="Texture2D" uid="uid://tky7m7ktiahc" path="res://sprites/interface/compass_arrow.png" id="3_f7kcr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2hsav"]
+light_mode = 1
+
+[node name="ResponseBubble" type="Node2D"]
+z_index = 6
+material = SubResource("CanvasItemMaterial_2hsav")
+script = ExtResource("1_6wwqt")
+
+[node name="bubble" type="Sprite2D" parent="."]
+texture = ExtResource("2_okya3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -94.0
+offset_top = -60.0
+offset_right = 90.0
+offset_bottom = 44.0
+text = "this is a test"
+label_settings = ExtResource("3_btuch")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="arrow_r" type="Sprite2D" parent="."]
+position = Vector2(90, -5)
+texture = ExtResource("3_f7kcr")
+
+[node name="arrow_l" type="Sprite2D" parent="."]
+position = Vector2(-93, -5)
+texture = ExtResource("3_f7kcr")
+flip_h = true

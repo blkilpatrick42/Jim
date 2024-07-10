@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var settings_label = $CenterContainer/VBoxContainer/settings_label
 @onready var quit_label = $CenterContainer/VBoxContainer/quit_label
 
-var settings_menu = preload("res://entities/menu/settings menu/settings_menu.tscn")
+var settings_menu = preload("res://menu/start menu/settings_menu.tscn")
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []
@@ -67,11 +67,11 @@ func handle_input():
 				advance_index()
 			else:
 				block_index()
-		if Input.is_action_just_pressed("pickup"):
+		if Input.is_action_just_pressed("interact"):
 			handle_selection()
 	else: #skip the fading
 		if (Input.is_action_just_pressed("start")||
-		Input.is_action_just_pressed("pickup")):
+		Input.is_action_just_pressed("interact")):
 			menu_alpha = 1
 			set_labels_alpha(menu_alpha)
 			return

@@ -185,7 +185,7 @@ func _on_body_exited(body: Node):
 	perceptions.colliding_nodes.remove_at(node_index)
 
 #we need a separate passive raycast for use with regular vision checking
-#or else there will be race conditions fighting over the ray-cast object as we
+#or else there will be race conditions fighting over the ray-cast as we
 #check for line of sight 
 func passive_has_line_of_sight_to_object(obj):
 	_passive_raycast.set_target_position(obj.global_position - _passive_raycast.global_position)
@@ -293,6 +293,8 @@ func get_nearest_point_on_mesh(point : Vector2):
 	var rid = _navigation_agent.get_navigation_map()
 	return NavigationServer2D.map_get_closest_point(rid, point)
 
+#returns a list of valid mesh points in 8 cardinal directions, points 
+#fanning out at an interval of step_distance for num_steps intervals
 func get_stepped_points_from_pos(pos: Vector2, num_steps, step_distance) -> Array[Vector2]:
 	var iterator = 1
 	var points : Array[Vector2] = []
