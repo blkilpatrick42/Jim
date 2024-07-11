@@ -44,6 +44,9 @@ func set_facing_dir(facingDir):
 func get_base_current_frame():
 	return _base_sprite.frame
 
+func get_offset() -> Vector2:
+	return _base_sprite.offset
+
 func adjust_offset(new_offset: Vector2):
 	_base_sprite.offset = new_offset
 	_hat.offset = new_offset

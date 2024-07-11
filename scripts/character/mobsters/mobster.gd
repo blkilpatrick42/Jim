@@ -33,6 +33,7 @@ var opposing_team
 @onready var _active_raycast: RayCast2D = $active_raycast
 @onready var _reactive_raycast: RayCast2D = $reactive_raycast
 @onready var _vision = $vision
+@onready var _shadow = $shadow
 
 #character composition
 @onready var _character_base = $character_base
@@ -343,6 +344,18 @@ func get_strafe_point():
 	else:
 		return global_position
 
+func _on_adjust_offset(adjustment : Vector2):
+	var current_offset = _character_base.get_offset()
+	_character_base.adjust_offset(current_offset + adjustment)
+	position += -adjustment
+	var children = get_children()
+	for child in children:
+		if(child.is_in_group("exclaim") ||
+		child.is_in_group("question") ||
+		child.is_in_group("pizza_bubble")):
+			child.position += adjustment
+	_shadow.offset += adjustment
+
 func _on_pick_up(pick_up_obj : Node):
 	if(!holding_object):
 		sound_player.stream = load("res://audio/soundFX/pickup.wav")
@@ -473,9 +486,6 @@ func _on_pizza_bubble():
 	sound_player.play()
 	var pizzaBubble = pizza_bubble.instantiate()
 	self.add_child(pizzaBubble)
-
-#func _on_die():
-	#
 
 func _on_blood():
 	var blood = blood.instantiate()

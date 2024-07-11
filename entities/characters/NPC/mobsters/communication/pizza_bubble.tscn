@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_u6six"]
 [ext_resource type="SpriteFrames" uid="uid://ceee8o28cixew" path="res://sprites/spritesheets/spriteframes/mobster/pizza_bubble.tres" id="2_sumu8"]
 
-[node name="pizza_bubble" type="Node2D"]
+[node name="pizza_bubble" type="Node2D" groups=["pizza_bubble"]]
 script = ExtResource("1_u6six")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]

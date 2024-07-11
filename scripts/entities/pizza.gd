@@ -64,8 +64,11 @@ func _process(delta):
 	if(_prop != null):
 		update_pizza_stack()
 		if(_prop.is_picked_up() && _prop.get_parent().is_in_group("player")):
-			_compass.visible = true
-			_compass.global_position = _prop.global_position
+			if(!_prop.get_parent().dead):
+				_compass.visible = true
+				_compass.global_position = _prop.global_position
+			else:
+				_compass.visible = false
 			if(_prop.get_parent().get_parent().is_in_group("daylight_affected_ysort")):
 				_compass.global_rotation = _prop.global_position.angle_to_point(destination_door)
 			else:
