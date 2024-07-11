@@ -170,6 +170,7 @@ initial_state = NodePath("idle")
 [connection signal="reduce_health" from="ai_state_machine/chasing" to="." method="_on_reduce_hit_points"]
 [connection signal="set_nav_target" from="ai_state_machine/chasing" to="." method="_on_set_nav_target"]
 [connection signal="set_target" from="ai_state_machine/chasing" to="." method="_on_set_ai_target"]
+[connection signal="adjust_offset" from="ai_state_machine/dead" to="." method="_on_adjust_offset"]
 [connection signal="animate" from="ai_state_machine/dead" to="." method="_on_play_animation"]
 [connection signal="blood" from="ai_state_machine/dead" to="." method="_on_blood"]
 [connection signal="die_skull" from="ai_state_machine/dead" to="." method="_on_die_skull"]
