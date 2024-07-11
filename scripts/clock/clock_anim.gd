@@ -5,7 +5,6 @@ var time_keeper = null
 func _ready():
 	time_keeper = get_tree().get_first_node_in_group("time_keeper")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	frame = time_keeper.clock

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvpxd8fmth427"]
+
+[ext_resource type="Texture2D" uid="uid://dkmviee8xxpm7" path="res://sprites/lights/indoor_window__light.png" id="1_1s8t7"]
+[ext_resource type="Script" path="res://scripts/clock/timed_light.gd" id="2_yjwhw"]
+
+[node name="IndoorWindowLight1" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0.862745, 1)
+texture = ExtResource("1_1s8t7")
+script = ExtResource("2_yjwhw")
+running_hours = Array[bool]([false, false, false, false, false, false, false, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false])

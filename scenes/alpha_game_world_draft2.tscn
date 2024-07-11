@@ -1,4 +1,4 @@
-[gd_scene load_steps=267 format=3 uid="uid://duaagbc03hvem"]
+[gd_scene load_steps=269 format=3 uid="uid://duaagbc03hvem"]
 
 [ext_resource type="PackedScene" uid="uid://yh1sdoo12jth" path="res://entities/characters/NPC/mobsters/util/patrol_point.tscn" id="1_oro3k"]
 [ext_resource type="PackedScene" uid="uid://drd02mj512eme" path="res://entities/characters/NPC/mobsters/util/mob_spawner.tscn" id="2_sol2d"]
@@ -26,19 +26,21 @@
 [ext_resource type="PackedScene" uid="uid://cgq4w0va0oofp" path="res://entities/dynamic world/window_5_all_night.tscn" id="24_0pqtc"]
 [ext_resource type="PackedScene" uid="uid://bk7i2h4q3v463" path="res://entities/dynamic world/door_frame.tscn" id="25_h5yxo"]
 [ext_resource type="PackedScene" uid="uid://g8q516mt8mta" path="res://entities/dynamic world/door1.tscn" id="26_7psvl"]
+[ext_resource type="PackedScene" uid="uid://b20egxvemuaa6" path="res://entities/props/static props/apartment/bed_1.tscn" id="26_y8ye6"]
 [ext_resource type="PackedScene" uid="uid://b8rx6qffj8jp1" path="res://entities/props/static props/nature/tree_1.tscn" id="27_ne8oo"]
 [ext_resource type="PackedScene" uid="uid://x7bvvgi7f2uk" path="res://entities/dynamic world/window_door_1.tscn" id="28_j24p7"]
 [ext_resource type="PackedScene" uid="uid://c66yvth0jdecv" path="res://entities/dynamic world/train_st_window_1_all_night.tscn" id="29_y746w"]
 [ext_resource type="PackedScene" uid="uid://bwjchx0ehilg4" path="res://entities/dynamic world/train_st_window_2_all_night.tscn" id="30_eo28h"]
 [ext_resource type="PackedScene" uid="uid://tk0wlft2lk84" path="res://entities/dynamic world/window_4_all_night.tscn" id="31_gl1yx"]
 [ext_resource type="Texture2D" uid="uid://bskq5e775yxyx" path="res://sprites/game_world/decals/onyx_cave_ad.png" id="32_d3qxg"]
+[ext_resource type="PackedScene" uid="uid://dyojwva6irfyf" path="res://entities/dynamic world/indoor_window_1.tscn" id="33_nbrj4"]
 [ext_resource type="PackedScene" uid="uid://e3sohpentkkp" path="res://entities/props/static props/train_stat_12hr_clock.tscn" id="33_t10t4"]
 [ext_resource type="PackedScene" uid="uid://dh2vssi64lbgs" path="res://entities/props/static props/city/train_tracks.tscn" id="34_hkfhv"]
 [ext_resource type="PackedScene" uid="uid://70py3s8or8pa" path="res://entities/props/static props/city/train_tracks_rev.tscn" id="35_0jpod"]
 [ext_resource type="PackedScene" uid="uid://dpua352fqdglw" path="res://entities/dynamic world/delivery_door1.tscn" id="36_jai71"]
 [ext_resource type="TileSet" uid="uid://dfyrmia6itd31" path="res://sprites/tilesets/indoor_test_set_1.tres" id="37_23t1q"]
 [ext_resource type="PackedScene" uid="uid://di1o2hnov0d5" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/bottle_1.tscn" id="37_hwved"]
-[ext_resource type="PackedScene" uid="uid://ch3ityck63mn0" path="res://entities/dynamic world/window1_dark.tscn" id="37_maosy"]
+[ext_resource type="PackedScene" uid="uid://cvpxd8fmth427" path="res://entities/dynamic world/indoor_window_light_1.tscn" id="37_kvjs4"]
 [ext_resource type="PackedScene" uid="uid://c6lxboyeldjgg" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/brick_1.tscn" id="38_0xcq2"]
 [ext_resource type="PackedScene" uid="uid://byn6r0mnnodrd" path="res://entities/characters/NPC/actors/npc_template.tscn" id="38_u63at"]
 [ext_resource type="PackedScene" uid="uid://c7ffdqyjrlxir" path="res://entities/util/pizza_spawner.tscn" id="39_vkn27"]
@@ -1054,6 +1056,26 @@ position = Vector2(-166, -356.5)
 shape = SubResource("RectangleShape2D_q007p")
 debug_color = Color(0.996078, 0, 0.2, 0.419608)
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/prop_wall"]
+position = Vector2(-104, -613)
+shape = SubResource("RectangleShape2D_q007p")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/prop_wall"]
+position = Vector2(35542, -26326)
+shape = SubResource("RectangleShape2D_q007p")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/prop_wall"]
+position = Vector2(35382, -26724)
+shape = SubResource("RectangleShape2D_q007p")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/prop_wall"]
+position = Vector2(35445, -30630)
+shape = SubResource("RectangleShape2D_q007p")
+debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
 [node name="labyrinth_west" type="Node2D" parent="dev_layer/invisible_walls"]
 
 [node name="all_blocks" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_west"]
@@ -1829,7 +1851,7 @@ reparent_to_no_daylight = true
 position = Vector2(-75, -604)
 linked_teleporter = NodePath("../player_apt_bldg_link_indoor_exit")
 enter_y_push = -25000
-exit_y_push = 35000
+exit_y_push = 15000
 reparent_to_no_daylight = true
 
 [node name="pizzeria_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
@@ -1844,14 +1866,14 @@ reparent_to_no_daylight = false
 [node name="player_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(35445, -30668)
 linked_teleporter = NodePath("../player_apt_link_indoor")
-enter_y_push = 10000
+enter_y_push = 5000
 exit_y_push = -30000
 reparent_to_no_daylight = true
 
 [node name="player_apt_link_indoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(35381, -26684)
 linked_teleporter = NodePath("../player_apt_link_outdoor")
-enter_y_push = -15000
+enter_y_push = -10000
 exit_y_push = 15000
 exit_only = false
 reparent_to_daylight = true
@@ -2105,688 +2127,14 @@ base_spriteframes = ExtResource("11_60rgk")
 [node name="game_world" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
 
-[node name="pizzashop_window" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("16_hbjk6")]
-position = Vector2(-200, -392)
-
-[node name="pizzashop_window2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("16_hbjk6")]
-position = Vector2(-136, -392)
-
-[node name="pizzashop_window3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("16_hbjk6")]
-position = Vector2(-104, -392)
-
-[node name="pizzashop_window4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("16_hbjk6")]
-position = Vector2(-72, -392)
-
 [node name="PizzaNeon" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("17_7rubn")]
-position = Vector2(-137, -392)
-
-[node name="lightPole" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(-402, -383)
-
-[node name="lightPole4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(206, -600)
-
-[node name="lightPole2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(-224, -530)
-
-[node name="lightPole14" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(386, -369)
-
-[node name="lightPole15" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(771, -596)
-
-[node name="lightPole16" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(771, -272)
-
-[node name="lightPole19" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(771, 45)
-
-[node name="PoliceBarrier" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-375, -975)
-
-[node name="PoliceBarrier2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-312, -975)
-
-[node name="PoliceBarrier3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-249, -975)
-
-[node name="lightPole3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(-400, -690)
-
-[node name="lightPole5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(-401, 272)
-
-[node name="PoliceBarrier7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(872, 277)
-
-[node name="PoliceBarrier8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(861, 224)
-
-[node name="PoliceBarrier9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(858, 327)
-
-[node name="PoliceBarrier10" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(842, 380)
-
-[node name="PoliceBarrier23" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(-683, -336)
-
-[node name="PoliceBarrier24" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(-696, -384)
-
-[node name="PoliceBarrier25" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(-696, -289)
-
-[node name="PoliceBarrier27" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(-671, -259)
-
-[node name="PoliceBarrier26" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("21_xfukv")]
-position = Vector2(-713, -233)
-
-[node name="lightPole6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(-225, 111)
-
-[node name="lightPole7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(-402, -47)
-
-[node name="lightPole9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(-788, 157)
-
-[node name="lightPole12" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(389, 224)
-
-[node name="lightPole13" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(206, -83)
-
-[node name="lightPole17" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(589, -435)
-
-[node name="lightPole18" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(589, -112)
-
-[node name="lightPole20" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("18_rvlww")]
-position = Vector2(558, 223)
-
-[node name="lightPole8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("19_uo0ax")]
-position = Vector2(-222, -200)
-
-[node name="window2_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-136, -424)
-
-[node name="window2_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-104, -424)
-
-[node name="window2_all_night6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(184, -458)
-
-[node name="window2_all_night9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(408, -395)
-
-[node name="window2_all_night10" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(440, -395)
-
-[node name="window2_all_night15" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(504, 182)
-
-[node name="window2_all_night16" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(536, 182)
-
-[node name="window2_all_night17" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(408, 118)
-
-[node name="window2_all_night19" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(568, 86)
-
-[node name="window2_all_night18" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(440, 118)
-
-[node name="window2_all_night20" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(504, -10)
-
-[node name="window2_all_night21" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(536, -10)
-
-[node name="window2_all_night11" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(56, -1051)
-
-[node name="window2_all_night12" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(88, -1051)
-
-[node name="window2_all_night28" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-position = Vector2(-200, -970)
-
-[node name="window2_all_night29" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-200, -1002)
-
-[node name="window2_all_night31" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-456, -1034)
-
-[node name="window2_all_night30" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-168, -1002)
-
-[node name="window2_all_night7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(88, -458)
-
-[node name="window2_all_night8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(120, -458)
-
-[node name="window2_all_night32" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(744, -1002)
-
-[node name="window2_all_night33" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(776, -1002)
-
-[node name="window2_all_night40" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(792, -522)
-
-[node name="window2_all_night41" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(824, -522)
-
-[node name="window2_all_night42" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(856, -522)
-
-[node name="window2_all_night46" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(792, -74)
-
-[node name="window2_all_night47" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(824, -74)
-
-[node name="window2_all_night52" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-8, 550)
-
-[node name="window2_all_night53" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(24, 550)
-
-[node name="window2_all_night54" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-328, 502)
-
-[node name="window2_all_night55" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-296, 502)
-
-[node name="window2_all_night56" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-392, 502)
-
-[node name="window2_all_night57" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-360, 502)
-
-[node name="window2_all_night58" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-456, 310)
-
-[node name="window2_all_night59" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-424, 310)
-
-[node name="window2_all_night60" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-616, 310)
-
-[node name="window2_all_night61" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-584, 310)
-
-[node name="window2_all_night62" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-840, 214)
-
-[node name="window2_all_night64" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-872, 214)
-
-[node name="window2_all_night63" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-808, 214)
-
-[node name="window2_all_night48" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(856, -138)
-
-[node name="window2_all_night49" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(888, -138)
-
-[node name="window2_all_night50" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(792, -138)
-
-[node name="window2_all_night51" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(824, -138)
-
-[node name="window2_all_night43" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(888, -522)
-
-[node name="window2_all_night44" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(984, -714)
-
-[node name="window2_all_night45" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(1016, -714)
-
-[node name="window2_all_night34" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(936, -970)
-
-[node name="window2_all_night35" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(968, -970)
-
-[node name="window2_all_night36" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-position = Vector2(840, -938)
-
-[node name="window2_all_night37" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-position = Vector2(872, -938)
-
-[node name="window2_all_night38" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(552, -1033)
-
-[node name="window2_all_night39" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(552, -1002)
-
-[node name="window2_all_night13" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-200, -747)
-
-[node name="window2_all_night14" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-168, -747)
-
-[node name="window2_all_night22" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-648, -618)
-
-[node name="window2_all_night23" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-616, -618)
-
-[node name="window2_all_night24" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-584, -1002)
-
-[node name="window2_all_night25" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-552, -1002)
-
-[node name="window2_all_night26" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-648, -1002)
-
-[node name="window2_all_night27" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-616, -1002)
-
-[node name="window2_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-712, 56)
-
-[node name="window2_all_night4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-680, 56)
-
-[node name="window3_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-488, -419)
-
-[node name="window3_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-456, -419)
-
-[node name="window3_all_night12" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-489, -11)
-
-[node name="window3_all_night23" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-777, -8)
-
-[node name="window3_all_night24" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-681, 344)
-
-[node name="window3_all_night25" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(407, 632)
-
-[node name="window3_all_night26" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(439, 632)
-
-[node name="window3_all_night27" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(823, 189)
-
-[node name="window3_all_night28" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(888, -169)
-
-[node name="window3_all_night29" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(856, -169)
-
-[node name="window3_all_night30" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(919, -392)
-
-[node name="window3_all_night31" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(951, -392)
-
-[node name="window3_all_night32" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(680, -1027)
-
-[node name="window3_all_night33" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(712, -1027)
-
-[node name="window3_all_night34" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(648, -1027)
-
-[node name="window3_all_night13" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-457, -11)
-
-[node name="window3_all_night14" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-553, 21)
-
-[node name="window3_all_night16" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-424, 21)
-
-[node name="window3_all_night15" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(-521, 21)
-
-[node name="window3_all_night17" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(152, -489)
-
-[node name="window3_all_night18" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(184, -489)
-
-[node name="window3_all_night19" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(151, -1064)
-
-[node name="window3_all_night20" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(183, -1064)
-
-[node name="window3_all_night21" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(215, -1064)
-
-[node name="window3_all_night22" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("23_dkqxv")]
-z_index = 6
-position = Vector2(247, -1064)
-
-[node name="window5_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("24_0pqtc")]
-z_index = 7
-position = Vector2(504, -343)
-
-[node name="window5_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("24_0pqtc")]
-z_index = 7
-position = Vector2(536, -343)
-
-[node name="window5_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("24_0pqtc")]
-z_index = 7
-position = Vector2(568, -343)
-
-[node name="door_frame" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-168, -397)
-
-[node name="door1" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-169, -409)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-2216, -397)
-
-[node name="door2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-2217, -409)
-opens_for_groups = Array[String](["mobster"])
-
-[node name="door_frame10" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-2056, -1421)
-
-[node name="door10" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-2057, -1433)
-opens_for_groups = Array[String](["mobster"])
-
-[node name="door_frame9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-2280, 563)
-
-[node name="door9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-2281, 551)
-opens_for_groups = Array[String](["mobster"])
-
-[node name="door_frame4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-72, -653)
-
-[node name="door4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-73, -665)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-777, -941)
-
-[node name="door8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-778, -953)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-488, 83)
-
-[node name="door3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-489, 71)
-
-[node name="door_frame6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(824, -429)
-
-[node name="door6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(823, -441)
-
-[node name="door_frame7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(888, -13)
-
-[node name="door7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(887, -25)
-
-[node name="door_frame5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
-position = Vector2(-680, 83)
-
-[node name="door5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
-position = Vector2(-681, 71)
-
-[node name="tree_1" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-199, -150)
-
-[node name="tree_2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(187, 10)
-
-[node name="tree_3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(23, -150)
-
-[node name="tree_4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(185, -150)
-
-[node name="tree_6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-199, 73)
-
-[node name="tree_7" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-43, 233)
-
-[node name="tree_8" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-197, 231)
-
-[node name="tree_9" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(189, 77)
-
-[node name="tree_10" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(24, 232)
-
-[node name="tree_11" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(183, 230)
-
-[node name="tree_5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-44, -149)
-
-[node name="tree_12" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-200, 13)
-
-[node name="tree_13" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-39, -19)
-
-[node name="tree_14" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-73, 12)
-
-[node name="tree_15" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(27, -20)
-
-[node name="tree_16" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(55, 11)
-
-[node name="tree_17" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(56, 73)
-
-[node name="tree_18" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(22, 106)
-
-[node name="tree_19" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-75, 73)
-
-[node name="tree_20" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("27_ne8oo")]
-position = Vector2(-41, 103)
-
-[node name="window_door_1_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("28_j24p7")]
-position = Vector2(376, -808)
-
-[node name="window_door_1_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("28_j24p7")]
-position = Vector2(408, -808)
-
-[node name="train_st_window_1_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("29_y746w")]
-z_index = 7
-position = Vector2(312, -808)
-
-[node name="train_st_window_1_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("29_y746w")]
-z_index = 7
-position = Vector2(472, -808)
-
-[node name="train_st_window_1_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("29_y746w")]
-z_index = 7
-position = Vector2(472, -840)
-
-[node name="train_st_window_1_all_night4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("29_y746w")]
-z_index = 7
-position = Vector2(312, -840)
-
-[node name="train_st_window_2_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("30_eo28h")]
-z_index = 7
-position = Vector2(312, -872)
-
-[node name="train_st_window_2_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("30_eo28h")]
-z_index = 7
-position = Vector2(472, -872)
-
-[node name="window2_all_night5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("22_4h48i")]
-z_index = 6
-position = Vector2(-136, -683)
-
-[node name="window4_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("31_gl1yx")]
-z_index = 7
-position = Vector2(376, -903)
-
-[node name="window4_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("31_gl1yx")]
-z_index = 7
-position = Vector2(408, -903)
+position = Vector2(-138, -391)
 
 [node name="onyx_cave_sign" type="Sprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
 z_index = 6
 position = Vector2(-478, -607)
 scale = Vector2(2, 2)
 texture = ExtResource("32_d3qxg")
-
-[node name="12hr_clock" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("33_t10t4")]
-z_index = 7
-position = Vector2(392, -968)
-
-[node name="PoliceBarrier4" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(231, 590)
-
-[node name="PoliceBarrier11" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1240, 212)
-
-[node name="PoliceBarrier12" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1595, 765)
-
-[node name="PoliceBarrier13" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1661, 775)
-
-[node name="PoliceBarrier14" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1720, 767)
-
-[node name="PoliceBarrier21" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-2430, 800)
-
-[node name="PoliceBarrier22" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-2489, 792)
-
-[node name="PoliceBarrier15" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1599, -1484)
-
-[node name="PoliceBarrier16" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1674, -1474)
-
-[node name="PoliceBarrier17" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-1747, -1483)
-
-[node name="PoliceBarrier18" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(-2496, -1480)
-
-[node name="PoliceBarrier5" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(295, 581)
-
-[node name="PoliceBarrier6" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("20_5hre3")]
-position = Vector2(359, 589)
 
 [node name="train_tracks" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
 y_sort_enabled = true
@@ -2968,18 +2316,822 @@ position = Vector2(-1801, 551)
 [node name="door_frame18" parent="daylight_affected_section/daylight_affected_ysort/game_world/delivery_doors" instance=ExtResource("25_h5yxo")]
 position = Vector2(-1800, 563)
 
-[node name="door_frame11" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("25_h5yxo")]
+[node name="static_props" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
+y_sort_enabled = true
+
+[node name="12hr_clock2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("41_17l7n")]
+position = Vector2(35507, -30912)
+
+[node name="PoliceBarrier4" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(231, 590)
+
+[node name="PoliceBarrier11" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1240, 212)
+
+[node name="PoliceBarrier12" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1595, 765)
+
+[node name="PoliceBarrier13" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1661, 775)
+
+[node name="PoliceBarrier14" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1720, 767)
+
+[node name="PoliceBarrier21" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-2430, 800)
+
+[node name="PoliceBarrier22" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-2489, 792)
+
+[node name="PoliceBarrier15" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1599, -1484)
+
+[node name="PoliceBarrier16" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1674, -1474)
+
+[node name="PoliceBarrier17" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-1747, -1483)
+
+[node name="PoliceBarrier18" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-2496, -1480)
+
+[node name="PoliceBarrier5" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(295, 581)
+
+[node name="PoliceBarrier6" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(359, 589)
+
+[node name="tree_1" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-199, -150)
+
+[node name="tree_2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(187, 10)
+
+[node name="tree_3" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(23, -150)
+
+[node name="tree_4" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(185, -150)
+
+[node name="tree_6" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-199, 73)
+
+[node name="tree_7" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-43, 233)
+
+[node name="tree_8" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-197, 231)
+
+[node name="tree_9" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(189, 77)
+
+[node name="tree_10" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(24, 232)
+
+[node name="tree_11" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(183, 230)
+
+[node name="tree_5" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-44, -149)
+
+[node name="tree_12" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-200, 13)
+
+[node name="tree_13" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-39, -19)
+
+[node name="tree_14" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-73, 12)
+
+[node name="tree_15" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(27, -20)
+
+[node name="tree_16" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(55, 11)
+
+[node name="tree_17" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(56, 73)
+
+[node name="tree_18" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(22, 106)
+
+[node name="tree_19" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-75, 73)
+
+[node name="tree_20" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("27_ne8oo")]
+position = Vector2(-41, 103)
+
+[node name="PoliceBarrier" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-375, -975)
+
+[node name="PoliceBarrier2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-312, -975)
+
+[node name="PoliceBarrier3" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
+position = Vector2(-249, -975)
+
+[node name="PoliceBarrier7" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(872, 277)
+
+[node name="PoliceBarrier8" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(861, 224)
+
+[node name="PoliceBarrier9" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(858, 327)
+
+[node name="PoliceBarrier10" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(842, 380)
+
+[node name="PoliceBarrier23" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(-683, -336)
+
+[node name="PoliceBarrier24" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(-696, -384)
+
+[node name="PoliceBarrier25" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(-696, -289)
+
+[node name="PoliceBarrier27" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(-671, -259)
+
+[node name="PoliceBarrier26" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("21_xfukv")]
+position = Vector2(-713, -233)
+
+[node name="Bed1" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("26_y8ye6")]
+position = Vector2(35390, -30896)
+
+[node name="12hr_clock" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("33_t10t4")]
+z_index = 7
+position = Vector2(392, -968)
+
+[node name="windows" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
+y_sort_enabled = true
+
+[node name="window2_all_night5" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-136, -683)
+
+[node name="window4_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("31_gl1yx")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(376, -903)
+
+[node name="window4_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("31_gl1yx")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(408, -903)
+
+[node name="window_door_1_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("28_j24p7")]
+position = Vector2(376, -808)
+
+[node name="window_door_1_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("28_j24p7")]
+position = Vector2(408, -808)
+
+[node name="train_st_window_1_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("29_y746w")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(312, -808)
+
+[node name="train_st_window_1_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("29_y746w")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(472, -808)
+
+[node name="train_st_window_1_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("29_y746w")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(472, -840)
+
+[node name="train_st_window_1_all_night4" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("29_y746w")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(312, -840)
+
+[node name="train_st_window_2_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("30_eo28h")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(312, -872)
+
+[node name="train_st_window_2_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("30_eo28h")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(472, -872)
+
+[node name="window2_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-136, -424)
+
+[node name="window2_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-104, -424)
+
+[node name="window2_all_night6" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(184, -458)
+
+[node name="window2_all_night9" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(408, -395)
+
+[node name="window2_all_night10" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(440, -395)
+
+[node name="window2_all_night15" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(504, 182)
+
+[node name="window2_all_night16" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(536, 182)
+
+[node name="window2_all_night17" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(408, 118)
+
+[node name="window2_all_night19" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(568, 86)
+
+[node name="window2_all_night18" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(440, 118)
+
+[node name="window2_all_night20" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(504, -10)
+
+[node name="window2_all_night21" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(536, -10)
+
+[node name="window2_all_night11" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(56, -1051)
+
+[node name="window2_all_night12" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(88, -1051)
+
+[node name="window2_all_night28" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+y_sort_enabled = true
+position = Vector2(-200, -970)
+
+[node name="window2_all_night29" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-200, -1002)
+
+[node name="window2_all_night31" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-456, -1034)
+
+[node name="window2_all_night30" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-168, -1002)
+
+[node name="window2_all_night7" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(88, -458)
+
+[node name="window2_all_night8" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(120, -458)
+
+[node name="window2_all_night32" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(744, -1002)
+
+[node name="window2_all_night33" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(776, -1002)
+
+[node name="window2_all_night40" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(792, -522)
+
+[node name="window2_all_night41" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(824, -522)
+
+[node name="window2_all_night42" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(856, -522)
+
+[node name="window2_all_night46" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(792, -74)
+
+[node name="window2_all_night47" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(824, -74)
+
+[node name="window2_all_night52" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-8, 550)
+
+[node name="window2_all_night53" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(24, 550)
+
+[node name="window2_all_night54" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-328, 502)
+
+[node name="window2_all_night55" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-296, 502)
+
+[node name="window2_all_night56" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-392, 502)
+
+[node name="window2_all_night57" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-360, 502)
+
+[node name="window2_all_night58" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-456, 310)
+
+[node name="window2_all_night59" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-424, 310)
+
+[node name="window2_all_night60" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-616, 310)
+
+[node name="window2_all_night61" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-584, 310)
+
+[node name="window2_all_night62" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-840, 214)
+
+[node name="window2_all_night64" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-872, 214)
+
+[node name="window2_all_night63" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-808, 214)
+
+[node name="window2_all_night48" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(856, -138)
+
+[node name="window2_all_night49" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(888, -138)
+
+[node name="window2_all_night50" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(792, -138)
+
+[node name="window2_all_night51" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(824, -138)
+
+[node name="window2_all_night43" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(888, -522)
+
+[node name="window2_all_night44" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(984, -714)
+
+[node name="window2_all_night45" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(1016, -714)
+
+[node name="window2_all_night34" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(936, -970)
+
+[node name="window2_all_night35" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(968, -970)
+
+[node name="window2_all_night36" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+y_sort_enabled = true
+position = Vector2(840, -938)
+
+[node name="window2_all_night37" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+y_sort_enabled = true
+position = Vector2(872, -938)
+
+[node name="window2_all_night38" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(552, -1033)
+
+[node name="window2_all_night39" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(552, -1002)
+
+[node name="window2_all_night13" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-200, -747)
+
+[node name="window2_all_night14" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-168, -747)
+
+[node name="window2_all_night22" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-648, -618)
+
+[node name="window2_all_night23" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-616, -618)
+
+[node name="window2_all_night24" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-584, -1002)
+
+[node name="window2_all_night25" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-552, -1002)
+
+[node name="window2_all_night26" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-648, -1002)
+
+[node name="window2_all_night27" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-616, -1002)
+
+[node name="window2_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-712, 56)
+
+[node name="window2_all_night4" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("22_4h48i")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-680, 56)
+
+[node name="window3_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-488, -419)
+
+[node name="window3_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-456, -419)
+
+[node name="window3_all_night12" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-489, -11)
+
+[node name="window3_all_night23" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-777, -8)
+
+[node name="window3_all_night24" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-681, 344)
+
+[node name="window3_all_night25" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(407, 632)
+
+[node name="window3_all_night26" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(439, 632)
+
+[node name="window3_all_night27" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(823, 189)
+
+[node name="window3_all_night28" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(888, -169)
+
+[node name="window3_all_night29" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(856, -169)
+
+[node name="window3_all_night30" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(919, -392)
+
+[node name="window3_all_night31" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(951, -392)
+
+[node name="window3_all_night32" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(680, -1027)
+
+[node name="window3_all_night33" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(712, -1027)
+
+[node name="window3_all_night34" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(648, -1027)
+
+[node name="window3_all_night13" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-457, -11)
+
+[node name="window3_all_night14" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-553, 21)
+
+[node name="window3_all_night16" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-424, 21)
+
+[node name="window3_all_night15" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(-521, 21)
+
+[node name="window3_all_night17" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(152, -489)
+
+[node name="window3_all_night18" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(184, -489)
+
+[node name="window3_all_night19" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(151, -1064)
+
+[node name="window3_all_night20" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(183, -1064)
+
+[node name="window3_all_night21" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(215, -1064)
+
+[node name="window3_all_night22" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("23_dkqxv")]
+z_index = 6
+y_sort_enabled = true
+position = Vector2(247, -1064)
+
+[node name="window5_all_night" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("24_0pqtc")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(504, -343)
+
+[node name="window5_all_night2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("24_0pqtc")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(536, -343)
+
+[node name="window5_all_night3" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("24_0pqtc")]
+z_index = 7
+y_sort_enabled = true
+position = Vector2(568, -343)
+
+[node name="pizzashop_window" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("16_hbjk6")]
+y_sort_enabled = true
+position = Vector2(-200, -392)
+
+[node name="pizzashop_window2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("16_hbjk6")]
+y_sort_enabled = true
+position = Vector2(-136, -392)
+
+[node name="pizzashop_window3" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("16_hbjk6")]
+y_sort_enabled = true
+position = Vector2(-104, -392)
+
+[node name="pizzashop_window4" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("16_hbjk6")]
+y_sort_enabled = true
+position = Vector2(-72, -392)
+
+[node name="indoor_window_1" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("33_nbrj4")]
+position = Vector2(35416, -30913)
+
+[node name="indoor_window_2" parent="daylight_affected_section/daylight_affected_ysort/game_world/windows" instance=ExtResource("33_nbrj4")]
+position = Vector2(35480, -30913)
+
+[node name="doors" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
+y_sort_enabled = true
+
+[node name="door_frame11" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
 position = Vector2(35448, -30781)
 
-[node name="door11" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("26_7psvl")]
+[node name="door11" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
 position = Vector2(35447, -30793)
 opens_for_groups = Array[String](["player"])
 
-[node name="window1_dark" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("37_maosy")]
-position = Vector2(35416, -30913.5)
+[node name="door_frame" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-168, -397)
 
-[node name="window1_dark2" parent="daylight_affected_section/daylight_affected_ysort/game_world" instance=ExtResource("37_maosy")]
-position = Vector2(35480, -30913.5)
+[node name="door1" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-169, -409)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame2" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-2216, -397)
+
+[node name="door2" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-2217, -409)
+opens_for_groups = Array[String](["mobster"])
+
+[node name="door_frame10" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-2056, -1421)
+
+[node name="door10" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-2057, -1433)
+opens_for_groups = Array[String](["mobster"])
+
+[node name="door_frame9" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-2280, 563)
+
+[node name="door9" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-2281, 551)
+opens_for_groups = Array[String](["mobster"])
+
+[node name="door_frame4" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-72, -653)
+
+[node name="door4" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-73, -665)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame8" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-777, -941)
+
+[node name="door8" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-778, -953)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame3" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-488, 83)
+
+[node name="door3" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-489, 71)
+
+[node name="door_frame6" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(824, -429)
+
+[node name="door6" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(823, -441)
+
+[node name="door_frame7" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(888, -13)
+
+[node name="door7" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(887, -25)
+
+[node name="door_frame5" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(-680, 83)
+
+[node name="door5" parent="daylight_affected_section/daylight_affected_ysort/game_world/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(-681, 71)
+
+[node name="lightpoles" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
+
+[node name="lightPole" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(-402, -383)
+
+[node name="lightPole4" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(206, -600)
+
+[node name="lightPole2" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(-224, -530)
+
+[node name="lightPole14" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(386, -369)
+
+[node name="lightPole15" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(771, -596)
+
+[node name="lightPole16" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(771, -272)
+
+[node name="lightPole19" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(771, 45)
+
+[node name="lightPole3" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(-400, -690)
+
+[node name="lightPole5" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(-401, 272)
+
+[node name="lightPole6" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(-225, 111)
+
+[node name="lightPole7" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(-402, -47)
+
+[node name="lightPole9" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(-788, 157)
+
+[node name="lightPole12" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(389, 224)
+
+[node name="lightPole13" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(206, -83)
+
+[node name="lightPole17" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(589, -435)
+
+[node name="lightPole18" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(589, -112)
+
+[node name="lightPole20" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("18_rvlww")]
+position = Vector2(558, 223)
+
+[node name="lightPole8" parent="daylight_affected_section/daylight_affected_ysort/game_world/lightpoles" instance=ExtResource("19_uo0ax")]
+position = Vector2(-222, -200)
+
+[node name="point_lights" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
+y_sort_enabled = true
+
+[node name="IndoorWindowLight1" parent="daylight_affected_section/daylight_affected_ysort/game_world/point_lights" instance=ExtResource("37_kvjs4")]
+position = Vector2(35416, -30881)
+
+[node name="IndoorWindowLight2" parent="daylight_affected_section/daylight_affected_ysort/game_world/point_lights" instance=ExtResource("37_kvjs4")]
+position = Vector2(35480, -30881)
 
 [node name="dynamic_props" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
@@ -3042,6 +3194,11 @@ position = Vector2(-1945, -1160)
 position = Vector2(-1929, 217)
 lock_rotation = true
 
+[node name="Player" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("12_5sw6a")]
+position = Vector2(35474, -30857)
+hat_spriteframes = ExtResource("13_jsobc")
+top_spriteframes = ExtResource("14_0nxk0")
+
 [node name="Tile_mid_sketch" type="TileMap" parent="daylight_affected_section"]
 z_index = 2
 z_as_relative = false
@@ -3080,57 +3237,6 @@ layer_0/tile_data = PackedInt32Array(-110032894, 262146, 0, -110032892, 262146, 
 z_index = 3
 y_sort_enabled = true
 
-[node name="door_frame" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(32808, -26829)
-
-[node name="door_frame2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(32936, -26829)
-
-[node name="door1" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(32807, -26841)
-
-[node name="door_frame3" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(32840, -26605)
-
-[node name="door3" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(32839, -26617)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame4" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(35544, -26477)
-
-[node name="door4" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(35543, -26489)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame5" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(35384, -26733)
-
-[node name="door5" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(35383, -26745)
-opens_for_groups = Array[String](["player"])
-
-[node name="door_frame6" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(35448, -26733)
-
-[node name="door6" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(35447, -26745)
-
-[node name="door_frame7" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(35512, -26733)
-
-[node name="door7" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(35511, -26745)
-
-[node name="door_frame8" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("25_h5yxo")]
-position = Vector2(35512, -26573)
-
-[node name="door8" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(35511, -26585)
-
-[node name="door2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("26_7psvl")]
-position = Vector2(32936, -26841)
-
 [node name="npc_cook" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" groups=["cook"] instance=ExtResource("38_u63at")]
 position = Vector2(32872, -26841)
 mass = 10000.0
@@ -3139,24 +3245,6 @@ has_passive_text = true
 ai_directive = "alert_passive"
 voice = "low_sine_voice"
 passive_text = "Order up, kid..."
-
-[node name="pizza_spawner" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("39_vkn27")]
-position = Vector2(32872, -26822)
-
-[node name="delivery_counter" type="Sprite2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort"]
-position = Vector2(32872, -26832)
-texture = ExtResource("40_ex5jd")
-offset = Vector2(0, 8)
-
-[node name="PizzaNeon" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("17_7rubn")]
-z_index = 4
-position = Vector2(32872, -26608)
-
-[node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("41_17l7n")]
-position = Vector2(32903, -26832)
-
-[node name="12hr_clock2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("41_17l7n")]
-position = Vector2(35507, -30913.5)
 
 [node name="dialog_tester" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" node_paths=PackedStringArray("branching_dialog") groups=["delivery"] instance=ExtResource("38_u63at")]
 position = Vector2(32840, -26807)
@@ -3173,10 +3261,77 @@ visible = false
 [node name="Multichar_test" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/dialog_tester" instance=ExtResource("49_w58sk")]
 visible = false
 
-[node name="Player" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("12_5sw6a")]
-position = Vector2(-115, 330)
-hat_spriteframes = ExtResource("13_jsobc")
-top_spriteframes = ExtResource("14_0nxk0")
+[node name="doors" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort"]
+y_sort_enabled = true
+
+[node name="door_frame" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(32808, -26829)
+
+[node name="door_frame2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(32936, -26829)
+
+[node name="door1" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(32807, -26841)
+
+[node name="door_frame3" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(32840, -26605)
+
+[node name="door3" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(32839, -26617)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame4" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(35544, -26477)
+
+[node name="door4" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(35543, -26489)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame5" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(35384, -26733)
+
+[node name="door5" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(35383, -26745)
+opens_for_groups = Array[String](["player"])
+
+[node name="door_frame6" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(35448, -26733)
+
+[node name="door6" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(35447, -26745)
+
+[node name="door_frame7" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(35512, -26733)
+
+[node name="door7" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(35511, -26745)
+
+[node name="door_frame8" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("25_h5yxo")]
+position = Vector2(35512, -26573)
+
+[node name="door8" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(35511, -26585)
+
+[node name="door2" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/doors" instance=ExtResource("26_7psvl")]
+position = Vector2(32936, -26841)
+
+[node name="pizzeria_interior" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort"]
+y_sort_enabled = true
+
+[node name="pizza_spawner" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior" instance=ExtResource("39_vkn27")]
+position = Vector2(32872, -26822)
+
+[node name="delivery_counter" type="Sprite2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior"]
+position = Vector2(32872, -26832)
+texture = ExtResource("40_ex5jd")
+offset = Vector2(0, 8)
+
+[node name="PizzaNeon" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior" instance=ExtResource("17_7rubn")]
+z_index = 4
+position = Vector2(32872, -26608)
+
+[node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior" instance=ExtResource("41_17l7n")]
+position = Vector2(32903, -26832)
 
 [node name="TileMap_mid" type="TileMap" parent="no_daylight_layer/no_daylight_section"]
 z_index = 2
@@ -3200,7 +3355,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("42_bbuo3")
 clock = 14.0
-hour_length_seconds = 60.0
+hour_length_seconds = 3.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_entered"]
