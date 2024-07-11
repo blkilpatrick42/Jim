@@ -39,6 +39,8 @@ func _draw():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	_fade_to_black.global_position = Vector2(0,0)
+	update_fade_alpha()
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 	if(entering):
@@ -74,14 +76,16 @@ func exit():
 		update_fade_alpha()
 		timer_fade.start(fade_step_secs)
 	else: if(fade_alpha <= 0):
+		fade_alpha = 0
 		exiting = false
 		player_ref.stop()
 		player_ref.set_control_frozen(false)
 
 func update_fade_alpha():
 	_fade_to_black.color = Color(0,0,0,fade_alpha)
-	linked_teleporter._fade_to_black.color = Color(0,0,0,fade_alpha)
-	linked_teleporter.fade_alpha = fade_alpha
+	if(linked_teleporter != null):
+		linked_teleporter._fade_to_black.color = Color(0,0,0,fade_alpha)
+		linked_teleporter.fade_alpha = fade_alpha
 
 func _on_area_2d_body_entered(body):
 	if(body.is_in_group("player")):
@@ -90,14 +94,10 @@ func _on_area_2d_body_entered(body):
 			entering = true
 			player_ref.stop()
 			player_ref.set_control_frozen(true)
-			_fade_to_black.visible = true
-			linked_teleporter._fade_to_black.visible = true
 			update_fade_alpha()
 			timer_fade.start(fade_step_secs)
 			if(enter_x_push != 0):
 				player_ref.set_current_v(Vector2(enter_x_push,0))
 			if(enter_y_push != 0):
 				player_ref.set_current_v(Vector2(0,enter_y_push))
-		
-#func _on_area_2d_body_exited(body):
-#
+

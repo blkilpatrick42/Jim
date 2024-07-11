@@ -12,24 +12,20 @@ trunk = NodePath("1")
 speaker_text = "The new dialog system is great!"
 option_branches = [NodePath("../2")]
 voice = "sine_voice"
-speaker_name = ""
 
 [node name="2" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_k66v0")]
 position = Vector2(0, 219)
 speaker_text = "It supports multiple lines of dialog"
 option_branches = [NodePath("../3")]
 voice = "sine_voice"
-speaker_name = ""
 
 [node name="3" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_k66v0")]
 position = Vector2(-2, 475)
 speaker_text = "So I can go on talking for several sentences"
 option_branches = [NodePath("../4")]
 voice = "sine_voice"
-speaker_name = ""
 
 [node name="4" parent="." instance=ExtResource("2_k66v0")]
 position = Vector2(0, 757)
 speaker_text = "Isn't that cool?"
 voice = "sine_voice"
-speaker_name = ""

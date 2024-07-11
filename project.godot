@@ -135,4 +135,4 @@ pan_right={
 textures/canvas_textures/default_texture_filter=0
 textures/default_filters/anisotropic_filtering_level=1
 anti_aliasing/screen_space_roughness_limiter/enabled=false
-environment/defaults/default_clear_color=Color(0.0509804, 0.0509804, 0.0509804, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
