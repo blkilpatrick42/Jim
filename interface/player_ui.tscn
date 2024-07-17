@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mcdceuvq1y5j"]
+[gd_scene load_steps=4 format=3 uid="uid://mcdceuvq1y5j"]
 
 [ext_resource type="Script" path="res://scripts/character/player/player_ui.gd" id="1_nbha7"]
 [ext_resource type="SpriteFrames" uid="uid://bmgpmudv15sq" path="res://sprites/spritesheets/spriteframes/interface/health_heart.tres" id="1_vp1fm"]
+[ext_resource type="PackedScene" uid="uid://br7lsjp6dti22" path="res://interface/location_header.tscn" id="3_bnmgx"]
 
 [node name="player_ui" type="Control"]
 z_index = 6
@@ -30,3 +31,5 @@ animation = &"active"
 position = Vector2(48, 12)
 sprite_frames = ExtResource("1_vp1fm")
 animation = &"active"
+
+[node name="location_header" parent="." instance=ExtResource("3_bnmgx")]

@@ -3,6 +3,7 @@ extends Control
 @onready var heart_1 : AnimatedSprite2D = $health_meter/heart_1
 @onready var heart_2 : AnimatedSprite2D = $health_meter/heart_2
 @onready var heart_3 : AnimatedSprite2D = $health_meter/heart_3
+@onready var location_header = $location_header
 
 var hearts : Array[Node] = []
 
@@ -18,6 +19,9 @@ func update_hearts(points : int):
 		else:
 			hearts[iterator].play("inactive")
 		iterator+=1
+
+func activate_header(label : String):
+	location_header.activate_header(label)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

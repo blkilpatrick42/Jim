@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://br7lsjp6dti22"]
+
+[ext_resource type="Texture2D" uid="uid://bqjwgii8jx3yy" path="res://sprites/interface/location_header.png" id="1_qtx12"]
+[ext_resource type="Script" path="res://scripts/entities/location_header.gd" id="1_vuylt"]
+[ext_resource type="LabelSettings" uid="uid://ds4opc02443bj" path="res://interface/location_label_settings.tres" id="3_1ma0a"]
+
+[node name="location_header" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 316.0
+offset_top = 32.0
+offset_right = 632.0
+offset_bottom = 65.0
+script = ExtResource("1_vuylt")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_qtx12")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -14.0
+offset_right = 62.0
+offset_bottom = 14.0
+label_settings = ExtResource("3_1ma0a")
+horizontal_alignment = 1
+vertical_alignment = 1

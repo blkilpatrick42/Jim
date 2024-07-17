@@ -53,13 +53,14 @@ func toggle_pause_parent_tree():
 func toggle_menu_pause():
 	if(!is_game_over):
 		if(!is_menu_paused):
-			pause_menu_ref = pause_menu.instantiate()
-			player_ref.add_child(pause_menu_ref)
-			is_menu_paused = true
-			sound_player.stream = load("res://audio/soundFX/opened.wav")
-			sound_player.play()
-			toggle_pause_parent_tree()
-			timer_song.start(play_song_wait_sec)
+			if(!player_ref.control_frozen):
+				pause_menu_ref = pause_menu.instantiate()
+				player_ref.add_child(pause_menu_ref)
+				is_menu_paused = true
+				sound_player.stream = load("res://audio/soundFX/opened.wav")
+				sound_player.play()
+				toggle_pause_parent_tree()
+				timer_song.start(play_song_wait_sec)
 		else:
 			pause_menu_ref.queue_free()
 			is_menu_paused = false

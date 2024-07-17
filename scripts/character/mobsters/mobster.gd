@@ -66,6 +66,8 @@ var is_invincible = false
 var holding_object = false
 var held_obj : Node
 
+var offset_vector : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_up_character_base()
@@ -355,6 +357,7 @@ func _on_adjust_offset(adjustment : Vector2):
 		child.is_in_group("pizza_bubble")):
 			child.position += adjustment
 	_shadow.offset += adjustment
+	offset_vector = adjustment
 
 func _on_pick_up(pick_up_obj : Node):
 	if(!holding_object):
@@ -490,6 +493,7 @@ func _on_pizza_bubble():
 func _on_blood():
 	var blood = blood.instantiate()
 	self.add_child(blood)
+	blood.position += offset_vector
 
 func _on_die_skull():
 	sound_player.stream = load("res://audio/soundFX/voice/low_sine_voice/1.wav")

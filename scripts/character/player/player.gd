@@ -104,6 +104,9 @@ func go_vincible():
 	is_invincible = false
 	set_collision_layer_value(damage_collision_layer,true)
 
+func _activate_location_header(name : String):
+	_ui.activate_header(name)
+
 func get_input():
 	if(!control_frozen):
 		#orient and player according to input
@@ -376,3 +379,7 @@ func _physics_process(delta):
 
 
 
+
+
+func _on_location_label_activate_header(name):
+	pass # Replace with function body.
