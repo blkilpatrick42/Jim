@@ -10,6 +10,7 @@ var frame_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.bus = "Music"
 	add_child(sound_player)
 
 func set_facing_direction(dir):

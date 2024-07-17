@@ -1831,36 +1831,36 @@ spawner_team = "blu"
 [node name="labyrinth1" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2336, -818)
 stream = ExtResource("3_fhby0")
-volume_db = -23.0
 autoplay = true
 max_distance = 1500.0
 attenuation = 2.0
+bus = &"Music"
 
 [node name="labyrinth1-2" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-2304, 90)
 stream = ExtResource("3_fhby0")
-volume_db = -23.0
 autoplay = true
 max_distance = 1500.0
 attenuation = 2.14355
+bus = &"Music"
 
 [node name="central_safe_zone2" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(-18, -200)
 scale = Vector2(1.02562, 2.06498)
-volume_db = -15.0
 autoplay = true
 max_distance = 1500.0
 attenuation = 2.07053
+bus = &"Music"
 script = ExtResource("4_qkg83")
 song_deck = Array[String](["", "", "", "", "", "", "res://audio/music/A Tree With Silver Dollar Leaves.mp3", "", "", "", "", "", "", "", "res://audio/music/test_song.wav", "", "", "res://audio/music/twilight_theme.wav", "", "", "", "", "", ""])
 
 [node name="pizzeria_interior" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(32857, -26682)
 stream = ExtResource("5_snsgp")
-volume_db = -15.0
 pitch_scale = 0.9
 autoplay = true
 max_distance = 500.0
+bus = &"Music"
 
 [node name="teleporters" type="Node2D" parent="dev_layer"]
 
@@ -1913,6 +1913,7 @@ reparent_to_daylight = true
 reparent_to_no_daylight = false
 
 [node name="location_labels" type="Node2D" parent="dev_layer"]
+visible = false
 
 [node name="Your Apartment" parent="dev_layer/location_labels" instance=ExtResource("8_mj74d")]
 label_name = "Your Apartment"

@@ -23,7 +23,7 @@ func _ready():
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
 	add_child(sound_player)
-	sound_player.volume_db = -20
+	sound_player.bus = "Effects"
 	
 func set_label_text(text):
 	_label.text = text

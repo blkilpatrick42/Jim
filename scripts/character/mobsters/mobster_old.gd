@@ -113,6 +113,7 @@ var immobilized = false
 func _ready():
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	navigation_agent.path_desired_distance = 4.0
 	navigation_agent.target_desired_distance = 32.0

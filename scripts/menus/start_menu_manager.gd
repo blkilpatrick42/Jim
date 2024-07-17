@@ -81,6 +81,7 @@ func _ready():
 	timer.one_shot = true
 	add_child(timer)
 	timer.start(alpha_step_time_secs)
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	labels = [start_label, settings_label, quit_label]
 	set_labels_alpha(menu_alpha)

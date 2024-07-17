@@ -22,8 +22,8 @@ var pause_menu_ref = null
 
 #Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.bus = "Music"
 	add_child(sound_player)
-	sound_player.volume_db = -12.0
 	timer_world.one_shot = true
 	timer_world.process_mode = Node.PROCESS_MODE_PAUSABLE
 	timer_song.one_shot = true

@@ -45,6 +45,7 @@ var immobilized = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	
 	#set up character base

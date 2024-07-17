@@ -15,6 +15,7 @@ var source_obj :Node
 func _ready():
 	sound_player.max_distance = 500
 	sound_player.attenuation = 2
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	self.add_to_group(team)
 	match(team):

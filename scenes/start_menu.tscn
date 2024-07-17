@@ -26,5 +26,6 @@ timer_wait_secs = 0.8
 stream = ExtResource("7_0owee")
 volume_db = -12.855
 autoplay = true
+bus = &"Music"
 
 [node name="start_menu" parent="." instance=ExtResource("6_ucxi6")]

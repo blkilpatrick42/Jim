@@ -64,12 +64,12 @@ func _ready():
 	timer_dash_regen.one_shot = true
 	invincibility_timer.one_shot = true
 	pan_timer.one_shot = true
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	add_child(invincibility_timer)
 	add_child(pan_timer)
-	sound_player.volume_db = -18
 	
 	#set up character base
 	_character_base.set_facing_dir(facing_dir)

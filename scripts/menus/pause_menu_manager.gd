@@ -65,6 +65,7 @@ func handle_input():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	labels = [settings_label, quit_label]
 	set_labels_alpha(menu_alpha)

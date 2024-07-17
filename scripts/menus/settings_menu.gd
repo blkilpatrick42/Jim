@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var back_label = $CenterContainer/VBoxContainer/back_label
 
 var video_settings_menu = preload("res://menu/settings menu/video_settings.tscn")
+var audio_settings_menu = preload("res://menu/settings menu/audio_settings.tscn")
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []
@@ -42,7 +43,9 @@ func update_selection():
 
 func handle_selection():
 	if(select_index == 0): #audio
-		pass #TODO: audio menu
+		var child_settings_menu = audio_settings_menu.instantiate()
+		active_child_menu = child_settings_menu
+		get_parent().add_child(child_settings_menu)
 	elif(select_index == 1): #settings
 		var child_settings_menu = video_settings_menu.instantiate()
 		active_child_menu = child_settings_menu
@@ -66,6 +69,7 @@ func handle_input():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sound_player.bus = "Effects"
 	add_child(sound_player)
 	labels = [audio_label, video_label, back_label]
 	set_labels_alpha(menu_alpha)

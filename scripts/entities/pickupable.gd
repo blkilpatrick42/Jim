@@ -39,9 +39,8 @@ func _ready():
 	timer_spark.one_shot = true
 	add_child(timer_spark)
 	sound_player.max_distance = 500
-	#sound_player.attenuation = 2
+	sound_player.bus = "Effects"
 	add_child(sound_player)
-	#sound_player.volume_db = -20
 
 func set_physics_pos(vector2):
 	should_reset = true
