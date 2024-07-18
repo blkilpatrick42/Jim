@@ -19,6 +19,7 @@ extends RigidBody2D
 var player_die = preload("res://entities/characters/player/player_die.tscn") 
 var dash_get = preload("res://interface/dash_get.tscn")
 var die_material = preload("res://entities/characters/player/die_material.tres")
+var speech_bubble = preload("res://dialog/speech_bubble.tscn")
 
 var sound_player := AudioStreamPlayer.new()
 
@@ -58,17 +59,24 @@ var pan_step = 4
 const pan_step_time_secs = 0.005
 var camera_offset = Vector2(0,0)
 
+var speech_instance = null
+var comment_timer := Timer.new()
+var comment_timer_wait_secs = 1
+var comment_waiting = false
+
 func _ready():
 	_collision.disabled = no_clip
 	timer_dash.one_shot = true
 	timer_dash_regen.one_shot = true
 	invincibility_timer.one_shot = true
 	pan_timer.one_shot = true
+	comment_timer.one_shot = true
 	sound_player.bus = "Effects"
 	add_child(sound_player)
 	add_child(timer_dash)
 	add_child(timer_dash_regen)
 	add_child(invincibility_timer)
+	add_child(comment_timer)
 	add_child(pan_timer)
 	
 	#set up character base
@@ -143,6 +151,15 @@ func reduce_hp():
 func _on_body_entered(body:Node):
 	if(body.is_in_group("bullet")):
 		reduce_hp()
+
+func _on_make_comment(text : String):
+	if(speech_instance != null):
+		speech_instance.queue_free()
+	speech_instance = speech_bubble.instantiate()
+	self.add_child(speech_instance)
+	speech_instance.play_passive_text(text, "sine_voice")
+	comment_timer.start(comment_timer_wait_secs)
+	comment_waiting = false
 
 func handle_camera_pan():
 	var pan_direction = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
@@ -362,8 +379,15 @@ func _process(_delta):
 				can_dash = true
 				add_child(dash_get.instantiate())
 			
-			
-
+			if(speech_instance != null &&
+			speech_instance.full_text_displayed):
+				if(!comment_waiting):
+					comment_timer.start(comment_timer_wait_secs)
+					comment_waiting = true
+				else:
+					if(comment_timer.is_stopped()):
+						speech_instance.queue_free()
+					
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
 		if(!dead):
@@ -376,10 +400,3 @@ func _physics_process(delta):
 				go_vincible()
 			_ui.update_hearts(current_hp)
 		
-
-
-
-
-
-func _on_location_label_activate_header(name):
-	pass # Replace with function body.

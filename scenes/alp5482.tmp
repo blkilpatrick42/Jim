@@ -1998,7 +1998,7 @@ debug_color = Color(0.678431, 0.996078, 0.737255, 0.419608)
 [node name="neighbors kitchen" parent="dev_layer/comment_areas" instance=ExtResource("9_n1k00")]
 position = Vector2(30, -52)
 collision_layer = 12
-text = "Wow, I can see RIGHT into their kitchen"
+text = "Wow, I can see RIGHT into their kitchen..."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/comment_areas/neighbors kitchen"]
 position = Vector2(35447, -30781)
@@ -2436,7 +2436,7 @@ position = Vector2(-1800, 563)
 [node name="static_props" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
 y_sort_enabled = true
 
-[node name="12hr_clock2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" groups=["interactable"] instance=ExtResource("41_17l7n")]
+[node name="12hr_clock2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("41_17l7n")]
 position = Vector2(35507, -30912)
 
 [node name="PoliceBarrier4" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("20_5hre3")]
@@ -3465,7 +3465,7 @@ offset = Vector2(0, 8)
 z_index = 4
 position = Vector2(32872, -26608)
 
-[node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior" groups=["interactable"] instance=ExtResource("41_17l7n")]
+[node name="12hr_clock" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior" instance=ExtResource("41_17l7n")]
 position = Vector2(32903, -26832)
 
 [node name="TileMap_mid" type="TileMap" parent="no_daylight_layer/no_daylight_section"]
@@ -3509,4 +3509,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_entered" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_entered"]
 [connection signal="body_exited" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_exited"]
 [connection signal="comment" from="daylight_affected_section/daylight_affected_ysort/game_world/static_props/12hr_clock2" to="daylight_affected_section/daylight_affected_ysort/Player" method="_on_make_comment"]
-[connection signal="comment" from="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior/12hr_clock" to="daylight_affected_section/daylight_affected_ysort/Player" method="_on_make_comment"]

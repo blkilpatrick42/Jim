@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://oyf25txxcvij"]
+
+[sub_resource type="GDScript" id="GDScript_e7yml"]
+script/source = "extends Node
+
+var master_volume : float = 0.5
+var music_volume : float = 0.5
+var effects_volume : float = 0.5
+
+func get_master_volume() -> float:
+	return master_volume
+
+func get_music_volume() -> float:
+	return music_volume
+
+func get_effects_volume() -> float:
+	return effects_volume
+
+func set_master_volume(volume : float):
+	master_volume = volume
+
+func set_music_volume(volume : float):
+	music_volume = volume
+
+func set_effects_volume(volume : float):
+	effects_volume = volume
+"
+
+[node name="AudioManager" type="Node"]
+script = SubResource("GDScript_e7yml")

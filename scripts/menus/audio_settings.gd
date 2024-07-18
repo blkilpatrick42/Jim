@@ -10,7 +10,7 @@ var select_index = 0
 var labels: Array[Node] = []
 var menu_alpha = 1
 var sound_player := AudioStreamPlayer2D.new()
-var db_step = 6
+var db_step = 8
 var db_zero = 80
 
 func advance_index():
