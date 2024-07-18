@@ -64,6 +64,8 @@ var comment_timer := Timer.new()
 var comment_timer_wait_secs = 1
 var comment_waiting = false
 
+var money : int = 0
+
 func _ready():
 	_collision.disabled = no_clip
 	timer_dash.one_shot = true
@@ -100,6 +102,16 @@ func exit_dialog():
 	in_dialog = false
 	control_frozen = false
 	dialog_panning = false
+
+func get_money():
+	return money
+
+func _on_add_money(num : int):
+	set_money(money + num)
+
+func set_money(num : int):
+	money = num
+	_ui.set_money(money)
 
 func go_invincible():
 	invincibility_timer.start(1.5)
@@ -358,10 +370,6 @@ func _process(_delta):
 				grabObj.is_in_group("pickupable")):
 					grabObj.will_pickup = true
 					will_grab_object = grabObj
-			#check grabber for talk-to-able NPC's
-			if(!in_dialog):
-				#TODO: intitiate the talkies
-				pass
 			#stop dash if timer has been esceeded
 			if(is_dashing):
 				acceleration_quotient = dash_speed
@@ -399,4 +407,5 @@ func _physics_process(delta):
 			is_invincible == true):
 				go_vincible()
 			_ui.update_hearts(current_hp)
+			_ui.set_money(money)
 		

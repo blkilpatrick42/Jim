@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://mcdceuvq1y5j"]
+[gd_scene load_steps=6 format=3 uid="uid://mcdceuvq1y5j"]
 
 [ext_resource type="Script" path="res://scripts/character/player/player_ui.gd" id="1_nbha7"]
 [ext_resource type="SpriteFrames" uid="uid://bmgpmudv15sq" path="res://sprites/spritesheets/spriteframes/interface/health_heart.tres" id="1_vp1fm"]
 [ext_resource type="PackedScene" uid="uid://br7lsjp6dti22" path="res://interface/location_header.tscn" id="3_bnmgx"]
+[ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="4_fwlcb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7uvet"]
+font = ExtResource("4_fwlcb")
+font_size = 24
 
 [node name="player_ui" type="Control"]
 z_index = 6
@@ -14,7 +19,7 @@ script = ExtResource("1_nbha7")
 
 [node name="health_meter" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 72.0
+offset_right = 60.0
 offset_bottom = 24.0
 
 [node name="heart_1" type="AnimatedSprite2D" parent="health_meter"]
@@ -33,3 +38,19 @@ sprite_frames = ExtResource("1_vp1fm")
 animation = &"active"
 
 [node name="location_header" parent="." instance=ExtResource("3_bnmgx")]
+
+[node name="money_tracker" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 60.0
+offset_right = 107.0
+offset_bottom = 22.0
+
+[node name="money_label" type="Label" parent="money_tracker"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 25.0
+text = "
+
+"
+label_settings = SubResource("LabelSettings_7uvet")

@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/utility/pizza_spawner.gd" id="1_mjqkb"]
 [ext_resource type="Script" path="res://scripts/utility/become_invisible.gd" id="1_rtj2l"]
-[ext_resource type="Texture2D" uid="uid://cam4vl2u6i8qd" path="res://sprites/props/pizza.png" id="1_sov5o"]
+[ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="2_61oyr"]
 
 [node name="pizza_spawner" type="Node2D" groups=["pizza_spawner"]]
 script = ExtResource("1_mjqkb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.184314)
-texture = ExtResource("1_sov5o")
+sprite_frames = ExtResource("2_61oyr")
+animation = &"1"
 offset = Vector2(0, -3)
 script = ExtResource("1_rtj2l")
