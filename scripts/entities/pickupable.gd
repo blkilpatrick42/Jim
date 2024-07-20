@@ -33,6 +33,8 @@ var can_spark = false
 
 var local_collision_pos = Vector2(0,0)
 
+signal spark_collide()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	original_offset = sprite.offset
@@ -107,20 +109,23 @@ func set_will_pickup_false():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#TODO: pickup arrow broke and i don't care enough to fix it.
+	#maybe get rid of it in favor of a shader-based highlight or something?
 #	#update pickup arrow's presence
-	if(!picked_up && will_pickup && !showing_arrow):
-		arrow_instance = pickup_arrow.instantiate()
-		get_parent().add_child(arrow_instance)
-		showing_arrow = true
-	else: if (!will_pickup && showing_arrow ||
-				picked_up && showing_arrow):
-		arrow_instance = get_tree().get_nodes_in_group("pickuparrow")[0]
-		get_parent().remove_child(arrow_instance)
-		arrow_instance.queue_free()
-		showing_arrow = false
-		
-	if(showing_arrow):
-		arrow_instance.position = position
+	#if(!picked_up && will_pickup && !showing_arrow):
+		#arrow_instance = pickup_arrow.instantiate()
+		#add_child(arrow_instance)
+		#showing_arrow = true
+	#else: if (!will_pickup && showing_arrow ||
+				#picked_up && showing_arrow):
+		#arrow_instance.queue_free()
+		#var arrow_instances = get_tree().get_nodes_in_group("pickuparrow")
+		#for arrow in arrow_instances:
+			#arrow.queue_free()
+		#showing_arrow = false
+		#
+	#if(showing_arrow):
+		#arrow_instance.position = position
 		
 	if(picked_up):
 		global_position = (pickup_actor_ref.global_position + Vector2(0, -base_offset+y_sort_offset))
@@ -137,6 +142,7 @@ func _integrate_forces(state):
 			nSpark.global_position = local_collision_pos
 			sound_player.stream = load("res://audio/soundFX/bigCollide.wav")
 			sound_player.play()
+			spark_collide.emit()
 			
 	if should_reset:
 		should_reset = false

@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpua352fqdglw"]
+[gd_scene load_steps=4 format=3 uid="uid://dq12wauxboowx"]
 
-[ext_resource type="Script" path="res://scripts/entities/door.gd" id="1_3avq0"]
-[ext_resource type="SpriteFrames" uid="uid://m6t412rcckj5" path="res://sprites/spritesheets/spriteframes/game_world/door1.tres" id="2_qmsv0"]
+[ext_resource type="Script" path="res://scripts/entities/door.gd" id="1_c6c7a"]
+[ext_resource type="SpriteFrames" uid="uid://b4h8dhvp4tqw8" path="res://sprites/spritesheets/spriteframes/game_world/vert_door1.tres" id="2_ukyml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j02e0"]
 size = Vector2(28, 30)
 
-[node name="delivery_door" type="Node2D" groups=["delivery_door", "door"]]
-script = ExtResource("1_3avq0")
+[node name="vert_door1" type="Node2D" groups=["door"]]
+script = ExtResource("1_c6c7a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 9)
-sprite_frames = ExtResource("2_qmsv0")
+sprite_frames = ExtResource("2_ukyml")
 animation = &"open"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

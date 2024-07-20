@@ -8,6 +8,9 @@ size = Vector2(8, 5)
 
 [node name="Cash" type="RigidBody2D" groups=["interactable"]]
 collision_layer = 8
+collision_mask = 4113
+lock_rotation = true
+linear_damp = 10.0
 script = ExtResource("1_sfnsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

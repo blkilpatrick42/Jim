@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://1htqc5w43g1e"]
+[gd_scene load_steps=9 format=3 uid="uid://1htqc5w43g1e"]
 
 [ext_resource type="Script" path="res://scripts/entities/pizza.gd" id="1_rrs1i"]
 [ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="2_a2jud"]
 [ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="3_0kawv"]
 [ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="4_f123m"]
 [ext_resource type="Texture2D" uid="uid://tky7m7ktiahc" path="res://sprites/interface/compass_arrow.png" id="5_ryj0m"]
+[ext_resource type="Texture2D" uid="uid://1x7qbnlvygbv" path="res://sprites/interface/pointer_arrow.png" id="6_cfod4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_486n2"]
 bounce = 0.05
@@ -47,3 +48,9 @@ shape = SubResource("CapsuleShape2D_bjers")
 [node name="compass_arrow" type="Sprite2D" parent="."]
 texture = ExtResource("5_ryj0m")
 offset = Vector2(16, 0)
+
+[node name="pointer_arrow" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("6_cfod4")
+
+[connection signal="spark_collide" from="pizza" to="." method="_on_prop_collide"]

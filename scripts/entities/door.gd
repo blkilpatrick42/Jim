@@ -6,6 +6,8 @@ var sound_player := AudioStreamPlayer.new()
 
 @export var opens_for_groups: Array[String]
 
+@export var parent_door : Node2D
+
 var opened = false
 var opening = false
 var closing = false
@@ -25,6 +27,9 @@ func open():
 	if(!opened):
 		_animated_sprite.play("open")
 		opening = true
+
+func get_parent_door():
+	return parent_door
 
 func close():
 	if(opened):
