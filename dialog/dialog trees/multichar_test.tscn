@@ -11,7 +11,7 @@ trunk = NodePath("whats up")
 
 [node name="whats up" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(-195, -18)
-speaker_text = "Hey, what's up?"
+speaker_text = Array[String](["What's up?", "How's it going?", "You need something?"])
 speech_options = Array[String](["Too busy", "Not much"])
 option_branches = [NodePath("../too busy"), NodePath("../not much")]
 voice = "sine_voice"
@@ -19,20 +19,20 @@ speaker_name = "delivery"
 
 [node name="too busy" parent="." instance=ExtResource("2_clppb")]
 position = Vector2(-362, 179)
-speaker_text = "I'll leave you to it, then"
+speaker_text = Array[String](["Gotcha", "I'll leave you to it", "Whatever", "See you later, then"])
 voice = "sine_voice"
 speaker_name = "delivery"
 
 [node name="not much" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(0, 219)
-speaker_text = "Yeah, there's not a lot to do around here"
+speaker_text = Array[String](["Yeah, there's not a lot to do around here"])
 option_branches = [NodePath("../not much2")]
 voice = "sine_voice"
 speaker_name = "delivery"
 
 [node name="not much2" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(-2, 475)
-speaker_text = "Could always try doing your jobs"
+speaker_text = Array[String](["Could always try doing your jobs"])
 speaker_portrait = ExtResource("3_xpyen")
 option_branches = [NodePath("../notmuch3")]
 voice = "low_sine_voice"
@@ -40,7 +40,7 @@ speaker_name = "cook"
 
 [node name="notmuch3" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(0, 757)
-speaker_text = "These pies are getting cold"
+speaker_text = Array[String](["These pies are getting cold..."])
 speaker_portrait = ExtResource("3_xpyen")
 option_branches = [NodePath("../notmuch4")]
 voice = "low_sine_voice"
@@ -48,13 +48,13 @@ speaker_name = "cook"
 
 [node name="notmuch4" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(-2, 1034)
-speaker_text = "Don't look at me"
+speaker_text = Array[String](["Don't look at me"])
 option_branches = [NodePath("../notmuch5")]
 voice = "sine_voice"
 speaker_name = "delivery"
 
 [node name="notmuch5" parent="." instance=ExtResource("2_clppb")]
 position = Vector2(6, 1339)
-speaker_text = "I've done my time for today"
+speaker_text = Array[String](["It's all you, kid", "I've done my time", "It's beneath me"])
 voice = "sine_voice"
 speaker_name = "delivery"

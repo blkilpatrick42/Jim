@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6w41w8pjlaj"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_007ts"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_vjalx"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_007ts")
+trunk = NodePath("normal")
+
+[node name="normal" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_vjalx")]
+speaker_text = Array[String](["There's our pizza!", "Right on time!", "We've been expecting you!", "There you are!", "Not a moment too soon!", "There's my pizza!", "Pizza time!", "There it is!"])
+speaker_portrait = null
+option_branches = [NodePath("../1hits")]
+voice = "sine_voice"
+gives_money = 0
+
+[node name="1hits" parent="." instance=ExtResource("2_vjalx")]
+position = Vector2(4, 213)
+speaker_text = Array[String](["...The sauce is all over the place", "But it looks like all the toppings fell off", "But it's kinda squished looking...", "But it looks like it's been tossed around some", "Why is the box so beat up?", "...But it's kinda smooshed", "What's this dent in the box from?", "BuBut it looks a little...Jostled...", "But it looks like it saw some turbulence"])
+speaker_portrait = null
+gives_money = 2

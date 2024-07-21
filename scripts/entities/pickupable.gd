@@ -34,6 +34,7 @@ var can_spark = false
 var local_collision_pos = Vector2(0,0)
 
 signal spark_collide()
+signal signal_picked_up()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,6 +82,7 @@ func pick_up(actor_ref : Node):
 	reparent(actor_ref)
 	picked_up = true
 	will_pickup = false
+	signal_picked_up.emit()
 
 func put_down(dir):
 	if(picked_up):

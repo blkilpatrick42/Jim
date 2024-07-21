@@ -70,8 +70,7 @@ func interact():
 		add_child(dialog_manager)
 		var player_ref = get_tree().get_nodes_in_group("player")[0]
 		player_ref.enter_dialog()
-		dialog_manager.set_tree_and_start_dialog(branching_dialog)
-	
+		dialog_manager.set_tree_and_start_dialog(branching_dialog)	
 
 func speed():
 	return linear_velocity.length()

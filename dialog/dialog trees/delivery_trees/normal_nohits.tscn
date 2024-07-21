@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2aypq3kktn1"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_l3h0i"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_6qrbs"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_l3h0i")
+trunk = NodePath("normal")
+
+[node name="normal" parent="." instance=ExtResource("2_6qrbs")]
+speaker_text = Array[String](["There's our pizza!", "Right on time!", "We've been expecting you!", "There you are!", "Not a moment too soon!", "There's my pizza!", "Pizza time!", "There it is!"])
+speaker_portrait = null
+voice = "sine_voice"
+gives_money = 0

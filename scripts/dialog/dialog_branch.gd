@@ -4,7 +4,7 @@ extends Node2D
 
 @onready var _editor_anim = $AnimatedSprite2D
 
-@export var speaker_text : String
+@export var speaker_text : Array[String]
 @export var speaker_portrait : SpriteFrames
 @export var speaker_emote : String #animation to run on sprite
 
@@ -13,6 +13,13 @@ extends Node2D
 @export var voice : String
 @export var speaker_name : String
 
+@export var gives_money : int = 0
+
+var random = RandomNumberGenerator.new()
+
+func get_gives_money() -> int:
+	return gives_money
+
 func get_speaker_portrait():
 	return speaker_portrait
 
@@ -20,7 +27,8 @@ func get_speaker_name():
 	return speaker_name
 
 func get_speaker_text():
-	return speaker_text
+	var index = random.randi_range(0,speaker_text.size()-1)
+	return speaker_text[index]
 
 func get_speaker_emote():
 	return speaker_emote

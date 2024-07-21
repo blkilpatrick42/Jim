@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvfsle14quvae"]
+[gd_scene load_steps=8 format=3 uid="uid://bvfsle14quvae"]
 
 [ext_resource type="Script" path="res://scripts/dialog/dialog_bubble.gd" id="1_0ipjp"]
 [ext_resource type="Texture2D" uid="uid://bfkanef1y4kmx" path="res://sprites/dialog/dialog_bubble.png" id="1_cqxuj"]
-[ext_resource type="SpriteFrames" uid="uid://mtjd1b700qx2" path="res://sprites/dialog/portraits/test_2.tres" id="2_vex8v"]
 [ext_resource type="LabelSettings" uid="uid://ca2608v2da05w" path="res://dialog/bubble_settings.tres" id="4_w0fqp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jm16r"]
@@ -31,7 +30,6 @@ texture = ExtResource("1_cqxuj")
 z_index = 7
 material = SubResource("CanvasItemMaterial_080c4")
 position = Vector2(-65, -18)
-sprite_frames = ExtResource("2_vex8v")
 
 [node name="Label" type="Label" parent="."]
 z_index = 7

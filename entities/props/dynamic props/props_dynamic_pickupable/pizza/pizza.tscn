@@ -53,4 +53,5 @@ offset = Vector2(16, 0)
 z_index = 5
 texture = ExtResource("6_cfod4")
 
+[connection signal="signal_picked_up" from="pizza" to="." method="_on_picked_up"]
 [connection signal="spark_collide" from="pizza" to="." method="_on_prop_collide"]

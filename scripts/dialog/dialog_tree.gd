@@ -40,3 +40,6 @@ func get_num_option_branches() -> int:
 
 func take_speech_option(index : int):
 	current_branch = current_branch.get_option_branch(index)
+
+func get_give_money_amount() -> int:
+	return current_branch.get_gives_money()

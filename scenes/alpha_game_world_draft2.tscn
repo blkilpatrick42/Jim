@@ -3679,7 +3679,7 @@ position = Vector2(-1929, 217)
 lock_rotation = true
 
 [node name="Player" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("12_5sw6a")]
-position = Vector2(35448, -30857)
+position = Vector2(-138, -297)
 hat_spriteframes = ExtResource("13_jsobc")
 top_spriteframes = ExtResource("14_0nxk0")
 

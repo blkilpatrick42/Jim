@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnjuoalrqa8tv"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_ihxbq"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_ewm2p"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_ihxbq")
+trunk = NodePath("slow")
+
+[node name="slow" parent="." instance=ExtResource("2_ewm2p")]
+speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!"])
+speaker_portrait = null
+voice = "sine_voice"
+gives_money = 2
