@@ -74,12 +74,11 @@ func game_over():
 	ambient_dark.fade_to_black()
 
 func get_informal_time_string() -> String:
-	var current_clock = clock+1
 	var informal_string = ""
-	if(current_clock > 12):
-		informal_string = str(current_clock - 12, "PM")
+	if(clock > 12):
+		informal_string = str(clock - 12, "PM")
 	else:
-		informal_string = str (current_clock, "AM")
+		informal_string = str (clock, "AM")
 	return informal_string
 
 func get_input():

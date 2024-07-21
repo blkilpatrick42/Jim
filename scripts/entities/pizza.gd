@@ -36,6 +36,8 @@ var dialog = preload("res://dialog/dialog.tscn")
 var dialog_manager : Node
 var delivery_dialog_tree : dialog_tree
 
+var has_been_picked_up_before = false
+
 func destroy_self():
 	if(_prop != null):
 		_prop.queue_free()
@@ -43,8 +45,6 @@ func destroy_self():
 		_compass.queue_free()
 	if (_pointer != null):
 		_pointer.queue_free()
-	#if(delivery_dialog_tree != null):
-		#delivery_dialog_tree.queue_free()
 	queue_free()
 
 # Called when the node enters the scene tree for the first time.
@@ -86,14 +86,18 @@ func get_closest_indoor_exit() -> Vector2:
 	return nearest_exit
 
 func update_pizza_stack():
-	_sprite.play(str(pizzas))
+	var num_hits = hits
+	if(num_hits > 3):
+		num_hits = 3
+	_sprite.play(str(pizzas,num_hits))
 
 func _on_prop_collide():
 	hits = hits + 1
 
 func _on_picked_up():
-	if(timer.is_stopped()):
+	if(!has_been_picked_up_before):
 		timer.start(time_to_deliver_secs)
+		has_been_picked_up_before = true
 
 func update_compass_pointer():
 	_compass.global_position = _prop.global_position
@@ -112,10 +116,18 @@ func deliver_pizza():
 	get_parent().add_child(dialog_manager)
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
 	player_ref.enter_dialog()
-	if(delivery_dialog_tree != null):
-		delivery_dialog_tree.queue_free()
+	#if(delivery_dialog_tree != null):
+		#delivery_dialog_tree.queue_free()
+	#slow
+	if(timer.is_stopped()):
+		if(hits == 0):
+			delivery_dialog_tree = slow_nohits.instantiate()
+		elif(hits == 1):
+			delivery_dialog_tree = slow_1hit.instantiate()
+		else:
+			delivery_dialog_tree = slow_2hit.instantiate()
 	#quick
-	if(timer.time_left > 60):
+	elif(timer.time_left > 60):
 		if(hits == 0):
 			delivery_dialog_tree = quick_nohits.instantiate()
 		elif(hits == 1):
@@ -130,15 +142,8 @@ func deliver_pizza():
 			delivery_dialog_tree = normal_1hit.instantiate()
 		else:
 			delivery_dialog_tree = normal_2hit.instantiate()
-	#slow
-	elif(timer.is_stopped()):
-		if(hits == 0):
-			delivery_dialog_tree = slow_nohits.instantiate()
-		elif(hits == 1):
-			delivery_dialog_tree = slow_1hit.instantiate()
-		else:
-			delivery_dialog_tree = slow_2hit.instantiate()
-	get_parent().add_child(delivery_dialog_tree)
+	
+	dialog_manager.add_child(delivery_dialog_tree)
 	dialog_manager.set_tree_and_start_dialog(delivery_dialog_tree)	
 	pizzas -= 1
 	if(pizzas > 0):
@@ -154,7 +159,6 @@ func _process(delta):
 		if(_prop.is_picked_up() && 
 		_prop.get_parent().is_in_group("player") && 
 		!_prop.get_parent().dead):	
-			#if we're close enough, turn on the pointer arrow and turn off the compass
 			if(distance_to_position(destination_door.global_position) < switch_to_pointer_distance):
 				current_guide_point = destination_door.global_position
 			else:

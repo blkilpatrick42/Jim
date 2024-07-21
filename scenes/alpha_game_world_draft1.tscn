@@ -1432,9 +1432,6 @@ position = Vector2(259, -162)
 volume_db = -26.0
 autoplay = true
 script = ExtResource("4_28b3i")
-play_6 = "music/A Tree With Silver Dollar Leaves.mp3"
-play_12 = "music/test_song.wav"
-play_17 = "music/twilight_theme.wav"
 
 [node name="pizzeria_interior" type="AudioStreamPlayer2D" parent="dev_layer/audio_players"]
 position = Vector2(32857, -26682)

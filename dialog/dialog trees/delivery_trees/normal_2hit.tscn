@@ -5,11 +5,12 @@
 
 [node name="TestTree" type="Node2D"]
 script = ExtResource("1_05gxx")
+trunk = NodePath("normal")
 
 [node name="normal" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_v3ni5")]
 speaker_text = Array[String](["There's our pizza!", "Right on time!", "We've been expecting you!", "There you are!", "Not a moment too soon!", "There's my pizza!", "Pizza time!", "There it is!"])
 speaker_portrait = null
-option_branches = [null]
+option_branches = [NodePath("../2hits")]
 voice = "sine_voice"
 gives_money = 0
 

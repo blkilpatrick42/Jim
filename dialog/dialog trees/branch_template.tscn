@@ -11,4 +11,4 @@ gives_money = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_wcrd0")
-frame_progress = 0.650477
+frame_progress = 0.556381

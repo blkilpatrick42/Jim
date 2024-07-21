@@ -11,4 +11,4 @@ trunk = NodePath("normal")
 speaker_text = Array[String](["There's our pizza!", "Right on time!", "We've been expecting you!", "There you are!", "Not a moment too soon!", "There's my pizza!", "Pizza time!", "There it is!"])
 speaker_portrait = null
 voice = "sine_voice"
-gives_money = 0
+gives_money = 5

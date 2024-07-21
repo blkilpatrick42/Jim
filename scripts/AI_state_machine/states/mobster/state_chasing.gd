@@ -32,6 +32,7 @@ func handle_sparks():
 							ai_state_machine.transition_to(ai_state_machine.exclaiming)
 							#TODO: else: flee!
 						return true
+					#hit by thrown object
 					elif(!ai_state_machine.get_perceptions().invincible &&
 					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
 						ai_state_machine.transition_to(ai_state_machine.falling)

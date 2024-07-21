@@ -24,7 +24,7 @@
 size = Vector2(19.9688, 13)
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ldxv5"]
-points = PackedVector2Array(0, -32, 0, 32, 192, 128, 192, -128)
+points = PackedVector2Array(-16, -16, -16, 16, 192, 128, 192, -128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1f3"]
 size = Vector2(4.75865, 16.4881)
@@ -56,7 +56,6 @@ max_neighbors = 5
 time_horizon_agents = 5.0
 
 [node name="vision" type="ShapeCast2D" parent="."]
-visible = false
 self_modulate = Color(1, 1, 0, 1)
 shape = SubResource("ConvexPolygonShape2D_ldxv5")
 target_position = Vector2(0, 0)
