@@ -2276,7 +2276,7 @@ enter_y_push = 5000
 exit_y_push = -30000
 reparent_to_no_daylight = true
 
-[node name="player_apt_link_indoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
+[node name="player_apt_link_indoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(35381, -26684)
 linked_teleporter = NodePath("../player_apt_link_outdoor")
 enter_y_push = -10000

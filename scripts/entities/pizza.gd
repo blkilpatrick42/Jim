@@ -93,6 +93,10 @@ func update_pizza_stack():
 
 func _on_prop_collide():
 	hits = hits + 1
+	if(hits > 2):
+		var player_ref = get_tree().get_nodes_in_group("player")[0]
+		player_ref._on_pizza_lost()
+	
 
 func _on_picked_up():
 	if(!has_been_picked_up_before):
@@ -116,8 +120,6 @@ func deliver_pizza():
 	get_parent().add_child(dialog_manager)
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
 	player_ref.enter_dialog()
-	#if(delivery_dialog_tree != null):
-		#delivery_dialog_tree.queue_free()
 	#slow
 	if(timer.is_stopped()):
 		if(hits == 0):

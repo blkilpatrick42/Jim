@@ -380,6 +380,8 @@ func _put_down_and_destroy():
 		held_obj.put_down(direction.get_opposite(_character_base.get_facing_dir()))
 		held_obj.queue_free()
 		set_holding_object(false)
+		var player_ref = get_tree().get_first_node_in_group("player")
+		player_ref._on_pizza_lost()
 
 func _on_queue_free():
 	queue_free()

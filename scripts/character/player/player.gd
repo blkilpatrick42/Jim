@@ -109,6 +109,9 @@ func get_money():
 func _on_add_money(num : int):
 	set_money(money + num)
 
+func _on_pizza_lost():
+	_ui._on_pizza_lost()
+
 func set_money(num : int):
 	money = num
 	_ui.set_money(money)
