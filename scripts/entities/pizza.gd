@@ -14,6 +14,7 @@ var normal_2hit = preload("res://dialog/dialog trees/delivery_trees/normal_2hit.
 var slow_nohits = preload("res://dialog/dialog trees/delivery_trees/slow_nohits.tscn")
 var slow_1hit = preload ("res://dialog/dialog trees/delivery_trees/slow_1hit.tscn")
 var slow_2hit = preload("res://dialog/dialog trees/delivery_trees/slow_2hit.tscn")
+var _3hit = preload("res://dialog/dialog trees/delivery_trees/3hits.tscn")
 
 var delivery_doors
 var destination_door: Node
@@ -22,6 +23,7 @@ var current_guide_point : Vector2
 
 var random = RandomNumberGenerator.new()
 
+var lost = false
 var hits = 0
 
 var pizzas = 3
@@ -93,7 +95,8 @@ func update_pizza_stack():
 
 func _on_prop_collide():
 	hits = hits + 1
-	if(hits > 2):
+	if(hits > 2 && !lost):
+		lost = true
 		var player_ref = get_tree().get_nodes_in_group("player")[0]
 		player_ref._on_pizza_lost()
 	
@@ -120,8 +123,12 @@ func deliver_pizza():
 	get_parent().add_child(dialog_manager)
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
 	player_ref.enter_dialog()
+	
+	#delivering destroyed pizza
+	if(hits > 2):
+		delivery_dialog_tree = _3hit.instantiate()
 	#slow
-	if(timer.is_stopped()):
+	elif(timer.is_stopped()):
 		if(hits == 0):
 			delivery_dialog_tree = slow_nohits.instantiate()
 		elif(hits == 1):

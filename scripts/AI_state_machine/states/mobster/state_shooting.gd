@@ -100,7 +100,7 @@ func handle_sparks():
 						return true
 					#knockout when player throws object
 					elif(!ai_state_machine.get_perceptions().invincible &&
-					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
+					 !node.is_in_group("bullet_spark")):
 						ai_state_machine.transition_to(ai_state_machine.falling)
 						return true
 	return false

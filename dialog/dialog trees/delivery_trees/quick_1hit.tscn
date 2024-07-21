@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cstgyx8cqgvm0"]
+[gd_scene load_steps=3 format=3 uid="uid://brdug61x4dk3o"]
 
 [ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_sgik3"]
 [ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_hbdok"]

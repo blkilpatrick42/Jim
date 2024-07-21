@@ -14,6 +14,17 @@ var timer_song := Timer.new()
 var timer_restart := Timer.new()
 var ambient_dark = null
 
+var day_of_the_week = 0
+var days_in_week = [
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday"
+]
+
 var restart_wait_sec = 30
 
 var player_ref = null

@@ -8,14 +8,13 @@ script = ExtResource("1_b3vn4")
 trunk = NodePath("slow")
 
 [node name="slow" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_t8gyn")]
-speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!"])
+speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!", "What, did you crawl here?", "Eh, cold pizza", "It's about time..."])
 speaker_portrait = null
 option_branches = [NodePath("../1hits")]
 voice = "sine_voice"
-gives_money = 0
 
 [node name="1hits" parent="." instance=ExtResource("2_t8gyn")]
 position = Vector2(4, 213)
-speaker_text = Array[String](["...The sauce is all over the place", "But it looks like all the toppings fell off", "But it's kinda squished looking...", "But it looks like it's been tossed around some", "Why is the box so beat up?", "...But it's kinda smooshed", "What's this dent in the box from?", "BuBut it looks a little...Jostled...", "But it looks like it saw some turbulence"])
+speaker_text = Array[String](["...The sauce is all over the place", "But it looks like all the toppings fell off", "But it's kinda squished looking...", "But it looks like it's been tossed around some", "Why is the box so beat up?", "...But it's kinda smooshed", "What's this dent in the box from?", "But it looks a little...Jostled...", "But it looks like it saw some turbulence"])
 speaker_portrait = null
 gives_money = 5

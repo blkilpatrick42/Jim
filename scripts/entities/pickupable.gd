@@ -9,7 +9,6 @@ var picked_up = false
 var will_pickup = false
 var showing_arrow = false
 var distance_for_pickup = 100
-var pickup_arrow = preload("res://interface/pickup_arrow.tscn")
 var spark = preload("res://effects/spark.tscn")
 var arrow_instance = null 
 

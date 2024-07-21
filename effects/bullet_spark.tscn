@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/utility/animation_destroy_source.gd" id="1_2vd2j"]
 [ext_resource type="SpriteFrames" uid="uid://sp81pjpathb6" path="res://sprites/spritesheets/spriteframes/effects/spark.tres" id="2_yajik"]
 
-[node name="spark" type="Node2D" groups=["spark"]]
+[node name="spark" type="Node2D" groups=["bullet_spark", "spark"]]
 script = ExtResource("1_2vd2j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["spark"]]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://31vr5x3yt5yf"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_wb3ql"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_esiuv"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_wb3ql")
+trunk = NodePath("3hits")
+
+[node name="3hits" parent="." instance=ExtResource("2_esiuv")]
+speaker_text = Array[String](["I guess my dog could eat this...", "I would rather you hadn't bothered", "Look how you massacred my boy!", "Your manager will be hearing about this...", "I'm never ordering from this place again", "I would rather you keep it", "You don't expect me to pay for this, do you?", "Thanks for nothing, asshole", "Why did you even bother?", "Is this a fucking joke?", "Seriously?", "Oh dear God, no! NO!", "This pizza is ruined..."])
+speaker_portrait = null
+voice = "sine_voice"

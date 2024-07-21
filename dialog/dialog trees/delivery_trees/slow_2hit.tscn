@@ -8,7 +8,7 @@ script = ExtResource("1_w2n2k")
 trunk = NodePath("slow")
 
 [node name="slow" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_rjrg7")]
-speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!"])
+speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!", "What, did you crawl here?", "Eh, cold pizza", "It's about time..."])
 speaker_portrait = null
 option_branches = [NodePath("../2hits")]
 voice = "sine_voice"
