@@ -94,6 +94,7 @@ func _ready():
 		queue_redraw()
 
 func enter_dialog():
+	stop()
 	in_dialog = true
 	control_frozen = true
 	dialog_panning = true
@@ -107,7 +108,11 @@ func get_money():
 	return money
 
 func _on_add_money(num : int):
-	set_money(money + num)
+	var new_money = money + num
+	if(new_money < 0):
+		new_money = 0
+		
+	set_money(new_money)
 
 func _on_pizza_lost():
 	_ui._on_pizza_lost()

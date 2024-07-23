@@ -90,6 +90,7 @@ func get_informal_time_string() -> String:
 		informal_string = str(clock - 12, "PM")
 	else:
 		informal_string = str (clock, "AM")
+	informal_string = str(informal_string, ", ", days_in_week[day_of_the_week])
 	return informal_string
 
 func get_input():
@@ -99,6 +100,15 @@ func get_input():
 		else: if(is_game_over):
 			toggle_pause_parent_tree()
 			get_tree().reload_current_scene()
+
+func set_clock(hour : int):
+	clock = hour
+
+func advance_day():
+	if(day_of_the_week == 6):
+		day_of_the_week = 0
+	else:
+		day_of_the_week = day_of_the_week + 1
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -111,6 +121,7 @@ func _process(delta):
 				clock = clock + 1
 			else: if(clock == 23):
 				clock = 0
+				advance_day()
 	else: if (is_menu_paused && !is_playing_song && timer_song.is_stopped()):
 		is_playing_song = true
 		sound_player.stream = load("res://audio/music/Game is paused 2.wav")

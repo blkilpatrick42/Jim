@@ -5,15 +5,19 @@ var sound_player := AudioStreamPlayer.new()
 @onready var _collision_shape = $StaticBody2D/CollisionShape2D
 
 @export var opens_for_groups: Array[String]
+@export var locked_hours : Array[bool] #should either be empty or size = 24
 
 @export var parent_door : Node2D
+
+@export var locked = false
+
+var time_keeper
 
 var opened = false
 var opening = false
 var closing = false
 var waiting_to_open = false
 var waiting_to_close = false
-
 var open_close_timer := Timer.new()
 var open_close_time_secs = 0.5
 var open_distance = 48
@@ -22,6 +26,7 @@ var open_distance = 48
 func _ready():
 	open_close_timer.one_shot = true
 	add_child(open_close_timer)
+	time_keeper = get_tree().get_first_node_in_group("time_keeper")
 
 func open():
 	if(!opened):
@@ -52,7 +57,7 @@ func _process(delta):
 		open_close_timer.start((open_close_time_secs))
 	
 	#if that period of time has elapsed and the opener is still there, open
-	if(open_close_timer.is_stopped() && waiting_to_open && opener_is_near()):
+	if(!locked && open_close_timer.is_stopped() && waiting_to_open && opener_is_near()):
 		open()
 	else: if(open_close_timer.is_stopped() && waiting_to_open && !opener_is_near()):
 		waiting_to_open = false
@@ -67,6 +72,12 @@ func _process(delta):
 		close()
 	else: if(open_close_timer.is_stopped() && waiting_to_close && opener_is_near()):
 		waiting_to_close = false
+	
+	#set lock by time using bool list locked_hours
+	if(locked_hours.size() == 24):
+		if(locked_hours[time_keeper.clock]):
+			locked = true
+		else: locked = false
 	
 	var last_frame_open = _animated_sprite.sprite_frames.get_frame_count("open")-1 
 	var last_frame_close = _animated_sprite.sprite_frames.get_frame_count("close")-1 

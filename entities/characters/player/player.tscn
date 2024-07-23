@@ -60,7 +60,7 @@ visible = false
 position = Vector2(7, -41)
 texture = ExtResource("6_o3xy8")
 
-[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player", "camera"]]
 limit_left = -1000000
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0

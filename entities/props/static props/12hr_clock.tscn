@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmop2hkofessp"]
 
-[ext_resource type="Script" path="res://entities/props/static props/12hr_clock.gd" id="1_6agha"]
+[ext_resource type="Script" path="res://scripts/clock/12hr_clock.gd" id="1_6agha"]
 [ext_resource type="SpriteFrames" uid="uid://d0a7j140nuven" path="res://sprites/spritesheets/spriteframes/props/12hr_clock.tres" id="1_jiotl"]
 [ext_resource type="Script" path="res://scripts/clock/clock_anim.gd" id="2_euoqj"]
 

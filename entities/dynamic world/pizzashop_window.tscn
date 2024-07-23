@@ -17,4 +17,4 @@ enabled = false
 color = Color(1, 1, 0.541176, 1)
 texture = ExtResource("3_8ueps")
 script = ExtResource("4_w5gof")
-running_hours = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true])
+running_hours = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, false, false])

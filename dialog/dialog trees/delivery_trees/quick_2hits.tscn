@@ -12,7 +12,6 @@ speaker_text = Array[String](["Wow! That was fast!", "You're quick!", "Here alre
 speaker_portrait = null
 option_branches = [NodePath("../2hits")]
 voice = "sine_voice"
-gives_money = 0
 
 [node name="2hits" parent="." instance=ExtResource("2_cucxo")]
 position = Vector2(4, 213)

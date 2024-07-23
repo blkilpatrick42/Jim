@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt6metcfd7qcq"]
+
+[ext_resource type="Script" path="res://scripts/utility/bed.gd" id="1_wk3jg"]
+[ext_resource type="SpriteFrames" uid="uid://cr3j5oy1d1ovx" path="res://sprites/spritesheets/spriteframes/interface/zzz.tres" id="2_0gpwx"]
+[ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="2_0ye61"]
+[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="3_43kmp"]
+[ext_resource type="SpriteFrames" uid="uid://m6t412rcckj5" path="res://sprites/spritesheets/spriteframes/game_world/door1.tres" id="3_b48mg"]
+[ext_resource type="Texture2D" uid="uid://smjfei55010t" path="res://sprites/game_world/door_frame.png" id="4_lk8g8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8ins"]
+font = ExtResource("2_0ye61")
+font_size = 24
+
+[node name="bed" type="StaticBody2D" groups=["interactable"]]
+collision_layer = 24
+script = ExtResource("1_wk3jg")
+
+[node name="fade_to_black" type="Polygon2D" parent="."]
+z_index = 5
+position = Vector2(0, 2)
+scale = Vector2(0.21859, 0.155457)
+color = Color(0, 0, 0, 0)
+polygon = PackedVector2Array(-118.944, -353.796, 3120, -315.2, 3097.13, 2431.54, -137.243, 2412.25)
+
+[node name="saving_game" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="saving_game"]
+layout_mode = 0
+offset_right = 632.0
+offset_bottom = 320.0
+
+[node name="zzz" type="AnimatedSprite2D" parent="saving_game/CenterContainer"]
+position = Vector2(316, 93)
+sprite_frames = ExtResource("2_0gpwx")
+script = ExtResource("3_43kmp")
+
+[node name="door" type="AnimatedSprite2D" parent="saving_game/CenterContainer"]
+position = Vector2(316, 122)
+sprite_frames = ExtResource("3_b48mg")
+animation = &"open"
+
+[node name="frame" type="Sprite2D" parent="saving_game/CenterContainer"]
+position = Vector2(316, 130)
+texture = ExtResource("4_lk8g8")
+
+[node name="saving_game" type="Label" parent="saving_game/CenterContainer"]
+layout_mode = 2
+text = "game saved"
+label_settings = SubResource("LabelSettings_a8ins")

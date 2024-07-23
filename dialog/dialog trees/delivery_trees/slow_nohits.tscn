@@ -11,4 +11,3 @@ trunk = NodePath("slow")
 speaker_text = Array[String](["Finally...", "About time you showed up", "Better late than never...", "I waited forever for this", "You really took your time", "That took longer than advertised...", "That took FOREVER!", "That took too long", "Finally, I'm starving!", "What, did you crawl here?", "Eh, cold pizza", "It's about time..."])
 speaker_portrait = null
 voice = "sine_voice"
-gives_money = 0
