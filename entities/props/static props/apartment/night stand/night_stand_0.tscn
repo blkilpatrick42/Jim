@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxyrwvbmwvwor"]
+
+[ext_resource type="Texture2D" uid="uid://xr3irx8qxfgj" path="res://sprites/props/furniture/night_stand_0.png" id="1_08mj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydt6r"]
+size = Vector2(18, 23)
+
+[node name="NightStand0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_08mj7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ydt6r")

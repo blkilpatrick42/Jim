@@ -31,7 +31,7 @@ var dialog_manager : Node
 var can_talk_bubble = preload("res://interface/can_talk_bubble.tscn")
 var speech_bubble = preload("res://dialog/speech_bubble.tscn")
 var talking = false
-var will_talk = false
+var has_talked = false
 var showing_bubble = false
 var is_walking = false
 
@@ -43,6 +43,8 @@ var speech_instance = null
 var current_v = Vector2(0,0)
 var top_speed = 200
 var immobilized = false
+
+var player_ref
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,9 +62,6 @@ func _ready():
 	
 	if(Engine.is_editor_hint()):
 		queue_redraw()
-	
-func set_will_talk_false():
-	will_talk = false
 
 func interact():
 	if (branching_dialog != null):
@@ -76,47 +75,39 @@ func interact():
 func speed():
 	return linear_velocity.length()
 
+func handle_passive_text():
+	if(has_passive_text):
+		var in_talk_radius = self.global_position.distance_to(player_ref.global_position) < talk_radius
+		if(!player_ref.in_dialog && !talking && in_talk_radius && !has_talked):
+			speech_instance = speech_bubble.instantiate()
+			self.add_child(speech_instance)
+			speech_instance.play_passive_text(passive_text, voice)
+			has_talked = true
+			talking = true
+		elif (speech_instance != null && 
+		player_ref.in_dialog || talking && speech_instance.ready_to_disappear):
+			speech_instance.queue_free()
+			talking = false
+		
+		if(!in_talk_radius):
+			has_talked = false
+
+func face_player():
+	var vector_to_player = global_position.direction_to(player_ref.global_position)
+	_character_base.face_to_vector(vector_to_player)
+
+func handle_ai_directive():
+	#alert passive NPC
+	if(ai_directive == alert_passive &&
+	self.global_position.distance_to(player_ref.global_position) < talk_radius):
+		face_player()
+	handle_passive_text()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(!Engine.is_editor_hint()):
-		_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
-		var player_ref = get_tree().get_nodes_in_group("player")[0]
-		
-		#passive NPC
-		if(ai_directive == alert_passive &&
-		self.global_position.distance_to(player_ref.global_position) < talk_radius):	
-			var vector_to_player = global_position.direction_to(player_ref.global_position)
-			_character_base.face_to_vector(vector_to_player)
-		
-		#handle passive text printing
-		if(has_passive_text):
-			will_talk = self.global_position.distance_to(player_ref.global_position) < talk_radius
-			if(!player_ref.in_dialog && !talking && will_talk):
-				speech_instance = speech_bubble.instantiate()
-				self.add_child(speech_instance)
-				speech_instance.play_passive_text(passive_text, voice)
-				talking = true
-			else: if (speech_instance != null && 
-			player_ref.in_dialog || 
-			!will_talk && talking && speech_instance.ready_to_disappear):
-				speech_instance.queue_free()
-				talking = false
-				
-	#	#update speech bubble's presence
-		if(has_monologue_text):
-			if(!talking && will_talk && !showing_bubble):
-				bubble_instance = can_talk_bubble.instantiate()
-				self.add_child(bubble_instance)
-				showing_bubble = true
-			else: if (!will_talk && showing_bubble ||
-						talking && showing_bubble):
-				bubble_instance = self.get_node("can_talk_bubble")
-				self.remove_child(bubble_instance)
-				bubble_instance.queue_free()
-				showing_bubble = false
-				
-			if(showing_bubble):
-				bubble_instance.global_position = global_position
+		player_ref = get_tree().get_nodes_in_group("player")[0]
+		handle_ai_directive()
 
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):

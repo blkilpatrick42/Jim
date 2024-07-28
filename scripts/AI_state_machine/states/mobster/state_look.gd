@@ -18,17 +18,16 @@ func process(_delta: float) -> void:
 func handle_sparks():
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
 		for node in ai_state_machine.get_perceptions().colliding_nodes:
-				if(is_instance_valid(node) && node.is_in_group("spark")):
-					if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
-						reduce_health.emit()
-						var assailant_obj = node.get_source_obj()
-						set_target.emit(assailant_obj)
-						if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-							ai_state_machine.transition_to(ai_state_machine.exclaiming)
-						return true
-					elif(!ai_state_machine.get_perceptions().invincible):
-						ai_state_machine.transition_to(ai_state_machine.falling)
-						return true
+			if(is_instance_valid(node) && node.is_in_group("bullet_spark")):
+				#take damage when hit with bullet
+				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+				!ai_state_machine.get_perceptions().invincible):
+					reduce_health.emit()
+					return true
+			#knockout when player throws object
+			elif(!ai_state_machine.get_perceptions().invincible && node.is_in_group("spark")):
+				ai_state_machine.transition_to(ai_state_machine.falling)
+				return true
 	return false
 
 func handle_death():

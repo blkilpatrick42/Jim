@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0kmgt0e8v37o"]
+
+[ext_resource type="Script" path="res://scripts/shop/ware.gd" id="1_csgan"]
+[ext_resource type="Script" path="res://scripts/shop/ware_furniture.gd" id="2_g5j5b"]
+[ext_resource type="PackedScene" uid="uid://bxyrwvbmwvwor" path="res://entities/props/static props/apartment/night stand/night_stand_0.tscn" id="3_56j0g"]
+[ext_resource type="Texture2D" uid="uid://xr3irx8qxfgj" path="res://sprites/props/furniture/night_stand_0.png" id="4_om47w"]
+[ext_resource type="Texture2D" uid="uid://cfswbijcll56e" path="res://sprites/game_world/price_tag.png" id="5_ukd1c"]
+[ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="6_rnqci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ccd"]
+size = Vector2(18, 23)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0gyc"]
+font = ExtResource("6_rnqci")
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[node name="WareNightStand0" type="Node2D"]
+script = ExtResource("1_csgan")
+cost = 42
+ware_name = "Used Oak Night Stand"
+
+[node name="script_node" type="Node" parent="."]
+script = ExtResource("2_g5j5b")
+furniture_entity = ExtResource("3_56j0g")
+is_night_stand = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_om47w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_r8ccd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-2.11758e-22, -13)
+scale = Vector2(1.1875, 0.6875)
+texture = ExtResource("5_ukd1c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = -4.0
+text = "$42"
+label_settings = SubResource("LabelSettings_i0gyc")
+horizontal_alignment = 1
+vertical_alignment = 1

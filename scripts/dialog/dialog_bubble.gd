@@ -59,8 +59,15 @@ func _ready():
 	sound_player.attenuation = 2
 	add_child(sound_player)
 	sound_player.bus = "Effects"
+	
 
 func _process(delta):
+	if(_portrait.sprite_frames == null):
+		_label.size.x = 220
+		_label.position.x = -110
+	else:
+		_label.size.x = 110
+		_label.position.x = 0
 	wait_time = wait_time + delta
 	if(full_text_displayed == false):
 		if(wait_time >= time_between_chars):

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b20egxvemuaa6"]
+
+[ext_resource type="PackedScene" uid="uid://dt6metcfd7qcq" path="res://entities/util/bed.tscn" id="2_t7621"]
+[ext_resource type="Texture2D" uid="uid://c26fq4gtsui1c" path="res://sprites/props/furniture/bed_1.png" id="2_vcio1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88vtr"]
+size = Vector2(30, 46)
+
+[node name="Bed1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vcio1")
+offset = Vector2(0, 24)
+
+[node name="bed" parent="." instance=ExtResource("2_t7621")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed"]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_88vtr")
+debug_color = Color(0.278431, 0.627451, 0.223529, 0.419608)

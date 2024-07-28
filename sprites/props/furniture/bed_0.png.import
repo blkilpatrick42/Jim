@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cji7agu6mdcnb"
-path="res://.godot/imported/trash_can_open_bag.png-4924f6fd7534c337dce89dbf9393f2ad.ctex"
+uid="uid://7d6laqlx8n60"
+path="res://.godot/imported/bed_0.png-6811df54991d0540751e6571a3e4a552.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/trash_can_open_bag.png"
-dest_files=["res://.godot/imported/trash_can_open_bag.png-4924f6fd7534c337dce89dbf9393f2ad.ctex"]
+source_file="res://sprites/props/furniture/bed_0.png"
+dest_files=["res://.godot/imported/bed_0.png-6811df54991d0540751e6571a3e4a552.ctex"]
 
 [params]
 

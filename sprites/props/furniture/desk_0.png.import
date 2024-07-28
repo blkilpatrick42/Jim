@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmkivgnbnsir"
-path="res://.godot/imported/trash_can_open.png-84f28d01c1d7d3a8a561975ff706a8e1.ctex"
+uid="uid://busfjnb1hav2x"
+path="res://.godot/imported/desk_0.png-daf6623b1083b2cdd6aeb67c195f39e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/trash_can_open.png"
-dest_files=["res://.godot/imported/trash_can_open.png-84f28d01c1d7d3a8a561975ff706a8e1.ctex"]
+source_file="res://sprites/props/furniture/desk_0.png"
+dest_files=["res://.godot/imported/desk_0.png-daf6623b1083b2cdd6aeb67c195f39e9.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@ extends Node
 @onready var _label = $Label
 
 @export var time_between_chars = 0.1
-@export var time_until_disappear = 2
+@export var time_until_disappear = 3
 @export var voice = "none"
 
 var sound_player := AudioStreamPlayer2D.new()

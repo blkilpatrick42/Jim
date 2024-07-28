@@ -164,6 +164,7 @@ func reduce_hp():
 	current_hp = current_hp - 1
 	_ui.update_hearts(current_hp)
 	if(current_hp == 0):
+		_character_base.stop_flashing()
 		die()
 	else:
 		go_invincible()

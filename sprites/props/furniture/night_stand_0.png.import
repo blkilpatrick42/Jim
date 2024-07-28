@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlvuidixijb7q"
-path="res://.godot/imported/bottle.png-99c3292d43f8ab02a9b9f9512f79ec18.ctex"
+uid="uid://xr3irx8qxfgj"
+path="res://.godot/imported/night_stand_0.png-f404b4596994d7e9fdd56278ceadd6b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/bottle.png"
-dest_files=["res://.godot/imported/bottle.png-99c3292d43f8ab02a9b9f9512f79ec18.ctex"]
+source_file="res://sprites/props/furniture/night_stand_0.png"
+dest_files=["res://.godot/imported/night_stand_0.png-f404b4596994d7e9fdd56278ceadd6b6.ctex"]
 
 [params]
 

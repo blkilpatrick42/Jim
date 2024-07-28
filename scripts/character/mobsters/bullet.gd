@@ -44,10 +44,10 @@ func create_spark_deadly():
 	sound_player.play()
 	var new_spark = spark.instantiate()
 	get_parent().call_deferred("add_child", new_spark)
-	new_spark.position = position
 	new_spark.add_to_group(team)
 	new_spark.set_source_obj(source_obj)
-	
+	new_spark.position = position
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

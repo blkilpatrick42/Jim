@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cko7wd5voq027"]
 
-[ext_resource type="Texture2D" uid="uid://dvae38g5kga5m" path="res://sprites/props/trash_can_closed.png" id="1_b6erc"]
+[ext_resource type="Texture2D" uid="uid://dvae38g5kga5m" path="res://sprites/props/dynamic props/trash_can_closed.png" id="1_b6erc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(24, 24)

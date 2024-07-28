@@ -6,7 +6,7 @@
 [node name="spark" type="Node2D" groups=["bullet_spark", "spark"]]
 script = ExtResource("1_2vd2j")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["spark"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 8)
 scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("2_yajik")

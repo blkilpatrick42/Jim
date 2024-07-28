@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b32f5qpkrs36x"]
 
 [ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_3t1ky"]
-[ext_resource type="Texture2D" uid="uid://ddsax1bqr7jm1" path="res://sprites/props/tire.png" id="2_hhn02"]
+[ext_resource type="Texture2D" uid="uid://ddsax1bqr7jm1" path="res://sprites/props/dynamic props/tire.png" id="2_hhn02"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1gs3y"]
 bounce = 0.2

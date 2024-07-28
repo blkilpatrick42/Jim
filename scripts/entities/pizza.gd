@@ -29,7 +29,7 @@ var hits = 0
 var pizzas = 3
 var selected_delivery_doors: Array[Node]
 
-var switch_to_pointer_distance = 256
+var switch_to_pointer_distance = 128
 
 var timer : Timer = Timer.new()
 var time_to_deliver_secs = 120
@@ -88,10 +88,11 @@ func get_closest_indoor_exit() -> Vector2:
 	return nearest_exit
 
 func update_pizza_stack():
-	var num_hits = hits
-	if(num_hits > 3):
-		num_hits = 3
-	_sprite.play(str(pizzas,num_hits))
+	if(pizzas > 0):
+		var num_hits = hits
+		if(num_hits > 3):
+			num_hits = 3
+		_sprite.play(str(pizzas,num_hits))
 
 func _on_prop_collide():
 	hits = hits + 1
@@ -107,7 +108,6 @@ func _on_picked_up():
 		has_been_picked_up_before = true
 
 func update_compass_pointer():
-	_compass.global_position = _prop.global_position
 	if(distance_to_position(current_guide_point) < switch_to_pointer_distance):
 		_compass.visible = false
 		_pointer.global_position = current_guide_point
@@ -115,7 +115,6 @@ func update_compass_pointer():
 	else:
 		_pointer.visible = false
 		_compass.visible = true
-		_compass.global_rotation = _prop.global_position.angle_to_point(current_guide_point)
 
 func deliver_pizza():
 	dialog_manager = dialog.instantiate()
@@ -164,6 +163,8 @@ func deliver_pizza():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(_prop != null):
+		_compass.global_position = _prop.global_position
+		_compass.global_rotation = _prop.global_position.angle_to_point(current_guide_point)
 		update_pizza_stack()
 		if(_prop.is_picked_up() && 
 		_prop.get_parent().is_in_group("player") && 
@@ -181,6 +182,7 @@ func _process(delta):
 			update_compass_pointer()
 		else:
 			_compass.visible = false
+			_pointer.visible = false
 			if(_prop.global_position.distance_to(destination_door.global_position) < 32):
 				if(!_prop.is_picked_up()):
 					deliver_pizza()

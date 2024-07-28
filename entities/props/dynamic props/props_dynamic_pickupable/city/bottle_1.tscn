@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://di1o2hnov0d5"]
 
 [ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_nwtck"]
-[ext_resource type="Texture2D" uid="uid://dlvuidixijb7q" path="res://sprites/props/bottle.png" id="2_7sd7o"]
+[ext_resource type="Texture2D" uid="uid://dlvuidixijb7q" path="res://sprites/props/dynamic props/bottle.png" id="2_7sd7o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1gs3y"]
 bounce = 0.1

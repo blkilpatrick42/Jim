@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://20cjojtewy46"
-path="res://.godot/imported/pallet.png-a5d2c82d761d28b150485fe2afac3e8c.ctex"
+uid="uid://jbkbp7b1xrl2"
+path="res://.godot/imported/Brick.png-61cd7f67f4a09066071ac06776340dc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/pallet.png"
-dest_files=["res://.godot/imported/pallet.png-a5d2c82d761d28b150485fe2afac3e8c.ctex"]
+source_file="res://sprites/props/dynamic props/Brick.png"
+dest_files=["res://.godot/imported/Brick.png-61cd7f67f4a09066071ac06776340dc6.ctex"]
 
 [params]
 

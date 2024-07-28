@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0yhrtpf8x1n"
-path="res://.godot/imported/basketball.png-3914b9241617a1192152fe7436b5f098.ctex"
+uid="uid://cfswbijcll56e"
+path="res://.godot/imported/price_tag.png-b2017aa437692356d23c9566878eb938.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/basketball.png"
-dest_files=["res://.godot/imported/basketball.png-3914b9241617a1192152fe7436b5f098.ctex"]
+source_file="res://sprites/game_world/price_tag.png"
+dest_files=["res://.godot/imported/price_tag.png-b2017aa437692356d23c9566878eb938.ctex"]
 
 [params]
 

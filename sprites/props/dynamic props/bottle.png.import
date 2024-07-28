@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jbkbp7b1xrl2"
-path="res://.godot/imported/Brick.png-fbf8f2c02783eca4d80f9856c9747ae8.ctex"
+uid="uid://dlvuidixijb7q"
+path="res://.godot/imported/bottle.png-fa7b2d98e1ea8f21c4d3f846f0643006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/Brick.png"
-dest_files=["res://.godot/imported/Brick.png-fbf8f2c02783eca4d80f9856c9747ae8.ctex"]
+source_file="res://sprites/props/dynamic props/bottle.png"
+dest_files=["res://.godot/imported/bottle.png-fa7b2d98e1ea8f21c4d3f846f0643006.ctex"]
 
 [params]
 

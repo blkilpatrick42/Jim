@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5jckbjmeftco"]
+
+[ext_resource type="Script" path="res://scripts/shop/ware.gd" id="1_6butb"]
+[ext_resource type="Script" path="res://scripts/shop/ware_furniture.gd" id="2_y0jqq"]
+[ext_resource type="PackedScene" uid="uid://eovosbyon1g" path="res://entities/props/static props/apartment/bed/bed_0.tscn" id="3_2a8b0"]
+[ext_resource type="Texture2D" uid="uid://7d6laqlx8n60" path="res://sprites/props/furniture/bed_0.png" id="4_qj3m2"]
+[ext_resource type="Texture2D" uid="uid://cfswbijcll56e" path="res://sprites/game_world/price_tag.png" id="5_rev4r"]
+[ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="6_xye1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ccd"]
+size = Vector2(30, 47)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0gyc"]
+font = ExtResource("6_xye1i")
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[node name="WareBed0" type="Node2D"]
+script = ExtResource("1_6butb")
+cost = 5
+ware_name = "Used Mattress"
+
+[node name="script_node" type="Node" parent="."]
+script = ExtResource("2_y0jqq")
+furniture_entity = ExtResource("3_2a8b0")
+is_bed = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_qj3m2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_r8ccd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(5.68434e-14, 24)
+scale = Vector2(0.875, 0.6875)
+texture = ExtResource("5_rev4r")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -7.0
+offset_top = 14.0
+offset_right = 8.0
+offset_bottom = 35.0
+text = "$5"
+label_settings = SubResource("LabelSettings_i0gyc")
+horizontal_alignment = 1
+vertical_alignment = 1

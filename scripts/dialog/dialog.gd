@@ -23,13 +23,18 @@ func play_current_branch():
 	responding = false
 	if(tree.get_speaker_name() != null && tree.get_speaker_name() != ""):
 		speaker_node = get_tree().get_first_node_in_group(tree.get_speaker_name())
+		
 	_ResponseBubble.visible = false
 	_DialogBubble.visible = true
 	_DialogBubble.set_portrait(tree.get_speaker_portrait(), tree.get_speaker_emote())
 	_DialogBubble.play_text(tree.get_speaker_text(), tree.get_voice())
+	
 	var branch_gives_money_amount = tree.get_give_money_amount()
 	if(branch_gives_money_amount > 0):
 		player_ref._on_add_money(branch_gives_money_amount)
+	var branch_script = tree.get_dialog_script()
+	if(branch_script != null):
+		branch_script.run_script()
 
 func set_tree_and_start_dialog(in_tree :dialog_tree):
 	tree = in_tree

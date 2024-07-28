@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duu0mnd7q2gur"]
 
-[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/basketball.png" id="1_pv8kt"]
+[ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/dynamic props/basketball.png" id="1_pv8kt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(12, 12)

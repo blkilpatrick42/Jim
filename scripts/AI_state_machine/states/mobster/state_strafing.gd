@@ -21,17 +21,17 @@ func get_host_nav_target_reached():
 func handle_sparks():
 	if(ai_state_machine.get_perceptions().colliding_nodes.size() > 0):
 		for node in ai_state_machine.get_perceptions().colliding_nodes:
-				if(is_instance_valid(node) && node.is_in_group("spark")):
-					#bullet damage
-					if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
-					!ai_state_machine.get_perceptions().invincible):
-						reduce_health.emit()
-						return true
-					#hit by thrown object
-					elif(!ai_state_machine.get_perceptions().invincible &&
-					 !node.is_in_group("bullet_spark")):
-						ai_state_machine.transition_to(ai_state_machine.falling)
-						return true
+			if(is_instance_valid(node) && node.is_in_group("bullet_spark")):
+				#take damage when hit with bullet
+				if(node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
+				!ai_state_machine.get_perceptions().invincible):
+					reduce_health.emit()
+					return true
+				#knockout when player throws object
+			elif(!ai_state_machine.get_perceptions().invincible &&
+			 node.is_in_group("spark")):
+				ai_state_machine.transition_to(ai_state_machine.falling)
+				return true
 	return false
 
 func handle_death():

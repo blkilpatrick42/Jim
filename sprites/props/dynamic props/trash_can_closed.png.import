@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwjuemcy8cpbp"
-path="res://.godot/imported/arrowhead.png-683af78cccd53cf24ed04c8a73070827.ctex"
+uid="uid://dvae38g5kga5m"
+path="res://.godot/imported/trash_can_closed.png-adfe7ad6f1b46027f7b07ecf2968b59f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/arrowhead.png"
-dest_files=["res://.godot/imported/arrowhead.png-683af78cccd53cf24ed04c8a73070827.ctex"]
+source_file="res://sprites/props/dynamic props/trash_can_closed.png"
+dest_files=["res://.godot/imported/trash_can_closed.png-adfe7ad6f1b46027f7b07ecf2968b59f.ctex"]
 
 [params]
 

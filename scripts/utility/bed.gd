@@ -35,6 +35,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_fade_to_black.global_position = Vector2(0,0)
+	var player_ref = get_tree().get_first_node_in_group("player")
 	if((fading_out || fading_in) &&
 	timer_fade.is_stopped()):
 		if(fading_out):
@@ -47,6 +48,7 @@ func _process(delta):
 				_saving_game.visible = true
 				timer_fade.start(long_step_secs)
 				time_keeper.set_clock(sleep_end_time)
+				player_ref.increment_hp()
 				time_keeper.advance_day()
 		elif(fading_in):
 			if(fade_alpha > 0):
@@ -56,7 +58,6 @@ func _process(delta):
 			elif(fade_alpha <= 0):
 				fade_alpha = 0.0
 				fading_in = false
-				var player_ref = get_tree().get_first_node_in_group("player")
 				player_ref.set_control_frozen(false)
 	update_fade_alpha()
 

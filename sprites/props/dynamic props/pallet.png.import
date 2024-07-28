@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvae38g5kga5m"
-path="res://.godot/imported/trash_can_closed.png-3509d30a4aedd870b494c53e7d0dbe9e.ctex"
+uid="uid://20cjojtewy46"
+path="res://.godot/imported/pallet.png-1af90d84653953c03dad2313399bc0c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/trash_can_closed.png"
-dest_files=["res://.godot/imported/trash_can_closed.png-3509d30a4aedd870b494c53e7d0dbe9e.ctex"]
+source_file="res://sprites/props/dynamic props/pallet.png"
+dest_files=["res://.godot/imported/pallet.png-1af90d84653953c03dad2313399bc0c0.ctex"]
 
 [params]
 

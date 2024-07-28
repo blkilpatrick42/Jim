@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlv7oxi4u13bp"
-path="res://.godot/imported/trafficCone.png-1bcd11eb6d58da2d6cef224d2292be0e.ctex"
+uid="uid://dlmkivgnbnsir"
+path="res://.godot/imported/trash_can_open.png-830d7086a674f545346c1c48bfc5c408.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/props/trafficCone.png"
-dest_files=["res://.godot/imported/trafficCone.png-1bcd11eb6d58da2d6cef224d2292be0e.ctex"]
+source_file="res://sprites/props/dynamic props/trash_can_open.png"
+dest_files=["res://.godot/imported/trash_can_open.png-830d7086a674f545346c1c48bfc5c408.ctex"]
 
 [params]
 

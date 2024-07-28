@@ -35,6 +35,15 @@ func get_num_speech_options() -> int:
 func get_option_branches() -> dialog_branch:
 	return current_branch.get_option_branches()
 
+func get_dialog_script() -> Node:
+	return current_branch.get_dialog_script()
+
+func get_shows_wares() -> bool:
+	return current_branch.get_shows_wares()
+
+func set_speech_options(options : Array[String]):
+	current_branch.set_speech_options(options)
+
 func get_num_option_branches() -> int:
 	return current_branch.get_option_branches().size()
 
