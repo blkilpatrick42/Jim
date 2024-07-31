@@ -1,4 +1,5 @@
 extends Node
+class_name shop_manager
 
 @export var wares : Array[PackedScene] = []
 @export var stage_locations : Array[Node] = []
@@ -31,6 +32,12 @@ func shuffle_staged_items():
 			ware.global_position = stage_locations[iterator].global_position
 			staged_wares.append(ware)
 			iterator += 1
+
+func get_staged_wares():
+	return staged_wares
+
+func buy_ware(index : int):
+	staged_wares[index].buy_item()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -16,7 +16,7 @@ extends Node2D
 @export var gives_money : int = 0
 @export var dialog_script : Node = null
 
-@export var shows_wares = false
+@export var shows_wares : bool = false
 
 var random = RandomNumberGenerator.new()
 
@@ -51,7 +51,7 @@ func get_option_branch(index : int) -> dialog_branch:
 func get_dialog_script():
 	return dialog_script
 
-func get_shows_wares():
+func get_shows_wares() -> bool:
 	return shows_wares
 
 func set_speech_options(options : Array[String]):

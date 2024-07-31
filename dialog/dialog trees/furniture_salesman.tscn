@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfp1kw82je072"]
+
+[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_458c0"]
+[ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_i8gs0"]
+
+[node name="TestTree" type="Node2D"]
+script = ExtResource("1_458c0")
+trunk = NodePath("trunk")
+
+[node name="trunk" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_i8gs0")]
+speaker_text = Array[String](["See anything you like?", "Thinking about buying something?", "Something catch your eye?"])
+speaker_portrait = null
+speech_options = Array[String](["", "", ""])
+option_branches = [NodePath("../no purchase"), NodePath("../purchase"), NodePath("../insufficient money")]
+voice = "sine_voice"
+shows_wares = true
+
+[node name="insufficient money" parent="." instance=ExtResource("2_i8gs0")]
+position = Vector2(251, 157)
+speaker_text = Array[String](["It seems you can't afford that..."])
+speaker_portrait = null
+voice = "sine_voice"
+
+[node name="no purchase" parent="." instance=ExtResource("2_i8gs0")]
+position = Vector2(-205, 164)
+speaker_text = Array[String](["Maybe next time"])
+speaker_portrait = null
+voice = "sine_voice"
+
+[node name="purchase" parent="." instance=ExtResource("2_i8gs0")]
+position = Vector2(5, 178)
+speaker_text = Array[String](["I appreciate your business!"])
+speaker_portrait = null
+voice = "sine_voice"

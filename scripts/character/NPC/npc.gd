@@ -22,6 +22,7 @@ const appears_at_time = "appears_at_time"
 @export var passive_text = ""
 @export var monologue_text = ""
 
+@export var shop : shop_manager = null
 @export var branching_dialog : dialog_tree
 var dialog = preload("res://dialog/dialog.tscn")
 var dialog_manager : Node
@@ -68,9 +69,14 @@ func interact():
 		dialog_manager = dialog.instantiate()
 		dialog_manager.set_speaker_node(self)
 		add_child(dialog_manager)
+		if(shop != null):
+			dialog_manager.set_shop(shop)
 		var player_ref = get_tree().get_nodes_in_group("player")[0]
 		player_ref.enter_dialog()
 		dialog_manager.set_tree_and_start_dialog(branching_dialog)	
+
+func get_shop_manager():
+	return shop
 
 func speed():
 	return linear_velocity.length()

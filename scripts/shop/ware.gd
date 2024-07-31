@@ -13,3 +13,6 @@ func buy_item():
 func get_ware_name() -> String:
 	return ware_name
 
+func get_cost() -> int:
+	return cost
+

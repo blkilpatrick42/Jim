@@ -1,4 +1,4 @@
-[gd_scene load_steps=327 format=3 uid="uid://cdqi1t4ffkn68"]
+[gd_scene load_steps=326 format=3 uid="uid://cdqi1t4ffkn68"]
 
 [ext_resource type="Script" path="res://scripts/utility/become_visible.gd" id="1_yj4t8"]
 [ext_resource type="PackedScene" uid="uid://dt6metcfd7qcq" path="res://entities/util/bed.tscn" id="2_w0llv"]
@@ -42,8 +42,6 @@
 [ext_resource type="PackedScene" uid="uid://cvpxd8fmth427" path="res://entities/dynamic world/indoor_window_light_1.tscn" id="40_4rsyn"]
 [ext_resource type="Script" path="res://scenes/apartment_manager.gd" id="41_263ai"]
 [ext_resource type="PackedScene" uid="uid://eovosbyon1g" path="res://entities/props/static props/apartment/bed/bed_0.tscn" id="41_ydf6v"]
-[ext_resource type="PackedScene" uid="uid://c8xp804upcral" path="res://entities/props/static props/apartment/desk/desk_0.tscn" id="42_r1oq0"]
-[ext_resource type="PackedScene" uid="uid://bxyrwvbmwvwor" path="res://entities/props/static props/apartment/night stand/night_stand_0.tscn" id="43_0bbqg"]
 [ext_resource type="PackedScene" uid="uid://di1o2hnov0d5" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/bottle_1.tscn" id="43_o0ewv"]
 [ext_resource type="PackedScene" uid="uid://c6lxboyeldjgg" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/brick_1.tscn" id="44_58a17"]
 [ext_resource type="PackedScene" uid="uid://b32f5qpkrs36x" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/tire.tscn" id="45_mx5bt"]
@@ -64,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://b4efoimpws80n" path="res://entities/shop/wares/furniture/bed/ware_bed_1.tscn" id="61_kpem5"]
 [ext_resource type="PackedScene" uid="uid://b5jckbjmeftco" path="res://entities/shop/wares/furniture/bed/ware_bed_0.tscn" id="62_qddpl"]
 [ext_resource type="PackedScene" uid="uid://cw2yo3p1q2qbv" path="res://entities/shop/wares/furniture/desk/ware_desk_0.tscn" id="63_ddvoa"]
+[ext_resource type="PackedScene" uid="uid://dfp1kw82je072" path="res://dialog/dialog trees/furniture_salesman.tscn" id="63_xgkpv"]
 [ext_resource type="PackedScene" uid="uid://b0kmgt0e8v37o" path="res://entities/shop/wares/furniture/night stand/ware_night_stand_0.tscn" id="64_g457r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p8v"]
@@ -2396,10 +2395,10 @@ position = Vector2(35444.5, -30776)
 shape = SubResource("RectangleShape2D_ek4ht")
 debug_color = Color(0.835294, 0.266667, 0.713726, 0.419608)
 
-[node name="Peaceful Apartments" parent="dev_layer/location_labels" instance=ExtResource("9_qsukv")]
+[node name="Eternal Rest Apartments" parent="dev_layer/location_labels" instance=ExtResource("9_qsukv")]
 label_name = "Eternal Rest Apartments"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/location_labels/Peaceful Apartments"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dev_layer/location_labels/Eternal Rest Apartments"]
 position = Vector2(35462, -26524.5)
 shape = SubResource("RectangleShape2D_4xcpq")
 debug_color = Color(0.835294, 0.266667, 0.713726, 0.419608)
@@ -3722,13 +3721,8 @@ position = Vector2(35391, -30891)
 [node name="desk_slot" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/player apartment/apartment_manager"]
 position = Vector2(35494, -30882)
 
-[node name="Desk0" parent="daylight_affected_section/daylight_affected_ysort/game_world/player apartment/apartment_manager/desk_slot" instance=ExtResource("42_r1oq0")]
-position = Vector2(0, -1)
-
 [node name="night_stand_slot" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/player apartment/apartment_manager"]
 position = Vector2(35419, -30883)
-
-[node name="NightStand0" parent="daylight_affected_section/daylight_affected_ysort/game_world/player apartment/apartment_manager/night_stand_slot" instance=ExtResource("43_0bbqg")]
 
 [node name="dynamic_props" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort"]
 y_sort_enabled = true
@@ -4087,18 +4081,23 @@ stage_locations = [NodePath("item_1"), NodePath("item_3")]
 
 [node name="item_1" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store/store_manager"]
 y_sort_enabled = true
-position = Vector2(-91, 136)
+position = Vector2(-80, 149)
 
 [node name="item_3" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store/store_manager"]
 y_sort_enabled = true
-position = Vector2(88, 137)
+position = Vector2(78, 150)
 
-[node name="furniture_salesman" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store" instance=ExtResource("52_6odpx")]
+[node name="furniture_salesman" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store" node_paths=PackedStringArray("shop", "branching_dialog") instance=ExtResource("52_6odpx")]
 position = Vector2(32424, -28546)
 has_passive_text = true
 ai_directive = "alert_passive"
 voice = "sine_voice"
 passive_text = "Welcome! Welcome!"
+shop = NodePath("../store_manager")
+branching_dialog = NodePath("TestTree")
+
+[node name="TestTree" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store/furniture_salesman" instance=ExtResource("63_xgkpv")]
+visible = false
 
 [node name="TileMap_mid" type="TileMap" parent="no_daylight_layer/no_daylight_section"]
 z_index = 2
@@ -4127,8 +4126,8 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="activate_header" from="dev_layer/location_labels/Your Apartment" to="daylight_affected_section/daylight_affected_ysort/Player" method="_activate_location_header"]
 [connection signal="body_entered" from="dev_layer/location_labels/Your Apartment" to="dev_layer/location_labels/Your Apartment" method="_on_body_entered"]
-[connection signal="activate_header" from="dev_layer/location_labels/Peaceful Apartments" to="daylight_affected_section/daylight_affected_ysort/Player" method="_activate_location_header"]
-[connection signal="body_entered" from="dev_layer/location_labels/Peaceful Apartments" to="dev_layer/location_labels/Peaceful Apartments" method="_on_body_entered"]
+[connection signal="activate_header" from="dev_layer/location_labels/Eternal Rest Apartments" to="daylight_affected_section/daylight_affected_ysort/Player" method="_activate_location_header"]
+[connection signal="body_entered" from="dev_layer/location_labels/Eternal Rest Apartments" to="dev_layer/location_labels/Eternal Rest Apartments" method="_on_body_entered"]
 [connection signal="activate_header" from="dev_layer/location_labels/Pie in the Sky Pizza" to="daylight_affected_section/daylight_affected_ysort/Player" method="_activate_location_header"]
 [connection signal="body_entered" from="dev_layer/location_labels/Pie in the Sky Pizza" to="dev_layer/location_labels/Pie in the Sky Pizza" method="_on_body_entered"]
 [connection signal="activate_header" from="dev_layer/location_labels/Downtown Stonesthrow" to="daylight_affected_section/daylight_affected_ysort/Player" method="_activate_location_header"]
