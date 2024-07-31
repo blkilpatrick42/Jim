@@ -23,7 +23,7 @@ ware_name = "Used Oak Desk"
 [node name="script_node" type="Node" parent="."]
 script = ExtResource("2_swowo")
 furniture_entity = ExtResource("3_kjaom")
-is_bed = true
+is_desk = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_vhoe3")

@@ -4072,7 +4072,7 @@ position = Vector2(29864, -26685)
 [node name="central_furniture_store" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort"]
 y_sort_enabled = true
 
-[node name="store_manager" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store" node_paths=PackedStringArray("stage_locations")]
+[node name="store_manager" type="Node2D" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store" node_paths=PackedStringArray("stage_locations") groups=["shop"]]
 y_sort_enabled = true
 position = Vector2(32424, -28721)
 script = ExtResource("60_kiaau")
@@ -4140,3 +4140,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_exited" from="daylight_affected_section/Tile_top_occluding/Area2D" to="daylight_affected_section/Tile_top_occluding" method="_on_vision_collider_body_exited"]
 [connection signal="comment" from="daylight_affected_section/daylight_affected_ysort/game_world/static_props/12hr_clock2" to="daylight_affected_section/daylight_affected_ysort/Player" method="_on_make_comment"]
 [connection signal="comment" from="no_daylight_layer/no_daylight_section/no_daylight_ysort/pizzeria_interior/12hr_clock" to="daylight_affected_section/daylight_affected_ysort/Player" method="_on_make_comment"]
+[connection signal="new_day" from="time_keeper" to="no_daylight_layer/no_daylight_section/no_daylight_ysort/central_furniture_store/store_manager" method="shuffle_staged_items"]

@@ -17,6 +17,7 @@ func _ready():
 func dispose_of_staged_wares():
 	for ware in staged_wares:
 		ware.queue_free()
+	staged_wares = []
 
 #TODO: hook this up to a signal from time keeper
 func shuffle_staged_items():

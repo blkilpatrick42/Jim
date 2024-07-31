@@ -64,7 +64,7 @@ var comment_timer := Timer.new()
 var comment_timer_wait_secs = 1
 var comment_waiting = false
 
-var money : int = 200
+var money : int = 0
 
 func _ready():
 	_collision.disabled = no_clip

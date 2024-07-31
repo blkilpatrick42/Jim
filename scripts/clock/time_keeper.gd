@@ -14,6 +14,8 @@ var timer_song := Timer.new()
 var timer_restart := Timer.new()
 var ambient_dark = null
 
+signal new_day()
+
 var day_of_the_week = 0
 var days_in_week = [
 	"Sunday",
@@ -87,9 +89,12 @@ func game_over():
 func get_informal_time_string() -> String:
 	var informal_string = ""
 	if(clock > 12):
-		informal_string = str(clock - 12, "PM")
+		informal_string = str(clock - 12, " PM")
 	else:
-		informal_string = str (clock, "AM")
+		if(clock == 0):
+			informal_string = str (12, " AM")
+		else:
+			informal_string = str (clock, " AM")
 	informal_string = str(informal_string, ", ", days_in_week[day_of_the_week])
 	return informal_string
 
@@ -109,6 +114,7 @@ func advance_day():
 		day_of_the_week = 0
 	else:
 		day_of_the_week = day_of_the_week + 1
+	new_day.emit()
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
