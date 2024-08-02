@@ -6,7 +6,6 @@
 [node name="BranchTemplate" type="Node2D"]
 script = ExtResource("1_0l748")
 speaker_portrait = ExtResource("2_wcrd0")
-shows_wares = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_wcrd0")

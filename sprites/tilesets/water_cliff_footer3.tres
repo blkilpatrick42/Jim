@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c0fr088gwwkxm"]
+
+[ext_resource type="Texture2D" uid="uid://dsv2ihxku2h8p" path="res://sprites/tilesets/water_cliff_footer_3.png" id="1_um1mq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syvhw"]
+atlas = ExtResource("1_um1mq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlu64"]
+atlas = ExtResource("1_um1mq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee1c"]
+atlas = ExtResource("1_um1mq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv3rr"]
+atlas = ExtResource("1_um1mq")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syvhw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlu64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gee1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv3rr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]

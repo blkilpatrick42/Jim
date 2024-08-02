@@ -34,8 +34,8 @@ shape = SubResource("RectangleShape2D_14bso")
 
 [node name="shadow" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(3.8743e-06, -55.5)
-scale = Vector2(3, 3.40625)
+position = Vector2(3.8743e-06, -50.5)
+scale = Vector2(3, 3.09375)
 texture = ExtResource("3_0jbg6")
 
 [connection signal="body_entered" from="vision_collider" to="." method="_on_vision_collider_body_entered"]

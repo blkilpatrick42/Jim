@@ -12,3 +12,4 @@ speaker_text = Array[String](["Wow! That was fast!", "You're quick!", "Here alre
 speaker_portrait = null
 voice = "sine_voice"
 gives_money = 7
+shows_wares = false

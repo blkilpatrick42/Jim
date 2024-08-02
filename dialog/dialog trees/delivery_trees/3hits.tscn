@@ -11,3 +11,4 @@ trunk = NodePath("3hits")
 speaker_text = Array[String](["I guess my dog could eat this...", "I would rather you hadn't bothered", "Look how you massacred my boy!", "Your manager will be hearing about this...", "I'm never ordering from this place again", "I would rather you keep it", "You don't expect me to pay for this, do you?", "Thanks for nothing, asshole", "Why did you even bother?", "Is this a fucking joke?", "Seriously?", "Oh dear God, no! NO!", "This pizza is ruined..."])
 speaker_portrait = null
 voice = "sine_voice"
+shows_wares = false
