@@ -12,11 +12,9 @@ speaker_text = Array[String](["Wow! That was fast!", "You're quick!", "Here alre
 speaker_portrait = null
 option_branches = [NodePath("../2hits")]
 voice = "sine_voice"
-shows_wares = false
 
 [node name="2hits" parent="." instance=ExtResource("2_cucxo")]
 position = Vector2(4, 213)
 speaker_text = Array[String](["Jeez, did you drop it or something?", "Ugh, you should have been more careful with it...", "But this pizza is barely holding together...", "But it barely looks like a pizza...", "Ew, is that supposed  to be a pizza?", "What the hell did you do to it?", "But the inside of this box is a disaster", "...Did you like...Smash this against something?", "But it looks awful", "But...Wow...This poor, poor pizza..."])
 speaker_portrait = null
 gives_money = 2
-shows_wares = false

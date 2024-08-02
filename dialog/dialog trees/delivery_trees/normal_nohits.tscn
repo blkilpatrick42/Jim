@@ -12,4 +12,3 @@ speaker_text = Array[String](["There's our pizza!", "Right on time!", "We've bee
 speaker_portrait = null
 voice = "sine_voice"
 gives_money = 5
-shows_wares = false

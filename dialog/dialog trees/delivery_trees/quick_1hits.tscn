@@ -12,11 +12,9 @@ speaker_text = Array[String](["Wow! That was fast!", "You're quick!", "Here alre
 speaker_portrait = null
 option_branches = [NodePath("../1hits")]
 voice = "sine_voice"
-shows_wares = false
 
 [node name="1hits" parent="." instance=ExtResource("2_nhlev")]
 position = Vector2(4, 213)
 speaker_text = Array[String](["...The sauce is all over the place", "But it looks like all the toppings fell off", "But it's kinda squished looking...", "But it looks like it's been tossed around some", "Why is the box so beat up?", "...But it's kinda smooshed", "What's this dent in the box from?", "But it looks a little...Jostled...", "But it looks like it saw some turbulence"])
 speaker_portrait = null
 gives_money = 5
-shows_wares = false

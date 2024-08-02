@@ -20,18 +20,15 @@ position = Vector2(251, 157)
 speaker_text = Array[String](["It seems you can't afford that..."])
 speaker_portrait = null
 voice = "sine_voice"
-shows_wares = false
 
 [node name="no purchase" parent="." instance=ExtResource("2_i8gs0")]
 position = Vector2(-205, 164)
 speaker_text = Array[String](["Maybe next time"])
 speaker_portrait = null
 voice = "sine_voice"
-shows_wares = false
 
 [node name="purchase" parent="." instance=ExtResource("2_i8gs0")]
 position = Vector2(5, 178)
 speaker_text = Array[String](["I appreciate your business!"])
 speaker_portrait = null
 voice = "sine_voice"
-shows_wares = false
