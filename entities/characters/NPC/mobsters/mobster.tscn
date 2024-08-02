@@ -32,7 +32,7 @@ size = Vector2(4.75865, 16.4881)
 [node name="mobster" type="RigidBody2D" groups=["mobster"]]
 y_sort_enabled = true
 collision_layer = 0
-collision_mask = 17
+collision_mask = 8209
 mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true

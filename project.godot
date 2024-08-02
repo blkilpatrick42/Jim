@@ -124,6 +124,7 @@ pan_right={
 2d_physics/layer_11="blu mobs vision"
 2d_physics/layer_12="reactive props"
 2d_physics/layer_13="prop wall"
+2d_physics/layer_14="actor wall"
 2d_render/snap/snap_2d_transforms_to_pixel=false
 2d_render/snap/snap_2d_vertices_to_pixel=false
 
