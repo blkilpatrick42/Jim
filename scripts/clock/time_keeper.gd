@@ -88,8 +88,11 @@ func game_over():
 
 func get_informal_time_string() -> String:
 	var informal_string = ""
-	if(clock > 12):
-		informal_string = str(clock - 12, " PM")
+	if(clock > 11):
+		if(clock == 12):
+			informal_string = str(12, " PM")
+		else:
+			informal_string = str(clock - 12, " PM")
 	else:
 		if(clock == 0):
 			informal_string = str (12, " AM")

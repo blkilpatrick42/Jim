@@ -6,6 +6,9 @@ extends Control
 @onready var location_header = $location_header
 @onready var money_label = $money_tracker/money_label
 @onready var pizza_lost = $pizza_lost
+@onready var fps_counter = $fps_counter/fps
+
+@export var fps_counter_visible = false
 
 var sound_player = AudioStreamPlayer.new()
 
@@ -68,4 +71,7 @@ func _process(delta):
 		money_timer.start(money_step_pause_secs)
 	if(pizza_loss_timer.is_stopped() && pizza_lost.visible):
 		pizza_lost.visible = false
+	if(fps_counter_visible):
+		fps_counter.visible = true
+		fps_counter.text = str(Engine.get_frames_per_second())
 	set_money_tracker(current_money)

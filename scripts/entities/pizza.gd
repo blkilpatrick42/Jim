@@ -32,7 +32,7 @@ var selected_delivery_doors: Array[Node]
 var switch_to_pointer_distance = 128
 
 var timer : Timer = Timer.new()
-var time_to_deliver_secs = 120
+var time_to_deliver_secs = 240
 
 var dialog = preload("res://dialog/dialog.tscn")
 var dialog_manager : Node
@@ -135,7 +135,7 @@ func deliver_pizza():
 		else:
 			delivery_dialog_tree = slow_2hit.instantiate()
 	#quick
-	elif(timer.time_left > 60):
+	elif(timer.time_left > time_to_deliver_secs/2):
 		if(hits == 0):
 			delivery_dialog_tree = quick_nohits.instantiate()
 		elif(hits == 1):
@@ -143,7 +143,7 @@ func deliver_pizza():
 		else:
 			delivery_dialog_tree = quick_2hit.instantiate()
 	#normal
-	elif(timer.time_left < 60):
+	elif(timer.time_left < time_to_deliver_secs/2):
 		if(hits == 0):
 			delivery_dialog_tree = normal_nohits.instantiate()
 		elif(hits == 1):

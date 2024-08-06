@@ -116,7 +116,7 @@ func handle_input():
 					tree.take_speech_option(1)
 					play_current_branch()
 				elif(player_money < ware.get_cost()):
-					tree.take_speech_option(2) #"nevermind" don't buy anything
+					tree.take_speech_option(2) #"not enough money" don't buy anything
 					play_current_branch()
 				
 

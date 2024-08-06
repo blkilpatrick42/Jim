@@ -62,7 +62,7 @@ func handle_selection():
 	elif(select_index == 2): #full screen
 		full_screen = !full_screen
 		if(full_screen):
-			get_viewport().mode = 3 #fullscreen
+			get_viewport().mode = 4 #fullscreen
 		else:
 			get_viewport().mode = 2 #maximized 
 	elif(select_index == 3): #back
