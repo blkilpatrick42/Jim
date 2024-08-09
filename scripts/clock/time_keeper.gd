@@ -33,6 +33,12 @@ var player_ref = null
 
 var pause_menu_ref = null
 
+func get_day_of_week():
+	return day_of_the_week
+
+func get_hour():
+	return clock
+
 #Called when the node enters the scene tree for the first time.
 func _ready():
 	sound_player.bus = "Music"
@@ -105,7 +111,7 @@ func get_input():
 	if Input.is_action_just_pressed("start"):
 		if(!is_game_over):
 			toggle_menu_pause()
-		else: if(is_game_over):
+		elif(is_game_over):
 			toggle_pause_parent_tree()
 			get_tree().reload_current_scene()
 
@@ -131,7 +137,7 @@ func _process(delta):
 			else: if(clock == 23):
 				clock = 0
 				advance_day()
-	else: if (is_menu_paused && !is_playing_song && timer_song.is_stopped()):
+	elif (is_menu_paused && !is_playing_song && timer_song.is_stopped()):
 		is_playing_song = true
 		sound_player.stream = load("res://audio/music/Game is paused 2.wav")
 		sound_player.play()

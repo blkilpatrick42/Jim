@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwh40q1ob2i2"]
+
+[ext_resource type="Script" path="res://scripts/AI_state_machine/states/mobster/idle.gd" id="1_m0psa"]
+
+[node name="idle" type="Node"]
+script = ExtResource("1_m0psa")

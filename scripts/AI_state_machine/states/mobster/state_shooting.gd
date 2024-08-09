@@ -82,7 +82,7 @@ func shoot_burst():
 			#for each bullet they don't see you, coin toss 
 			#to determine if they give chase
 			if(random.randi_range(0,1) > 0): 
-				ai_state_machine.transition_to(ai_state_machine.chasing)
+				ai_state_machine.transition_to(mobster_states.chasing)
 		num_bullets_fired = num_bullets_fired + 1
 		timer_between_shots.start(time_between_shots_secs)
 	else: if(num_bullets_fired >= burst_num_bullets):
@@ -100,13 +100,13 @@ func handle_sparks():
 					return true
 			#knockout when player throws object
 			elif(!ai_state_machine.get_perceptions().invincible && node.is_in_group("spark")):
-				ai_state_machine.transition_to(ai_state_machine.falling)
+				ai_state_machine.transition_to(mobster_states.falling)
 				return true
 	return false
 
 func handle_death():
 	if(ai_state_machine.get_perceptions().hit_points <= 0):
-		ai_state_machine.transition_to(ai_state_machine.falling)
+		ai_state_machine.transition_to(mobster_states.falling)
 		return true
 	return false
 
@@ -126,9 +126,9 @@ func physics_process(_delta: float) -> void:
 			burst_cool_down = false
 			num_bullets_fired = 0
 			if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.chasing)
+				ai_state_machine.transition_to(mobster_states.chasing)
 			else:
-				ai_state_machine.transition_to(ai_state_machine.strafing)
+				ai_state_machine.transition_to(mobster_states.strafing)
 
 func enter(_msg := {}) -> void:
 	stop_motion.emit()

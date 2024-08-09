@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bstl2betvigap"]
+
+[ext_resource type="Script" path="res://scripts/AI_state_machine/states/npc/state_npc_alert_passive.gd" id="1_kl46a"]
+
+[node name="alert_passive" type="Node"]
+script = ExtResource("1_kl46a")

@@ -28,16 +28,16 @@ func handle_sparks():
 				!ai_state_machine.get_perceptions().invincible):
 					reduce_health.emit()
 					return true
-				#knockout when player throws object
+			#knockout when player throws object
 			elif(!ai_state_machine.get_perceptions().invincible &&
 			 node.is_in_group("spark")):
-				ai_state_machine.transition_to(ai_state_machine.falling)
+				ai_state_machine.transition_to(mobster_states.falling)
 				return true
 	return false
 
 func handle_death():
 	if(ai_state_machine.get_perceptions().hit_points <= 0):
-		ai_state_machine.transition_to(ai_state_machine.falling)
+		ai_state_machine.transition_to(mobster_states.falling)
 		return true
 	return false
 
@@ -61,14 +61,14 @@ func physics_process(_delta: float) -> void:
 			!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				set_target.emit(node)
 				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					ai_state_machine.transition_to(mobster_states.exclaiming)
 					return
 		if(ai_state_machine.get_perceptions().target_obj != null &&
 		!ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
 			nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+				ai_state_machine.transition_to(mobster_states.exclaiming)
 				return
 		
 		nav_target_reached = get_host_nav_target_reached()
@@ -77,11 +77,11 @@ func physics_process(_delta: float) -> void:
 		else:
 			if(!ai_state_machine.get_perceptions().has_line_of_sight_to_target):
 				#question_bubble.emit()
-				ai_state_machine.transition_to(ai_state_machine.look)
+				ai_state_machine.transition_to(mobster_states.look)
 				return
 				
 		if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-			ai_state_machine.transition_to(ai_state_machine.strafing)
+			ai_state_machine.transition_to(mobster_states.strafing)
 
 func enter(_msg := {}) -> void:
 	var last_seen_pos = ai_state_machine.get_perceptions().target_pos

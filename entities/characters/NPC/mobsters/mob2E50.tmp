@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://h6t3cjbjhfv7" path="res://entities/characters/character_base.tscn" id="3_bnvdq"]
 [ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="3_wq4dt"]
 [ext_resource type="PackedScene" uid="uid://biwoi1biy4ynx" path="res://entities/characters/NPC/AI state machine/ai_state_machine.tscn" id="4_54gx6"]
-[ext_resource type="PackedScene" uid="uid://bfnemblcg0xd0" path="res://entities/characters/NPC/AI state machine/mobster states/idle.tscn" id="6_7vjg2"]
+[ext_resource type="PackedScene" uid="uid://bfnemblcg0xd0" path="res://entities/characters/NPC/AI state machine/common states/idle.tscn" id="6_aktij"]
 [ext_resource type="PackedScene" uid="uid://bpelaxvbqvfrx" path="res://entities/characters/NPC/AI state machine/mobster states/state_look.tscn" id="7_kp6ee"]
 [ext_resource type="PackedScene" uid="uid://b7m035wp3iahk" path="res://entities/characters/NPC/AI state machine/mobster states/state_transit.tscn" id="8_ynsr1"]
 [ext_resource type="PackedScene" uid="uid://dklravegv5df4" path="res://entities/characters/NPC/AI state machine/mobster states/state_falling.tscn" id="9_mgrny"]
@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_bh1f3")
 [node name="ai_state_machine" parent="." instance=ExtResource("4_54gx6")]
 initial_state = NodePath("idle")
 
-[node name="idle" parent="ai_state_machine" instance=ExtResource("6_7vjg2")]
+[node name="idle" parent="ai_state_machine" instance=ExtResource("6_aktij")]
 
 [node name="look" parent="ai_state_machine" instance=ExtResource("7_kp6ee")]
 

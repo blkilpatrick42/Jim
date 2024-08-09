@@ -1,22 +1,6 @@
 class_name ai_state_machine
 extends Node
 
-#states
-const idle = "idle"
-const look = "look"
-const transit = "transit"
-const falling = "falling"
-const knockedout = "knockedout"
-const recovering = "recovering"
-const exclaiming = "exclaiming"
-const shooting = "shooting"
-const strafing = "strafing"
-const investigate = "investigate"
-const chasing = "chasing"
-const enticed = "enticed"
-const returning = "returning"
-const dead = "dead"
-
 # Emitted when transitioning to a new state.
 signal transitioned(state_name)
 
@@ -24,27 +8,30 @@ signal transitioned(state_name)
 
 @onready var state: State = get_node(initial_state)
 
-var perceptions : MobsterPerceptions = MobsterPerceptions.new()
+var perceptions : Perceptions = Perceptions.new()
 
 func _ready():
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.ai_state_machine = self
-	state.enter()
+	if(state != null):
+		state.enter()
 
 func get_perceptions():
 	return perceptions
 
-func receive_perceptions(host_perceptions: MobsterPerceptions):
+func receive_perceptions(host_perceptions: Perceptions):
 		perceptions = host_perceptions
 
 func _process(delta: float):
 	if(!Engine.is_editor_hint()):
-		state.process(delta)
+		if(state != null):
+			state.process(delta)
 
 func _physics_process(delta: float):
 	if(!Engine.is_editor_hint()):
-		state.physics_process(delta)
+		if(state != null):
+			state.physics_process(delta)
 
 func transition_to(target_state_name: String, msg: Dictionary = {}):
 	var transition_node = get_node(target_state_name)

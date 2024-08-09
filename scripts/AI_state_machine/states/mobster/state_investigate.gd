@@ -25,17 +25,17 @@ func handle_sparks():
 						var assailant_obj = node.get_source_obj()
 						set_target.emit(assailant_obj)
 						if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-							ai_state_machine.transition_to(ai_state_machine.exclaiming)
+							ai_state_machine.transition_to(mobster_states.exclaiming)
 						return true
 					elif(!ai_state_machine.get_perceptions().invincible &&
 					 !node.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
-						ai_state_machine.transition_to(ai_state_machine.falling)
+						ai_state_machine.transition_to(mobster_states.falling)
 						return true
 	return false
 
 func handle_death():
 	if(ai_state_machine.get_perceptions().hit_points <= 0):
-		ai_state_machine.transition_to(ai_state_machine.falling)
+		ai_state_machine.transition_to(mobster_states.falling)
 		return true
 	return false
 
@@ -56,22 +56,22 @@ func physics_process(_delta: float) -> void:
 			node.is_in_group("mobster")):
 				set_target.emit(node)
 				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					ai_state_machine.transition_to(mobster_states.exclaiming)
 					return
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+				ai_state_machine.transition_to(mobster_states.exclaiming)
 		elif(nodes_in_vision.has(pizza) && 
 		!ai_state_machine.perceptions.holding_object &&
 		!pizza.is_picked_up()):
 			set_target.emit(pizza)
 			if(ai_state_machine.get_perceptions().reactive_has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.enticed)
+				ai_state_machine.transition_to(mobster_states.enticed)
 				return
 		#investigate
 		if(timer.is_stopped()):
-			ai_state_machine.transition_to(ai_state_machine.look)
+			ai_state_machine.transition_to(mobster_states.look)
 
 func enter(_msg := {}) -> void:
 	timer = Timer.new()

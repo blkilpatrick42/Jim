@@ -3826,14 +3826,11 @@ position = Vector2(32872, -26841)
 mass = 10000.0
 talk_radius = 64
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "low_sine_voice"
-passive_text = "Order up, kid..."
 
 [node name="dialog_tester" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" node_paths=PackedStringArray("branching_dialog") groups=["delivery"] instance=ExtResource("38_u63at")]
 position = Vector2(32840, -26807)
 mass = 10000.0
-ai_directive = "alert_passive"
 branching_dialog = NodePath("Multichar_test")
 
 [node name="MultilineTest" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort/dialog_tester" instance=ExtResource("43_lj01s")]
@@ -4065,9 +4062,7 @@ position = Vector2(29864, -26685)
 [node name="furniture_salesman" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("38_u63at")]
 position = Vector2(32423, -28555)
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "sine_voice"
-passive_text = "Welcome! Welcome!"
 
 [node name="TileMap_mid" type="TileMap" parent="no_daylight_layer/no_daylight_section"]
 z_index = 2

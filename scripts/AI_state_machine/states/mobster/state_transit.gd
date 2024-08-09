@@ -33,13 +33,13 @@ func handle_sparks():
 					return true
 			#knockout when player throws object
 			elif(!ai_state_machine.get_perceptions().invincible && node.is_in_group("spark")):
-				ai_state_machine.transition_to(ai_state_machine.falling)
+				ai_state_machine.transition_to(mobster_states.falling)
 				return true
 	return false
 
 func handle_death():
 	if(ai_state_machine.get_perceptions().hit_points <= 0):
-		ai_state_machine.transition_to(ai_state_machine.falling)
+		ai_state_machine.transition_to(mobster_states.falling)
 		return true
 	return false
 
@@ -60,27 +60,27 @@ func physics_process(_delta: float) -> void:
 			node.is_in_group("mobster")):
 				set_target.emit(node)
 				if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					ai_state_machine.transition_to(mobster_states.exclaiming)
 					return
 		if(nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.exclaiming)
+				ai_state_machine.transition_to(mobster_states.exclaiming)
 		elif(nodes_in_hearing.size() > 0):
 			for node in nodes_in_hearing:
 				if(node.is_in_group("exclaim")):
 					var source_obj = node.get_source_obj()
 					if(source_obj.is_in_group(ai_state_machine.get_perceptions().opposing_team)):
 						set_target.emit(source_obj)
-						ai_state_machine.transition_to(ai_state_machine.exclaiming)
+						ai_state_machine.transition_to(mobster_states.exclaiming)
 						return
-			ai_state_machine.transition_to(ai_state_machine.investigate)
+			ai_state_machine.transition_to(mobster_states.investigate)
 		elif(nodes_in_vision.has(pizza) && 
 		!ai_state_machine.perceptions.holding_object &&
 		!pizza.is_picked_up()):
 			set_target.emit(pizza)
 			if(ai_state_machine.get_perceptions().reactive_has_line_of_sight_to_target):
-				ai_state_machine.transition_to(ai_state_machine.enticed)
+				ai_state_machine.transition_to(mobster_states.enticed)
 				return
 		#transit code
 		else:
@@ -88,7 +88,7 @@ func physics_process(_delta: float) -> void:
 			if(!nav_target_reached):
 				advance_navigation.emit(125000)
 			else:
-				ai_state_machine.transition_to(ai_state_machine.look)
+				ai_state_machine.transition_to(mobster_states.look)
 
 func distance_to_current_point() -> int:
 	return get_host_position().distance_to(current_patrol_point.position)

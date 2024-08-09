@@ -25,7 +25,7 @@ func physics_process(_delta: float) -> void:
 	handle_sparks()
 	if(timer.is_stopped()):
 		adjust_offset.emit(Vector2(0,-sprite_offset_amt))
-		ai_state_machine.transition_to(ai_state_machine.recovering)
+		ai_state_machine.transition_to(mobster_states.recovering)
 
 func enter(_msg := {}) -> void:
 	animate.emit(str("fallen_",ai_state_machine.perceptions.facing_dir))

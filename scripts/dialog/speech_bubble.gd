@@ -1,7 +1,7 @@
 extends Node
 @onready var _label = $Label
 
-@export var time_between_chars = 0.1
+@export var time_between_chars = 0.06
 @export var time_until_disappear = 3
 @export var voice = "none"
 

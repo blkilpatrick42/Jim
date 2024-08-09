@@ -30,13 +30,13 @@ func handle_sparks():
 				#knockout when player throws object
 			elif(!ai_state_machine.get_perceptions().invincible &&
 			 node.is_in_group("spark")):
-				ai_state_machine.transition_to(ai_state_machine.falling)
+				ai_state_machine.transition_to(mobster_states.falling)
 				return true
 	return false
 
 func handle_death():
 	if(ai_state_machine.get_perceptions().hit_points <= 0):
-		ai_state_machine.transition_to(ai_state_machine.falling)
+		ai_state_machine.transition_to(mobster_states.falling)
 		return true
 	return false
 
@@ -57,14 +57,14 @@ func physics_process(_delta: float) -> void:
 				if(node != null && node.is_in_group(ai_state_machine.get_perceptions().opposing_team) &&
 				node.is_in_group("mobster")):
 					set_target.emit(node)
-					ai_state_machine.transition_to(ai_state_machine.exclaiming)
+					ai_state_machine.transition_to(mobster_states.exclaiming)
 					return
 		#strafing code
 		nav_target_reached = get_host_nav_target_reached()
 		if(!nav_target_reached):
 			advance_navigation.emit(250000)
 		else:
-			ai_state_machine.transition_to(ai_state_machine.shooting)
+			ai_state_machine.transition_to(mobster_states.shooting)
 
 func enter(_msg := {}) -> void:
 	set_strafe_point.emit()

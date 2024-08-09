@@ -14,10 +14,10 @@ func physics_process(_delta: float) -> void:
 	if(!ai_state_machine.get_perceptions().one_shot_animating):
 		if(ai_state_machine.get_perceptions().hit_points > 0):
 			play_sound.emit("res://audio/soundFX/smallCollide.wav")
-			ai_state_machine.transition_to(ai_state_machine.knockedout)
+			ai_state_machine.transition_to(mobster_states.knockedout)
 		else:
 			play_sound.emit("res://audio/soundFX/smallCollide.wav")
-			ai_state_machine.transition_to(ai_state_machine.dead)
+			ai_state_machine.transition_to(mobster_states.dead)
 
 func enter(_msg := {}) -> void:
 	var facing_dir = ai_state_machine.get_perceptions().facing_dir
