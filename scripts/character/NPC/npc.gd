@@ -114,6 +114,12 @@ func interact():
 		dialog_manager.set_tree_and_start_dialog(branching_dialog)	
 
 func update_perceptions():
+	perceptions.current_v = current_v
+	perceptions.facing_dir = _character_base.get_facing_dir()
+	perceptions.position = position
+	perceptions.linear_velocity = linear_velocity
+	perceptions.speed = linear_velocity.length()
+	
 	if(schedules.size() > 0):
 		var time_keeper_ref = get_tree().get_first_node_in_group("time_keeper")
 		if(time_keeper_ref != null):
@@ -192,9 +198,9 @@ func face_player():
 
 func _on_handle_behavior(behavior_directive : String):
 	#alert passive NPC
-	if(behavior_directive == alert_passive &&
-	self.global_position.distance_to(player_ref.global_position) < talk_radius):
-		face_player()
+	if(behavior_directive == alert_passive):
+		if(self.global_position.distance_to(player_ref.global_position) < talk_radius):
+			face_player()
 		handle_passive_text()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

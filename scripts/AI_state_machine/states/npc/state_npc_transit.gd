@@ -19,10 +19,10 @@ func get_host_nav_target_reached():
 func process(_delta: float) -> void:
 	pass
 
-func get_stage_mark():
-	current_stage_mark = ai_state_machine.get_perceptions().current_stage_mark
-	if(current_stage_mark != null):
-		set_nav_target.emit(current_stage_mark.position)
+#func get_stage_mark():
+	#current_stage_mark = ai_state_machine.get_perceptions().current_stage_mark
+	#if(current_stage_mark != null):
+		#set_nav_target.emit(current_stage_mark.position)
 
 func physics_process(_delta: float) -> void:
 	if(current_stage_mark != null):
@@ -31,12 +31,13 @@ func physics_process(_delta: float) -> void:
 			advance_navigation.emit(125000)
 		else:
 			var stage_mark_state : String = current_stage_mark.get_state()
+			#current_stage_mark = null
 			ai_state_machine.transition_to(stage_mark_state)
-	else:
-		get_stage_mark()
 
 func enter(_msg := {}) -> void:
-	pass
+	current_stage_mark = ai_state_machine.get_perceptions().current_stage_mark
+	if(current_stage_mark != null):
+		set_nav_target.emit(current_stage_mark.position)
 
 func exit() -> void:
 	pass
