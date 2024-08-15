@@ -49,6 +49,11 @@ func destroy_self():
 		_pointer.queue_free()
 	queue_free()
 
+func pizza_destroyed():
+	var player_ref = get_tree().get_nodes_in_group("player")[0]
+	player_ref._on_pizza_lost()
+	destroy_self()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer.one_shot = true

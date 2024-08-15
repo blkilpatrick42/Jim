@@ -31,15 +31,23 @@ var timer_spark := Timer.new()
 var can_spark = false
 
 var local_collision_pos = Vector2(0,0)
+var timer_fall := Timer.new()
+var timer_fall_step = 0.05
+var falling = false
+var current_scale = 1
+var scale_step = 0.1
 
 signal spark_collide()
 signal signal_picked_up()
+signal destroy_self()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	original_offset = sprite.offset
 	timer_spark.one_shot = true
 	add_child(timer_spark)
+	timer_fall.one_shot = true
+	add_child(timer_fall)
 	sound_player.max_distance = 500
 	sound_player.bus = "Effects"
 	add_child(sound_player)
@@ -130,7 +138,22 @@ func _process(delta):
 		
 	if(picked_up):
 		global_position = (pickup_actor_ref.global_position + Vector2(0, -base_offset+y_sort_offset))
-		
+	
+	if(falling && timer_fall.is_stopped()):
+		timer_fall.start(timer_fall_step)
+		if(current_scale - scale_step > 0):
+			current_scale = current_scale - scale_step
+			sprite.scale = Vector2(current_scale, current_scale)
+		else:
+			if(is_in_group("pizza")):
+				destroy_self.emit()
+			else:
+				queue_free()
+
+func fall():
+	if(!falling):
+		falling = true
+		timer_fall.start(timer_fall_step)
 
 func _integrate_forces(state):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 

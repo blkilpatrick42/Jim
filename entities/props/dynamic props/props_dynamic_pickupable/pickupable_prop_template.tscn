@@ -25,3 +25,5 @@ texture = ExtResource("2_2pvnm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "pickupable", "prop"]]
 y_sort_enabled = true
 shape = SubResource("RectangleShape2D_x7wqg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
