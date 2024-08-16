@@ -138,7 +138,8 @@ func _process(delta):
 		
 	if(picked_up):
 		global_position = (pickup_actor_ref.global_position + Vector2(0, -base_offset+y_sort_offset))
-	
+
+func _physics_process(delta):
 	if(falling && timer_fall.is_stopped()):
 		timer_fall.start(timer_fall_step)
 		if(current_scale - scale_step > 0):
