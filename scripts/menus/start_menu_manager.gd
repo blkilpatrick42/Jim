@@ -85,6 +85,11 @@ func _ready():
 	add_child(sound_player)
 	labels = [start_label, settings_label, quit_label]
 	set_labels_alpha(menu_alpha)
+	#TODO: fix this magic number
+	#make sure this matches the value for bus_headroom in the audio menu manager
+	var bus_headroom = 6
+	AudioServer.set_bus_volume_db(1, -bus_headroom) #set music headroom
+	AudioServer.set_bus_volume_db(2, -bus_headroom) #set effects headroom
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
