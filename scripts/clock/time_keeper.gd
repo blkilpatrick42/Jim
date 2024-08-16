@@ -74,6 +74,7 @@ func toggle_menu_pause():
 		if(!is_menu_paused):
 			if(!player_ref.control_frozen):
 				pause_menu_ref = pause_menu.instantiate()
+				player_ref.control_frozen = true
 				player_ref.add_child(pause_menu_ref)
 				is_menu_paused = true
 				sound_player.stream = load("res://audio/soundFX/opened.wav")
@@ -82,6 +83,7 @@ func toggle_menu_pause():
 				timer_song.start(play_song_wait_sec)
 		else:
 			pause_menu_ref.queue_free()
+			player_ref.control_frozen = false
 			is_menu_paused = false
 			is_playing_song = false
 			sound_player.stream = load("res://audio/soundFX/closed.wav")
