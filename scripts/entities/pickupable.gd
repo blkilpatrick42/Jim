@@ -110,9 +110,8 @@ func put_down(dir):
 			direction.down:
 				throw_force = Vector2(0,force_factor)
 				set_physics_pos(pickup_actor_ref.global_position + Vector2(0, base_offset))
-			
-		
-	
+
+
 func set_will_pickup_false():
 	will_pickup = false
 

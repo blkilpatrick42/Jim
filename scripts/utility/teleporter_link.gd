@@ -26,6 +26,8 @@ var player_ref = null
 var daylight_affected_ysort : Node
 var no_daylight_ysort : Node
 
+var npcs_using_teleporter : Array[Node] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	daylight_affected_ysort = get_tree().get_first_node_in_group("daylight_affected_ysort")
@@ -87,6 +89,11 @@ func update_fade_alpha():
 		linked_teleporter._fade_to_black.color = Color(0,0,0,fade_alpha)
 		linked_teleporter.fade_alpha = fade_alpha
 
+
+func _on_area_2d_body_exited(body):
+	if(body in npcs_using_teleporter):
+		npcs_using_teleporter.remove_at(npcs_using_teleporter.find(body))
+
 func _on_area_2d_body_entered(body):
 	if(body.is_in_group("player")):
 		player_ref = body
@@ -100,4 +107,14 @@ func _on_area_2d_body_entered(body):
 				player_ref.set_current_v(Vector2(enter_x_push,0))
 			if(enter_y_push != 0):
 				player_ref.set_current_v(Vector2(0,enter_y_push))
+	elif(body.is_in_group("npc") && 
+	npcs_using_teleporter.find(body) < 0 &&
+	linked_teleporter.npcs_using_teleporter.find(body) < 0):	
+		npcs_using_teleporter.append(body)
+		body.global_position = linked_teleporter.global_position
+		linked_teleporter.npcs_using_teleporter.append(body)
+		if(reparent_to_daylight):
+			body.reparent(daylight_affected_ysort)
+		if(reparent_to_no_daylight):
+			body.reparent(no_daylight_ysort)
 
