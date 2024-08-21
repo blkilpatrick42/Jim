@@ -16,7 +16,7 @@ size = Vector2(19.9688, 13.2813)
 [node name="blank_npc" type="RigidBody2D" groups=["interactable", "npc"]]
 y_sort_enabled = true
 collision_layer = 4
-collision_mask = 25
+collision_mask = 16
 mass = 1000.0
 gravity_scale = 0.0
 lock_rotation = true

@@ -85,9 +85,9 @@ func _ready():
 
 func enter_dialog():
 	stop()
-	in_dialog = true
 	control_frozen = true
 	dialog_panning = true
+	in_dialog = true
 	
 func exit_dialog():
 	in_dialog = false
@@ -321,6 +321,8 @@ func _physics_process(delta):
 		_camera.handle_camera_pan()
 		if(!dead):
 			get_input()
+			if(in_dialog):
+				current_v = Vector2(0,0)
 			apply_force(current_v)
 			if(invincibility_timer.is_stopped() &&
 			is_invincible == true):
