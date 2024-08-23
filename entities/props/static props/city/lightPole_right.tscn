@@ -23,7 +23,7 @@ enabled = false
 color = Color(1, 1, 0.803922, 1)
 texture = ExtResource("2_g61jv")
 script = ExtResource("3_enns8")
-running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true])
+running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
 z_as_relative = false

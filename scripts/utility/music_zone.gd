@@ -30,7 +30,7 @@ func _process(delta):
 			
 
 func _on_body_entered(body : Node):
-	if(body.is_in_group("player") and not active):
+	if(body.is_in_group("player") && !active):
 		active = true
 		var new_stream
 		if(song_deck.size() > 1):
@@ -40,6 +40,6 @@ func _on_body_entered(body : Node):
 		main_music_player.change_stream(new_stream)
 
 func _on_body_exited(body : Node):
-	if(body.is_in_group("player") and active):
+	if(body.is_in_group("player") && active):
 		main_music_player.change_stream("")
 		active = false

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://q6ml5dijxsr"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://q6ml5dijxsr"]
 
 [ext_resource type="Texture2D" uid="uid://dou6up1xnxgqp" path="res://sprites/game_world/train_stat_window_1.png" id="1_0lm0l"]
 [ext_resource type="Texture2D" uid="uid://dw0byxsefs5ma" path="res://sprites/game_world/train_stat_window_2.png" id="2_i4ywm"]
@@ -13,6 +13,10 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvmqw"]
 atlas = ExtResource("2_i4ywm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gga4d"]
+atlas = ExtResource("1_0lm0l")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_abg5j"]
@@ -82,10 +86,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_hvmqw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abg5j")
+"texture": SubResource("AtlasTexture_gga4d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_abg5j")
+"texture": SubResource("AtlasTexture_hvmqw")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_abg5j")
