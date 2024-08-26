@@ -8,7 +8,6 @@
 size = Vector2(70.3932, 27.5491)
 
 [node name="lightPole" type="StaticBody2D" groups=["prop"]]
-y_sort_enabled = true
 
 [node name="lightPole" type="Sprite2D" parent="." groups=["prop"]]
 y_sort_enabled = true
@@ -17,7 +16,7 @@ texture = ExtResource("1_f2cht")
 offset = Vector2(0, -16)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(75, 8)
+position = Vector2(85, 8)
 scale = Vector2(0.705, 0.33)
 enabled = false
 color = Color(1, 1, 0.803922, 1)

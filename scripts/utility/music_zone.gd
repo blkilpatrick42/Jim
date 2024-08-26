@@ -21,13 +21,10 @@ func _process(delta):
 	active == true):
 		internal_clock = time_keeper.clock
 		if(song_deck.size() > 1 &&
-		song_deck[internal_clock] != ""):
+		song_deck[internal_clock] != "" &&
+		!main_music_player.is_playing()):
 			var new_stream = get_song_deck()[internal_clock]
 			main_music_player.change_stream(new_stream)
-		elif(song_deck.size() == 1):
-			var new_stream = get_song_deck()[0]
-			main_music_player.change_stream(new_stream)
-			
 
 func _on_body_entered(body : Node):
 	if(body.is_in_group("player") && !active):

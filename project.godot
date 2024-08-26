@@ -13,7 +13,7 @@ config_version=5
 config/name="Jim"
 run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://sprites/splash.png"
+boot_splash/image="res://sprites/start_screen/dire_logo_2.png"
 config/icon="res://sprites/pizzaBubble.png"
 
 [display]
