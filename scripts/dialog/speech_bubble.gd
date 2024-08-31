@@ -8,6 +8,8 @@ extends Node
 var sound_player := AudioStreamPlayer2D.new()
 var rnd = RandomNumberGenerator.new()
 
+#todo: parse out text from play_passive_text using dellimeter which will allow messages over multiple speech bubles
+var text_queue : Array[String] = []
 var full_text = ""
 var current_text 
 var characters_displayed = 0

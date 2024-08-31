@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjl4c8akjyg3v"]
+
+[ext_resource type="Texture2D" uid="uid://jumdpwh8hiss" path="res://sprites/props/rock_2.png" id="1_4ctns"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="2_8xd36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3bf"]
+size = Vector2(32, 12)
+
+[node name="rock2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4ctns")
+offset = Vector2(0, 8)
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_8xd36")
+offset = Vector2(0, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_pa3bf")

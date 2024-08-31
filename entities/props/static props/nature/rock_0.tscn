@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbpeqs2bj0xkp"]
+
+[ext_resource type="Texture2D" uid="uid://ddpeybuiwkrbi" path="res://sprites/props/rock_0.png" id="1_8f5qc"]
+[ext_resource type="Texture2D" uid="uid://0d3n5esom4o4" path="res://sprites/lights/small_shadow.png" id="2_pn5dm"]
+
+[node name="rock0" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8f5qc")
+offset = Vector2(0, 16)
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -2)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_pn5dm")
+offset = Vector2(0, 8)

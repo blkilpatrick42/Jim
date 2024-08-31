@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://covitnp1vgsqh"]
+
+[ext_resource type="Texture2D" uid="uid://d2dqs0grcbmw" path="res://sprites/spritesheets/props/aspen_animated.png" id="1_m3whr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43662"]
+atlas = ExtResource("1_m3whr")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tutp"]
+atlas = ExtResource("1_m3whr")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3w25"]
+atlas = ExtResource("1_m3whr")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k0iw"]
+atlas = ExtResource("1_m3whr")
+region = Rect2(192, 0, 64, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_43662")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4tutp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_c3w25")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4k0iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
