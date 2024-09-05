@@ -10,6 +10,7 @@ extends Node2D
 @export var exit_only = false
 @export var reparent_to_daylight = false
 @export var reparent_to_no_daylight = false
+@export var secs_for_control_back : int = 0
 
 var entering = false
 var exiting = false
@@ -20,6 +21,8 @@ var fade_step = 0.05
 var fade_step_secs = 0.05
 var teleport_step_secs = 0.5
 var timer_fade := Timer.new()
+var timer_control_back := Timer.new()
+var control_timer_active = false
 
 var player_ref = null
 
@@ -33,7 +36,9 @@ func _ready():
 	daylight_affected_ysort = get_tree().get_first_node_in_group("daylight_affected_ysort")
 	no_daylight_ysort = get_tree().get_first_node_in_group("no_daylight_ysort")
 	timer_fade.one_shot = true
+	timer_control_back.one_shot = true
 	add_child(timer_fade)
+	add_child(timer_control_back)
 
 func _draw():
 	if(linked_teleporter != null && Engine.is_editor_hint()):
@@ -49,6 +54,11 @@ func _process(delta):
 		enter()
 	else: if(exiting):
 		exit()
+	
+	if(control_timer_active &&
+		timer_control_back.is_stopped()):
+			control_timer_active = false
+			player_ref.set_control_frozen(false)
 
 func enter():
 	if(fade_alpha < 1 && timer_fade.is_stopped()):
@@ -81,7 +91,11 @@ func exit():
 		fade_alpha = 0
 		exiting = false
 		player_ref.stop()
-		player_ref.set_control_frozen(false)
+		if(secs_for_control_back > 0):
+			control_timer_active = true
+			timer_control_back.start(secs_for_control_back)
+		else:
+			player_ref.set_control_frozen(false)
 
 func update_fade_alpha():
 	_fade_to_black.color = Color(0,0,0,fade_alpha)

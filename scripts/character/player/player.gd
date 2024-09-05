@@ -57,6 +57,9 @@ var comment_timer := Timer.new()
 var comment_timer_wait_secs = 1
 var comment_waiting = false
 
+var anchored = false
+var active_anchor : Node = null
+
 var money : int = 0
 
 func _ready():
@@ -96,6 +99,18 @@ func exit_dialog():
 
 func get_money():
 	return money
+
+func anchor(anchor : Node):
+	_collision.disabled = true
+	control_frozen = true
+	anchored = true
+	active_anchor = anchor
+
+func disable_anchor():
+	_collision.disabled = false
+	control_frozen = false
+	anchored = false
+	active_anchor = null
 
 func _on_add_money(num : int):
 	var new_money = money + num
@@ -329,4 +344,6 @@ func _physics_process(delta):
 				go_vincible()
 			_ui.update_hearts(current_hp)
 			_ui.set_money(money)
+			if(anchored && active_anchor != null):
+				global_position = active_anchor.global_position
 		

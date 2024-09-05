@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://uryqlsw81ik5"]
+[gd_scene load_steps=3 format=3 uid="uid://uryqlsw81ik5"]
 
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/characters/base/char_0_base.tres" id="1_5wjwm"]
+[ext_resource type="Script" path="res://scripts/utility/become_invisible.gd" id="1_iiser"]
 
-[node name="PlayerAnchor" type="Node2D"]
+[node name="PlayerAnchor" type="Node2D" groups=["player_anchor"]]
+script = ExtResource("1_iiser")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.423529)

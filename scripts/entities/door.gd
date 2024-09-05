@@ -10,6 +10,7 @@ var sound_player := AudioStreamPlayer.new()
 @export var parent_door : Node2D
 
 @export var locked = false
+@export var one_time_use = false
 
 var time_keeper
 
@@ -40,6 +41,8 @@ func close():
 	if(opened):
 		_animated_sprite.play("close")
 		closing = true
+		if(one_time_use):
+			opens_for_groups = []
 
 func opener_is_near():
 	var retVal = false

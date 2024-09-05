@@ -113,6 +113,9 @@ func _on_picked_up():
 		has_been_picked_up_before = true
 
 func update_compass_pointer():
+	var player_ref = get_tree().get_nodes_in_group("player")[0]
+	_compass.global_position = player_ref.global_position
+	_compass.look_at(current_guide_point)
 	if(distance_to_position(current_guide_point) < switch_to_pointer_distance):
 		_compass.visible = false
 		_pointer.global_position = current_guide_point
@@ -168,8 +171,6 @@ func deliver_pizza():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(_prop != null):
-		_compass.global_position = _prop.global_position
-		_compass.global_rotation = _prop.global_position.angle_to_point(current_guide_point)
 		update_pizza_stack()
 		if(_prop.is_picked_up() && 
 		_prop.get_parent().is_in_group("player") && 

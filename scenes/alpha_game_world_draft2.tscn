@@ -2264,6 +2264,7 @@ linked_teleporter = NodePath("../pizzeria_link_indoor_exit")
 enter_y_push = -25000
 exit_y_push = 35000
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="pizzeria_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(32837, -26492)
@@ -2273,6 +2274,7 @@ exit_y_push = -50000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="furniture_store_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-683, 132)
@@ -2280,6 +2282,7 @@ linked_teleporter = NodePath("../furniture_store_link_indoor_exit")
 enter_y_push = -10000
 exit_y_push = 10000
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="furniture_store_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(32421, -28332)
@@ -2289,27 +2292,32 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="west_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-2475, 613)
 linked_teleporter = NodePath("../west_apt_link_indoor_exit")
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="west_apt_3_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-2251, -703)
 linked_teleporter = NodePath("../west_apt_3_link_indoor_exit")
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="west_apt_4_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-2315, -1079)
 linked_teleporter = NodePath("../west_apt_4_link_indoor_exit")
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="west_apt_2_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-2027, 295)
 linked_teleporter = NodePath("../west_apt_2_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="player_apt_bldg_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(-75, -604)
@@ -2317,6 +2325,7 @@ linked_teleporter = NodePath("../player_apt_bldg_link_indoor_exit")
 enter_y_push = -25000
 exit_y_push = 20000
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="west_apt_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(29829, -26508)
@@ -2326,6 +2335,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="west_apt_3_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(27973, -26332)
@@ -2335,6 +2345,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="west_apt_2_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(30021, -27388)
@@ -2344,6 +2355,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="west_apt_4_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(28197, -27324)
@@ -2353,6 +2365,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="player_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(35445, -30668)
@@ -2360,6 +2373,7 @@ linked_teleporter = NodePath("../player_apt_link_indoor")
 enter_y_push = 5000
 exit_y_push = -30000
 reparent_to_no_daylight = true
+secs_for_control_back = null
 
 [node name="player_apt_link_indoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("6_vu684")]
 position = Vector2(35381, -26684)
@@ -2369,6 +2383,7 @@ exit_y_push = 20000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="player_apt_bldg_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_vu684")]
 position = Vector2(35541, -26364)
@@ -2378,6 +2393,7 @@ exit_y_push = -30000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+secs_for_control_back = null
 
 [node name="location_labels" type="Node2D" parent="dev_layer"]
 visible = false
