@@ -52,6 +52,15 @@ func opener_is_near():
 				retVal = true
 	return retVal
 
+#used so that a player doesn't get trapped behind a locked door
+func player_is_behind_door():
+	var player_ref = get_tree().get_first_node_in_group("player")
+	var relative_position = global_position.y - player_ref.global_position.y
+	var ret_val = false
+	if(relative_position > 0):
+		ret_val = true
+	return ret_val
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#opener has to stand near the door for a period of time for it to open
@@ -60,8 +69,9 @@ func _process(delta):
 		open_close_timer.start((open_close_time_secs))
 	
 	#if that period of time has elapsed and the opener is still there, open
-	if(!locked && open_close_timer.is_stopped() && waiting_to_open && opener_is_near()):
-		open()
+	if(open_close_timer.is_stopped() && waiting_to_open && opener_is_near()):
+		if(!locked || (locked && player_is_behind_door())):
+			open()
 	else: if(open_close_timer.is_stopped() && waiting_to_open && !opener_is_near()):
 		waiting_to_open = false
 	
