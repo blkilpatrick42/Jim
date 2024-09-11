@@ -15,5 +15,8 @@ func _ready():
 	timer.start(random.randf_range(0,wait_offset))
 
 func _process(delta : float) -> void:
-	if(timer.is_stopped()):
-		play("default")
+	if(timer.is_stopped() && !is_playing()):
+		var frames : SpriteFrames = sprite_frames
+		var animation_name = "default"
+		if(frames.has_animation(animation_name)):
+			play(animation_name)
