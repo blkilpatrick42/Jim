@@ -11,7 +11,7 @@ trunk = NodePath("whats up")
 
 [node name="whats up" parent="." node_paths=PackedStringArray("option_branches") instance=ExtResource("2_clppb")]
 position = Vector2(-195, -18)
-speaker_text = Array[String](["What's up?", "How's it going?", "You need something?"])
+speaker_text = Array[String](["What's up?"])
 speech_options = Array[String](["Too busy", "Not much"])
 option_branches = [NodePath("../too busy"), NodePath("../not much")]
 voice = "sine_voice"
