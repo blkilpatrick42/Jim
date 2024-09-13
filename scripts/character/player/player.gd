@@ -214,10 +214,6 @@ func handle_dash():
 
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
-		if(_camera.fading_out):
-			_camera.fade_in()
-		else:
-			_camera.fade_out()
 		throw()
 
 func set_control_frozen(value):
