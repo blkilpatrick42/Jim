@@ -6,7 +6,7 @@ extends RigidBody2D
 @onready var _tough_luck = $tough_luck
 @onready var _collision = $CollisionShape2D
 @onready var _ui = $ui_canvas/player_ui
-@onready var _camera = $Camera2D
+@onready var _camera = $main_camera
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -214,7 +214,11 @@ func handle_dash():
 
 func handle_throw():
 	if Input.is_action_just_pressed("throw"):
-			throw()
+		if(_camera.fading_out):
+			_camera.fade_in()
+		else:
+			_camera.fade_out()
+		throw()
 
 func set_control_frozen(value):
 	control_frozen = value

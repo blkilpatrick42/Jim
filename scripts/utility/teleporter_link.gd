@@ -21,8 +21,10 @@ var fade_step = 0.05
 var fade_step_secs = 0.05
 var teleport_step_secs = 0.5
 var timer_fade := Timer.new()
-var timer_control_back := Timer.new()
-var control_timer_active = false
+
+#for locking player control during teleport
+var timer_control_back := Timer.new() 
+var control_timer_active = false 
 
 var player_ref = null
 
@@ -30,6 +32,8 @@ var daylight_affected_ysort : Node
 var no_daylight_ysort : Node
 
 var npcs_using_teleporter : Array[Node] = []
+
+var camera_ref
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +43,7 @@ func _ready():
 	timer_control_back.one_shot = true
 	add_child(timer_fade)
 	add_child(timer_control_back)
+	camera_ref = get_tree().get_first_node_in_group("camera")
 
 func _draw():
 	if(linked_teleporter != null && Engine.is_editor_hint()):
@@ -102,7 +107,6 @@ func update_fade_alpha():
 	if(linked_teleporter != null):
 		linked_teleporter._fade_to_black.color = Color(0,0,0,fade_alpha)
 		linked_teleporter.fade_alpha = fade_alpha
-
 
 func _on_area_2d_body_exited(body):
 	if(body in npcs_using_teleporter):

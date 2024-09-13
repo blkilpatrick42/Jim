@@ -1,31 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba16c0124dsb3"]
+[gd_scene load_steps=8 format=3 uid="uid://ba16c0124dsb3"]
 
+[ext_resource type="Script" path="res://scenes/root_manager.gd" id="1_hwmkm"]
 [ext_resource type="Texture2D" uid="uid://b76rttfua10ki" path="res://sprites/start_screen/starfiend_back.png" id="1_tkgca"]
 [ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://menu/start menu/starfield_far.tscn" id="4_8yvp3"]
 [ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://menu/start menu/starfield_farthest.tscn" id="5_re6l0"]
 [ext_resource type="PackedScene" uid="uid://ciw22wbkgnx0c" path="res://menu/start menu/start_menu_manager.tscn" id="6_ucxi6"]
 [ext_resource type="AudioStream" uid="uid://b3pbwf0l1i5mh" path="res://audio/music/starfield_theme.wav" id="7_0owee"]
+[ext_resource type="PackedScene" uid="uid://b23ot5l1o0hli" path="res://entities/characters/player/main_camera.tscn" id="7_xjevn"]
 
-[node name="start_menu" type="Node2D"]
+[node name="root_manager" type="Node2D" groups=["root_manager"]]
+script = ExtResource("1_hwmkm")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="start_menu" type="Node2D" parent="."]
 
-[node name="StarfiendBack" type="Sprite2D" parent="."]
+[node name="StarfiendBack" type="Sprite2D" parent="start_menu"]
 scale = Vector2(2.89687, 2.89688)
 texture = ExtResource("1_tkgca")
 
-[node name="starfield" parent="." instance=ExtResource("4_8yvp3")]
+[node name="starfield" parent="start_menu" instance=ExtResource("4_8yvp3")]
 scale = Vector2(2, 2)
 timer_wait_secs = 0.3
 
-[node name="starfield_far" parent="." instance=ExtResource("5_re6l0")]
+[node name="starfield_far" parent="start_menu" instance=ExtResource("5_re6l0")]
 scale = Vector2(2, 2)
 timer_wait_secs = 0.8
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="start_menu"]
 stream = ExtResource("7_0owee")
 volume_db = -12.855
 autoplay = true
 bus = &"Music"
 
-[node name="start_menu" parent="." instance=ExtResource("6_ucxi6")]
+[node name="start_menu" parent="start_menu" instance=ExtResource("6_ucxi6")]
+
+[node name="main_camera" parent="." instance=ExtResource("7_xjevn")]

@@ -1,5 +1,7 @@
 extends Camera2D
 
+@onready var _fade_to_black = $fade_to_black
+
 var player_ref
 
 const pan_x_max = 96
@@ -8,17 +10,50 @@ var pan_timer := Timer.new()
 var pan_step = 4
 const pan_step_time_secs = 0.005
 var camera_offset = Vector2(0,0)
+var locked = true
+
+var fading_out = false
+var fade_step_secs = 0.05
+var timer_fade := Timer.new()
+var fade_alpha = 0.0
+var fade_step = 0.05
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_ref = get_parent()
 	pan_timer.one_shot = true
+	timer_fade.one_shot = true
 	add_child(pan_timer)
+	add_child(timer_fade)
 	pan_timer.start(pan_step_time_secs)
+	timer_fade.start(fade_step_secs)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	handle_camera_pan()
+	update_fade_alpha()
+	if(not locked):
+		handle_camera_pan()
+
+func lock():
+	locked = true
+
+func unlock():
+	locked = false
+
+func fade_out():
+	fading_out = true
+
+func fade_in():
+	fading_out = false 
+
+func update_fade_alpha():
+	if(fading_out && timer_fade.is_stopped() && fade_alpha < 1):
+		fade_alpha = fade_alpha + fade_step
+		timer_fade.start(fade_step_secs)
+	elif(!fading_out && timer_fade.is_stopped() && fade_alpha > 0):
+		fade_alpha = fade_alpha - fade_step
+		timer_fade.start(fade_step_secs)
+	_fade_to_black.color = Color(0,0,0,fade_alpha)
 
 func handle_camera_pan():
 	var pan_direction = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
