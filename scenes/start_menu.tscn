@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ba16c0124dsb3"]
 
-[ext_resource type="Script" path="res://scenes/root_manager.gd" id="1_hwmkm"]
+[ext_resource type="Script" path="res://scripts/utility/root_manager.gd" id="1_hwmkm"]
 [ext_resource type="Texture2D" uid="uid://b76rttfua10ki" path="res://sprites/start_screen/starfiend_back.png" id="1_tkgca"]
 [ext_resource type="PackedScene" uid="uid://f4ngkupjl7mr" path="res://menu/start menu/starfield_far.tscn" id="4_8yvp3"]
 [ext_resource type="PackedScene" uid="uid://bgbawsiajvalm" path="res://menu/start menu/starfield_farthest.tscn" id="5_re6l0"]
@@ -11,9 +11,9 @@
 [node name="root_manager" type="Node2D" groups=["root_manager"]]
 script = ExtResource("1_hwmkm")
 
-[node name="start_menu" type="Node2D" parent="."]
+[node name="start_menu" type="Node2D" parent="." groups=["active_root"]]
 
-[node name="StarfiendBack" type="Sprite2D" parent="start_menu"]
+[node name="StarfieldBack" type="Sprite2D" parent="start_menu"]
 scale = Vector2(2.89687, 2.89688)
 texture = ExtResource("1_tkgca")
 
@@ -34,3 +34,6 @@ bus = &"Music"
 [node name="start_menu" parent="start_menu" instance=ExtResource("6_ucxi6")]
 
 [node name="main_camera" parent="." instance=ExtResource("7_xjevn")]
+
+[connection signal="transition_to_main_scene" from="start_menu/start_menu" to="." method="_on_transition_to_main_scene"]
+[connection signal="transition_to_main_scene" from="start_menu/start_menu" to="." method="_on_transition_to_main_scene_init"]

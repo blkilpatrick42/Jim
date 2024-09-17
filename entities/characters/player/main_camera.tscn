@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b23ot5l1o0hli"]
 
-[ext_resource type="Script" path="res://entities/characters/player/main_camera.gd" id="1_nbboq"]
+[ext_resource type="Script" path="res://scripts/utility/main_camera.gd" id="1_apwxg"]
 
-[node name="main_camera" type="Camera2D" groups=["Player", "camera"]]
+[node name="main_camera" type="Camera2D" groups=["camera"]]
 process_mode = 3
 limit_left = -1000000
 position_smoothing_enabled = true
@@ -14,7 +14,7 @@ drag_top_margin = 0.0
 drag_right_margin = 0.1
 drag_bottom_margin = 0.0
 editor_draw_drag_margin = true
-script = ExtResource("1_nbboq")
+script = ExtResource("1_apwxg")
 
 [node name="fade_to_black" type="Polygon2D" parent="."]
 z_index = 11

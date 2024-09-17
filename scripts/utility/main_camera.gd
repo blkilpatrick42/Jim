@@ -20,13 +20,18 @@ var fade_step = 0.05
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_ref = get_parent()
 	pan_timer.one_shot = true
 	timer_fade.one_shot = true
 	add_child(pan_timer)
 	add_child(timer_fade)
 	pan_timer.start(pan_step_time_secs)
 	timer_fade.start(fade_step_secs)
+
+func is_faded_out() -> bool:
+	if(fade_alpha >= 1.0):
+		return true
+	else:
+		return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,6 +50,10 @@ func fade_out():
 
 func fade_in():
 	fading_out = false 
+
+func connect_player(input : Node):
+	player_ref = input
+	position = Vector2(0,0)
 
 func update_fade_alpha():
 	if(fading_out && timer_fade.is_stopped() && fade_alpha < 1):

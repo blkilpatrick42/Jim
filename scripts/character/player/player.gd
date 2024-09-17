@@ -6,7 +6,9 @@ extends RigidBody2D
 @onready var _tough_luck = $tough_luck
 @onready var _collision = $CollisionShape2D
 @onready var _ui = $ui_canvas/player_ui
-@onready var _camera = $main_camera
+
+var _camera
+var camera_connected = false
 
 @export var base_spriteframes : SpriteFrames
 @export var hat_spriteframes : SpriteFrames
@@ -86,12 +88,23 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func set_ui_visible():
+	_ui.visible = true
+
+func set_ui_invisible():
+	_ui.visible = false
+
 func enter_dialog():
 	stop()
 	control_frozen = true
 	dialog_panning = true
 	in_dialog = true
-	
+
+func connect_camera():
+	_camera = get_tree().get_first_node_in_group("camera")
+	_camera.connect_player(self)
+	camera_connected = true
+
 func exit_dialog():
 	in_dialog = false
 	control_frozen = false
@@ -333,7 +346,8 @@ func _process(_delta):
 					
 func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
-		_camera.handle_camera_pan()
+		if(camera_connected):
+			_camera.handle_camera_pan()
 		if(!dead):
 			get_input()
 			if(in_dialog):
