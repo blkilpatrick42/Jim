@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://mcdceuvq1y5j"]
+[gd_scene load_steps=9 format=3 uid="uid://mcdceuvq1y5j"]
 
 [ext_resource type="Script" path="res://scripts/character/player/player_ui.gd" id="1_nbha7"]
 [ext_resource type="SpriteFrames" uid="uid://bmgpmudv15sq" path="res://sprites/spritesheets/spriteframes/interface/health_heart.tres" id="1_vp1fm"]
+[ext_resource type="Texture2D" uid="uid://bmvj6wwj38pi4" path="res://sprites/empty.png" id="2_0udtb"]
 [ext_resource type="PackedScene" uid="uid://br7lsjp6dti22" path="res://interface/location_header.tscn" id="3_bnmgx"]
 [ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="4_fwlcb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0y31s"]
+font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_7uvet"]
 font = ExtResource("4_fwlcb")
@@ -14,9 +18,6 @@ font = ExtResource("4_fwlcb")
 font_size = 64
 font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_0y31s"]
-font_size = 12
-
 [node name="player_ui" type="Control"]
 z_index = 6
 layout_mode = 3
@@ -26,10 +27,51 @@ offset_bottom = 320.0
 script = ExtResource("1_nbha7")
 fps_counter_visible = true
 
-[node name="health_meter" type="MarginContainer" parent="."]
+[node name="we_need_this" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cause_godot_is_broken" type="Sprite2D" parent="we_need_this"]
+texture = ExtResource("2_0udtb")
+
+[node name="fps_counter" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 632.0
+offset_bottom = 320.0
+
+[node name="fps" type="Label" parent="fps_counter"]
 layout_mode = 0
-offset_right = 60.0
-offset_bottom = 24.0
+offset_left = 608.0
+offset_top = 303.0
+offset_right = 632.0
+offset_bottom = 320.0
+text = "100"
+label_settings = SubResource("LabelSettings_0y31s")
+
+[node name="location_header" parent="." instance=ExtResource("3_bnmgx")]
+
+[node name="money_tracker" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 60.0
+offset_right = 107.0
+offset_bottom = 22.0
+
+[node name="money_label" type="Label" parent="money_tracker"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 53.0
+text = "
+
+"
+label_settings = SubResource("LabelSettings_7uvet")
+
+[node name="health_meter" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="heart_1" type="AnimatedSprite2D" parent="health_meter"]
 position = Vector2(12, 12)
@@ -45,24 +87,6 @@ animation = &"active"
 position = Vector2(48, 12)
 sprite_frames = ExtResource("1_vp1fm")
 animation = &"active"
-
-[node name="location_header" parent="." instance=ExtResource("3_bnmgx")]
-
-[node name="money_tracker" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 60.0
-offset_right = 107.0
-offset_bottom = 22.0
-
-[node name="money_label" type="Label" parent="money_tracker"]
-layout_mode = 0
-offset_left = 5.0
-offset_right = 45.0
-offset_bottom = 25.0
-text = "
-
-"
-label_settings = SubResource("LabelSettings_7uvet")
 
 [node name="pizza_lost" type="Control" parent="."]
 visible = false
@@ -81,18 +105,3 @@ text = "PIZZA LOST"
 label_settings = SubResource("LabelSettings_i8rmi")
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="fps_counter" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="fps" type="Label" parent="fps_counter"]
-visible = false
-layout_mode = 0
-offset_left = 608.0
-offset_top = 303.0
-offset_right = 632.0
-offset_bottom = 320.0
-text = "100"
-label_settings = SubResource("LabelSettings_0y31s")
