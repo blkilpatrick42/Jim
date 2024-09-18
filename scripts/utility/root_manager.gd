@@ -26,7 +26,6 @@ func _on_transition_to_main_Scene_finished():
 	camera_ref.reparent(player_ref)
 	player_ref.connect_camera()
 	camera_ref.fade_in()
-	player_ref.set_ui_visible()
 	transitioning = false
 	
 func _process(delta):

@@ -63,7 +63,6 @@ texture = ExtResource("6_o3xy8")
 [node name="ui_canvas" type="CanvasLayer" parent="."]
 
 [node name="player_ui" parent="ui_canvas" instance=ExtResource("6_ya2x2")]
-visible = false
 offset_right = 0.0
 offset_bottom = 0.0
 

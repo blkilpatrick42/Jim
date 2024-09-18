@@ -104,6 +104,7 @@ func connect_camera():
 	_camera = get_tree().get_first_node_in_group("camera")
 	_camera.connect_player(self)
 	camera_connected = true
+	_camera.unlock()
 
 func exit_dialog():
 	in_dialog = false
