@@ -10,6 +10,7 @@ extends Node2D
 @export var exit_only = false
 @export var reparent_to_daylight = false
 @export var reparent_to_no_daylight = false
+@export var reparent_to_dark_indoor = false
 @export var secs_for_control_back : int = 0
 
 var entering = false
@@ -30,6 +31,7 @@ var player_ref = null
 
 var daylight_affected_ysort : Node
 var no_daylight_ysort : Node
+var dark_indoor_ysort : Node
 
 var npcs_using_teleporter : Array[Node] = []
 
@@ -39,6 +41,7 @@ var camera_ref
 func _ready():
 	daylight_affected_ysort = get_tree().get_first_node_in_group("daylight_affected_ysort")
 	no_daylight_ysort = get_tree().get_first_node_in_group("no_daylight_ysort")
+	dark_indoor_ysort = get_tree().get_first_node_in_group("dark_indoor_ysort")
 	timer_fade.one_shot = true
 	timer_control_back.one_shot = true
 	add_child(timer_fade)
@@ -78,6 +81,8 @@ func enter():
 			player_ref.reparent(daylight_affected_ysort)
 		if(reparent_to_no_daylight):
 			player_ref.reparent(no_daylight_ysort)
+		if(reparent_to_dark_indoor):
+			player_ref.reparent(dark_indoor_ysort)
 		linked_teleporter.player_ref = player_ref
 		linked_teleporter.timer_fade.start(teleport_step_secs)
 		linked_teleporter.exiting = true

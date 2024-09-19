@@ -14,6 +14,8 @@ var timer_song := Timer.new()
 var timer_restart := Timer.new()
 var ambient_dark = null
 
+var time_locked = true
+
 signal new_day()
 
 var day_of_the_week = 0
@@ -38,6 +40,12 @@ func get_day_of_week():
 
 func get_hour():
 	return clock
+
+func unlock_time():
+	time_locked = false
+
+func lock_time():
+	time_locked = true
 
 #Called when the node enters the scene tree for the first time.
 func _ready():
@@ -132,7 +140,7 @@ func _process(delta):
 	get_input()
 	if(!is_menu_paused):
 		#calculate clock
-		if(timer_world.is_stopped()):
+		if(timer_world.is_stopped() && not time_locked):
 			timer_world.start(hour_length_seconds)
 			if(clock != 23):
 				clock = clock + 1
