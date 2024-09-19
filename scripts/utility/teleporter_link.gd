@@ -12,6 +12,7 @@ extends Node2D
 @export var reparent_to_no_daylight = false
 @export var reparent_to_dark_indoor = false
 @export var secs_for_control_back : int = 0
+@export var fade_color : Color = Color(0,0,0)
 
 var entering = false
 var exiting = false
@@ -36,6 +37,9 @@ var dark_indoor_ysort : Node
 var npcs_using_teleporter : Array[Node] = []
 
 var camera_ref
+
+func get_fade_color():
+	return fade_color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -108,9 +112,9 @@ func exit():
 			player_ref.set_control_frozen(false)
 
 func update_fade_alpha():
-	_fade_to_black.color = Color(0,0,0,fade_alpha)
+	_fade_to_black.color = Color(fade_color.r,fade_color.g,fade_color.b,fade_alpha)
 	if(linked_teleporter != null):
-		linked_teleporter._fade_to_black.color = Color(0,0,0,fade_alpha)
+		linked_teleporter._fade_to_black.color = Color(fade_color.r,fade_color.g,fade_color.b,fade_alpha)
 		linked_teleporter.fade_alpha = fade_alpha
 
 func _on_area_2d_body_exited(body):

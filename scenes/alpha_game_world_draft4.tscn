@@ -1,4 +1,4 @@
-[gd_scene load_steps=481 format=3 uid="uid://cdqi1t4ffkn68"]
+[gd_scene load_steps=482 format=3 uid="uid://cdqi1t4ffkn68"]
 
 [ext_resource type="Script" path="res://scripts/utility/become_visible.gd" id="1_8ce55"]
 [ext_resource type="Script" path="res://scripts/utility/active_root.gd" id="1_kkdxt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://u6uyhyfhf4v5" path="res://entities/util/teleporter_link.tscn" id="8_83r3q"]
 [ext_resource type="PackedScene" uid="uid://d185n7ocgmpk3" path="res://entities/util/location_label.tscn" id="9_lotxm"]
 [ext_resource type="PackedScene" uid="uid://dp71h41k4udok" path="res://entities/util/comment_area.tscn" id="10_ieqp2"]
+[ext_resource type="Script" path="res://scripts/clock/outdoor_light.gd" id="11_d8tbj"]
 [ext_resource type="PackedScene" uid="uid://plrhvwqbv1cl" path="res://entities/characters/NPC/actors/util/stage_mark.tscn" id="11_q7it5"]
 [ext_resource type="Script" path="res://scripts/utility/comment_area.gd" id="11_wm72m"]
 [ext_resource type="TileSet" uid="uid://drxxy1k7qeb3l" path="res://sprites/tilesets/test2_set.tres" id="12_8ln4u"]
@@ -3012,6 +3013,101 @@ position = Vector2(28197, -27283)
 shape = SubResource("RectangleShape2D_sl76e")
 debug_color = Color(0.996078, 0, 0.2, 0.419608)
 
+[node name="start_area" type="Node2D" parent="dev_layer/invisible_walls"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dev_layer/invisible_walls/start_area"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_area/StaticBody2D"]
+polygon = PackedVector2Array(38654, -30702, 38638, -30702, 38637, -30659, 38501, -30659, 38501, -30528, 38531, -30500, 38533, -30365, 38530, -30357, 38515, -30346, 38405, -30269, 38405, -30113, 38504, -30017, 38533, -30017, 38629, -29918, 38693, -29918, 38757, -29856, 38883, -29856, 38947, -29798, 39015, -29798, 39086, -29866, 39115, -29865, 39153, -29899, 39354, -29898, 39412, -29849, 39429, -29835, 39429, -29763, 39525, -29670, 39526, -29500, 39462, -29438, 39204, -29437, 39141, -29501, 38917, -29501, 38789, -29373, 38788, -29179, 38853, -29121, 38955, -29119, 38987, -29150, 39171, -29148, 39180, -29152, 39246, -29220, 39274, -29221, 39375, -29312, 39488, -29312, 39521, -29277, 39620, -29276, 39668, -29315, 39966, -29314, 39988, -29314, 40023, -29354, 40185, -29354, 40195, -29353, 40228, -29389, 40278, -29376, 40316, -29384, 40346, -29381, 40377, -29360, 40379, -29338, 40400, -28355, 38040, -28331, 38050, -31157, 38664, -31171)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="dev_layer/invisible_walls/start_area"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_area/StaticBody2D2"]
+polygon = PackedVector2Array(38654, -30702, 38669, -30702, 38669, -30659, 38773, -30659, 38774, -30587, 38710, -30524, 38709, -30523, 38710, -30404, 38773, -30333, 38773, -30298, 38711, -30239, 38709, -30237, 38710, -30106, 38779, -30044, 38868, -30046, 38901, -30014, 38966, -30014, 38997, -30034, 38997, -30076, 39039, -30110, 39058, -30111, 39060, -30048, 39095, -30013, 39251, -30013, 39285, -30045, 39352, -30044, 39573, -29820, 39573, -29725, 39701, -29595, 39702, -29532, 39796, -29439, 39862, -29438, 39895, -29469, 39989, -29468, 40021, -29437, 40086, -29438, 40117, -29469, 40126, -30844, 38655, -30858, 38655, -30735)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="dev_layer/invisible_walls/start_area"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_area/StaticBody2D3"]
+polygon = PackedVector2Array(40549, -29413, 40550, -29419, 40550, -29551, 40612, -29613, 40741, -29612, 40835, -29520, 40837, -29485, 40899, -29424, 40900, -29390, 40934, -29356, 41060, -29356, 41092, -29388, 41156, -29389, 41255, -29487, 41255, -29597, 41318, -29597, 41316, -29662, 41314, -29758, 40459, -29772, 40483, -29423, 40502, -29420, 40534, -29412)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="dev_layer/invisible_walls/start_area"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_area/StaticBody2D4"]
+polygon = PackedVector2Array(40597, -29325, 40614, -29341, 40613, -29447, 40654, -29488, 40646, -29501, 40646, -29529, 40718, -29530, 40756, -29494, 40772, -29483, 40773, -29437, 40773, -29412, 40836, -29355, 40837, -29289, 40902, -29227, 40964, -29225, 41028, -29163, 41093, -29163, 41226, -29290, 41287, -29291, 41430, -29436, 41413, -29437, 41414, -29566, 41380, -29598, 41349, -29597, 41348, -29757, 41702, -29783, 41701, -29075, 41122, -28975, 40612, -29118)
+
+[node name="start_tunnel" type="Node2D" parent="dev_layer/invisible_walls"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D"]
+polygon = PackedVector2Array(44920, -30201, 44813, -30200, 44664, -30199, 44664, -30168, 44632, -30168, 44632, -30136, 44600, -30136, 44600, -30008, 44440, -30008, 44440, -29976, 44408, -29976, 44408, -29944, 44350, -29944, 44350, -29882, 44407, -29882, 44407, -29815, 44442, -29815, 44442, -29881, 44499, -29881, 44499, -29946, 44658, -29946, 44659, -30105, 44690, -30105, 44690, -30124, 44690, -30141, 44893, -30141, 44893, -30106, 44983, -30106, 44983, -29944, 44920, -29944, 44920, -29912, 44856, -29912, 44856, -29720, 44792, -29720, 44792, -29688, 44728, -29688, 44728, -29656, 44663, -29656, 44664, -29272, 44606, -29272, 44606, -28915, 44829, -28915, 44830, -28565, 44983, -28565, 44984, -28248, 44926, -28248, 44926, -27763, 45080, -27763, 45080, -27160, 45022, -27160, 45023, -26677, 45342, -26677, 45342, -26582, 45662, -26582, 45662, -25321, 45687, -25321, 45687, -25254, 45720, -25254, 45730, -24829, 44426, -24845, 44085, -29774, 44215, -30331, 44727, -30627, 44960, -30483, 44921, -30261)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D2"]
+polygon = PackedVector2Array(44920, -30201, 44920, -30168, 45042, -30168, 45042, -29876, 44978, -29876, 44978, -29846, 44921, -29846, 44921, -29720, 45016, -29720, 45016, -29688, 45080, -29688, 45080, -29656, 45240, -29656, 45240, -29528, 45842, -29528, 45842, -28727, 45784, -28727, 45784, -28248, 46040, -28248, 46041, -27064, 46130, -27064, 46130, -26773, 46066, -26773, 46066, -26581, 45746, -26581, 45745, -25321, 45721, -25321, 45721, -25254, 45720, -25254, 45721, -25202, 45770, -25208, 46594, -25642, 47168, -26934, 46888, -27885, 46768, -29010, 46669, -29803, 46564, -30188, 46080, -30430, 45423, -30566, 44993, -30498, 44921, -30253)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D3"]
+polygon = PackedVector2Array(44696, -28984, 44984, -28984, 44984, -29080, 45304, -29080, 45303, -29465, 45150, -29465, 45150, -29590, 45054, -29590, 45054, -29627, 44989, -29627, 44989, -29659, 44850, -29659, 44850, -29624, 44754, -29624, 44754, -29207, 44697, -29207)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D4"]
+polygon = PackedVector2Array(45400, -29080, 45752, -29080, 45752, -29429, 45662, -29429, 45662, -29464, 45400, -29464)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D5"]
+polygon = PackedVector2Array(45080, -28504, 45464, -28504, 45464, -28600, 45688, -28600, 45688, -28792, 45752, -28792, 45752, -29012, 45074, -29012, 45074, -28941, 45074, -28918, 44920, -28918, 44920, -28632, 45080, -28632)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D6"]
+polygon = PackedVector2Array(45176, -27704, 45432, -27704, 45432, -27925, 45342, -27925, 45342, -27949, 45342, -28438, 45074, -28438, 45074, -28182, 45016, -28182, 45016, -27832, 45176, -27832)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D7"]
+polygon = PackedVector2Array(45176, -27160, 45944, -27160, 45944, -27413, 45502, -27413, 45502, -27638, 45176, -27638)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D8"]
+polygon = PackedVector2Array(45592, -27480, 45944, -27480, 45944, -28181, 45694, -28181, 45694, -28205, 45694, -28534, 45554, -28534, 45554, -28440, 45432, -28440, 45432, -28216, 45528, -28216, 45528, -27704, 45592, -27704)
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="dev_layer/invisible_walls/start_tunnel"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/start_tunnel/StaticBody2D9"]
+polygon = PackedVector2Array(45112, -26744, 45432, -26744, 45432, -26648, 45976, -26648, 45976, -26840, 46040, -26840, 46040, -26997, 45950, -26997, 45950, -27094, 45266, -27094, 45266, -26998, 45112, -26998)
+
 [node name="navmeshes" type="Node2D" parent="dev_layer"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
@@ -3556,7 +3652,7 @@ linked_teleporter = NodePath("../pizzeria_link_indoor_exit")
 enter_y_push = -25000
 exit_y_push = 35000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="pizzeria_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(32837, -26492)
@@ -3566,7 +3662,7 @@ exit_y_push = -50000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="furniture_store_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-683, 132)
@@ -3574,7 +3670,7 @@ linked_teleporter = NodePath("../furniture_store_link_indoor_exit")
 enter_y_push = -10000
 exit_y_push = 10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="furniture_store_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(32421, -28332)
@@ -3584,32 +3680,32 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-2475, 613)
 linked_teleporter = NodePath("../west_apt_link_indoor_exit")
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_3_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-2251, -703)
 linked_teleporter = NodePath("../west_apt_3_link_indoor_exit")
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_4_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-2315, -1079)
 linked_teleporter = NodePath("../west_apt_4_link_indoor_exit")
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_2_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-2027, 295)
 linked_teleporter = NodePath("../west_apt_2_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="player_apt_bldg_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-75, -604)
@@ -3617,7 +3713,7 @@ linked_teleporter = NodePath("../player_apt_bldg_link_indoor_exit")
 enter_y_push = -25000
 exit_y_push = 20000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(29829, -26508)
@@ -3627,7 +3723,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_3_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(27973, -26332)
@@ -3637,7 +3733,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_2_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(30021, -27388)
@@ -3647,7 +3743,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="west_apt_4_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(28197, -27324)
@@ -3657,7 +3753,7 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="player_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(35445, -30668)
@@ -3665,7 +3761,7 @@ linked_teleporter = NodePath("../player_apt_link_indoor")
 enter_y_push = 5000
 exit_y_push = -30000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="player_apt_link_indoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(35381, -26684)
@@ -3675,7 +3771,7 @@ exit_y_push = 15000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="player_apt_bldg_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(35541, -26364)
@@ -3685,14 +3781,14 @@ exit_y_push = -30000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-1227, 1828)
 linked_teleporter = NodePath("../southwest_apt_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(26549, -27308)
@@ -3700,14 +3796,14 @@ linked_teleporter = NodePath("../southwest_apt_link_outdoor")
 enter_y_push = 5000
 exit_y_push = -8000
 reparent_to_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_2_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-1482, 1220)
 linked_teleporter = NodePath("../southwest_apt_2_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_2_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(24805, -26108)
@@ -3715,14 +3811,14 @@ linked_teleporter = NodePath("../southwest_apt_2_link_outdoor")
 enter_y_push = 5000
 exit_y_push = -8000
 reparent_to_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_3_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(-619, 932)
 linked_teleporter = NodePath("../southwest_apt_3_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_3_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(24917, -27276)
@@ -3730,14 +3826,14 @@ linked_teleporter = NodePath("../southwest_apt_3_link_outdoor")
 enter_y_push = 5000
 exit_y_push = -8000
 reparent_to_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_4_link_outdoor" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(117, 2116)
 linked_teleporter = NodePath("../southwest_apt_4_link_indoor_exit")
 enter_y_push = -10000
 reparent_to_no_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="southwest_apt_4_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(26405, -26236)
@@ -3745,7 +3841,7 @@ linked_teleporter = NodePath("../southwest_apt_4_link_outdoor")
 enter_y_push = 5000
 exit_y_push = -8000
 reparent_to_daylight = true
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
 
 [node name="start_area_outdoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
 position = Vector2(41333, -29644)
@@ -3756,6 +3852,7 @@ exit_only = false
 reparent_to_daylight = false
 reparent_to_no_daylight = false
 reparent_to_dark_indoor = true
+fade_color = Color(0, 0, 0, 1)
 
 [node name="start_area_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("8_83r3q")]
 position = Vector2(44424, -29831)
@@ -3764,8 +3861,30 @@ exit_y_push = -10000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
-reparent_to_dark_indoor = null
+fade_color = Color(0, 0, 0, 1)
+
+[node name="start_tunnel_to_main_entrance" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
+position = Vector2(45704, -25271)
+linked_teleporter = NodePath("../start_tunnel_to_main_exit")
+enter_y_push = 5000
+exit_y_push = -5000
+exit_only = false
+reparent_to_daylight = false
+reparent_to_no_daylight = true
+reparent_to_dark_indoor = false
+fade_color = Color(1, 1, 1, 1)
+
+[node name="start_tunnel_to_main_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("8_83r3q")]
+position = Vector2(35509, -26524)
+linked_teleporter = NodePath("../start_tunnel_to_main_entrance")
+enter_y_push = -5000
+exit_y_push = 25000
+exit_only = true
+reparent_to_daylight = false
+reparent_to_no_daylight = false
+reparent_to_dark_indoor = true
 secs_for_control_back = 1
+fade_color = Color(1, 1, 1, 1)
 
 [node name="location_labels" type="Node2D" parent="dev_layer"]
 visible = false
@@ -5417,203 +5536,203 @@ position = Vector2(35419, -30883)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1991, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.535363
+frame_progress = 0.483112
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1960, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.173317
+frame_progress = 0.591215
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2120, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.417616
+frame_progress = 0.132485
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2088, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.708829
+frame_progress = 0.242236
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2280, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0380419
+frame_progress = 0.694045
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2248, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.823584
+frame_progress = 0.709375
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2343, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.338613
+frame_progress = 0.879279
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2439, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.00384409
+frame_progress = 0.0439843
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2471, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.605595
+frame_progress = 0.444961
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2311, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0803415
+frame_progress = 0.0507923
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2152, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.847641
+frame_progress = 0.919218
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2184, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.470604
+frame_progress = 0.535179
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.151191
+frame_progress = 0.472003
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D77" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1063, 2008)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.394019
+frame_progress = 0.12576
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D80" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1032, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.458811
+frame_progress = 0.266181
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D78" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1095, 2040)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.943099
+frame_progress = 0.774701
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D96" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0629192
+frame_progress = 0.626699
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D113" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.335988
+frame_progress = 0.891646
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-360, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.396607
+frame_progress = 0.351675
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-328, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.930335
+frame_progress = 0.523643
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D79" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.18827
+frame_progress = 0.983683
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2503, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.171303
+frame_progress = 0.298741
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2536, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.204051
+frame_progress = 0.778076
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2569, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.768103
+frame_progress = 0.520766
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2601, 1336)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.859675
+frame_progress = 0.0931832
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2664, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.941511
+frame_progress = 0.363833
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.949905
+frame_progress = 0.878842
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D66" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.481563
+frame_progress = 0.184962
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2056, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.631919
+frame_progress = 0.680165
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5621,7 +5740,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.381108
+frame_progress = 0.352768
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5629,35 +5748,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D71" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-936, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.21774
+frame_progress = 0.839371
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D72" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-904, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.662616
+frame_progress = 0.621964
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D73" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-968, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.87426
+frame_progress = 0.109265
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D74" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1000, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.106741
+frame_progress = 0.635467
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D75" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-872, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.697301
+frame_progress = 0.270192
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5665,7 +5784,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D76" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-839, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.778603
+frame_progress = 0.766423
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5673,7 +5792,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D81" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-808, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.926163
+frame_progress = 0.924432
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5681,7 +5800,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D82" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-775, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.852391
+frame_progress = 0.508385
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5689,7 +5808,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D83" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-743, 2043)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.522291
+frame_progress = 0.392682
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5697,7 +5816,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D84" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.320795
+frame_progress = 0.0658353
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5705,7 +5824,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D85" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-582, 2109)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.624314
+frame_progress = 0.768281
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5713,7 +5832,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D103" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.342355
+frame_progress = 0.344751
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5721,7 +5840,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D104" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.708576
+frame_progress = 0.632642
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5729,7 +5848,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D105" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-184, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.58129
+frame_progress = 0.790983
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5737,7 +5856,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D106" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-151, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.414462
+frame_progress = 0.413894
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5745,7 +5864,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D107" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-134, 2003)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0341078
+frame_progress = 0.221537
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5753,7 +5872,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D86" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-552, 2169)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.460565
+frame_progress = 0.163657
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5761,7 +5880,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D91" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.743089
+frame_progress = 0.449441
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5769,7 +5888,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2376, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.608375
+frame_progress = 0.775262
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5777,7 +5896,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D63" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.766205
+frame_progress = 0.238017
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5785,7 +5904,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D64" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2856, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.289664
+frame_progress = 0.933689
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5793,7 +5912,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2408, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0579991
+frame_progress = 0.0583259
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5801,7 +5920,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1928, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.489554
+frame_progress = 0.284214
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5809,7 +5928,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1895, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.913793
+frame_progress = 0.206813
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5817,7 +5936,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1863, 1335)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0546311
+frame_progress = 0.0266098
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5825,7 +5944,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1832, 1593)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.873771
+frame_progress = 0.606838
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5833,7 +5952,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1800, 1624)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.758431
+frame_progress = 0.605603
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5841,7 +5960,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1704, 1689)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.7237
+frame_progress = 0.173126
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5849,7 +5968,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1672, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.99568
+frame_progress = 0.780259
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5857,7 +5976,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1639, 1753)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.613952
+frame_progress = 0.168472
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5865,7 +5984,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1607, 1785)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.344491
+frame_progress = 0.943075
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5873,7 +5992,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1576, 1881)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.719376
+frame_progress = 0.113149
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5881,7 +6000,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1544, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.140062
+frame_progress = 0.889644
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5889,7 +6008,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1944)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.060914
+frame_progress = 0.359511
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5897,7 +6016,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1383, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.500889
+frame_progress = 0.0296614
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5905,7 +6024,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1351, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.449454
+frame_progress = 0.1044
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5913,7 +6032,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1319, 2041)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.403602
+frame_progress = 0.927806
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5921,7 +6040,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.588707
+frame_progress = 0.551541
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5929,7 +6048,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1656)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.793754
+frame_progress = 0.787054
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5937,7 +6056,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1305)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.553566
+frame_progress = 0.832727
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -5945,63 +6064,63 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2632, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.883789
+frame_progress = 0.64243
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2728, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.237439
+frame_progress = 0.485623
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2760, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.150057
+frame_progress = 0.18245
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D65" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2888, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.244308
+frame_progress = 0.279749
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D69" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2983, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.107814
+frame_progress = 0.688084
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D70" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-3015, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.351068
+frame_progress = 0.538625
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D67" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2952, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.646489
+frame_progress = 0.969949
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D61" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2792, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.223519
+frame_progress = 0.2532
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2600, 1369)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.473553
+frame_progress = 0.558044
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6009,7 +6128,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1433)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.32039
+frame_progress = 0.137672
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6017,7 +6136,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D68" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1401)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.981206
+frame_progress = 0.505377
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6025,14 +6144,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1159, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.517748
+frame_progress = 0.656652
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2105)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.439937
+frame_progress = 0.62798
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6040,7 +6159,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D95" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2328)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.147726
+frame_progress = 0.422829
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6048,7 +6167,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D115" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.744912
+frame_progress = 0.63894
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6056,14 +6175,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D130" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.91628
+frame_progress = 0.221218
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D131" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.904976
+frame_progress = 0.445173
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6071,35 +6190,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D132" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2393)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.362341
+frame_progress = 0.825003
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D133" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(408, 2361)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.362344
+frame_progress = 0.996949
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D135" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(440, 2329)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.221323
+frame_progress = 0.25151
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D136" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(472, 2296)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0538034
+frame_progress = 0.771715
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D134" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.0278994
+frame_progress = 0.999067
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6107,140 +6226,140 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2375, 1304)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.626672
+frame_progress = 0.515437
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D62" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1432)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.785172
+frame_progress = 0.861489
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1736, 1688)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0189174
+frame_progress = 0.810149
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1688)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.00471557
+frame_progress = 0.51988
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1479, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.873748
+frame_progress = 0.650786
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1447, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.91167
+frame_progress = 0.259574
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1415, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.895499
+frame_progress = 0.694737
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1976)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.676163
+frame_progress = 0.0860998
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1255, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.767685
+frame_progress = 0.464246
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1223, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.655191
+frame_progress = 0.26681
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1191, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.161386
+frame_progress = 0.446402
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.514056
+frame_progress = 0.852541
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D94" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.533864
+frame_progress = 0.661116
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D87" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-678, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.413661
+frame_progress = 0.555733
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D88" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-646, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.924203
+frame_progress = 0.392216
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-297, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.391852
+frame_progress = 0.422645
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-265, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.368548
+frame_progress = 0.219706
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D102" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-249, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.819645
+frame_progress = 0.778067
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D92" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-488, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.38887
+frame_progress = 0.911159
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D108" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.964971
+frame_progress = 0.21907
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6248,7 +6367,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D118" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(56, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.520571
+frame_progress = 0.0718369
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6256,7 +6375,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D119" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.00657119
+frame_progress = 0.200417
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6264,7 +6383,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D120" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.152991
+frame_progress = 0.45814
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6272,7 +6391,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D121" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(121, 2363)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.707411
+frame_progress = 0.574775
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6280,7 +6399,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D122" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(153, 2392)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.384698
+frame_progress = 0.060072
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6288,147 +6407,147 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D109" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.364009
+frame_progress = 0.0424369
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D110" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-168, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.24347
+frame_progress = 0.474265
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D114" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-40, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.429037
+frame_progress = 0.656552
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D116" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-8, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.412064
+frame_progress = 0.634268
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D117" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(24, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.230261
+frame_progress = 0.433723
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D111" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-136, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.875608
+frame_progress = 0.758346
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D112" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-104, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.566682
+frame_progress = 0.676853
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D123" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(152, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.94146
+frame_progress = 0.503134
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D124" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(184, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.125347
+frame_progress = 0.438917
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D125" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(216, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.494629
+frame_progress = 0.548172
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D126" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(248, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.619416
+frame_progress = 0.0800331
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D127" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(280, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.692016
+frame_progress = 0.777326
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D128" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(312, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.882887
+frame_progress = 0.505175
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D137" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(504, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.923878
+frame_progress = 0.77582
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D138" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(536, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.435276
+frame_progress = 0.38183
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D139" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(568, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.861683
+frame_progress = 0.857963
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D129" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(344, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.386615
+frame_progress = 0.241641
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D93" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-456, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.447337
+frame_progress = 0.685089
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D89" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-614, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.718327
+frame_progress = 0.980434
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D90" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.950482
+frame_progress = 0.593429
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1273)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.662584
+frame_progress = 0.447091
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
@@ -6846,42 +6965,42 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39208, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.32207
+frame_progress = 0.0294675
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39176, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.784957
+frame_progress = 0.16401
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39144, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.549659
+frame_progress = 0.601636
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39112, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.728237
+frame_progress = 0.75134
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39080, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.227306
+frame_progress = 0.674714
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39240, -30135)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.693222
+frame_progress = 0.5739
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6889,7 +7008,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39256, -30118)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0878798
+frame_progress = 0.172495
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7016,6 +7135,11 @@ daily_schedules = [NodePath("fuck around"), NodePath("fuck around"), NodePath("f
 
 [node name="fuck around" parent="daylight_affected_section/daylight_affected_ysort/gary/Schedule_0" node_paths=PackedStringArray("hourly_schedule") instance=ExtResource("56_3fwc5")]
 hourly_schedule = [NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_prk"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_corner"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_corner"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_corner"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_prk"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_prk"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_pizzashop"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_prk"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_plaza"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_corner"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_corner"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass"), NodePath("../../../../../dev_layer/stage_marks/Gary_test/StageMark_overpass")]
+
+[node name="Ambient_Dark" type="CanvasModulate" parent="daylight_affected_section" groups=["ambient_dark"]]
+process_mode = 3
+position = Vector2(-3, 75)
+script = ExtResource("11_d8tbj")
 
 [node name="no_daylight_layer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -7463,10 +7587,16 @@ follow_viewport_enabled = true
 z_index = 4
 tile_set = ExtResource("14_oxs1v")
 format = 2
-layer_0/tile_data = PackedInt32Array(-122484008, 851970, 5, -122484010, 851970, 5, -122484006, 851970, 5, -122484004, 786434, 268435461, -122746156, 458754, 268435461, -122615084, 458754, 268435461, -122484012, 786434, 5, -122352940, 524290, 1, -122352932, 524290, 1, -122352938, 524290, 1, -122352934, 524290, 1, -122746146, 851970, 5, -122746148, 983042, 5, -122615076, 458754, 5, -122615074, 524290, 1, -122746144, 851970, 5, -122746142, 851970, 5, -122746140, 851970, 5, -122615068, 524290, 1, -122615070, 524290, 1, -122615072, 524290, 1, -122615073, 524290, 1, -122746138, 786434, 268435461, -122877210, 458754, 5, -123008282, 458754, 5, -123139354, 458754, 5, -123270430, 458754, 5, -123401502, 458754, 5, -123270424, 524290, 1, -123401494, 524290, 1, -123401492, 524290, 1, -123401490, 524290, 1, -123401488, 524290, 1, -123401486, 524290, 1, -123401484, 524290, 1, -123270426, 458754, 5, -122615066, 524290, 1, -123532566, 851970, 5, -123532564, 851970, 5, -123532562, 851970, 5, -123532560, 851970, 5, -123532558, 851970, 5, -123532556, 851970, 5, -123532554, 983042, 268435461, -123401482, 786434, 5, -123401496, 786434, 268435461, -123401498, 983042, 5, -123532568, 983042, 5, -123925786, 983042, 5, -123925782, 131074, 5, -123925778, 131074, 5, -123925774, 131074, 5, -123925770, 131074, 5, -123925784, 196610, 5, -123925780, 196610, 5, -123925776, 196610, 5, -123925772, 196610, 5, -123925768, 983042, 268435461, -123794696, 917506, 5, -123270410, 524290, 1, -123401480, 851970, 5, -123270406, 1114114, 5, -123270408, 524290, 1, -123663618, 458754, 5, -123532546, 458754, 5, -123401474, 458754, 5, -123270402, 458754, 5, -123139330, 458754, 5, -123008258, 458754, 5, -122877186, 458754, 5, -122746114, 458754, 5, -123401478, 1048578, 268435461, -123139334, 458754, 5, -123008262, 458754, 5, -122877190, 917506, 268435461, -122746118, 65538, 268435461, -122746122, 917506, 268435461, -122615050, 65538, 268435461, -122746120, 2, 5, -122877192, 196610, 5, -122877194, 983042, 5, -122615052, 2, 5, -122746124, 655362, 5, -122746126, 983042, 5, -122615054, 458754, 5, -122483982, 458754, 5, -122352910, 458754, 5, -122221838, 458754, 5, -122090766, 458754, 5, -121959694, 458754, 5, -122352898, 524290, 1, -122352900, 524290, 1, -122221830, 524290, 1, -122221832, 524290, 1, -122483970, 786434, 268435461, -122615042, 458754, 5, -122352902, 786434, 268435461, -122483972, 851970, 5, -122483974, 983042, 5, -122352904, 851970, 5, -122352906, 983042, 5, -122221834, 458754, 5, -122090762, 458754, 5, -121959690, 458754, 5)
+layer_0/tile_data = PackedInt32Array(-122484008, 851970, 5, -122484010, 851970, 5, -122484006, 851970, 5, -122484004, 786434, 268435461, -122746156, 458754, 268435461, -122615084, 458754, 268435461, -122484012, 786434, 5, -122352940, 524290, 1, -122352932, 524290, 1, -122352938, 524290, 1, -122352934, 524290, 1, -122746146, 851970, 5, -122746148, 983042, 5, -122615076, 458754, 5, -122615074, 524290, 1, -122746144, 851970, 5, -122746142, 851970, 5, -122746140, 851970, 5, -122615068, 524290, 1, -122615070, 524290, 1, -122615072, 524290, 1, -122615073, 524290, 1, -122746138, 786434, 268435461, -122877210, 458754, 5, -123008282, 458754, 5, -123139354, 458754, 5, -123270430, 458754, 5, -123401502, 458754, 5, -123270424, 524290, 1, -123401494, 524290, 1, -123401492, 524290, 1, -123401490, 524290, 1, -123401488, 524290, 1, -123401486, 524290, 1, -123401484, 524290, 1, -123270426, 458754, 5, -122615066, 524290, 1, -123532566, 851970, 5, -123532564, 851970, 5, -123532562, 851970, 5, -123532560, 851970, 5, -123532558, 851970, 5, -123532556, 851970, 5, -123532554, 983042, 268435461, -123401482, 786434, 5, -123401496, 786434, 268435461, -123401498, 983042, 5, -123532568, 983042, 5, -123925786, 983042, 5, -123925782, 131074, 5, -123925778, 131074, 5, -123925774, 131074, 5, -123925770, 131074, 5, -123925784, 196610, 5, -123925780, 196610, 5, -123925776, 196610, 5, -123925772, 196610, 5, -123925768, 983042, 268435461, -123794696, 917506, 5, -123270410, 524290, 1, -123401480, 851970, 5, -123270406, 1114114, 5, -123270408, 524290, 1, -123663618, 458754, 5, -123532546, 458754, 5, -123401474, 458754, 5, -123270402, 458754, 5, -123139330, 458754, 5, -123008258, 458754, 5, -122877186, 458754, 5, -122746114, 458754, 5, -123401478, 1048578, 268435461, -123139334, 458754, 5, -123008262, 458754, 5, -122483982, 458754, 5, -122352910, 458754, 5, -122221838, 458754, 5, -122090766, 458754, 5, -122352898, 524290, 1, -122352900, 524290, 1, -122221830, 524290, 1, -122483970, 786434, 268435461, -122615042, 458754, 5, -122352902, 786434, 268435461, -122483972, 851970, 5, -122483974, 983042, 5, -103806170, 786434, 5, -103675098, 524290, 1, -103806168, 851970, 5, -103806166, 786434, 268435461, -103675094, 524290, 1, -122352904, 1048578, 5, -121959688, 917506, 5, -121959694, 917506, 268435461, -122221832, 1114114, 268435461, -122090760, 458754, 268435461, -121304336, 524290, 1, -121304334, 524290, 1, -121435404, 524290, 1, -121435402, 524290, 1, -121435400, 524290, 1, -121435398, 524290, 1, -121304324, 524290, 1, -121304322, 524290, 1, -121173248, 524290, 1, -121173246, 524290, 1, -120648954, 524290, 1, -120648952, 524290, 1, -120648950, 524290, 1, -120648948, 524290, 1, -120648946, 1114114, 5, -121435408, 851970, 5, -121435406, 786434, 268435461, -121566476, 851970, 5, -121566474, 851970, 5, -121566472, 851970, 5, -121566470, 851970, 5, -121435396, 786434, 5, -121304320, 786434, 5, -121435394, 851970, 5, -121304318, 851970, 5, -121435392, 983042, 268435461, -121566468, 983042, 268435461, -121566478, 983042, 5, -121697560, 655362, 5, -121697562, 983042, 5, -121566490, 458754, 5, -121435418, 458754, 5, -121304346, 458754, 5, -121173274, 458754, 5, -121042202, 458754, 5, -120911130, 458754, 5, -120780058, 458754, 5, -120648986, 458754, 5, -120517914, 458754, 5, -120386842, 458754, 5, -120124698, 917506, 268435461, -120255770, 458754, 5, -120780024, 851970, 5, -120780022, 851970, 5, -120780020, 851970, 5, -121304316, 851970, 5, -121173244, 524290, 1, -121304314, 983042, 268435461, -121173242, 458754, 268435461, -121042170, 458754, 268435461, -120911098, 458754, 268435461, -120780026, 786434, 5, -121173236, 917506, 5, -121697524, 983042, 268435461, -121566452, 458754, 268435461, -121435380, 458754, 268435461, -121304308, 458754, 268435461, -120648938, 1114114, 268435461, -120648936, 524290, 1, -120648934, 524290, 1, -120648932, 524290, 1, -120648930, 524290, 1, -120648928, 524290, 1, -120648926, 524290, 1, -120648924, 524290, 1, -120517850, 524290, 1, -120517848, 524290, 1, -120780010, 1048578, 5, -120780008, 851970, 5, -120780006, 851970, 5, -120780004, 851970, 5, -120780002, 851970, 5, -120780000, 851970, 5, -120779998, 851970, 5, -120648920, 851970, 5, -120648922, 786434, 5, -120779996, 851970, 5, -120779994, 983042, 268435461, -120780018, 1048578, 268435461, -120517874, 458754, 5, -120386802, 458754, 5, -120255730, 458754, 5, -120124658, 458754, 5, -119993586, 458754, 5, -119862514, 458754, 5, -120517866, 458754, 268435461, -120386794, 458754, 268435461, -120255722, 458754, 268435461, -120124650, 458754, 268435461, -119993578, 458754, 268435461, -119862506, 458754, 268435461, -119731434, 458754, 268435461, -119600362, 458754, 268435461, -119731442, 458754, 5, -119600370, 458754, 5, -120648918, 1048578, 268435461, -120517846, 1114114, 5, -120386774, 458754, 5, -120255702, 458754, 5, -120124630, 458754, 5, -119993558, 458754, 5, -119862486, 458754, 5, -119731414, 458754, 5, -119600342, 458754, 5, -121042128, 458754, 5, -120911056, 458754, 5, -120779984, 458754, 5, -120648912, 458754, 5, -120517840, 458754, 5, -120386768, 458754, 5, -120255696, 458754, 5, -120124624, 458754, 5, -119993552, 458754, 5, -119862480, 458754, 5, -119731408, 458754, 5, -119600336, 458754, 5, -119600406, 1114114, 268435461, -119600404, 524290, 1, -121304338, 524290, 1, -121435410, 851970, 5, -121435412, 983042, 5, -121304340, 458754, 5, -121173268, 458754, 5, -119731476, 786434, 268435461, -119731478, 1048578, 5, -119862548, 458754, 5, -119993620, 458754, 5, -120124692, 458754, 5, -120255764, 458754, 5, -120386836, 458754, 5, -120517908, 458754, 5, -120648980, 458754, 5, -120780052, 458754, 5, -120911124, 458754, 5, -121042196, 458754, 5, -119469334, 458754, 268435461, -119338262, 458754, 268435461, -119207190, 458754, 268435461, -119076118, 458754, 268435461, -118945046, 917506, 5, -118945030, 917506, 268435461, -118945034, 131074, 5, -118945038, 131074, 5, -118945042, 131074, 5, -118945044, 196610, 5, -118945040, 196610, 5, -118945036, 196610, 5, -118945032, 196610, 5, -119338226, 917506, 268435461, -119469298, 458754, 5, -119338198, 917506, 268435461, -119338218, 917506, 5, -119469270, 458754, 5, -119469290, 458754, 268435461, -119338216, 196610, 5, -119338214, 131074, 5, -119338212, 196610, 5, -119338210, 131074, 5, -119338208, 196610, 5, -119338206, 131074, 5, -119338204, 196610, 5, -119338200, 196610, 5, -119338202, 131074, 5, -119076102, 458754, 5, -119207174, 458754, 5, -119338244, 196610, 5, -119338242, 131074, 5, -119338238, 131074, 5, -119338234, 131074, 5, -119338230, 131074, 5, -119338240, 196610, 5, -119338236, 196610, 5, -119338232, 196610, 5, -119338228, 196610, 5, -119338246, 983042, 5, -119469264, 458754, 5, -119338192, 458754, 5, -119207120, 458754, 5, -119076048, 458754, 5, -118944976, 458754, 5, -118813904, 458754, 5, -118682832, 458754, 5, -118551760, 458754, 5, -118420688, 458754, 5, -118289616, 458754, 5, -117634258, 1114114, 268435461, -117634256, 524290, 1, -117765328, 786434, 268435461, -118158544, 458754, 5, -118027472, 458754, 5, -117896400, 458754, 5, -117765330, 1048578, 5, -118420764, 524290, 1, -118420762, 524290, 1, -118420760, 524290, 1, -118420758, 524290, 1, -118420756, 524290, 1, -118420754, 524290, 1, -118420744, 1114114, 268435461, -118420742, 524290, 1, -118420740, 524290, 1, -118420738, 524290, 1, -118420736, 524290, 1, -118813950, 524290, 1, -118813948, 524290, 1, -118813946, 524290, 1, -118813944, 524290, 1, -118813942, 524290, 1, -118813940, 524290, 1, -118813938, 524290, 1, -118813936, 524290, 1, -118813934, 524290, 1, -118813932, 524290, 1, -118813930, 524290, 1, -118813928, 524290, 1, -118813926, 524290, 1, -118813924, 524290, 1, -118813922, 524290, 1, -118813920, 524290, 1, -118813918, 524290, 1, -118813916, 524290, 1, -118813914, 524290, 1, -118813912, 524290, 1, -118813910, 1114114, 5, -118551836, 786434, 5, -118551834, 851970, 5, -118551832, 851970, 5, -118551830, 851970, 5, -118551828, 851970, 5, -118551826, 851970, 5, -118551814, 851970, 5, -118551812, 851970, 5, -118551810, 851970, 5, -118945020, 851970, 5, -118945018, 851970, 5, -118945016, 851970, 5, -118945014, 851970, 5, -118945012, 851970, 5, -118945010, 851970, 5, -118945008, 851970, 5, -118945006, 851970, 5, -118945004, 851970, 5, -118945002, 851970, 5, -118945000, 851970, 5, -118944998, 851970, 5, -118944996, 851970, 5, -118944994, 851970, 5, -118944992, 851970, 5, -118944990, 851970, 5, -118944988, 851970, 5, -118944986, 851970, 5, -118944984, 851970, 5, -120124700, 524290, 5, -119993628, 458754, 268435461, -119862556, 458754, 268435461, -119731484, 458754, 268435461, -119600412, 458754, 268435461, -119469340, 458754, 268435461, -119338268, 458754, 268435461, -119207196, 458754, 268435461, -119076124, 458754, 268435461, -118945052, 458754, 268435461, -118813980, 458754, 268435461, -118682908, 458754, 268435461, -118944982, 1048578, 268435461, -118682838, 458754, 5, -118551766, 458754, 5, -118420694, 458754, 5, -118289622, 458754, 5, -118158550, 917506, 268435461, -117503186, 458754, 268435461, -117372114, 458754, 268435461, -117241042, 458754, 268435461, -117109970, 458754, 268435461, -116978898, 458754, 268435461, -116847826, 458754, 268435461, -116716754, 458754, 268435461, -116585682, 458754, 268435461, -116454610, 458754, 268435461, -116323538, 458754, 268435461, -116192466, 458754, 268435461, -116061394, 458754, 268435461, -118551808, 786434, 268435461, -118945022, 851970, 5, -118945024, 983042, 5, -118813952, 458754, 5, -118682880, 458754, 5, -118551816, 1048578, 5, -118289672, 458754, 268435461, -118158600, 458754, 268435461, -118027528, 458754, 268435461, -117896456, 458754, 268435461, -118158552, 655362, 5, -118158554, 983042, 5, -118027482, 458754, 5, -117896410, 458754, 5, -117765338, 458754, 5, -117634266, 458754, 5, -117372122, 917506, 268435461, -117372124, 655362, 5, -117372126, 131074, 5, -117372128, 196610, 5, -117372130, 131074, 5, -117372132, 196610, 5, -117372134, 196610, 5, -117503194, 458754, 5, -117503240, 917506, 5, -117634312, 458754, 268435461, -117765384, 458754, 268435461, -117503238, 655362, 5, -117503236, 131074, 5, -117503234, 196610, 5, -117503232, 196610, 5, -116978942, 917506, 5, -116978920, 917506, 268435461, -116978940, 655362, 5, -116978936, 655362, 5, -116978934, 655362, 5, -116978930, 655362, 5, -116978928, 655362, 5, -116978924, 655362, 5, -116978922, 655362, 5, -116978938, 131074, 5, -116978932, 131074, 5, -116978926, 131074, 5, -117110014, 458754, 268435461, -117241086, 458754, 268435461, -117372158, 458754, 268435461, -117503230, 983042, 268435461, -117109992, 458754, 5, -117241064, 458754, 5, -117372136, 983042, 5, -116978958, 524290, 1, -116978956, 524290, 1, -116978954, 524290, 1, -116978952, 524290, 1, -116978950, 1114114, 5, -116454652, 524290, 1, -116454650, 524290, 1, -116454648, 524290, 1, -116454646, 524290, 1, -116454644, 524290, 1, -116454642, 524290, 1, -116454632, 1114114, 268435461, -116454630, 524290, 1, -116454628, 524290, 1, -116454626, 524290, 1, -116847840, 524290, 1, -116847838, 524290, 1, -116847836, 524290, 1, -115406082, 1114114, 268435461, -115406080, 524290, 1, -113702152, 524290, 1, -113702150, 524290, 1, -113702148, 524290, 1, -113702146, 524290, 1, -113702144, 1114114, 5, -113177846, 524290, 1, -113177844, 524290, 1, -113177842, 524290, 1, -113177840, 524290, 1, -113177838, 524290, 1, -113177836, 524290, 1, -113177834, 524290, 1, -113177832, 524290, 1, -113177830, 524290, 1, -112260324, 524290, 1, -112260322, 524290, 1, -112260320, 524290, 1, -112260318, 524290, 1, -112260316, 524290, 1, -112260314, 524290, 1, -112260312, 524290, 1, -112260310, 524290, 1, -112260308, 524290, 1, -112260306, 524290, 1, -112260304, 524290, 1, -112260302, 524290, 1, -112260300, 524290, 1, -112260298, 1114114, 5, -110556412, 1114114, 268435461, -110556410, 524290, 1, -110556408, 524290, 1, -110556404, 524290, 1, -110556406, 524290, 1, -110949618, 524290, 1, -110949616, 524290, 1, -110949614, 524290, 1, -110949612, 524290, 1, -110949610, 524290, 1, -110949608, 524290, 1, -110949606, 524290, 1, -110949604, 524290, 1, -110949602, 524290, 1, -110949600, 524290, 1, -110949598, 524290, 1, -110949596, 524290, 1, -110949594, 524290, 1, -110949592, 524290, 1, -110949590, 524290, 1, -110949588, 524290, 1, -110949586, 524290, 1, -110949584, 524290, 1, -110949582, 524290, 1, -110949580, 524290, 1, -110949578, 524290, 1, -110556360, 524290, 1, -110556358, 524290, 1, -110556356, 1114114, 5, -109638846, 524290, 1, -109245698, 524290, 1, -109245696, 524290, 1, -109245694, 524290, 1, -109245692, 524290, 1, -109245690, 524290, 1, -109245688, 524290, 1, -109245686, 524290, 1, -109245684, 524290, 1, -109245682, 524290, 1, -109245680, 524290, 1, -108852462, 524290, 1, -108852460, 524290, 1, -108852458, 524290, 1, -108852456, 524290, 1, -108852454, 524290, 1, -108852452, 524290, 1, -108852450, 524290, 1, -108852448, 524290, 1, -108852446, 524290, 1, -108852434, 524290, 1, -108852432, 524290, 1, -108852430, 524290, 1, -108852428, 524290, 1, -108852426, 524290, 1, -108852424, 524290, 1, -108852422, 524290, 1, -108852420, 524290, 1, -108852418, 524290, 1, -114357486, 524290, 1, -114357484, 524290, 1, -114357482, 1114114, 5, -115406040, 524290, 1, -115406038, 524290, 1, -115406036, 524290, 1, -115406034, 524290, 1, -115406032, 524290, 1, -115406030, 524290, 1, -115406028, 524290, 1, -115406026, 1114114, 5, -116978910, 851970, 5, -116978908, 851970, 5, -116585702, 851970, 5, -116585700, 851970, 5, -116585724, 851970, 5, -116585722, 851970, 5, -116585720, 851970, 5, -116585718, 851970, 5, -116585716, 851970, 5, -116585714, 851970, 5, -117110024, 851970, 5, -117110026, 851970, 5, -117110028, 851970, 5, -118420752, 524290, 1, -118551824, 851970, 5, -118551822, 983042, 268435461, -118420750, 458754, 268435461, -118289678, 458754, 268435461, -118158606, 458754, 268435461, -118027534, 458754, 268435461, -117896462, 458754, 268435461, -117765390, 458754, 268435461, -117634318, 458754, 268435461, -117503246, 458754, 268435461, -117372174, 458754, 268435461, -117110030, 786434, 5, -117241102, 458754, 268435461, -117110022, 1048578, 268435461, -116847878, 458754, 5, -116716806, 458754, 5, -116585734, 458754, 5, -116454662, 458754, 5, -116323590, 458754, 5, -116192518, 458754, 5, -116585704, 1048578, 5, -116585698, 786434, 268435461, -116978912, 851970, 5, -116061446, 458754, 5, -116585726, 851970, 5, -116454654, 524290, 1, -116585728, 983042, 5, -116454656, 458754, 5, -116323584, 458754, 5, -116192512, 458754, 5, -116061440, 458754, 5, -115930368, 458754, 5, -115799296, 458754, 5, -115668224, 458754, 5, -115537152, 786434, 268435461, -115537154, 1048578, 5, -116323560, 458754, 268435461, -116192488, 458754, 268435461, -116061416, 458754, 268435461, -115930344, 458754, 268435461, -115799272, 917506, 5, -115799270, 655362, 5, -116454640, 524290, 1, -116585712, 851970, 5, -116585710, 983042, 268435461, -116454638, 458754, 268435461, -116323566, 458754, 268435461, -116192494, 458754, 268435461, -116061422, 458754, 268435461, -115930350, 458754, 268435461, -115799278, 458754, 268435461, -115668206, 458754, 268435461, -115537134, 458754, 268435461, -115406062, 458754, 268435461, -115274990, 458754, 268435461, -115143918, 458754, 268435461, -115012846, 458754, 268435461, -114881774, 458754, 268435461, -114750702, 458754, 268435461, -114488558, 786434, 5, -114619630, 458754, 268435461, -114488556, 851970, 5, -115799266, 983042, 268435461, -115668194, 458754, 268435461, -115537122, 458754, 268435461, -115406050, 458754, 268435461, -115274978, 458754, 268435461, -115143906, 458754, 268435461, -115012834, 458754, 268435461, -114881762, 458754, 268435461, -114750690, 458754, 268435461, -114619618, 458754, 268435461, -114488546, 458754, 268435461, -114357474, 458754, 268435461, -114226402, 458754, 268435461, -114095330, 458754, 268435461, -113964258, 458754, 268435461, -113833186, 458754, 268435461, -113702114, 917506, 5, -113702122, 917506, 268435461, -113833194, 458754, 5, -113964266, 458754, 5, -114095338, 458754, 5, -114226410, 458754, 5, -114488554, 1048578, 268435461, -115275010, 458754, 268435461, -115143938, 458754, 268435461, -115012866, 458754, 268435461, -114881794, 458754, 268435461, -114750722, 458754, 268435461, -114619650, 458754, 268435461, -114488578, 458754, 268435461, -114357506, 458754, 268435461, -114226434, 917506, 5, -114226432, 655362, 5, -114226428, 655362, 5, -114226426, 655362, 5, -114226430, 131074, 5, -115930376, 524290, 5, -115799304, 458754, 268435461, -115668232, 458754, 268435461, -115537160, 458754, 268435461, -115406088, 458754, 268435461, -115275016, 458754, 268435461, -115143944, 458754, 268435461, -115012872, 458754, 268435461, -114881800, 458754, 268435461, -114750728, 458754, 268435461, -114619656, 458754, 268435461, -114488584, 458754, 268435461, -114357512, 458754, 268435461, -114226440, 458754, 268435461, -114095368, 458754, 268435461, -113964296, 458754, 268435461, -113833224, 786434, 5, -113833222, 851970, 5, -113833220, 851970, 5, -113833218, 851970, 5, -113833216, 1048578, 268435461, -113571072, 458754, 5, -113440000, 458754, 5, -113308928, 458754, 5, -113177856, 458754, 5, -113046784, 458754, 5, -112915712, 458754, 5, -112784640, 458754, 5, -112653568, 458754, 5, -112522496, 458754, 5, -112391424, 458754, 5, -112260352, 458754, 5, -112129280, 458754, 5, -111998208, 458754, 5, -111867136, 458754, 5, -111736064, 458754, 5, -111604992, 458754, 5, -111473920, 917506, 268435461, -111473912, 917506, 5, -113702136, 917506, 5, -113833208, 458754, 268435461, -113964280, 458754, 268435461, -114095352, 458754, 268435461, -114226424, 983042, 268435461, -116847834, 524290, 1, -116978906, 851970, 5, -116978904, 983042, 268435461, -116847832, 458754, 268435461, -116716760, 458754, 268435461, -116585688, 458754, 268435461, -116454616, 458754, 268435461, -116323544, 458754, 268435461, -116192472, 458754, 268435461, -116061400, 458754, 268435461, -115930328, 458754, 268435461, -115799256, 458754, 268435461, -115668184, 458754, 268435461, -115537112, 786434, 5, -115930322, 917506, 5, -115930320, 196610, 5, -115930318, 131074, 5, -115930316, 196610, 5, -115930314, 196610, 5, -115930312, 131074, 5, -115930310, 196610, 5, -115930308, 196610, 5, -115537110, 851970, 5, -115537108, 851970, 5, -115537106, 851970, 5, -115537104, 851970, 5, -115537102, 851970, 5, -115537100, 851970, 5, -115537098, 1048578, 268435461, -115930306, 983042, 268435461, -115799234, 458754, 268435461, -115668162, 458754, 268435461, -115537090, 458754, 268435461, -115406018, 458754, 268435461, -115274946, 458754, 268435461, -115143874, 458754, 268435461, -115012802, 458754, 268435461, -114881730, 458754, 268435461, -114750658, 458754, 268435461, -114619586, 458754, 268435461, -114488514, 458754, 268435461, -114357442, 458754, 268435461, -114226370, 458754, 268435461, -114095298, 458754, 268435461, -113964226, 458754, 268435461, -113833154, 458754, 268435461, -113702082, 458754, 268435461, -113571010, 458754, 268435461, -113439938, 458754, 268435461, -113308866, 458754, 268435461, -113177794, 458754, 268435461, -113046722, 458754, 268435461, -112915650, 458754, 268435461, -112784578, 458754, 268435461, -112653506, 458754, 268435461, -112522434, 458754, 268435461, -112391362, 458754, 268435461, -112260290, 458754, 268435461, -112129218, 458754, 268435461, -111998146, 458754, 268435461, -111867074, 458754, 268435461, -111736002, 458754, 268435461, -111604930, 458754, 268435461, -111473858, 458754, 268435461, -111342786, 458754, 268435461, -111211714, 458754, 268435461, -111080642, 917506, 5, -112784606, 917506, 5, -112784586, 917506, 268435461, -112784590, 131074, 5, -112784602, 131074, 5, -112784596, 131074, 5, -112784600, 196610, 5, -112784598, 196610, 5, -112784604, 196610, 5, -112784594, 196610, 5, -112784592, 196610, 5, -112784588, 196610, 5, -112915658, 458754, 5, -113046730, 458754, 5, -113177802, 458754, 5, -113308874, 458754, 5, -113833162, 458754, 5, -113702090, 458754, 5, -113571018, 458754, 5, -113439946, 458754, 5, -114357450, 458754, 5, -114226378, 458754, 5, -114095306, 458754, 5, -113964234, 458754, 5, -114881738, 458754, 5, -114750666, 458754, 5, -114619594, 458754, 5, -114488522, 458754, 5, -115012810, 458754, 5, -115143882, 458754, 5, -115274954, 458754, 5, -113177848, 1114114, 268435461, -113308920, 1048578, 5, -113308918, 851970, 5, -113308916, 851970, 5, -113308914, 851970, 5, -113308912, 851970, 5, -113308910, 851970, 5, -113308908, 851970, 5, -113308906, 851970, 5, -113308904, 851970, 5, -113308902, 851970, 5, -113308900, 983042, 268435461, -113177828, 458754, 268435461, -113046756, 458754, 268435461, -112915684, 458754, 268435461, -112784612, 458754, 268435461, -112653540, 458754, 268435461, -112522468, 458754, 268435461, -112391396, 786434, 5, -112391394, 851970, 5, -112391392, 851970, 5, -112391390, 851970, 5, -112391388, 851970, 5, -112391386, 851970, 5, -112391384, 851970, 5, -112391382, 851970, 5, -112391380, 851970, 5, -112391378, 851970, 5, -112391376, 851970, 5, -112391374, 851970, 5, -112391372, 851970, 5, -112391370, 1048578, 268435461, -113702110, 983042, 268435461, -113571038, 458754, 268435461, -113439966, 458754, 268435461, -113308894, 458754, 268435461, -113177822, 458754, 268435461, -113046750, 458754, 268435461, -112915678, 458754, 268435461, -113046776, 458754, 268435461, -112915704, 458754, 268435461, -112784632, 458754, 268435461, -112653560, 458754, 268435461, -112522488, 458754, 268435461, -112391416, 458754, 268435461, -112260344, 458754, 268435461, -112129272, 458754, 268435461, -111998200, 458754, 268435461, -111867128, 458754, 268435461, -111736056, 458754, 268435461, -111604984, 458754, 268435461, -112129226, 458754, 5, -111998154, 458754, 5, -111867082, 458754, 5, -111736010, 458754, 5, -111604938, 458754, 5, -111473866, 917506, 268435461, -111473910, 196610, 5, -111473906, 196610, 5, -111473904, 196610, 5, -111473900, 196610, 5, -111473896, 196610, 5, -111473894, 196610, 5, -111473892, 196610, 5, -111473888, 196610, 5, -111473886, 196610, 5, -111473884, 196610, 5, -111473882, 196610, 5, -111473878, 196610, 5, -111473876, 196610, 5, -111473874, 196610, 5, -111473870, 196610, 5, -111473868, 196610, 5, -111473908, 131074, 5, -111473902, 131074, 5, -111473898, 131074, 5, -111473890, 131074, 5, -111473880, 131074, 5, -111473872, 131074, 5, -110687476, 786434, 268435461, -110687478, 851970, 5, -110687480, 851970, 5, -110687482, 851970, 5, -111080690, 851970, 5, -111080688, 851970, 5, -111080686, 851970, 5, -111080684, 851970, 5, -111080682, 851970, 5, -111080680, 851970, 5, -111080678, 851970, 5, -111080676, 851970, 5, -111080674, 851970, 5, -111080672, 851970, 5, -111080670, 851970, 5, -111080668, 851970, 5, -111080666, 851970, 5, -111080664, 851970, 5, -111080662, 851970, 5, -111080660, 851970, 5, -111080658, 851970, 5, -111080656, 851970, 5, -111080654, 851970, 5, -111080652, 851970, 5, -111080650, 851970, 5, -111080692, 983042, 5, -110949620, 458754, 5, -110818548, 458754, 5, -111080648, 983042, 268435461, -110949576, 458754, 268435461, -110818504, 458754, 268435461, -110687432, 786434, 5, -110687430, 851970, 5, -110687428, 1048578, 268435461, -109769980, 917506, 5, -110687484, 1048578, 5, -110425340, 458754, 268435461, -110294268, 458754, 268435461, -110163196, 458754, 268435461, -110032124, 458754, 268435461, -109901052, 458754, 268435461, -111342850, 458754, 268435461, -111211778, 458754, 268435461, -111080706, 458754, 268435461, -110949634, 458754, 268435461, -110818562, 458754, 268435461, -110687490, 458754, 268435461, -110556418, 458754, 268435461, -110425346, 458754, 268435461, -110294274, 458754, 268435461, -110163202, 458754, 268435461, -110032130, 458754, 268435461, -109901058, 458754, 268435461, -109769986, 458754, 268435461, -109638914, 458754, 268435461, -109507842, 458754, 268435461, -109376770, 786434, 5, -109376768, 851970, 5, -109376766, 851970, 5, -109376764, 851970, 5, -109376762, 851970, 5, -109376760, 851970, 5, -109376758, 851970, 5, -109376756, 851970, 5, -109376754, 851970, 5, -109376744, 917506, 5, -109769960, 983042, 268435461, -109638888, 458754, 268435461, -109507816, 458754, 268435461, -109376752, 851970, 5, -109376750, 983042, 268435461, -109245678, 458754, 268435461, -109114606, 458754, 268435461, -108983534, 786434, 5, -108983532, 851970, 5, -108983530, 851970, 5, -108983528, 851970, 5, -108983526, 851970, 5, -108983524, 851970, 5, -108983522, 851970, 5, -108983520, 851970, 5, -108983518, 851970, 5, -109376712, 917506, 268435461, -110163140, 917506, 268435461, -110294212, 458754, 5, -110425284, 458754, 5, -108983506, 851970, 5, -108983504, 851970, 5, -108983502, 851970, 5, -108983500, 851970, 5, -108983498, 851970, 5, -108983496, 851970, 5, -108983494, 851970, 5, -108983492, 851970, 5, -109769918, 786434, 268435461, -111080638, 524290, 268435461, -110949566, 458754, 5, -110818494, 458754, 5, -110687422, 458754, 5, -110556350, 458754, 5, -110425278, 458754, 5, -110294206, 458754, 5, -110163134, 458754, 5, -110032062, 458754, 5, -109900990, 458754, 5, -110163142, 655362, 5, -110163144, 983042, 5, -110032072, 458754, 5, -109901000, 458754, 5, -109769928, 458754, 5, -109638856, 458754, 5, -109507784, 458754, 5, -108983490, 786434, 268435461, -109638848, 524290, 1, -109769920, 851970, 5, -109769922, 983042, 5, -109638850, 458754, 5, -109507778, 458754, 5, -109376706, 458754, 5, -109245634, 458754, 5, -109114562, 458754, 5, -108852444, 524290, 1, -108852436, 524290, 1, -108983508, 851970, 5, -108983516, 851970, 5, -108983510, 983042, 5, -108983514, 983042, 268435461, -108852442, 458754, 268435461, -108721370, 458754, 268435461, -108590298, 458754, 268435461, -108459226, 458754, 268435461, -108852438, 458754, 5, -108721366, 458754, 5, -108590294, 458754, 5, -108459222, 458754, 5, -108328154, 458754, 268435461, -108197082, 458754, 268435461, -108066010, 458754, 268435461, -108328150, 458754, 5, -108197078, 458754, 5, -108066006, 458754, 5, -107934938, 458754, 268435461, -107803866, 458754, 268435461, -107672794, 458754, 268435461, -107541722, 458754, 268435461, -107410650, 458754, 268435461, -107279578, 458754, 268435461, -107934934, 458754, 5, -107803862, 458754, 5, -107672790, 458754, 5, -107541718, 458754, 5, -107410646, 458754, 5, -107279574, 458754, 5, -107148506, 458754, 268435461, -107017434, 458754, 268435461, -106886362, 458754, 268435461, -106755290, 458754, 268435461, -106624218, 458754, 268435461, -106493146, 458754, 268435461, -107148502, 458754, 5, -107017430, 458754, 5, -106886358, 458754, 5, -106755286, 458754, 5, -106624214, 458754, 5, -106493142, 458754, 5, -106362074, 458754, 268435461, -106231002, 458754, 268435461, -106099930, 458754, 268435461, -105968858, 458754, 268435461, -105837786, 458754, 268435461, -105706714, 458754, 268435461, -106362070, 458754, 5, -106230998, 458754, 5, -106099926, 458754, 5, -105968854, 458754, 5, -105837782, 458754, 5, -105706710, 458754, 5, -105575642, 458754, 268435461, -105444570, 458754, 268435461, -105313498, 458754, 268435461, -105182426, 458754, 268435461, -105051354, 458754, 268435461, -104920282, 458754, 268435461, -105575638, 458754, 5, -105444566, 458754, 5, -105313494, 458754, 5, -105182422, 458754, 5, -105051350, 458754, 5, -104920278, 458754, 5, -104789210, 458754, 268435461, -104658138, 458754, 268435461, -104527066, 458754, 268435461, -104395994, 458754, 268435461, -104264922, 458754, 268435461, -104133850, 458754, 268435461, -104789206, 458754, 5, -104658134, 458754, 5, -104527062, 458754, 5, -104395990, 458754, 5, -104264918, 458754, 5, -104133846, 458754, 5, -104068314, 458754, 268435461, -103937242, 458754, 268435461, -104068310, 458754, 5, -103937238, 458754, 5, -116716770, 458754, 5, -116847842, 458754, 5, -116978914, 983042, 5)
 
 [node name="dark_indoor_ysort" type="Node2D" parent="dark_indoor_layer/dark_indoor_Section" groups=["dark_indoor_ysort"]]
 z_index = 3
+
+[node name="door_frame2" parent="dark_indoor_layer/dark_indoor_Section/dark_indoor_ysort" instance=ExtResource("35_l6daq")]
+position = Vector2(44424, -29869)
+
+[node name="door_frame3" parent="dark_indoor_layer/dark_indoor_Section/dark_indoor_ysort" instance=ExtResource("35_l6daq")]
+position = Vector2(45704, -25309)
 
 [node name="TileMap_mid" type="TileMap" parent="dark_indoor_layer/dark_indoor_Section"]
 z_index = 2
@@ -7477,12 +7607,13 @@ format = 2
 z_index = 1
 tile_set = ExtResource("14_oxs1v")
 format = 2
-layer_0/tile_data = PackedInt32Array(-122352936, 589826, 1, -122352934, 589826, 1, -122352938, 589826, 1, -122352937, 589826, 1, -122484010, 589826, 1, -122484008, 589826, 1, -122615078, 589826, 1, -122615080, 589826, 1, -122615082, 589826, 1, -122746150, 589826, 1, -122746152, 589826, 1, -122877222, 589826, 1, -122877220, 589826, 1, -122746148, 589826, 1, -122615076, 589826, 1, -122877218, 589826, 1, -122746146, 589826, 1, -122746144, 589826, 1, -122877216, 589826, 1, -122877214, 589826, 1, -122746142, 589826, 1, -122877212, 589826, 1, -122746140, 589826, 1, -123008284, 589826, 1, -122877210, 589826, 1, -123008282, 589826, 1, -123139356, 589826, 1, -123139354, 589826, 1, -123270428, 589826, 1, -123401500, 589826, 1, -123401498, 589826, 1, -123270426, 589826, 1, -123401496, 589826, 1, -123270424, 589826, 1, -123401494, 589826, 1, -123663638, 589826, 1, -123663640, 589826, 1, -123663636, 589826, 1, -123663634, 589826, 1, -123663632, 589826, 1, -123663630, 589826, 1, -123663628, 589826, 1, -123401484, 589826, 1, -123401486, 589826, 1, -123401482, 589826, 1, -123401480, 589826, 1, -123270408, 589826, 1, -123270410, 589826, 1, -123270406, 589826, 1, -123401478, 589826, 1, -123139358, 917506, 268435461, -123008286, 65538, 268435461, -123008288, 65538, 5, -123139360, 131074, 5, -123139364, 131074, 5, -123008292, 65538, 5, -123139362, 196610, 5, -123008290, 2, 5, -123008294, 2, 5, -122877224, 65538, 268435461, -122746154, 65538, 268435461, -123139366, 655362, 5, -122484006, 589826, 1, -122746156, 2, 5, -122352940, 589826, 1, -122484012, 589826, 1, -122615084, 589826, 1, -122352932, 589826, 1, -122484004, 589826, 1, -122615074, 589826, 1, -122877228, 524290, 5, -123008298, 983042, 5, -123139368, 983042, 5, -122877226, 917506, 268435461, -123008296, 917506, 268435461, -122746138, 589826, 1, -123401492, 589826, 1, -123401490, 589826, 1, -123401488, 589826, 1, -123532554, 589826, 1, -123532556, 589826, 1, -123532558, 589826, 1, -123532560, 589826, 1, -123532564, 589826, 1, -123532566, 589826, 1, -123532562, 589826, 1, -123532570, 589826, 1, -123532568, 589826, 1, -123663644, 917506, 268435461, -123794714, 917506, 268435461, -123532572, 65538, 268435461, -123663642, 65538, 268435461, -123663646, 983042, 5, -123794716, 983042, 5, -123532574, 458754, 5, -123663626, 589826, 1, -123532552, 589826, 1, -123532550, 589826, 1, -123794712, 2, 5, -123794710, 65538, 5, -123794706, 65538, 5, -123794708, 2, 5, -123794704, 2, 5, -123794702, 65538, 5, -123794700, 2, 5, -123794698, 65538, 5, -123663624, 65538, 5, -123663622, 2, 5, -122483980, 589826, 1, -122352908, 589826, 1, -122221836, 589826, 1, -122090764, 589826, 1, -121959692, 589826, 1, -121828620, 589826, 1, -122483978, 589826, 1, -122352906, 589826, 1, -122221834, 589826, 1, -122090762, 589826, 1, -121959690, 589826, 1, -121828618, 589826, 1, -122615048, 589826, 1, -122483976, 589826, 1, -122352904, 589826, 1, -122615046, 589826, 1, -122483974, 589826, 1, -122352902, 589826, 1, -123139332, 589826, 1, -123008260, 589826, 1, -122877188, 589826, 1, -122746116, 589826, 1, -122615044, 589826, 1, -122483972, 589826, 1, -123139330, 589826, 1, -123008258, 589826, 1, -122877186, 589826, 1, -122746114, 589826, 1, -122615042, 589826, 1, -122483970, 589826, 1, -123270404, 589826, 1, -123270402, 589826, 1, -123401474, 589826, 1, -123401476, 589826, 1, -123532548, 589826, 1, -123532546, 589826, 1, -123663620, 65538, 5, -123663618, 2, 5, -123794694, 196610, 5, -123794692, 131074, 5, -123794690, 524290, 268435461, -122352900, 589826, 1, -122352898, 589826, 1, -122221832, 589826, 1, -122221830, 589826, 1)
+layer_0/tile_data = PackedInt32Array(-122352936, 589826, 1, -122352934, 589826, 1, -122352938, 589826, 1, -122352937, 589826, 1, -122484010, 589826, 1, -122484008, 589826, 1, -122615078, 589826, 1, -122615080, 589826, 1, -122615082, 589826, 1, -122746150, 589826, 1, -122746152, 589826, 1, -122877222, 589826, 1, -122877220, 589826, 1, -122746148, 589826, 1, -122615076, 589826, 1, -122877218, 589826, 1, -122746146, 589826, 1, -122746144, 589826, 1, -122877216, 589826, 1, -122877214, 589826, 1, -122746142, 589826, 1, -122877212, 589826, 1, -122746140, 589826, 1, -123008284, 589826, 1, -122877210, 589826, 1, -123008282, 589826, 1, -123139356, 589826, 1, -123139354, 589826, 1, -123270428, 589826, 1, -123401500, 589826, 1, -123401498, 589826, 1, -123270426, 589826, 1, -123401496, 589826, 1, -123270424, 589826, 1, -123401494, 589826, 1, -123663638, 589826, 1, -123663640, 589826, 1, -123663636, 589826, 1, -123663634, 589826, 1, -123663632, 589826, 1, -123663630, 589826, 1, -123663628, 589826, 1, -123401484, 589826, 1, -123401486, 589826, 1, -123401482, 589826, 1, -123401480, 589826, 1, -123270408, 589826, 1, -123270410, 589826, 1, -123270406, 589826, 1, -123401478, 589826, 1, -123139358, 917506, 268435461, -123008286, 65538, 268435461, -123008288, 65538, 5, -123139360, 131074, 5, -123139364, 131074, 5, -123008292, 65538, 5, -123139362, 196610, 5, -123008290, 2, 5, -123008294, 2, 5, -122877224, 65538, 268435461, -122746154, 65538, 268435461, -123139366, 655362, 5, -122484006, 589826, 1, -122746156, 2, 5, -122352940, 589826, 1, -122484012, 589826, 1, -122615084, 589826, 1, -122352932, 589826, 1, -122484004, 589826, 1, -122615074, 589826, 1, -122877228, 524290, 5, -123008298, 983042, 5, -123139368, 983042, 5, -122877226, 917506, 268435461, -123008296, 917506, 268435461, -122746138, 589826, 1, -123401492, 589826, 1, -123401490, 589826, 1, -123401488, 589826, 1, -123532554, 589826, 1, -123532556, 589826, 1, -123532558, 589826, 1, -123532560, 589826, 1, -123532564, 589826, 1, -123532566, 589826, 1, -123532562, 589826, 1, -123532570, 589826, 1, -123532568, 589826, 1, -123663644, 917506, 268435461, -123794714, 917506, 268435461, -123532572, 65538, 268435461, -123663642, 65538, 268435461, -123663646, 983042, 5, -123794716, 983042, 5, -123532574, 458754, 5, -123663626, 589826, 1, -123532552, 589826, 1, -123532550, 589826, 1, -123794712, 2, 5, -123794710, 65538, 5, -123794706, 65538, 5, -123794708, 2, 5, -123794704, 2, 5, -123794702, 65538, 5, -123794700, 2, 5, -123794698, 65538, 5, -123663624, 65538, 5, -123663622, 2, 5, -122483980, 589826, 1, -122352908, 589826, 1, -122221836, 589826, 1, -122090764, 589826, 1, -121828620, 589826, 1, -122483978, 589826, 1, -122352906, 589826, 1, -122221834, 589826, 1, -122090762, 589826, 1, -121959690, 589826, 1, -121828618, 589826, 1, -122615048, 589826, 1, -122483976, 589826, 1, -122352904, 589826, 1, -122615046, 589826, 1, -122483974, 589826, 1, -122352902, 589826, 1, -123139332, 589826, 1, -123008260, 589826, 1, -122877188, 589826, 1, -122746116, 589826, 1, -122615044, 589826, 1, -122483972, 589826, 1, -123139330, 589826, 1, -123008258, 589826, 1, -122877186, 589826, 1, -122746114, 589826, 1, -122615042, 589826, 1, -122483970, 589826, 1, -123270404, 589826, 1, -123270402, 589826, 1, -123401474, 589826, 1, -123401476, 589826, 1, -123532548, 589826, 1, -123532546, 589826, 1, -123663620, 65538, 5, -123663618, 2, 5, -123794694, 196610, 5, -123794692, 131074, 5, -123794690, 524290, 268435461, -122352900, 589826, 1, -122352898, 589826, 1, -122221832, 589826, 1, -122221830, 589826, 1, -121697548, 589826, 1, -121697546, 589826, 1, -121566476, 589826, 1, -121697550, 589826, 1, -121566478, 589826, 1, -121566474, 589826, 1, -121697544, 589826, 1, -121566472, 589826, 1, -121566480, 589826, 1, -121435408, 589826, 1, -121435406, 589826, 1, -121435410, 589826, 1, -121304338, 589826, 1, -121304336, 589826, 1, -121500946, 589826, 1, -121566482, 589826, 1, -121435412, 589826, 1, -121304340, 589826, 1, -121435414, 589826, 1, -121304342, 589826, 1, -121304344, 589826, 1, -121435416, 589826, 1, -121697552, 589826, 1, -121566484, 589826, 1, -121173272, 589826, 1, -121173270, 589826, 1, -121042198, 589826, 1, -121042200, 589826, 1, -120911128, 589826, 1, -120911126, 589826, 1, -121304334, 589826, 1, -121566470, 589826, 1, -121697542, 589826, 1, -121697540, 589826, 1, -121566468, 589826, 1, -121566466, 589826, 1, -121435394, 589826, 1, -121435396, 589826, 1, -121566464, 589826, 1, -121435392, 589826, 1, -121435390, 589826, 1, -121304318, 589826, 1, -121304320, 589826, 1, -121435388, 589826, 1, -121304316, 589826, 1, -121435386, 589826, 1, -121304314, 589826, 1, -121435384, 589826, 1, -121304312, 589826, 1, -121304310, 589826, 1, -121173238, 589826, 1, -121173240, 589826, 1, -121042168, 589826, 1, -121042166, 589826, 1, -121435382, 589826, 1, -120911094, 589826, 1, -120911096, 589826, 1, -120780024, 589826, 1, -120780022, 589826, 1, -120780020, 589826, 1, -120648950, 589826, 1, -120648948, 589826, 1, -120780018, 589826, 1, -120648946, 589826, 1, -120780016, 589826, 1, -120648944, 589826, 1, -120648952, 589826, 1, -120517872, 589826, 1, -120780014, 589826, 1, -120648942, 589826, 1, -120517870, 589826, 1, -120386798, 589826, 1, -120386800, 589826, 1, -120255728, 589826, 1, -120255726, 589826, 1, -120124654, 589826, 1, -120124656, 589826, 1, -119993582, 589826, 1, -119993584, 589826, 1, -119862510, 589826, 1, -119862512, 589826, 1, -119731440, 589826, 1, -119731438, 589826, 1, -119600368, 589826, 1, -119600366, 589826, 1, -120648940, 589826, 1, -120780012, 589826, 1, -120780010, 589826, 1, -120648938, 589826, 1, -120780008, 589826, 1, -120648936, 589826, 1, -120780006, 589826, 1, -120648934, 589826, 1, -121173242, 589826, 1, -121173244, 589826, 1, -121173246, 589826, 1, -121173248, 589826, 1, -121304322, 589826, 1, -121304324, 589826, 1, -121435398, 589826, 1, -121435400, 589826, 1, -121435404, 589826, 1, -121173268, 589826, 1, -121042196, 589826, 1, -120911124, 589826, 1, -121042170, 589826, 1, -120911098, 589826, 1, -120780026, 589826, 1, -120648954, 589826, 1, -120911092, 589826, 1, -120911090, 589826, 1, -120911088, 589826, 1, -120911086, 589826, 1, -120911084, 589826, 1, -120911082, 589826, 1, -120911080, 589826, 1, -120911078, 589826, 1, -120780056, 589826, 1, -120780054, 589826, 1, -120780052, 589826, 1, -120648980, 589826, 1, -120648982, 589826, 1, -120648984, 589826, 1, -120517912, 589826, 1, -120517910, 589826, 1, -120517908, 589826, 1, -120386840, 589826, 1, -120386838, 589826, 1, -120386836, 589826, 1, -120255768, 589826, 1, -120255766, 589826, 1, -120255764, 589826, 1, -120124692, 589826, 1, -120124694, 589826, 1, -120124696, 589826, 1, -119993624, 589826, 1, -119993622, 589826, 1, -119993620, 589826, 1, -120517868, 589826, 1, -120386796, 589826, 1, -120255724, 589826, 1, -120124652, 589826, 1, -119993580, 589826, 1, -119862508, 589826, 1, -119731436, 589826, 1, -119600364, 589826, 1, -120911076, 589826, 1, -120780004, 589826, 1, -120648932, 589826, 1, -120911074, 589826, 1, -120780002, 589826, 1, -120648930, 589826, 1, -120911072, 589826, 1, -120780000, 589826, 1, -120648928, 589826, 1, -120911070, 589826, 1, -120779998, 589826, 1, -120648926, 589826, 1, -120911068, 589826, 1, -120779996, 589826, 1, -120648924, 589826, 1, -121435402, 589826, 1, -119862554, 589826, 1, -119862556, 589826, 1, -119862552, 589826, 1, -119862550, 589826, 1, -119862548, 589826, 1, -119731484, 589826, 1, -119731476, 589826, 1, -119731478, 589826, 1, -119731482, 589826, 1, -119731480, 589826, 1, -119600412, 589826, 1, -119600410, 589826, 1, -119600408, 589826, 1, -119600406, 589826, 1, -119600404, 589826, 1, -119469340, 589826, 1, -119338268, 589826, 1, -119207196, 589826, 1, -119076124, 589826, 1, -118945052, 589826, 1, -118813980, 589826, 1, -119469338, 589826, 1, -119338266, 589826, 1, -119207194, 589826, 1, -119076122, 589826, 1, -118945050, 589826, 1, -118813978, 589826, 1, -119469336, 589826, 1, -119338264, 589826, 1, -119207192, 589826, 1, -119076120, 589826, 1, -118945048, 589826, 1, -118813976, 589826, 1, -120779994, 589826, 1, -120648922, 589826, 1, -120517850, 589826, 1, -120779992, 589826, 1, -120648920, 589826, 1, -120517848, 589826, 1, -120779990, 589826, 1, -120648918, 589826, 1, -120517846, 589826, 1, -120779988, 589826, 1, -120648916, 589826, 1, -120517844, 589826, 1, -120779986, 589826, 1, -120648914, 589826, 1, -120517842, 589826, 1, -120779984, 589826, 1, -120648912, 589826, 1, -120517840, 589826, 1, -118682908, 589826, 1, -118551836, 589826, 1, -118420764, 589826, 1, -118682906, 589826, 1, -118551834, 589826, 1, -118420762, 589826, 1, -118682904, 589826, 1, -118551832, 589826, 1, -118420760, 589826, 1, -118682902, 589826, 1, -118551830, 589826, 1, -118420758, 589826, 1, -118682900, 589826, 1, -118551828, 589826, 1, -118420756, 589826, 1, -118682898, 589826, 1, -118551826, 589826, 1, -118420754, 589826, 1, -118682896, 589826, 1, -118551824, 589826, 1, -118420752, 589826, 1, -118682894, 589826, 1, -118551822, 589826, 1, -118420750, 589826, 1, -118682892, 589826, 1, -118551820, 589826, 1, -118420748, 589826, 1, -118682890, 589826, 1, -118551818, 589826, 1, -118420746, 589826, 1, -118682888, 589826, 1, -118551816, 589826, 1, -118420744, 589826, 1, -118682886, 589826, 1, -118551814, 589826, 1, -118420742, 589826, 1, -118682884, 589826, 1, -118551812, 589826, 1, -118420740, 589826, 1, -118682882, 589826, 1, -118551810, 589826, 1, -118420738, 589826, 1, -118682880, 589826, 1, -118551808, 589826, 1, -118420736, 589826, 1, -119076098, 589826, 1, -118945026, 589826, 1, -118813954, 589826, 1, -119076096, 589826, 1, -118945024, 589826, 1, -118813952, 589826, 1, -119076094, 589826, 1, -118945022, 589826, 1, -118813950, 589826, 1, -119076092, 589826, 1, -118945020, 589826, 1, -118813948, 589826, 1, -119076090, 589826, 1, -118945018, 589826, 1, -118813946, 589826, 1, -119076088, 589826, 1, -118945016, 589826, 1, -118813944, 589826, 1, -119076086, 589826, 1, -118945014, 589826, 1, -118813942, 589826, 1, -119076084, 589826, 1, -118945012, 589826, 1, -118813940, 589826, 1, -119076082, 589826, 1, -118945010, 589826, 1, -118813938, 589826, 1, -119076080, 589826, 1, -118945008, 589826, 1, -118813936, 589826, 1, -119076078, 589826, 1, -118945006, 589826, 1, -118813934, 589826, 1, -119076076, 589826, 1, -118945004, 589826, 1, -118813932, 589826, 1, -119076074, 589826, 1, -118945002, 589826, 1, -118813930, 589826, 1, -119076072, 589826, 1, -118945000, 589826, 1, -118813928, 589826, 1, -119076070, 589826, 1, -118944998, 589826, 1, -118813926, 589826, 1, -119469296, 589826, 1, -119338224, 589826, 1, -119207152, 589826, 1, -119469294, 589826, 1, -119338222, 589826, 1, -119207150, 589826, 1, -119469292, 589826, 1, -119338220, 589826, 1, -119207148, 589826, 1, -118289678, 589826, 1, -118158606, 589826, 1, -118027534, 589826, 1, -117896462, 589826, 1, -117765390, 589826, 1, -117634318, 589826, 1, -117503246, 589826, 1, -117372174, 589826, 1, -117241102, 589826, 1, -117110030, 589826, 1, -116978958, 589826, 1, -118289676, 589826, 1, -118158604, 589826, 1, -118027532, 589826, 1, -117896460, 589826, 1, -117765388, 589826, 1, -117634316, 589826, 1, -117503244, 589826, 1, -117372172, 589826, 1, -117241100, 589826, 1, -117110028, 589826, 1, -116978956, 589826, 1, -118289674, 589826, 1, -118158602, 589826, 1, -118027530, 589826, 1, -117896458, 589826, 1, -117765386, 589826, 1, -117634314, 589826, 1, -117503242, 589826, 1, -117372170, 589826, 1, -117241098, 589826, 1, -117110026, 589826, 1, -116978954, 589826, 1, -120386772, 589826, 1, -120255700, 589826, 1, -120124628, 589826, 1, -119993556, 589826, 1, -119862484, 589826, 1, -119731412, 589826, 1, -119600340, 589826, 1, -119469268, 589826, 1, -119338196, 589826, 1, -119207124, 589826, 1, -119076052, 589826, 1, -120386770, 589826, 1, -120255698, 589826, 1, -120124626, 589826, 1, -119993554, 589826, 1, -119862482, 589826, 1, -119731410, 589826, 1, -119600338, 589826, 1, -119469266, 589826, 1, -119338194, 589826, 1, -119207122, 589826, 1, -119076050, 589826, 1, -120386768, 589826, 1, -120255696, 589826, 1, -120124624, 589826, 1, -119993552, 589826, 1, -119862480, 589826, 1, -119731408, 589826, 1, -119600336, 589826, 1, -119469264, 589826, 1, -119338192, 589826, 1, -119207120, 589826, 1, -119076048, 589826, 1, -119076068, 589826, 1, -118944996, 589826, 1, -118813924, 589826, 1, -119076066, 589826, 1, -118944994, 589826, 1, -118813922, 589826, 1, -119076064, 589826, 1, -118944992, 589826, 1, -118813920, 589826, 1, -119076062, 589826, 1, -118944990, 589826, 1, -118813918, 589826, 1, -119076060, 589826, 1, -118944988, 589826, 1, -118813916, 589826, 1, -119076058, 589826, 1, -118944986, 589826, 1, -118813914, 589826, 1, -119076056, 589826, 1, -118944984, 589826, 1, -118813912, 589826, 1, -119076054, 589826, 1, -118944982, 589826, 1, -118813910, 589826, 1, -118944980, 589826, 1, -118813908, 589826, 1, -118944978, 589826, 1, -118813906, 589826, 1, -118944976, 589826, 1, -118813904, 589826, 1, -117896408, 589826, 1, -117765336, 589826, 1, -117634264, 589826, 1, -117503192, 589826, 1, -117372120, 589826, 1, -117241048, 589826, 1, -117109976, 589826, 1, -117896406, 589826, 1, -117765334, 589826, 1, -117634262, 589826, 1, -117503190, 589826, 1, -117372118, 589826, 1, -117241046, 589826, 1, -117109974, 589826, 1, -118682836, 589826, 1, -118551764, 589826, 1, -118420692, 589826, 1, -118289620, 589826, 1, -118158548, 589826, 1, -118027476, 589826, 1, -117896404, 589826, 1, -117765332, 589826, 1, -117634260, 589826, 1, -117503188, 589826, 1, -117372116, 589826, 1, -117241044, 589826, 1, -117109972, 589826, 1, -118682834, 589826, 1, -118551762, 589826, 1, -118420690, 589826, 1, -118289618, 589826, 1, -118158546, 589826, 1, -118027474, 589826, 1, -117896402, 589826, 1, -117765330, 589826, 1, -117634258, 589826, 1, -118682832, 589826, 1, -118551760, 589826, 1, -118420688, 589826, 1, -118289616, 589826, 1, -118158544, 589826, 1, -118027472, 589826, 1, -117896400, 589826, 1, -117765328, 589826, 1, -117634256, 589826, 1, -117241096, 589826, 1, -117110024, 589826, 1, -116978952, 589826, 1, -117241094, 589826, 1, -117110022, 589826, 1, -116978950, 589826, 1, -117241092, 589826, 1, -117110020, 589826, 1, -116978948, 589826, 1, -116847876, 589826, 1, -116716804, 589826, 1, -116585732, 589826, 1, -116454660, 589826, 1, -117241090, 589826, 1, -117110018, 589826, 1, -116978946, 589826, 1, -116847874, 589826, 1, -116716802, 589826, 1, -116585730, 589826, 1, -116454658, 589826, 1, -117241088, 589826, 1, -117110016, 589826, 1, -116978944, 589826, 1, -116847872, 589826, 1, -116716800, 589826, 1, -116585728, 589826, 1, -116454656, 589826, 1, -116716798, 589826, 1, -116585726, 589826, 1, -116454654, 589826, 1, -116716796, 589826, 1, -116585724, 589826, 1, -116454652, 589826, 1, -116716794, 589826, 1, -116585722, 589826, 1, -116454650, 589826, 1, -116716792, 589826, 1, -116585720, 589826, 1, -116454648, 589826, 1, -116716790, 589826, 1, -116585718, 589826, 1, -116454646, 589826, 1, -116716788, 589826, 1, -116585716, 589826, 1, -116454644, 589826, 1, -116716778, 589826, 1, -116585706, 589826, 1, -116454634, 589826, 1, -116716776, 589826, 1, -116585704, 589826, 1, -116454632, 589826, 1, -116716774, 589826, 1, -116585702, 589826, 1, -116454630, 589826, 1, -117109988, 589826, 1, -116978916, 589826, 1, -116847844, 589826, 1, -116716772, 589826, 1, -116585700, 589826, 1, -116454628, 589826, 1, -117109986, 589826, 1, -116978914, 589826, 1, -116847842, 589826, 1, -116716770, 589826, 1, -116585698, 589826, 1, -116454626, 589826, 1, -117109984, 589826, 1, -116978912, 589826, 1, -116847840, 589826, 1, -117109982, 589826, 1, -116978910, 589826, 1, -116847838, 589826, 1, -117109980, 589826, 1, -116978908, 589826, 1, -116847836, 589826, 1, -117109978, 589826, 1, -116978906, 589826, 1, -116847834, 589826, 1, -116978904, 589826, 1, -116978902, 589826, 1, -116847830, 589826, 1, -116978900, 589826, 1, -116847828, 589826, 1, -116716786, 589826, 1, -116585714, 589826, 1, -116454642, 589826, 1, -116716784, 589826, 1, -116585712, 589826, 1, -116454640, 589826, 1, -116716782, 589826, 1, -116585710, 589826, 1, -116454638, 589826, 1, -116716780, 589826, 1, -116585708, 589826, 1, -116454636, 589826, 1, -115668232, 589826, 1, -115537160, 589826, 1, -115406088, 589826, 1, -115275016, 589826, 1, -115143944, 589826, 1, -115012872, 589826, 1, -115668230, 589826, 1, -115537158, 589826, 1, -115406086, 589826, 1, -115275014, 589826, 1, -115143942, 589826, 1, -115012870, 589826, 1, -116323588, 589826, 1, -116192516, 589826, 1, -116061444, 589826, 1, -115930372, 589826, 1, -115799300, 589826, 1, -115668228, 589826, 1, -115537156, 589826, 1, -115406084, 589826, 1, -115275012, 589826, 1, -115143940, 589826, 1, -115012868, 589826, 1, -116323586, 589826, 1, -116192514, 589826, 1, -116061442, 589826, 1, -115930370, 589826, 1, -115799298, 589826, 1, -115668226, 589826, 1, -115537154, 589826, 1, -115406082, 589826, 1, -116323584, 589826, 1, -116192512, 589826, 1, -116061440, 589826, 1, -115930368, 589826, 1, -115799296, 589826, 1, -115668224, 589826, 1, -115537152, 589826, 1, -115406080, 589826, 1, -116716760, 589826, 1, -116585688, 589826, 1, -116454616, 589826, 1, -116323544, 589826, 1, -116192472, 589826, 1, -116061400, 589826, 1, -115930328, 589826, 1, -115799256, 589826, 1, -115668184, 589826, 1, -115537112, 589826, 1, -115406040, 589826, 1, -116716758, 589826, 1, -116585686, 589826, 1, -116454614, 589826, 1, -116323542, 589826, 1, -116192470, 589826, 1, -116061398, 589826, 1, -115930326, 589826, 1, -115799254, 589826, 1, -115668182, 589826, 1, -115537110, 589826, 1, -115406038, 589826, 1, -116716756, 589826, 1, -116585684, 589826, 1, -116454612, 589826, 1, -116323540, 589826, 1, -116192468, 589826, 1, -116061396, 589826, 1, -115930324, 589826, 1, -115799252, 589826, 1, -115668180, 589826, 1, -115537108, 589826, 1, -115406036, 589826, 1, -115668178, 589826, 1, -115537106, 589826, 1, -115406034, 589826, 1, -115668176, 589826, 1, -115537104, 589826, 1, -115406032, 589826, 1, -115668174, 589826, 1, -115537102, 589826, 1, -115406030, 589826, 1, -115668172, 589826, 1, -115537100, 589826, 1, -115406028, 589826, 1, -115668170, 589826, 1, -115537098, 589826, 1, -115406026, 589826, 1, -115668168, 589826, 1, -115537096, 589826, 1, -115406024, 589826, 1, -115274952, 589826, 1, -115143880, 589826, 1, -115012808, 589826, 1, -114881736, 589826, 1, -114750664, 589826, 1, -114619592, 589826, 1, -114488520, 589826, 1, -114357448, 589826, 1, -115668166, 589826, 1, -115537094, 589826, 1, -115406022, 589826, 1, -115274950, 589826, 1, -115143878, 589826, 1, -115012806, 589826, 1, -114881734, 589826, 1, -114750662, 589826, 1, -114619590, 589826, 1, -114488518, 589826, 1, -114357446, 589826, 1, -115668164, 589826, 1, -115537092, 589826, 1, -115406020, 589826, 1, -115274948, 589826, 1, -115143876, 589826, 1, -115012804, 589826, 1, -114881732, 589826, 1, -114750660, 589826, 1, -114619588, 589826, 1, -114488516, 589826, 1, -114357444, 589826, 1, -114881800, 589826, 1, -114750728, 589826, 1, -114619656, 589826, 1, -114881798, 589826, 1, -114750726, 589826, 1, -114619654, 589826, 1, -114881796, 589826, 1, -114750724, 589826, 1, -114619652, 589826, 1, -119076100, 589826, 1, -118945028, 589826, 1, -118813956, 589826, 1, -116847846, 589826, 1, -116978918, 589826, 1, -117109990, 589826, 1, -114226376, 589826, 1, -114095304, 589826, 1, -113964232, 589826, 1, -113833160, 589826, 1, -113702088, 589826, 1, -113571016, 589826, 1, -113439944, 589826, 1, -113308872, 589826, 1, -114226374, 589826, 1, -114095302, 589826, 1, -113964230, 589826, 1, -113833158, 589826, 1, -113702086, 589826, 1, -113571014, 589826, 1, -113439942, 589826, 1, -113308870, 589826, 1, -114226372, 589826, 1, -114095300, 589826, 1, -113964228, 589826, 1, -113833156, 589826, 1, -113702084, 589826, 1, -113571012, 589826, 1, -113439940, 589826, 1, -113308868, 589826, 1, -113177800, 589826, 1, -113046728, 589826, 1, -112915656, 589826, 1, -112784584, 589826, 1, -112653512, 589826, 1, -112522440, 589826, 1, -112391368, 589826, 1, -112260296, 589826, 1, -112129224, 589826, 1, -111998152, 589826, 1, -113177798, 589826, 1, -113046726, 589826, 1, -112915654, 589826, 1, -112784582, 589826, 1, -112653510, 589826, 1, -112522438, 589826, 1, -112391366, 589826, 1, -112260294, 589826, 1, -112129222, 589826, 1, -111998150, 589826, 1, -113177796, 589826, 1, -113046724, 589826, 1, -112915652, 589826, 1, -112784580, 589826, 1, -112653508, 589826, 1, -112522436, 589826, 1, -112391364, 589826, 1, -112260292, 589826, 1, -112129220, 589826, 1, -111998148, 589826, 1, -114488584, 589826, 1, -114357512, 589826, 1, -114226440, 589826, 1, -114095368, 589826, 1, -113964296, 589826, 1, -113833224, 589826, 1, -113702152, 589826, 1, -114488582, 589826, 1, -114357510, 589826, 1, -114226438, 589826, 1, -114095366, 589826, 1, -113964294, 589826, 1, -113833222, 589826, 1, -113702150, 589826, 1, -114488580, 589826, 1, -114357508, 589826, 1, -114226436, 589826, 1, -114095364, 589826, 1, -113964292, 589826, 1, -113833220, 589826, 1, -113702148, 589826, 1, -113964290, 589826, 1, -113833218, 589826, 1, -113702146, 589826, 1, -113964288, 589826, 1, -113833216, 589826, 1, -113702144, 589826, 1, -113964286, 589826, 1, -113833214, 589826, 1, -113702142, 589826, 1, -113964284, 589826, 1, -113833212, 589826, 1, -113702140, 589826, 1, -113964282, 589826, 1, -113833210, 589826, 1, -113702138, 589826, 1, -113571070, 589826, 1, -113439998, 589826, 1, -113308926, 589826, 1, -113177854, 589826, 1, -113571068, 589826, 1, -113439996, 589826, 1, -113308924, 589826, 1, -113177852, 589826, 1, -113571066, 589826, 1, -113439994, 589826, 1, -113308922, 589826, 1, -113177850, 589826, 1, -113439992, 589826, 1, -113308920, 589826, 1, -113177848, 589826, 1, -113439990, 589826, 1, -113308918, 589826, 1, -113177846, 589826, 1, -113439988, 589826, 1, -113308916, 589826, 1, -113177844, 589826, 1, -113439986, 589826, 1, -113308914, 589826, 1, -113177842, 589826, 1, -113439984, 589826, 1, -113308912, 589826, 1, -113177840, 589826, 1, -113439982, 589826, 1, -113308910, 589826, 1, -113177838, 589826, 1, -113439980, 589826, 1, -113308908, 589826, 1, -113177836, 589826, 1, -113439978, 589826, 1, -113308906, 589826, 1, -113177834, 589826, 1, -113439976, 589826, 1, -113308904, 589826, 1, -113177832, 589826, 1, -113439974, 589826, 1, -113308902, 589826, 1, -113177830, 589826, 1, -113439972, 589826, 1, -113308900, 589826, 1, -113177828, 589826, 1, -113439970, 589826, 1, -113308898, 589826, 1, -113177826, 589826, 1, -113439968, 589826, 1, -113308896, 589826, 1, -113177824, 589826, 1, -113046756, 589826, 1, -112915684, 589826, 1, -112784612, 589826, 1, -112653540, 589826, 1, -112522468, 589826, 1, -112391396, 589826, 1, -112260324, 589826, 1, -113046754, 589826, 1, -112915682, 589826, 1, -112784610, 589826, 1, -112653538, 589826, 1, -112522466, 589826, 1, -112391394, 589826, 1, -112260322, 589826, 1, -113046752, 589826, 1, -112915680, 589826, 1, -112784608, 589826, 1, -112653536, 589826, 1, -112522464, 589826, 1, -112391392, 589826, 1, -112260320, 589826, 1, -112522462, 589826, 1, -112391390, 589826, 1, -112260318, 589826, 1, -112522460, 589826, 1, -112391388, 589826, 1, -112260316, 589826, 1, -112522458, 589826, 1, -112391386, 589826, 1, -112260314, 589826, 1, -112522456, 589826, 1, -112391384, 589826, 1, -112260312, 589826, 1, -112522454, 589826, 1, -112391382, 589826, 1, -112260310, 589826, 1, -112522452, 589826, 1, -112391380, 589826, 1, -112260308, 589826, 1, -112522450, 589826, 1, -112391378, 589826, 1, -112260306, 589826, 1, -112522448, 589826, 1, -112391376, 589826, 1, -112260304, 589826, 1, -112522446, 589826, 1, -112391374, 589826, 1, -112260302, 589826, 1, -112522444, 589826, 1, -112391372, 589826, 1, -112260300, 589826, 1, -112522442, 589826, 1, -112391370, 589826, 1, -112260298, 589826, 1, -113046782, 589826, 1, -112915710, 589826, 1, -112784638, 589826, 1, -112653566, 589826, 1, -112522494, 589826, 1, -112391422, 589826, 1, -112260350, 589826, 1, -112129278, 589826, 1, -111998206, 589826, 1, -111867134, 589826, 1, -113046780, 589826, 1, -112915708, 589826, 1, -112784636, 589826, 1, -112653564, 589826, 1, -112522492, 589826, 1, -112391420, 589826, 1, -112260348, 589826, 1, -112129276, 589826, 1, -111998204, 589826, 1, -111867132, 589826, 1, -113046778, 589826, 1, -112915706, 589826, 1, -112784634, 589826, 1, -112653562, 589826, 1, -112522490, 589826, 1, -112391418, 589826, 1, -112260346, 589826, 1, -112129274, 589826, 1, -111998202, 589826, 1, -111867130, 589826, 1, -111211778, 589826, 1, -111080706, 589826, 1, -110949634, 589826, 1, -110818562, 589826, 1, -110687490, 589826, 1, -110556418, 589826, 1, -110425346, 589826, 1, -110294274, 589826, 1, -110163202, 589826, 1, -111211776, 589826, 1, -111080704, 589826, 1, -110949632, 589826, 1, -110818560, 589826, 1, -110687488, 589826, 1, -110556416, 589826, 1, -110425344, 589826, 1, -110294272, 589826, 1, -110163200, 589826, 1, -111736062, 589826, 1, -111604990, 589826, 1, -111473918, 589826, 1, -111342846, 589826, 1, -111211774, 589826, 1, -111080702, 589826, 1, -110949630, 589826, 1, -110818558, 589826, 1, -110687486, 589826, 1, -110556414, 589826, 1, -110425342, 589826, 1, -110294270, 589826, 1, -110163198, 589826, 1, -111736060, 589826, 1, -111604988, 589826, 1, -111473916, 589826, 1, -111342844, 589826, 1, -111211772, 589826, 1, -111080700, 589826, 1, -110949628, 589826, 1, -111736058, 589826, 1, -111604986, 589826, 1, -111473914, 589826, 1, -111342842, 589826, 1, -111211770, 589826, 1, -111080698, 589826, 1, -110949626, 589826, 1, -111867080, 589826, 1, -111736008, 589826, 1, -111604936, 589826, 1, -111473864, 589826, 1, -111342792, 589826, 1, -111211720, 589826, 1, -111080648, 589826, 1, -110949576, 589826, 1, -110818504, 589826, 1, -110687432, 589826, 1, -110556360, 589826, 1, -111867078, 589826, 1, -111736006, 589826, 1, -111604934, 589826, 1, -111473862, 589826, 1, -111342790, 589826, 1, -111211718, 589826, 1, -111080646, 589826, 1, -110949574, 589826, 1, -110818502, 589826, 1, -110687430, 589826, 1, -110556358, 589826, 1, -111867076, 589826, 1, -111736004, 589826, 1, -111604932, 589826, 1, -111473860, 589826, 1, -111342788, 589826, 1, -111211716, 589826, 1, -111080644, 589826, 1, -110949572, 589826, 1, -110818500, 589826, 1, -110687428, 589826, 1, -110556356, 589826, 1, -110818498, 589826, 1, -110687426, 589826, 1, -110556354, 589826, 1, -110818496, 589826, 1, -110687424, 589826, 1, -110556352, 589826, 1, -110818494, 589826, 1, -110687422, 589826, 1, -110556350, 589826, 1, -109900998, 589826, 1, -109769926, 589826, 1, -109638854, 589826, 1, -109507782, 589826, 1, -109376710, 589826, 1, -109245638, 589826, 1, -109114566, 589826, 1, -108983494, 589826, 1, -108852422, 589826, 1, -109900996, 589826, 1, -109769924, 589826, 1, -109638852, 589826, 1, -109507780, 589826, 1, -109376708, 589826, 1, -109245636, 589826, 1, -109114564, 589826, 1, -108983492, 589826, 1, -108852420, 589826, 1, -110425282, 589826, 1, -110294210, 589826, 1, -110163138, 589826, 1, -110032066, 589826, 1, -109900994, 589826, 1, -109769922, 589826, 1, -109638850, 589826, 1, -109507778, 589826, 1, -109376706, 589826, 1, -109245634, 589826, 1, -109114562, 589826, 1, -108983490, 589826, 1, -108852418, 589826, 1, -110425280, 589826, 1, -110294208, 589826, 1, -110163136, 589826, 1, -110032064, 589826, 1, -109900992, 589826, 1, -109769920, 589826, 1, -109638848, 589826, 1, -110425278, 589826, 1, -110294206, 589826, 1, -110163134, 589826, 1, -110032062, 589826, 1, -109900990, 589826, 1, -109769918, 589826, 1, -109638846, 589826, 1, -110032130, 589826, 1, -109901058, 589826, 1, -109769986, 589826, 1, -109638914, 589826, 1, -109507842, 589826, 1, -109376770, 589826, 1, -109245698, 589826, 1, -110032128, 589826, 1, -109901056, 589826, 1, -109769984, 589826, 1, -109638912, 589826, 1, -109507840, 589826, 1, -109376768, 589826, 1, -109245696, 589826, 1, -110032126, 589826, 1, -109901054, 589826, 1, -109769982, 589826, 1, -109638910, 589826, 1, -109507838, 589826, 1, -109376766, 589826, 1, -109245694, 589826, 1, -109507836, 589826, 1, -109376764, 589826, 1, -109245692, 589826, 1, -109507834, 589826, 1, -109376762, 589826, 1, -109245690, 589826, 1, -109507832, 589826, 1, -109376760, 589826, 1, -109245688, 589826, 1, -109507830, 589826, 1, -109376758, 589826, 1, -109245686, 589826, 1, -109507828, 589826, 1, -109376756, 589826, 1, -109245684, 589826, 1, -109507826, 589826, 1, -109376754, 589826, 1, -109245682, 589826, 1, -109507824, 589826, 1, -109376752, 589826, 1, -109245680, 589826, 1, -109507822, 589826, 1, -109376750, 589826, 1, -109245678, 589826, 1, -109507820, 589826, 1, -109376748, 589826, 1, -109245676, 589826, 1, -109507818, 589826, 1, -109376746, 589826, 1, -109245674, 589826, 1, -109114606, 589826, 1, -108983534, 589826, 1, -108852462, 589826, 1, -109114604, 589826, 1, -108983532, 589826, 1, -108852460, 589826, 1, -109114602, 589826, 1, -108983530, 589826, 1, -108852458, 589826, 1, -109114600, 589826, 1, -108983528, 589826, 1, -108852456, 589826, 1, -109114598, 589826, 1, -108983526, 589826, 1, -108852454, 589826, 1, -109114596, 589826, 1, -108983524, 589826, 1, -108852452, 589826, 1, -109114594, 589826, 1, -108983522, 589826, 1, -108852450, 589826, 1, -109114592, 589826, 1, -108983520, 589826, 1, -108852448, 589826, 1, -109114582, 589826, 1, -108983510, 589826, 1, -108852438, 589826, 1, -109114580, 589826, 1, -108983508, 589826, 1, -108852436, 589826, 1, -109114578, 589826, 1, -108983506, 589826, 1, -108852434, 589826, 1, -109114576, 589826, 1, -108983504, 589826, 1, -108852432, 589826, 1, -109114574, 589826, 1, -108983502, 589826, 1, -108852430, 589826, 1, -109114572, 589826, 1, -108983500, 589826, 1, -108852428, 589826, 1, -109114570, 589826, 1, -108983498, 589826, 1, -108852426, 589826, 1, -109114568, 589826, 1, -108983496, 589826, 1, -108852424, 589826, 1, -109114590, 589826, 1, -108983518, 589826, 1, -108852446, 589826, 1, -109114588, 589826, 1, -108983516, 589826, 1, -108852444, 589826, 1, -109114586, 589826, 1, -108983514, 589826, 1, -108852442, 589826, 1, -109114584, 589826, 1, -108983512, 589826, 1, -108852440, 589826, 1, -108721370, 589826, 1, -108590298, 589826, 1, -108459226, 589826, 1, -108328154, 589826, 1, -108197082, 589826, 1, -108066010, 589826, 1, -107934938, 589826, 1, -107803866, 589826, 1, -107672794, 589826, 1, -107541722, 589826, 1, -107410650, 589826, 1, -107279578, 589826, 1, -107148506, 589826, 1, -107017434, 589826, 1, -106886362, 589826, 1, -106755290, 589826, 1, -106624218, 589826, 1, -106493146, 589826, 1, -106362074, 589826, 1, -106231002, 589826, 1, -108721368, 589826, 1, -108590296, 589826, 1, -108459224, 589826, 1, -108328152, 589826, 1, -108197080, 589826, 1, -108066008, 589826, 1, -107934936, 589826, 1, -107803864, 589826, 1, -107672792, 589826, 1, -107541720, 589826, 1, -107410648, 589826, 1, -107279576, 589826, 1, -107148504, 589826, 1, -107017432, 589826, 1, -106886360, 589826, 1, -106755288, 589826, 1, -106624216, 589826, 1, -106493144, 589826, 1, -106362072, 589826, 1, -106231000, 589826, 1, -108721366, 589826, 1, -108590294, 589826, 1, -108459222, 589826, 1, -108328150, 589826, 1, -108197078, 589826, 1, -108066006, 589826, 1, -107934934, 589826, 1, -107803862, 589826, 1, -107672790, 589826, 1, -107541718, 589826, 1, -107410646, 589826, 1, -107279574, 589826, 1, -107148502, 589826, 1, -107017430, 589826, 1, -106886358, 589826, 1, -106755286, 589826, 1, -106624214, 589826, 1, -106493142, 589826, 1, -106362070, 589826, 1, -106230998, 589826, 1, -110818556, 589826, 1, -110687484, 589826, 1, -110556412, 589826, 1, -110818554, 589826, 1, -110687482, 589826, 1, -110556410, 589826, 1, -111211768, 589826, 1, -111080696, 589826, 1, -110949624, 589826, 1, -110818552, 589826, 1, -110687480, 589826, 1, -110556408, 589826, 1, -111211766, 589826, 1, -111080694, 589826, 1, -110949622, 589826, 1, -110818550, 589826, 1, -110687478, 589826, 1, -110556406, 589826, 1, -111211764, 589826, 1, -111080692, 589826, 1, -110949620, 589826, 1, -110818548, 589826, 1, -110687476, 589826, 1, -110556404, 589826, 1, -111211762, 589826, 1, -111080690, 589826, 1, -110949618, 589826, 1, -111211760, 589826, 1, -111080688, 589826, 1, -110949616, 589826, 1, -111211758, 589826, 1, -111080686, 589826, 1, -110949614, 589826, 1, -111211756, 589826, 1, -111080684, 589826, 1, -110949612, 589826, 1, -111211754, 589826, 1, -111080682, 589826, 1, -110949610, 589826, 1, -111211752, 589826, 1, -111080680, 589826, 1, -110949608, 589826, 1, -111211750, 589826, 1, -111080678, 589826, 1, -110949606, 589826, 1, -111211748, 589826, 1, -111080676, 589826, 1, -110949604, 589826, 1, -111211746, 589826, 1, -111080674, 589826, 1, -110949602, 589826, 1, -111211744, 589826, 1, -111080672, 589826, 1, -110949600, 589826, 1, -111211742, 589826, 1, -111080670, 589826, 1, -110949598, 589826, 1, -111211740, 589826, 1, -111080668, 589826, 1, -110949596, 589826, 1, -111211738, 589826, 1, -111080666, 589826, 1, -110949594, 589826, 1, -111211736, 589826, 1, -111080664, 589826, 1, -110949592, 589826, 1, -111211734, 589826, 1, -111080662, 589826, 1, -110949590, 589826, 1, -111211732, 589826, 1, -111080660, 589826, 1, -110949588, 589826, 1, -111211730, 589826, 1, -111080658, 589826, 1, -110949586, 589826, 1, -111211728, 589826, 1, -111080656, 589826, 1, -110949584, 589826, 1, -111211726, 589826, 1, -111080654, 589826, 1, -110949582, 589826, 1, -111211724, 589826, 1, -111080652, 589826, 1, -110949580, 589826, 1, -111211722, 589826, 1, -111080650, 589826, 1, -110949578, 589826, 1, -106165466, 589826, 1, -106034394, 589826, 1, -105903322, 589826, 1, -105772250, 589826, 1, -105641178, 589826, 1, -105510106, 589826, 1, -105379034, 589826, 1, -105247962, 589826, 1, -105116890, 589826, 1, -104985818, 589826, 1, -104854746, 589826, 1, -104723674, 589826, 1, -104592602, 589826, 1, -104461530, 589826, 1, -104330458, 589826, 1, -104199386, 589826, 1, -104068314, 589826, 1, -103937242, 589826, 1, -103806170, 589826, 1, -103675098, 589826, 1, -106165464, 589826, 1, -106034392, 589826, 1, -105903320, 589826, 1, -105772248, 589826, 1, -105641176, 589826, 1, -105510104, 589826, 1, -105379032, 589826, 1, -105247960, 589826, 1, -105116888, 589826, 1, -104985816, 589826, 1, -104854744, 589826, 1, -104723672, 589826, 1, -104592600, 589826, 1, -104461528, 589826, 1, -104330456, 589826, 1, -104199384, 589826, 1, -104068312, 589826, 1, -103937240, 589826, 1, -103806168, 589826, 1, -103675096, 589826, 1, -106165462, 589826, 1, -106034390, 589826, 1, -105903318, 589826, 1, -105772246, 589826, 1, -105641174, 589826, 1, -105510102, 589826, 1, -105379030, 589826, 1, -105247958, 589826, 1, -105116886, 589826, 1, -104985814, 589826, 1, -104854742, 589826, 1, -104723670, 589826, 1, -104592598, 589826, 1, -104461526, 589826, 1, -104330454, 589826, 1, -104199382, 589826, 1, -104068310, 589826, 1, -103937238, 589826, 1, -103806166, 589826, 1, -103675094, 589826, 1, -122746126, 983042, 5, -122615054, 458754, 5, -122746124, 655362, 5, -122615052, 2, 5, -122877194, 983042, 5, -122746122, 917506, 268435461, -122615050, 65538, 268435461, -122877192, 196610, 5, -122746120, 2, 5, -122877190, 917506, 268435461, -122746118, 65538, 268435461, -121959692, 589826, 1, -121828622, 65538, 268435461, -121828616, 65538, 5, -121828624, 2, 5, -121828614, 2, 5, -121828612, 65538, 5, -121959696, 196610, 5, -121959686, 196610, 5, -121959684, 131074, 5, -121697538, 65538, 5, -121697554, 65538, 268435461, -121566486, 65538, 268435461, -121566462, 65538, 5, -121697536, 2, 5, -121697556, 2, 5, -121566488, 2, 5, -121566460, 2, 5, -121566458, 65538, 5, -121566456, 2, 5, -121566454, 65538, 5, -121828626, 917506, 268435461, -121697558, 917506, 268435461, -121828610, 917506, 5, -121697534, 917506, 5, -121959682, 983042, 268435461, -121959698, 983042, 5, -121828608, 655362, 5, -121828628, 655362, 5, -121828630, 983042, 5, -121828606, 983042, 268435461, -121697532, 655362, 5, -121697530, 131074, 5, -121697526, 131074, 5, -121697528, 196610, 5, -119993626, 65538, 268435461, -119993628, 2, 5, -121042164, 65538, 5, -121173234, 655362, 5, -121042162, 2, 5, -121042160, 65538, 5, -121173232, 131074, 5, -121173230, 655362, 5, -121042158, 2, 5, -121173228, 131074, 5, -121042156, 65538, 5, -121173226, 655362, 5, -121042154, 2, 5, -121173224, 131074, 5, -121042152, 65538, 5, -121173222, 655362, 5, -121042150, 2, 5, -121173220, 131074, 5, -121042148, 65538, 5, -121173218, 655362, 5, -121042146, 2, 5, -121173216, 131074, 5, -121042144, 65538, 5, -120911066, 589826, 1, -120911064, 589826, 1, -120911062, 589826, 1, -120911060, 589826, 1, -120911058, 589826, 1, -120911056, 589826, 1, -121173214, 655362, 5, -121042142, 2, 5, -121173212, 131074, 5, -121042140, 65538, 5, -121173210, 655362, 5, -121042138, 2, 5, -121173208, 655362, 5, -121042136, 2, 5, -121173206, 131074, 5, -121042134, 65538, 5, -121173204, 655362, 5, -121042132, 2, 5, -121042130, 65538, 5, -121042128, 2, 5, -121173202, 131074, 5, -121173200, 524290, 268435461, -118813974, 65538, 5, -118813972, 2, 5, -118813970, 65538, 5, -118813968, 2, 5, -118813966, 65538, 5, -118813964, 2, 5, -118813962, 65538, 5, -118813960, 2, 5, -118813958, 65538, 268435461, -119207172, 2, 5, -119207170, 65538, 5, -119207168, 2, 5, -119207166, 65538, 5, -119207164, 2, 5, -119207162, 65538, 5, -119207160, 2, 5, -119207158, 65538, 5, -119207154, 65538, 268435461, -119207156, 2, 5, -119207146, 65538, 5, -119207126, 65538, 268435461, -119207142, 65538, 5, -119207138, 65538, 5, -119207134, 65538, 5, -119207130, 65538, 5, -119207144, 2, 5, -119207140, 2, 5, -119207136, 2, 5, -119207132, 2, 5, -119207128, 2, 5, -118027480, 2, 5, -118027478, 65538, 268435461, -117241062, 2, 5, -117241060, 2, 5, -117241058, 65538, 5, -117241056, 2, 5, -117241054, 65538, 5, -117241052, 2, 5, -117241050, 65538, 268435461, -116847870, 65538, 5, -116847868, 2, 5, -116847866, 65538, 5, -116847864, 2, 5, -116847862, 2, 5, -116847860, 65538, 5, -116847858, 2, 5, -116847856, 2, 5, -116847854, 65538, 5, -116847852, 2, 5, -116847850, 2, 5, -116847848, 65538, 268435461, -117372168, 65538, 5, -117372164, 65538, 5, -117372166, 2, 5, -117372162, 2, 5, -117372160, 2, 5, -116323566, 589826, 1, -116192494, 589826, 1, -116061422, 589826, 1, -115930350, 589826, 1, -115799278, 589826, 1, -115668206, 589826, 1, -115537134, 589826, 1, -115406062, 589826, 1, -115274990, 589826, 1, -115143918, 589826, 1, -115012846, 589826, 1, -114881774, 589826, 1, -114750702, 589826, 1, -114619630, 589826, 1, -114488558, 589826, 1, -114357486, 589826, 1, -116323564, 589826, 1, -116192492, 589826, 1, -116061420, 589826, 1, -115930348, 589826, 1, -115799276, 589826, 1, -115668204, 589826, 1, -115537132, 589826, 1, -115406060, 589826, 1, -115274988, 589826, 1, -115143916, 589826, 1, -115012844, 589826, 1, -114881772, 589826, 1, -114750700, 589826, 1, -114619628, 589826, 1, -114488556, 589826, 1, -114357484, 589826, 1, -116323562, 589826, 1, -116192490, 589826, 1, -116061418, 589826, 1, -115930346, 589826, 1, -115799274, 589826, 1, -115668202, 589826, 1, -115537130, 589826, 1, -115406058, 589826, 1, -115274986, 589826, 1, -115143914, 589826, 1, -115012842, 589826, 1, -114881770, 589826, 1, -114750698, 589826, 1, -114619626, 589826, 1, -114488554, 589826, 1, -114357482, 589826, 1, -115537128, 589826, 1, -115406056, 589826, 1, -115274984, 589826, 1, -115143912, 589826, 1, -115012840, 589826, 1, -114881768, 589826, 1, -114750696, 589826, 1, -114619624, 589826, 1, -114488552, 589826, 1, -114357480, 589826, 1, -114226408, 589826, 1, -114095336, 589826, 1, -113964264, 589826, 1, -113833192, 589826, 1, -113702120, 589826, 1, -113571048, 589826, 1, -115537126, 589826, 1, -115406054, 589826, 1, -115274982, 589826, 1, -115143910, 589826, 1, -115012838, 589826, 1, -114881766, 589826, 1, -114750694, 589826, 1, -114619622, 589826, 1, -114488550, 589826, 1, -114357478, 589826, 1, -114226406, 589826, 1, -114095334, 589826, 1, -113964262, 589826, 1, -113833190, 589826, 1, -113702118, 589826, 1, -113571046, 589826, 1, -115537124, 589826, 1, -115406052, 589826, 1, -115274980, 589826, 1, -115143908, 589826, 1, -115012836, 589826, 1, -114881764, 589826, 1, -114750692, 589826, 1, -114619620, 589826, 1, -114488548, 589826, 1, -114357476, 589826, 1, -114226404, 589826, 1, -114095332, 589826, 1, -113964260, 589826, 1, -113833188, 589826, 1, -113702116, 589826, 1, -113571044, 589826, 1, -115799302, 65538, 268435461, -115799304, 2, 5, -115930374, 917506, 268435461, -115668200, 65538, 5, -115668198, 2, 5, -115799250, 65538, 5, -114095362, 65538, 5, -113571064, 65538, 5, -113571050, 65538, 268435461, -113571042, 65538, 5, -112653534, 65538, 5, -112653514, 65538, 268435461, -111342794, 65538, 268435461, -111342840, 65538, 5, -111342848, 65538, 268435461, -110949570, 65538, 5, -109638908, 65538, 5, -109245672, 65538, 5, -109245640, 65538, 268435461, -110032068, 65538, 268435461, -115668196, 2, 5, -115799268, 655362, 5, -114095360, 2, 5, -114095358, 65538, 5, -114095356, 2, 5, -114095354, 2, 5, -113571062, 2, 5, -113571060, 2, 5, -113571056, 2, 5, -113571054, 2, 5, -113571052, 2, 5, -113571058, 65538, 5, -113702130, 131074, 5, -113702134, 196610, 5, -113702132, 196610, 5, -113702128, 196610, 5, -113702126, 196610, 5, -113702124, 196610, 5, -116847832, 589826, 1, -115799246, 65538, 5, -115799240, 65538, 5, -115799248, 2, 5, -115799244, 2, 5, -115799242, 2, 5, -115799238, 2, 5, -115799236, 2, 5, -112653530, 65538, 5, -112653524, 65538, 5, -112653518, 65538, 5, -112653532, 2, 5, -112653528, 2, 5, -112653526, 2, 5, -112653522, 2, 5, -112653520, 2, 5, -112653516, 2, 5, -113571040, 2, 5, -113702112, 196610, 5, -111342800, 65538, 5, -111342808, 65538, 5, -111342818, 65538, 5, -111342826, 65538, 5, -111342830, 65538, 5, -111342836, 65538, 5, -111342838, 2, 5, -111342834, 2, 5, -111342832, 2, 5, -111342828, 2, 5, -111342824, 2, 5, -111342822, 2, 5, -111342820, 2, 5, -111342816, 2, 5, -111342814, 2, 5, -111342812, 2, 5, -111342810, 2, 5, -111342806, 2, 5, -111342804, 2, 5, -111342802, 2, 5, -111342798, 2, 5, -111342796, 2, 5, -111342850, 2, 5, -111473922, 524290, 5, -109638906, 2, 5, -109638904, 65538, 5, -109638902, 2, 5, -109638900, 65538, 5, -109638898, 2, 5, -109638896, 65538, 5, -109638894, 2, 5, -109638892, 2, 5, -109638890, 65538, 5, -109769978, 196610, 5, -109769970, 196610, 5, -109769964, 196610, 5, -109769976, 131074, 5, -109769972, 131074, 5, -109769968, 131074, 5, -109769962, 131074, 5, -109769974, 196610, 5, -109769966, 196610, 5, -109245670, 2, 5, -109245668, 2, 5, -109245664, 2, 5, -109245660, 2, 5, -109245658, 2, 5, -109245654, 2, 5, -109245650, 2, 5, -109245646, 2, 5, -109245642, 2, 5, -109245656, 65538, 5, -109245662, 65538, 5, -109245666, 65538, 5, -109245648, 65538, 5, -109245652, 65538, 5, -109245644, 65538, 5, -109376738, 131074, 5, -109376734, 131074, 5, -109376728, 131074, 5, -109376724, 131074, 5, -109376720, 131074, 5, -109376716, 131074, 5, -109376742, 196610, 5, -109376740, 196610, 5, -109376736, 196610, 5, -109376732, 196610, 5, -109376730, 196610, 5, -109376726, 196610, 5, -109376722, 196610, 5, -109376718, 196610, 5, -109376714, 196610, 5, -110949568, 2, 5, -111080640, 655362, 5, -111080638, 131074, 5, -110949566, 2, 5, -110032070, 2, 5)
 
 [node name="Ambient_Dark" type="CanvasModulate" parent="dark_indoor_layer" groups=["ambient_dark"]]
 process_mode = 3
 visible = false
 position = Vector2(-3, 75)
+color = Color(0.568627, 0.568627, 0.568627, 1)
 
 [node name="time_keeper" type="Control" parent="." groups=["time_keeper"]]
 process_mode = 3
