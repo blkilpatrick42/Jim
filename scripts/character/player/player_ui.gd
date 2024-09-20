@@ -1,5 +1,6 @@
 extends Control
 
+@onready var health_meter = $health_meter
 @onready var heart_1 : AnimatedSprite2D = $health_meter/heart_1
 @onready var heart_2 : AnimatedSprite2D = $health_meter/heart_2
 @onready var heart_3 : AnimatedSprite2D = $health_meter/heart_3
@@ -46,6 +47,18 @@ func _on_pizza_lost():
 	pizza_loss_timer.start(pizza_loss_on_screen_seconds)
 	sound_player.stream = load("res://audio/soundFX/pizza_lost.wav")
 	sound_player.play()
+
+func hide_hearts():
+	health_meter.visible = false
+
+func show_hearts():
+	health_meter.visible = true
+
+func hide_money():
+	money_label.visible = false
+
+func show_money():
+	money_label.visible = true
 
 func set_money(num : int):
 	money = num

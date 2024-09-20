@@ -100,6 +100,18 @@ func enter_dialog():
 	dialog_panning = true
 	in_dialog = true
 
+func show_hearts():
+	_ui.show_hearts()
+
+func hide_hearts():
+	_ui.hide_hearts()
+
+func show_money():
+	_ui.show_money()
+
+func hide_money():
+	_ui.hide_money()
+	
 func connect_camera():
 	_camera = get_tree().get_first_node_in_group("camera")
 	_camera.connect_player(self)
