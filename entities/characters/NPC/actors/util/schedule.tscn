@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buf4uepe2n4at"]
 
-[ext_resource type="Script" path="res://scripts/character/NPC/schedule.gd" id="1_xtggr"]
+[ext_resource type="Script" uid="uid://d25cnmejaolso" path="res://scripts/character/NPC/schedule.gd" id="1_xtggr"]
 
 [node name="Schedule" type="Node2D" node_paths=PackedStringArray("daily_schedules")]
 script = ExtResource("1_xtggr")

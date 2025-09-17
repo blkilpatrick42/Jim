@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4yy6vf56kl58"]
 
 [ext_resource type="Texture2D" uid="uid://u60m3h53ukdy" path="res://sprites/props/dollar.png" id="1_nl8jg"]
-[ext_resource type="Script" path="res://scripts/entities/cash.gd" id="1_sfnsx"]
+[ext_resource type="Script" uid="uid://ccrl7vgdfngi7" path="res://scripts/entities/cash.gd" id="1_sfnsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu2ld"]
 size = Vector2(8, 5)

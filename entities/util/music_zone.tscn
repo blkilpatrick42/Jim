@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c36xberv6hwyf"]
 
-[ext_resource type="Script" path="res://scripts/utility/music_zone.gd" id="1_xwa66"]
+[ext_resource type="Script" uid="uid://0oblatnv4kw3" path="res://scripts/utility/music_zone.gd" id="1_xwa66"]
 
 [node name="music_zone" type="Area2D"]
 script = ExtResource("1_xwa66")

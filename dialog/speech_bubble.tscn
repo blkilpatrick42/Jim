@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cd4an5ql0m3bv"]
 
 [ext_resource type="Texture2D" uid="uid://jcwsqc48iywl" path="res://sprites/dialog/speechbubble.png" id="1_rmlsj"]
-[ext_resource type="Script" path="res://scripts/dialog/speech_bubble.gd" id="2_8u8ww"]
+[ext_resource type="Script" uid="uid://hmx1lks3kbvx" path="res://scripts/dialog/speech_bubble.gd" id="2_8u8ww"]
 [ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="3_ysurk"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ievkp"]

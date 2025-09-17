@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://lgbj5esr5stx"]
 
-[ext_resource type="Script" path="res://scripts/character/mobsters/bullet.gd" id="1_3081v"]
+[ext_resource type="Script" uid="uid://bo1iblsladq4s" path="res://scripts/character/mobsters/bullet.gd" id="1_3081v"]
 [ext_resource type="Texture2D" uid="uid://b0v07yiea3pea" path="res://sprites/spritesheets/mobster/bullet.png" id="2_je4e2"]
 [ext_resource type="AudioStream" uid="uid://dab2bmcr4prlv" path="res://audio/soundFX/mob/bullet_whoosh.wav" id="3_j8i02"]
 

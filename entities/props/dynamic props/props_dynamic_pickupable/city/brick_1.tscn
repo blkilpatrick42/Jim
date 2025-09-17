@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6lxboyeldjgg"]
 
-[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_b42oy"]
+[ext_resource type="Script" uid="uid://bkt2mviy7eonh" path="res://scripts/entities/pickupable.gd" id="1_b42oy"]
 [ext_resource type="Texture2D" uid="uid://jbkbp7b1xrl2" path="res://sprites/props/dynamic props/Brick.png" id="2_eca1u"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1gs3y"]

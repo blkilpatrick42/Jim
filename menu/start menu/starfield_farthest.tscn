@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgbawsiajvalm"]
 
-[ext_resource type="Script" path="res://scripts/start screen/starfield.gd" id="1_eyyea"]
+[ext_resource type="Script" uid="uid://dk02w4ook8b5q" path="res://scripts/start screen/starfield.gd" id="1_eyyea"]
 [ext_resource type="Texture2D" uid="uid://cyrboo338ml2h" path="res://sprites/start_screen/starfiend_farthest.png" id="2_n8rl4"]
 
 [node name="starfield" type="Node2D"]

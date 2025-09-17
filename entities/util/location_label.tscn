@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d185n7ocgmpk3"]
 
-[ext_resource type="Script" path="res://scripts/utility/location_label.gd" id="1_577oy"]
+[ext_resource type="Script" uid="uid://dded6ki6l0psr" path="res://scripts/utility/location_label.gd" id="1_577oy"]
 
 [node name="location_label" type="Area2D"]
 script = ExtResource("1_577oy")

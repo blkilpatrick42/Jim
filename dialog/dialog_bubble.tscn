@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvfsle14quvae"]
 
-[ext_resource type="Script" path="res://scripts/dialog/dialog_bubble.gd" id="1_0ipjp"]
+[ext_resource type="Script" uid="uid://dyji0pe6c3mqi" path="res://scripts/dialog/dialog_bubble.gd" id="1_0ipjp"]
 [ext_resource type="Texture2D" uid="uid://bfkanef1y4kmx" path="res://sprites/dialog/dialog_bubble.png" id="1_cqxuj"]
 [ext_resource type="LabelSettings" uid="uid://ca2608v2da05w" path="res://dialog/bubble_settings.tres" id="4_w0fqp"]
 

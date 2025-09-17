@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dt6metcfd7qcq"]
 
-[ext_resource type="Script" path="res://scripts/utility/bed.gd" id="1_wk3jg"]
+[ext_resource type="Script" uid="uid://c7fpw112jspka" path="res://scripts/utility/bed.gd" id="1_wk3jg"]
 [ext_resource type="SpriteFrames" uid="uid://cr3j5oy1d1ovx" path="res://sprites/spritesheets/spriteframes/interface/zzz.tres" id="2_0gpwx"]
 [ext_resource type="FontFile" uid="uid://cl55ql7qruw6x" path="res://fonts/VT323-Regular.ttf" id="2_0ye61"]
-[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="3_43kmp"]
+[ext_resource type="Script" uid="uid://b3xtkv5igree1" path="res://scripts/utility/play_default_animation.gd" id="3_43kmp"]
 [ext_resource type="SpriteFrames" uid="uid://m6t412rcckj5" path="res://sprites/spritesheets/spriteframes/game_world/door1.tres" id="3_b48mg"]
 [ext_resource type="Texture2D" uid="uid://smjfei55010t" path="res://sprites/game_world/door_frame.png" id="4_lk8g8"]
 

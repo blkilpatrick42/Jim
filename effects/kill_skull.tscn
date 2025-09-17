@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2cvn215wql5"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_5q2vn"]
+[ext_resource type="Script" uid="uid://n30jkoh1sfnw" path="res://scripts/utility/animation_destroy.gd" id="1_5q2vn"]
 [ext_resource type="SpriteFrames" uid="uid://0058jlrkqxbj" path="res://sprites/spritesheets/spriteframes/mobster/die_skull.tres" id="2_1srng"]
 
 [node name="kill skull" type="Node2D"]

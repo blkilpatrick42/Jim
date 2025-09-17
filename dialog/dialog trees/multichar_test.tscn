@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2bs10kaiset"]
 
-[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_6rw1a"]
+[ext_resource type="Script" uid="uid://dxsex64dsa880" path="res://scripts/dialog/dialog_tree.gd" id="1_6rw1a"]
 [ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_clppb"]
 [ext_resource type="SpriteFrames" uid="uid://b6grq4ppef8v2" path="res://sprites/spritesheets/spriteframes/portrait/test3.tres" id="3_xpyen"]
 

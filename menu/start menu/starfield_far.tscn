@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://f4ngkupjl7mr"]
 
-[ext_resource type="Script" path="res://scripts/start screen/starfield.gd" id="1_xsu7m"]
+[ext_resource type="Script" uid="uid://dk02w4ook8b5q" path="res://scripts/start screen/starfield.gd" id="1_xsu7m"]
 [ext_resource type="Texture2D" uid="uid://ha03f3rcltw4" path="res://sprites/start_screen/starfield_far.png" id="2_hxsgs"]
 
 [node name="starfield" type="Node2D"]

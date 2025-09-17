@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://e3sohpentkkp"]
 
 [ext_resource type="SpriteFrames" uid="uid://bb2vjfx70ue2q" path="res://sprites/spritesheets/spriteframes/props/train_station_12hr_clock.tres" id="1_g7wrh"]
-[ext_resource type="Script" path="res://scripts/clock/clock_anim.gd" id="2_uds54"]
+[ext_resource type="Script" uid="uid://cxi3plipn5gyw" path="res://scripts/clock/clock_anim.gd" id="2_uds54"]
 
 [node name="12hr_clock" type="Node2D"]
 

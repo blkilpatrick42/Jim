@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b0kmgt0e8v37o"]
 
-[ext_resource type="Script" path="res://scripts/shop/ware.gd" id="1_csgan"]
-[ext_resource type="Script" path="res://scripts/shop/ware_furniture.gd" id="2_g5j5b"]
+[ext_resource type="Script" uid="uid://c2eauyl5k8il2" path="res://scripts/shop/ware.gd" id="1_csgan"]
+[ext_resource type="Script" uid="uid://brs35wel42e0d" path="res://scripts/shop/ware_furniture.gd" id="2_g5j5b"]
 [ext_resource type="PackedScene" uid="uid://bxyrwvbmwvwor" path="res://entities/props/static props/apartment/night stand/night_stand_0.tscn" id="3_56j0g"]
 [ext_resource type="Texture2D" uid="uid://xr3irx8qxfgj" path="res://sprites/props/furniture/night_stand_0.png" id="4_om47w"]
 [ext_resource type="Texture2D" uid="uid://cfswbijcll56e" path="res://sprites/game_world/price_tag.png" id="5_ukd1c"]

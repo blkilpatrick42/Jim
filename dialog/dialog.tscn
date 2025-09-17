@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b05ph3k80emk0"]
 
-[ext_resource type="Script" path="res://scripts/dialog/dialog.gd" id="1_dda65"]
+[ext_resource type="Script" uid="uid://dhxxogsh672ch" path="res://scripts/dialog/dialog.gd" id="1_dda65"]
 [ext_resource type="PackedScene" uid="uid://bvfsle14quvae" path="res://dialog/dialog_bubble.tscn" id="2_dg00b"]
 [ext_resource type="PackedScene" uid="uid://buefc6dloj5kx" path="res://dialog/response_bubble.tscn" id="3_6m0wq"]
-[ext_resource type="Script" path="res://scripts/dialog/response_bubble.gd" id="4_ny70t"]
+[ext_resource type="Script" uid="uid://b4837uymlos75" path="res://scripts/dialog/response_bubble.gd" id="4_ny70t"]
 
 [node name="Dialog" type="Node2D"]
 script = ExtResource("1_dda65")

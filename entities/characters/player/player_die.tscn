@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drqjpfg36qfx2"]
 
-[ext_resource type="Script" path="res://scripts/character/player/player_die.gd" id="1_d6ufp"]
+[ext_resource type="Script" uid="uid://d1c4pmwwkia4t" path="res://scripts/character/player/player_die.gd" id="1_d6ufp"]
 [ext_resource type="Texture2D" uid="uid://drhb8omp3qpc2" path="res://sprites/die_text.png" id="2_ev6xr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aerk1"]

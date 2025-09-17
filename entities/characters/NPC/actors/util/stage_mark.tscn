@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://plrhvwqbv1cl"]
 
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/characters/base/char_0_base.tres" id="1_4sthx"]
-[ext_resource type="Script" path="res://scripts/character/NPC/stage_mark.gd" id="1_trnhq"]
+[ext_resource type="Script" uid="uid://crqo5i7q7php1" path="res://scripts/character/NPC/stage_mark.gd" id="1_trnhq"]
 
 [node name="StageMark" type="Node2D"]
 z_index = 10

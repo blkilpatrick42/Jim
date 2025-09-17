@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ceineov6onqsj"]
 
-[ext_resource type="Script" path="res://scripts/AI_state_machine/states/mobster/state_exclaiming.gd" id="1_vfa2k"]
+[ext_resource type="Script" uid="uid://bq8qy4t0uyymx" path="res://scripts/AI_state_machine/states/mobster/state_exclaiming.gd" id="1_vfa2k"]
 
 [node name="exclaiming" type="Node"]
 script = ExtResource("1_vfa2k")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtcyjgea8ii5"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_destroy_source.gd" id="1_hxebi"]
+[ext_resource type="Script" uid="uid://b26t6upggnqwl" path="res://scripts/utility/animation_destroy_source.gd" id="1_hxebi"]
 [ext_resource type="SpriteFrames" uid="uid://ipxjp4atfxm3" path="res://sprites/spritesheets/spriteframes/mobster/exclaim.tres" id="2_alvm1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lqkf"]

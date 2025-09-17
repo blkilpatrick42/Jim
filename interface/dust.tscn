@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfb05akvvxxnj"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_destroy.gd" id="1_ks1fm"]
-[ext_resource type="SpriteFrames" uid="uid://dhmnimfifyqxe" path="res://sprites/spritesheets/spriteframes/characters/old structure/player/dust.tres" id="2_e5xy1"]
+[ext_resource type="Script" uid="uid://n30jkoh1sfnw" path="res://scripts/utility/animation_destroy.gd" id="1_ks1fm"]
+
+[sub_resource type="Resource" id="Resource_v8p8b"]
+metadata/__load_path__ = "res://sprites/spritesheets/spriteframes/characters/old structure/player/dust.tres"
 
 [node name="dust" type="Node2D" groups=["interface"]]
 script = ExtResource("1_ks1fm")
@@ -9,5 +11,5 @@ script = ExtResource("1_ks1fm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface", "pickuparrow"]]
 position = Vector2(0, 16)
 scale = Vector2(0.75, 0.75)
-sprite_frames = ExtResource("2_e5xy1")
+sprite_frames = SubResource("Resource_v8p8b")
 offset = Vector2(0, -32)

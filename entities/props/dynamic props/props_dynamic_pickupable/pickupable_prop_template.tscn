@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dd7iipnyxs0o5"]
 
-[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="1_6cpo7"]
+[ext_resource type="Script" uid="uid://bkt2mviy7eonh" path="res://scripts/entities/pickupable.gd" id="1_6cpo7"]
 [ext_resource type="Texture2D" uid="uid://c0yhrtpf8x1n" path="res://sprites/props/dynamic props/basketball.png" id="2_2pvnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]

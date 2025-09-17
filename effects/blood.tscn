@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjpg6a6nal80r"]
 
-[ext_resource type="Script" path="res://scripts/utility/animation_timer_destroy.gd" id="1_thuo6"]
+[ext_resource type="Script" uid="uid://d3tfcuj7cotmr" path="res://scripts/utility/animation_timer_destroy.gd" id="1_thuo6"]
 [ext_resource type="SpriteFrames" uid="uid://mai8517l0v2" path="res://sprites/spritesheets/spriteframes/effects/blood.tres" id="2_47o32"]
 
 [node name="blood" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crdic4n3koaj1"]
 
-[ext_resource type="Script" path="res://scripts/AI_state_machine/states/mobster/state_enticed.gd" id="1_ttyn7"]
+[ext_resource type="Script" uid="uid://fdo187ssg8ud" path="res://scripts/AI_state_machine/states/mobster/state_enticed.gd" id="1_ttyn7"]
 
 [node name="enticed" type="Node"]
 script = ExtResource("1_ttyn7")

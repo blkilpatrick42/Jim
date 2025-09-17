@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://br7lsjp6dti22"]
 
 [ext_resource type="Texture2D" uid="uid://bqjwgii8jx3yy" path="res://sprites/interface/location_header.png" id="1_qtx12"]
-[ext_resource type="Script" path="res://scripts/entities/location_header.gd" id="1_vuylt"]
+[ext_resource type="Script" uid="uid://c3klyqlddujhx" path="res://scripts/entities/location_header.gd" id="1_vuylt"]
 [ext_resource type="LabelSettings" uid="uid://ds4opc02443bj" path="res://interface/location_label_settings.tres" id="3_1ma0a"]
 
 [node name="location_header" type="Control"]

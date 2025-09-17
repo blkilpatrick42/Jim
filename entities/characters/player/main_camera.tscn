@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b23ot5l1o0hli"]
 
-[ext_resource type="Script" path="res://scripts/utility/main_camera.gd" id="1_apwxg"]
+[ext_resource type="Script" uid="uid://n3s8ca76okij" path="res://scripts/utility/main_camera.gd" id="1_apwxg"]
 
 [node name="main_camera" type="Camera2D" groups=["camera"]]
 process_mode = 3

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://1htqc5w43g1e"]
 
-[ext_resource type="Script" path="res://scripts/entities/pizza.gd" id="1_rrs1i"]
-[ext_resource type="Script" path="res://scripts/entities/pickupable.gd" id="2_a2jud"]
+[ext_resource type="Script" uid="uid://dlch6x634h8og" path="res://scripts/entities/pizza.gd" id="1_rrs1i"]
+[ext_resource type="Script" uid="uid://bkt2mviy7eonh" path="res://scripts/entities/pickupable.gd" id="2_a2jud"]
 [ext_resource type="SpriteFrames" uid="uid://iomwqvcm11ug" path="res://sprites/spritesheets/spriteframes/props/pizza.tres" id="3_0kawv"]
-[ext_resource type="Script" path="res://scripts/utility/play_default_animation.gd" id="4_f123m"]
+[ext_resource type="Script" uid="uid://b3xtkv5igree1" path="res://scripts/utility/play_default_animation.gd" id="4_f123m"]
 [ext_resource type="Texture2D" uid="uid://tky7m7ktiahc" path="res://sprites/interface/compass_arrow.png" id="5_ryj0m"]
 [ext_resource type="Texture2D" uid="uid://1x7qbnlvygbv" path="res://sprites/interface/pointer_arrow.png" id="6_cfod4"]
 

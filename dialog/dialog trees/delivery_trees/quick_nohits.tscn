@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bokc4thgj1r1y"]
 
-[ext_resource type="Script" path="res://scripts/dialog/dialog_tree.gd" id="1_ahono"]
+[ext_resource type="Script" uid="uid://dxsex64dsa880" path="res://scripts/dialog/dialog_tree.gd" id="1_ahono"]
 [ext_resource type="PackedScene" uid="uid://ddq0vdqwrs23f" path="res://dialog/dialog trees/branch_template.tscn" id="2_udf8m"]
 
 [node name="TestTree" type="Node2D"]

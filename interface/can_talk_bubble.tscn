@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://g4vjawdadppc"]
 
-[ext_resource type="Script" path="res://scripts/entities/pickup_arrow.gd" id="1_7saeg"]
 [ext_resource type="SpriteFrames" uid="uid://cfacx1npbneh7" path="res://sprites/spritesheets/spriteframes/interface/can_talk_bubble.tres" id="2_hutu1"]
 
+[sub_resource type="Resource" id="Resource_lfqrb"]
+metadata/__load_path__ = "res://scripts/entities/pickup_arrow.gd"
+
 [node name="can_talk_bubble" type="Node2D" groups=["cantalkbubble", "interface"]]
-script = ExtResource("1_7saeg")
+script = SubResource("Resource_lfqrb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["cantalkbubble", "interface"]]
 position = Vector2(0, -16)

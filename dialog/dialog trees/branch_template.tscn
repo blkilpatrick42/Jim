@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddq0vdqwrs23f"]
 
-[ext_resource type="Script" path="res://scripts/dialog/dialog_branch.gd" id="1_0l748"]
+[ext_resource type="Script" uid="uid://b41by70w4mv1s" path="res://scripts/dialog/dialog_branch.gd" id="1_0l748"]
 [ext_resource type="SpriteFrames" uid="uid://mtjd1b700qx2" path="res://sprites/dialog/portraits/test_2.tres" id="2_wcrd0"]
 
 [node name="BranchTemplate" type="Node2D"]

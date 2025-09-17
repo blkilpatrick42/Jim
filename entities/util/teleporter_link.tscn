@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://u6uyhyfhf4v5"]
 
-[ext_resource type="Script" path="res://scripts/utility/teleporter_link.gd" id="1_323ya"]
+[ext_resource type="Script" uid="uid://dyps2228nqjk1" path="res://scripts/utility/teleporter_link.gd" id="1_323ya"]
 [ext_resource type="SpriteFrames" uid="uid://dy0ok2t6yhqyc" path="res://sprites/spritesheets/spriteframes/characters/base/char_0_base.tres" id="2_sj33r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7mi1"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fhwadbfj5d24"]
 
-[ext_resource type="Script" path="res://scripts/character/NPC/daily_schedule.gd" id="1_ggbkl"]
+[ext_resource type="Script" uid="uid://c5m1mvnperln4" path="res://scripts/character/NPC/daily_schedule.gd" id="1_ggbkl"]
 
 [node name="DailySchedule" type="Node2D" node_paths=PackedStringArray("hourly_schedule")]
 script = ExtResource("1_ggbkl")

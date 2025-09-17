@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dp71h41k4udok"]
 
-[ext_resource type="Script" path="res://scripts/utility/comment_area.gd" id="1_oa2vr"]
+[ext_resource type="Script" uid="uid://cbgbel0u7cxd7" path="res://scripts/utility/comment_area.gd" id="1_oa2vr"]
 
 [node name="CommentArea" type="StaticBody2D" groups=["interactable"]]
 collision_layer = 8
