@@ -181,19 +181,15 @@ top_spriteframes = ExtResource("8_38bov")
 position = Vector2(-57, -197)
 talk_radius = 50
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "low_sine_voice"
 hat_spriteframes = ExtResource("7_xgh3y")
-passive_text = "My brother sells seashells by the seashore."
 
 [node name="blank_npc3" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("8_1uumc")]
 position = Vector2(237, 1832)
 talk_radius = 50
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "sine_voice"
 hat_spriteframes = ExtResource("7_xgh3y")
-passive_text = "Wanna buy some seashells?"
 
 [node name="cone1" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("7_ld508")]
 position = Vector2(120, 128)
@@ -395,17 +391,13 @@ position = Vector2(2119, -153)
 position = Vector2(198, -576)
 talk_radius = 50
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "sine_voice"
-passive_text = "Taking a look at the clock?"
 
 [node name="blank_npc4" parent="daylight_affected_section/daylight_affected_ysort" instance=ExtResource("8_1uumc")]
 position = Vector2(2191, -235)
 talk_radius = 50
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "low_sine_voice"
-passive_text = "Bring me some pizza, will ya?"
 
 [node name="big_black_square" type="Polygon2D" parent="daylight_affected_section/daylight_affected_ysort"]
 z_index = -500
@@ -520,6 +512,7 @@ position = Vector2(376, -311)
 linked_teleporter = NodePath("../teleporter_link2")
 enter_y_push = -50000
 exit_y_push = 25000
+fade_color = Color(0, 0, 0, 1)
 
 [node name="teleporter_link2" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
 position = Vector2(2200, 72.8197)
@@ -527,6 +520,7 @@ linked_teleporter = NodePath("../teleporter_link")
 enter_y_push = 50000
 exit_y_push = -25000
 exit_only = false
+fade_color = Color(0, 0, 0, 1)
 
 [node name="invisible_Wall_1" type="StaticBody2D" parent="dev_layer"]
 collision_layer = 16
