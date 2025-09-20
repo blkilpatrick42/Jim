@@ -125,176 +125,8 @@ size = Vector2(352, 416)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd7tc"]
 size = Vector2(128, 224)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqkjs"]
-size = Vector2(160, 226)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eltay"]
-size = Vector2(128, 447)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn0cm"]
-size = Vector2(384, 160)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y61j8"]
-size = Vector2(160, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6uxn"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxg51"]
-size = Vector2(32, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vhe"]
-size = Vector2(128, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqiw3"]
-size = Vector2(32, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_telwa"]
-size = Vector2(160.5, 304)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_15sat"]
-size = Vector2(128, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6fla"]
-size = Vector2(160, 160)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kppgj"]
-size = Vector2(160, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esy3f"]
-size = Vector2(160, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_opk5x"]
-size = Vector2(128, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbtd6"]
-size = Vector2(192, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmvi"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk1w1"]
-size = Vector2(128, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a75l7"]
-size = Vector2(256, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_avnhr"]
-size = Vector2(160, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7r32"]
-size = Vector2(160, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lubto"]
-size = Vector2(128, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_besy2"]
-size = Vector2(128, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc1l"]
-size = Vector2(128, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqcxl"]
-size = Vector2(160, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4qkx"]
-size = Vector2(64, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k18cu"]
-size = Vector2(64, 384)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67jlk"]
-size = Vector2(64, 384)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_smc0a"]
-size = Vector2(32, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihr1y"]
-size = Vector2(65, 112)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjtnq"]
-size = Vector2(160, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g0fd"]
-size = Vector2(192, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb3qf"]
-size = Vector2(160, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8blpw"]
-size = Vector2(161, 285)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwmka"]
-size = Vector2(256, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lye04"]
-size = Vector2(96, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p18a"]
-size = Vector2(32, 42)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sucve"]
-size = Vector2(128, 176)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bp37"]
-size = Vector2(96, 212)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u56ky"]
-size = Vector2(128, 201)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1juxx"]
-size = Vector2(160, 292)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nniwd"]
-size = Vector2(128, 232)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmkxv"]
-size = Vector2(32, 145)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyyro"]
-size = Vector2(64, 285.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx6t6"]
-size = Vector2(96, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax5nt"]
-size = Vector2(32, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckmyu"]
-size = Vector2(32, 35)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_matla"]
-size = Vector2(160, 240)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqvil"]
 size = Vector2(1616, 300)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdo0r"]
-size = Vector2(479.5, 214)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0si7x"]
-size = Vector2(448, 214)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_00tcc"]
-size = Vector2(224, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqvr"]
-size = Vector2(32, 225)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqeu3"]
-size = Vector2(96, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tylbv"]
-size = Vector2(64, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp8dd"]
-size = Vector2(64, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhgim"]
-size = Vector2(32, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2md4w"]
-size = Vector2(32, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7jph"]
 size = Vector2(160, 224)
@@ -719,33 +551,6 @@ size = Vector2(128, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hho0a"]
 size = Vector2(159.75, 95.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dhjv"]
-size = Vector2(192.5, 191.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkepg"]
-size = Vector2(129, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj454"]
-size = Vector2(96, 225)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaeyf"]
-size = Vector2(64, 224)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ln4"]
-size = Vector2(32, 112)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q11r"]
-size = Vector2(192, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rmrs"]
-size = Vector2(96, 298)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbrxk"]
-size = Vector2(32, 320)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_akqmb"]
-size = Vector2(96, 96)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_or5kb"]
 size = Vector2(156, 225.5)
 
@@ -760,9 +565,6 @@ size = Vector2(224, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lpf5"]
 size = Vector2(189, 95)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thoel"]
-size = Vector2(161, 368)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1s31e"]
 size = Vector2(205.789, 24.4419)
@@ -1043,12 +845,6 @@ size = Vector2(9593, 237)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3g1r5"]
 size = Vector2(429, 7611)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu0m1"]
-size = Vector2(224, 192)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j4pi"]
-size = Vector2(224, 160)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf3ds"]
 size = Vector2(191, 53)
 
@@ -1159,6 +955,210 @@ size = Vector2(64, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unq85"]
 size = Vector2(36.75, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15sat"]
+size = Vector2(128, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6fla"]
+size = Vector2(160, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kppgj"]
+size = Vector2(160, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esy3f"]
+size = Vector2(160, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opk5x"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbtd6"]
+size = Vector2(192, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmvi"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk1w1"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a75l7"]
+size = Vector2(256, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avnhr"]
+size = Vector2(160, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7r32"]
+size = Vector2(160, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lubto"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_besy2"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcc1l"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqcxl"]
+size = Vector2(160, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4qkx"]
+size = Vector2(64, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k18cu"]
+size = Vector2(64, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67jlk"]
+size = Vector2(64, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smc0a"]
+size = Vector2(32, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihr1y"]
+size = Vector2(65, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjtnq"]
+size = Vector2(160, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g0fd"]
+size = Vector2(192, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb3qf"]
+size = Vector2(160, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8blpw"]
+size = Vector2(161, 285)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwmka"]
+size = Vector2(256, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lye04"]
+size = Vector2(96, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p18a"]
+size = Vector2(32, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sucve"]
+size = Vector2(128, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bp37"]
+size = Vector2(96, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u56ky"]
+size = Vector2(128, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1juxx"]
+size = Vector2(160, 292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nniwd"]
+size = Vector2(128, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmkxv"]
+size = Vector2(32, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyyro"]
+size = Vector2(64, 285.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdo0r"]
+size = Vector2(479.5, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0si7x"]
+size = Vector2(448, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00tcc"]
+size = Vector2(224, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdqvr"]
+size = Vector2(32, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqeu3"]
+size = Vector2(96, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tylbv"]
+size = Vector2(64, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp8dd"]
+size = Vector2(64, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhgim"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2md4w"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqkjs"]
+size = Vector2(160, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eltay"]
+size = Vector2(128, 447)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn0cm"]
+size = Vector2(384, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y61j8"]
+size = Vector2(160, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6uxn"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxg51"]
+size = Vector2(32, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8vhe"]
+size = Vector2(128, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqiw3"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_telwa"]
+size = Vector2(160.5, 304)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx6t6"]
+size = Vector2(96, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax5nt"]
+size = Vector2(32, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckmyu"]
+size = Vector2(32, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_matla"]
+size = Vector2(160, 240)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thoel"]
+size = Vector2(161, 368)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dhjv"]
+size = Vector2(192.5, 191.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkepg"]
+size = Vector2(129, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj454"]
+size = Vector2(96, 225)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaeyf"]
+size = Vector2(64, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ln4"]
+size = Vector2(32, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q11r"]
+size = Vector2(192, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rmrs"]
+size = Vector2(96, 298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbrxk"]
+size = Vector2(32, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akqmb"]
+size = Vector2(96, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j4pi"]
+size = Vector2(224, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu0m1"]
+size = Vector2(224, 192)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3m5s8"]
 vertices = PackedVector2Array(-2396, 338, -2362, 326, -2362, 343, -2460, 371, -2481, 337, -2482, 363, -2503, 272, -2489, 211, -2466, 211, -2495, 299, -2507, 299, -2498, 336, -2489, 497, -2460, 501, -1594, 530, -1597, 812, -1725, 818, -1725, 723, -1722, 700, -2491, 518, -2374, 533, -2490, 530, -1596, 277, -1531, 276, -1531, 530, -1725, 328, -1725, 209, -1596, 210, -1880, 724, -1907, 698, -1907, 687, -1755, 687, -2364, 509, -2374, 568, -2360, 645, -2372, 618, -2373, 662, -2349, 697, -2352, 719, -2294, 820, -2491, 820, -2500, 756, -2493, 746, -2490, 744, -2469, 724, -2268, 720, -2286, 695, -2285, 694, -2281, 694, -2279, 695, -2179, 691, -2114, 722, -2172, 687, -1943, 702, -1929, 798, -2100, 792)
@@ -1771,261 +1771,9 @@ collision_layer = 16
 position = Vector2(-475, -988)
 shape = SubResource("RectangleShape2D_vd7tc")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-491, -1213)
-shape = SubResource("RectangleShape2D_cqkjs")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-475, -1549.5)
-shape = SubResource("RectangleShape2D_eltay")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-731, -1693)
-shape = SubResource("RectangleShape2D_fn0cm")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-619, -1581)
-shape = SubResource("RectangleShape2D_y61j8")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-555, -1533)
-shape = SubResource("RectangleShape2D_m6uxn")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-971, -1357)
-shape = SubResource("RectangleShape2D_qxg51")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-859, -1357)
-shape = SubResource("RectangleShape2D_t8vhe")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-939, -1467)
-shape = SubResource("RectangleShape2D_pqiw3")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1450.75, -1621)
-shape = SubResource("RectangleShape2D_telwa")
-
-[node name="CollisionShape2D25" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1403, -2173)
-shape = SubResource("RectangleShape2D_15sat")
-
-[node name="CollisionShape2D26" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1259, -2173)
-shape = SubResource("RectangleShape2D_r6fla")
-
-[node name="CollisionShape2D27" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1099, -2189)
-shape = SubResource("RectangleShape2D_kppgj")
-
-[node name="CollisionShape2D28" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-939, -2157)
-shape = SubResource("RectangleShape2D_esy3f")
-
-[node name="CollisionShape2D29" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-795, -2109)
-shape = SubResource("RectangleShape2D_opk5x")
-
-[node name="CollisionShape2D30" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-635, -2157)
-shape = SubResource("RectangleShape2D_hbtd6")
-
-[node name="CollisionShape2D31" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-523, -2109)
-shape = SubResource("RectangleShape2D_3wmvi")
-
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-443, -2157)
-shape = SubResource("RectangleShape2D_mk1w1")
-
-[node name="CollisionShape2D33" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-155, -2173)
-shape = SubResource("RectangleShape2D_a75l7")
-
-[node name="CollisionShape2D34" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(53, -2189)
-shape = SubResource("RectangleShape2D_avnhr")
-
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(213, -2189)
-shape = SubResource("RectangleShape2D_h7r32")
-
-[node name="CollisionShape2D36" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(357, -2157)
-shape = SubResource("RectangleShape2D_lubto")
-
-[node name="CollisionShape2D37" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(549, -2157)
-shape = SubResource("RectangleShape2D_besy2")
-
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(677, -2109)
-shape = SubResource("RectangleShape2D_lcc1l")
-
-[node name="CollisionShape2D39" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(821, -2157)
-shape = SubResource("RectangleShape2D_mqcxl")
-
-[node name="CollisionShape2D40" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(933, -2157)
-shape = SubResource("RectangleShape2D_r4qkx")
-
-[node name="CollisionShape2D41" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(997, -2253)
-shape = SubResource("RectangleShape2D_k18cu")
-
-[node name="CollisionShape2D42" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(1093, -2253)
-shape = SubResource("RectangleShape2D_67jlk")
-
-[node name="CollisionShape2D43" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(1045, -2333)
-shape = SubResource("RectangleShape2D_smc0a")
-
-[node name="CollisionShape2D44" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(1045, -2125)
-shape = SubResource("RectangleShape2D_ihr1y")
-
-[node name="CollisionShape2D45" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(677.5, -2469)
-shape = SubResource("RectangleShape2D_ihr1y")
-
-[node name="CollisionShape2D46" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(789, -2477)
-shape = SubResource("RectangleShape2D_kjtnq")
-
-[node name="CollisionShape2D47" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(709, -2781)
-shape = SubResource("RectangleShape2D_8g0fd")
-
-[node name="CollisionShape2D48" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(885, -2797)
-shape = SubResource("RectangleShape2D_nb3qf")
-
-[node name="CollisionShape2D49" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(1045, -2751)
-shape = SubResource("RectangleShape2D_8blpw")
-
-[node name="CollisionShape2D50" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(421, -2893)
-shape = SubResource("RectangleShape2D_qwmka")
-
-[node name="CollisionShape2D51" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(373, -2493)
-shape = SubResource("RectangleShape2D_lye04")
-
-[node name="CollisionShape2D52" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(501, -2493)
-shape = SubResource("RectangleShape2D_lye04")
-
-[node name="CollisionShape2D53" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(437, -2584)
-shape = SubResource("RectangleShape2D_2p18a")
-
-[node name="CollisionShape2D54" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(165, -2661)
-shape = SubResource("RectangleShape2D_sucve")
-
-[node name="CollisionShape2D57" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-333, -2807)
-shape = SubResource("RectangleShape2D_2bp37")
-
-[node name="CollisionShape2D59" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-235, -2743)
-shape = SubResource("RectangleShape2D_2bp37")
-
-[node name="CollisionShape2D60" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-859, -2610)
-shape = SubResource("RectangleShape2D_u56ky")
-
-[node name="CollisionShape2D63" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1035, -2559)
-shape = SubResource("RectangleShape2D_1juxx")
-
-[node name="CollisionShape2D64" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1211, -2529)
-shape = SubResource("RectangleShape2D_nniwd")
-
-[node name="CollisionShape2D65" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1403, -2529)
-shape = SubResource("RectangleShape2D_nniwd")
-
-[node name="CollisionShape2D61" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-699, -2609.5)
-shape = SubResource("RectangleShape2D_u56ky")
-
-[node name="CollisionShape2D62" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-619, -2613.5)
-shape = SubResource("RectangleShape2D_wmkxv")
-
-[node name="CollisionShape2D58" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-427, -2743)
-shape = SubResource("RectangleShape2D_2bp37")
-
-[node name="CollisionShape2D55" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-27, -2651.63)
-shape = SubResource("RectangleShape2D_gyyro")
-
-[node name="CollisionShape2D56" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(69, -2651.75)
-shape = SubResource("RectangleShape2D_gyyro")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1163, -1661)
-shape = SubResource("RectangleShape2D_yx6t6")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1067, -1661)
-shape = SubResource("RectangleShape2D_ax5nt")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1099, -1755.5)
-shape = SubResource("RectangleShape2D_ckmyu")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-1291, -1637)
-shape = SubResource("RectangleShape2D_matla")
-
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
 position = Vector2(589, -1196)
 shape = SubResource("RectangleShape2D_fqvil")
-
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(181.25, -1656)
-shape = SubResource("RectangleShape2D_pdo0r")
-
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(805, -1656)
-shape = SubResource("RectangleShape2D_0si7x")
-
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(1205, -1653)
-shape = SubResource("RectangleShape2D_00tcc")
-
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-203, -1660.5)
-shape = SubResource("RectangleShape2D_xdqvr")
-
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-107, -1661)
-shape = SubResource("RectangleShape2D_wqeu3")
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(453, -1661)
-shape = SubResource("RectangleShape2D_tylbv")
-
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(549, -1661)
-shape = SubResource("RectangleShape2D_lp8dd")
-
-[node name="CollisionShape2D24" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(501, -1763)
-shape = SubResource("RectangleShape2D_vhgim")
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="dev_layer/invisible_walls/central_safe_zone/invisible_wall_green_bldg_1"]
-position = Vector2(-171, -1763)
-shape = SubResource("RectangleShape2D_2md4w")
 
 [node name="invisible_wall_green_bldg_2" type="StaticBody2D" parent="dev_layer/invisible_walls/central_safe_zone"]
 collision_layer = 16
@@ -2735,42 +2483,6 @@ shape = SubResource("RectangleShape2D_v50yy")
 position = Vector2(-1866.88, -1405.13)
 shape = SubResource("RectangleShape2D_hho0a")
 
-[node name="CollisionShape2D111" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2011.25, -1741.25)
-shape = SubResource("RectangleShape2D_1dhjv")
-
-[node name="CollisionShape2D116" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1818.5, -2061)
-shape = SubResource("RectangleShape2D_dkepg")
-
-[node name="CollisionShape2D117" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2235, -2364.5)
-shape = SubResource("RectangleShape2D_jj454")
-
-[node name="CollisionShape2D118" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2123, -2365)
-shape = SubResource("RectangleShape2D_iaeyf")
-
-[node name="CollisionShape2D119" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2171, -2421)
-shape = SubResource("RectangleShape2D_b4ln4")
-
-[node name="CollisionShape2D112" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2331, -1741)
-shape = SubResource("RectangleShape2D_3q11r")
-
-[node name="CollisionShape2D113" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1867, -1794)
-shape = SubResource("RectangleShape2D_5rmrs")
-
-[node name="CollisionShape2D114" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1771, -1805)
-shape = SubResource("RectangleShape2D_bbrxk")
-
-[node name="CollisionShape2D115" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1835, -1917)
-shape = SubResource("RectangleShape2D_akqmb")
-
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
 position = Vector2(-1452, -1180.25)
 shape = SubResource("RectangleShape2D_or5kb")
@@ -2790,10 +2502,6 @@ shape = SubResource("RectangleShape2D_817t2")
 [node name="CollisionShape2D123" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
 position = Vector2(-637.5, -1085.5)
 shape = SubResource("RectangleShape2D_5lpf5")
-
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1482.5, -1381)
-shape = SubResource("RectangleShape2D_thoel")
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
 position = Vector2(-2058, -1437)
@@ -2893,18 +2601,6 @@ shape = SubResource("RectangleShape2D_cu6mx")
 position = Vector2(-2475, -483)
 shape = SubResource("CapsuleShape2D_6vp55")
 
-[node name="CollisionShape2D108" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2315, -1986)
-shape = SubResource("CapsuleShape2D_6vp55")
-
-[node name="CollisionShape2D109" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-2139, -1986)
-shape = SubResource("CapsuleShape2D_6vp55")
-
-[node name="CollisionShape2D110" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
-position = Vector2(-1963, -2099)
-shape = SubResource("CapsuleShape2D_6vp55")
-
 [node name="CollisionShape2D81" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_west/all_blocks"]
 position = Vector2(-2443, 29)
 shape = SubResource("CapsuleShape2D_6vp55")
@@ -2965,23 +2661,6 @@ shape = SubResource("RectangleShape2D_g6olc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
 polygon = PackedVector2Array(-3309, 1102, -2875, 1204, -2814, 1264, -2711, 1264, -2618, 1175, -2620, 1111, -2618, 1077, -2617, 979, -2524, 885, -2525, 753, -2556, 720, -2584, 720, -2622, 688, -2621, 626, -2588, 596, -2588, 500, -2526, 479, -2524, 369, -2556, 344, -2558, 278, -2523, 245, -2521, 145, -2553, 112, -2584, 111, -2622, 81, -2619, 18, -2589, -5, -2587, -116, -2650, -167, -2653, -271, -2590, -328, -2588, -461, -2622, -489, -2620, -522, -2556, -584, -2556, -688, -2621, -749, -2731, -752, -2765, -719, -2764, -847, -2635, -847, -2571, -904, -2571, -974, -2541, -1002, -2541, -1166, -2604, -1225, -2602, -1296, -2541, -1354, -2539, -1602, -3017, -1601)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
-polygon = PackedVector2Array(-2539, -1602, -3017, -1601, -2967, -2357, -2685, -2711, -2353, -2877, -1860, -2886, -1579, -2852, -1563, -2509, -1563, -2285, -1563, -2254, -1531, -2254, -1531, -1996, -1563, -1965, -1628, -1965, -1691, -2029, -1691, -2189, -1883, -2381, -2060, -2381, -2060, -2157, -2089, -2127, -2119, -2127, -2155, -2156, -2155, -2253, -2091, -2253, -2091, -2477, -2283, -2477, -2283, -2252, -2187, -2252, -2187, -2157, -2218, -2125, -2252, -2125, -2346, -2221, -2347, -2222, -2347, -2253, -2347, -2328, -2379, -2328, -2379, -2253, -2379, -2221, -2411, -2189, -2411, -2060, -2507, -1965, -2507, -1900, -2603, -1805, -2603, -1708, -2603, -1685, -2539, -1621)
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
-polygon = PackedVector2Array(-1563, -2382, -1467, -2477, -1436, -2508, -1306, -2509, -1213, -2606, -1146, -2606, -1115, -2636, -1082, -2668, -1078, -2671, -923, -2670, -667, -2669, -505, -2829, -155, -2829, -59, -2732, 96, -2732, 293, -2924, 549, -2892, 613, -2829, 996, -2830, 1126, -2957, 1141, -2957, 1246, -2957, 1285, -3448, -202, -3631, -1636, -3026)
-
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
-polygon = PackedVector2Array(-1467, -2061, -1467, -1996, -1435, -1965, -1339, -1965, -1307, -1997, -1179, -1997, -1147, -1965, -858, -1965, -827, -1997, -699, -1997, -667, -1965, -411, -1965, -379, -1997, -379, -2061)
-
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
-polygon = PackedVector2Array(-283, -2060, -283, -1996, -252, -1965, 102, -1965, 133, -1997, 261, -1997, 292, -1965, 389, -1965, 421, -1997, 421, -2061)
-
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
-polygon = PackedVector2Array(485, -2061, 485, -1996, 516, -1965, 582, -1965, 613, -1997, 741, -1997, 772, -1965, 870, -1965, 901, -1997, 965, -1997, 997, -1965, 1062, -1965, 1093, -1997, 1221, -1997, 1253, -1965, 1350, -1965, 1381, -1997, 1445, -1997, 1477, -1965, 1574, -1965, 1605, -1997, 1701, -1997, 1701, -2063)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_west/rock_wall"]
 
 [node name="prop_wall" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_west"]
 collision_layer = 4096
@@ -3285,10 +2964,6 @@ polygon = PackedVector2Array(-1020, 1843, -826, 1843, -761, 1777, -762, 1748, -8
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_south_west/actor_wall"]
 polygon = PackedVector2Array(-412, 2163, -218, 2163, -187, 2131, -155, 2131, -88, 2066, -88, 1974, -221, 1840, -312, 1840, -380, 1908, -380, 2100, -412, 2133)
 
-[node name="CollisionShape2D67" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_south_west/actor_wall"]
-position = Vector2(-331, -2477)
-shape = SubResource("RectangleShape2D_wu0m1")
-
 [node name="bottomless_pit" type="Area2D" parent="dev_layer/invisible_walls/labyrinth_south_west" groups=["bottomless_pit"]]
 collision_layer = 16384
 collision_mask = 8
@@ -3303,10 +2978,6 @@ polygon = PackedVector2Array(-1003, 1841, -845, 1842, -827, 1823, -790, 1768, -8
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_south_west/bottomless_pit"]
 polygon = PackedVector2Array(-382, 2162, -221, 2162, -213, 2110, -173, 2109, -124, 2062, -122, 1980, -223, 1869, -305, 1868, -357, 1914, -357, 2030, -361, 2112, -382, 2137)
-
-[node name="CollisionShape2D66" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_south_west/bottomless_pit"]
-position = Vector2(-331, -2461)
-shape = SubResource("RectangleShape2D_8j4pi")
 
 [node name="labyrinth_south_west_interiors" type="Node2D" parent="dev_layer/invisible_walls/labyrinth_south_west"]
 
@@ -3589,6 +3260,351 @@ collision_mask = 0
 position = Vector2(28197, -27283)
 shape = SubResource("RectangleShape2D_sl76e")
 debug_color = Color(0.996078, 0, 0.2, 0.419608)
+
+[node name="labyrinth_north_west" type="Node2D" parent="dev_layer/invisible_walls"]
+
+[node name="all_blocks" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_north_west"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1403, -2173)
+shape = SubResource("RectangleShape2D_15sat")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1259, -2173)
+shape = SubResource("RectangleShape2D_r6fla")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1099, -2189)
+shape = SubResource("RectangleShape2D_kppgj")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-939, -2157)
+shape = SubResource("RectangleShape2D_esy3f")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-795, -2109)
+shape = SubResource("RectangleShape2D_opk5x")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-635, -2157)
+shape = SubResource("RectangleShape2D_hbtd6")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-523, -2109)
+shape = SubResource("RectangleShape2D_3wmvi")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-443, -2157)
+shape = SubResource("RectangleShape2D_mk1w1")
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-155, -2173)
+shape = SubResource("RectangleShape2D_a75l7")
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(53, -2189)
+shape = SubResource("RectangleShape2D_avnhr")
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(213, -2189)
+shape = SubResource("RectangleShape2D_h7r32")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(357, -2157)
+shape = SubResource("RectangleShape2D_lubto")
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(549, -2157)
+shape = SubResource("RectangleShape2D_besy2")
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(677, -2109)
+shape = SubResource("RectangleShape2D_lcc1l")
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(821, -2157)
+shape = SubResource("RectangleShape2D_mqcxl")
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(933, -2157)
+shape = SubResource("RectangleShape2D_r4qkx")
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(997, -2253)
+shape = SubResource("RectangleShape2D_k18cu")
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(1093, -2253)
+shape = SubResource("RectangleShape2D_67jlk")
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(1045, -2333)
+shape = SubResource("RectangleShape2D_smc0a")
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(1045, -2125)
+shape = SubResource("RectangleShape2D_ihr1y")
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(677.5, -2469)
+shape = SubResource("RectangleShape2D_ihr1y")
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(789, -2477)
+shape = SubResource("RectangleShape2D_kjtnq")
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(709, -2781)
+shape = SubResource("RectangleShape2D_8g0fd")
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(885, -2797)
+shape = SubResource("RectangleShape2D_nb3qf")
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(1045, -2751)
+shape = SubResource("RectangleShape2D_8blpw")
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(421, -2893)
+shape = SubResource("RectangleShape2D_qwmka")
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(373, -2493)
+shape = SubResource("RectangleShape2D_lye04")
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(501, -2493)
+shape = SubResource("RectangleShape2D_lye04")
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(437, -2584)
+shape = SubResource("RectangleShape2D_2p18a")
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(165, -2661)
+shape = SubResource("RectangleShape2D_sucve")
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-333, -2807)
+shape = SubResource("RectangleShape2D_2bp37")
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-235, -2743)
+shape = SubResource("RectangleShape2D_2bp37")
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-859, -2610)
+shape = SubResource("RectangleShape2D_u56ky")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1035, -2559)
+shape = SubResource("RectangleShape2D_1juxx")
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1211, -2529)
+shape = SubResource("RectangleShape2D_nniwd")
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1403, -2529)
+shape = SubResource("RectangleShape2D_nniwd")
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-699, -2609.5)
+shape = SubResource("RectangleShape2D_u56ky")
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-619, -2613.5)
+shape = SubResource("RectangleShape2D_wmkxv")
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-427, -2743)
+shape = SubResource("RectangleShape2D_2bp37")
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-27, -2651.63)
+shape = SubResource("RectangleShape2D_gyyro")
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(69, -2651.75)
+shape = SubResource("RectangleShape2D_gyyro")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(181.25, -1656)
+shape = SubResource("RectangleShape2D_pdo0r")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(805, -1656)
+shape = SubResource("RectangleShape2D_0si7x")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(1205, -1653)
+shape = SubResource("RectangleShape2D_00tcc")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-203, -1660.5)
+shape = SubResource("RectangleShape2D_xdqvr")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-107, -1661)
+shape = SubResource("RectangleShape2D_wqeu3")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(453, -1661)
+shape = SubResource("RectangleShape2D_tylbv")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(549, -1661)
+shape = SubResource("RectangleShape2D_lp8dd")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(501, -1763)
+shape = SubResource("RectangleShape2D_vhgim")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-171, -1763)
+shape = SubResource("RectangleShape2D_2md4w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-491, -1213)
+shape = SubResource("RectangleShape2D_cqkjs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-475, -1549.5)
+shape = SubResource("RectangleShape2D_eltay")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-731, -1693)
+shape = SubResource("RectangleShape2D_fn0cm")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-619, -1581)
+shape = SubResource("RectangleShape2D_y61j8")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-555, -1533)
+shape = SubResource("RectangleShape2D_m6uxn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-971, -1357)
+shape = SubResource("RectangleShape2D_qxg51")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-859, -1357)
+shape = SubResource("RectangleShape2D_t8vhe")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-939, -1467)
+shape = SubResource("RectangleShape2D_pqiw3")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1450.75, -1621)
+shape = SubResource("RectangleShape2D_telwa")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1163, -1661)
+shape = SubResource("RectangleShape2D_yx6t6")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1067, -1661)
+shape = SubResource("RectangleShape2D_ax5nt")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1099, -1755.5)
+shape = SubResource("RectangleShape2D_ckmyu")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1291, -1637)
+shape = SubResource("RectangleShape2D_matla")
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1482.5, -1381)
+shape = SubResource("RectangleShape2D_thoel")
+
+[node name="CollisionShape2D111" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2011.25, -1741.25)
+shape = SubResource("RectangleShape2D_1dhjv")
+
+[node name="CollisionShape2D116" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1818.5, -2061)
+shape = SubResource("RectangleShape2D_dkepg")
+
+[node name="CollisionShape2D117" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2235, -2364.5)
+shape = SubResource("RectangleShape2D_jj454")
+
+[node name="CollisionShape2D118" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2123, -2365)
+shape = SubResource("RectangleShape2D_iaeyf")
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2171, -2421)
+shape = SubResource("RectangleShape2D_b4ln4")
+
+[node name="CollisionShape2D112" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2331, -1741)
+shape = SubResource("RectangleShape2D_3q11r")
+
+[node name="CollisionShape2D113" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1867, -1794)
+shape = SubResource("RectangleShape2D_5rmrs")
+
+[node name="CollisionShape2D114" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1771, -1805)
+shape = SubResource("RectangleShape2D_bbrxk")
+
+[node name="CollisionShape2D115" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1835, -1917)
+shape = SubResource("RectangleShape2D_akqmb")
+
+[node name="CollisionShape2D108" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2315, -1986)
+shape = SubResource("CapsuleShape2D_6vp55")
+
+[node name="CollisionShape2D109" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-2139, -1986)
+shape = SubResource("CapsuleShape2D_6vp55")
+
+[node name="CollisionShape2D110" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/all_blocks"]
+position = Vector2(-1963, -2099)
+shape = SubResource("CapsuleShape2D_6vp55")
+
+[node name="rock_wall" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_north_west"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_north_west/rock_wall"]
+polygon = PackedVector2Array(-2539, -1602, -3017, -1601, -2967, -2357, -2685, -2711, -2353, -2877, -1860, -2886, -1579, -2852, -1563, -2509, -1563, -2285, -1563, -2254, -1531, -2254, -1531, -1996, -1563, -1965, -1628, -1965, -1691, -2029, -1691, -2189, -1883, -2381, -2060, -2381, -2060, -2157, -2089, -2127, -2119, -2127, -2155, -2156, -2155, -2253, -2091, -2253, -2091, -2477, -2283, -2477, -2283, -2252, -2187, -2252, -2187, -2157, -2218, -2125, -2252, -2125, -2346, -2221, -2347, -2222, -2347, -2253, -2347, -2328, -2379, -2328, -2379, -2253, -2379, -2221, -2411, -2189, -2411, -2060, -2507, -1965, -2507, -1900, -2603, -1805, -2603, -1708, -2603, -1685, -2539, -1621)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_north_west/rock_wall"]
+polygon = PackedVector2Array(-1563, -2382, -1467, -2477, -1436, -2508, -1306, -2509, -1213, -2606, -1146, -2606, -1115, -2636, -1082, -2668, -1078, -2671, -923, -2670, -667, -2669, -505, -2829, -155, -2829, -59, -2732, 96, -2732, 293, -2924, 549, -2892, 613, -2829, 996, -2830, 1126, -2957, 1141, -2957, 1246, -2957, 1285, -3448, -202, -3631, -1636, -3026)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_north_west/rock_wall"]
+polygon = PackedVector2Array(-1467, -2061, -1467, -1996, -1435, -1965, -1339, -1965, -1307, -1997, -1179, -1997, -1147, -1965, -858, -1965, -827, -1997, -699, -1997, -667, -1965, -411, -1965, -379, -1997, -379, -2061)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_north_west/rock_wall"]
+polygon = PackedVector2Array(-283, -2060, -283, -1996, -252, -1965, 102, -1965, 133, -1997, 261, -1997, 292, -1965, 389, -1965, 421, -1997, 421, -2061)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="dev_layer/invisible_walls/labyrinth_north_west/rock_wall"]
+polygon = PackedVector2Array(485, -2061, 485, -1996, 516, -1965, 582, -1965, 613, -1997, 741, -1997, 772, -1965, 870, -1965, 901, -1997, 965, -1997, 997, -1965, 1062, -1965, 1093, -1997, 1221, -1997, 1253, -1965, 1350, -1965, 1381, -1997, 1445, -1997, 1477, -1965, 1574, -1965, 1605, -1997, 1701, -1997, 1701, -2063)
+
+[node name="bottomless_pit" type="Area2D" parent="dev_layer/invisible_walls/labyrinth_north_west" groups=["bottomless_pit"]]
+collision_layer = 16384
+collision_mask = 8
+script = ExtResource("3_gfved")
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/bottomless_pit"]
+position = Vector2(-331, -2461)
+shape = SubResource("RectangleShape2D_8j4pi")
+
+[node name="actor_wall" type="StaticBody2D" parent="dev_layer/invisible_walls/labyrinth_north_west" groups=["bottomless_pit"]]
+collision_layer = 8192
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="dev_layer/invisible_walls/labyrinth_north_west/actor_wall"]
+position = Vector2(-331, -2477)
+shape = SubResource("RectangleShape2D_wu0m1")
 
 [node name="start_area" type="Node2D" parent="dev_layer/invisible_walls"]
 
@@ -5631,24 +5647,6 @@ position = Vector2(-199, -150)
 [node name="tree_21" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
 position = Vector2(-2019, -2085)
 
-[node name="tree_25" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-2262, -1967)
-
-[node name="tree_26" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-2262, -2059)
-
-[node name="tree_24" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-2389, -2160)
-
-[node name="tree_27" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-2379, -2259)
-
-[node name="tree_22" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-2055, -1988)
-
-[node name="tree_23" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
-position = Vector2(-1952, -1964)
-
 [node name="tree_2" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
 position = Vector2(187, 10)
 
@@ -5727,42 +5725,6 @@ position = Vector2(858, 327)
 [node name="PoliceBarrier10" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
 position = Vector2(842, 380)
 
-[node name="PoliceBarrier11" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1342, -1579)
-
-[node name="PoliceBarrier12" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1331, -1632)
-
-[node name="PoliceBarrier13" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1328, -1529)
-
-[node name="PoliceBarrier14" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1312, -1476)
-
-[node name="PoliceBarrier15" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1330, -1988)
-
-[node name="PoliceBarrier16" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1319, -2041)
-
-[node name="PoliceBarrier17" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1316, -1938)
-
-[node name="PoliceBarrier18" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1300, -1885)
-
-[node name="PoliceBarrier21" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1169, -2659)
-
-[node name="PoliceBarrier22" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1158, -2712)
-
-[node name="PoliceBarrier29" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1155, -2609)
-
-[node name="PoliceBarrier30" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
-position = Vector2(1139, -2556)
-
 [node name="PoliceBarrier19" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
 position = Vector2(442, 1201)
 
@@ -5790,6 +5752,99 @@ position = Vector2(-713, -233)
 [node name="12hr_clock" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("25_qbenw")]
 z_index = 7
 position = Vector2(392, -968)
+
+[node name="PoliceBarrier21" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1169, -2659)
+
+[node name="PoliceBarrier22" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1158, -2712)
+
+[node name="PoliceBarrier29" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1155, -2609)
+
+[node name="PoliceBarrier30" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1139, -2556)
+
+[node name="PoliceBarrier11" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1342, -1579)
+
+[node name="PoliceBarrier12" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1331, -1632)
+
+[node name="PoliceBarrier13" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1328, -1529)
+
+[node name="PoliceBarrier14" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1312, -1476)
+
+[node name="PoliceBarrier15" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1330, -1988)
+
+[node name="PoliceBarrier16" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1319, -2041)
+
+[node name="PoliceBarrier17" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1316, -1938)
+
+[node name="PoliceBarrier18" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("24_ggty7")]
+position = Vector2(1300, -1885)
+
+[node name="tree_25" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-2262, -1967)
+
+[node name="tree_26" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-2262, -2059)
+
+[node name="tree_24" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-2389, -2160)
+
+[node name="tree_27" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-2379, -2259)
+
+[node name="tree_22" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-2055, -1988)
+
+[node name="tree_23" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("23_ad1vy")]
+position = Vector2(-1952, -1964)
+
+[node name="TreeAspen24" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2282, -2328)
+
+[node name="TreeAspen26" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2236, -2300)
+
+[node name="TreeAspen27" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2380, -1979)
+
+[node name="TreeAspen30" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2552, -1879)
+
+[node name="TreeAspen31" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2465, -1756)
+
+[node name="TreeAspen28" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2311, -2207)
+
+[node name="TreeAspen29" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2115, -2174)
+
+[node name="TreeAspen25" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("51_fbkja")]
+position = Vector2(-2020, -2322)
+
+[node name="rock16" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("54_3xsmd")]
+position = Vector2(-2137, -2332)
+
+[node name="rock17" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("54_3xsmd")]
+position = Vector2(-2148, -2000)
+
+[node name="rock18" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("54_3xsmd")]
+position = Vector2(-2258, -2209)
+
+[node name="rock15" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("55_tlhxh")]
+position = Vector2(-2204, -2326)
+
+[node name="rock19" parent="daylight_affected_section/daylight_affected_ysort/game_world/static_props" instance=ExtResource("55_tlhxh")]
+position = Vector2(-2466, -2051)
 
 [node name="windows" type="Node2D" parent="daylight_affected_section/daylight_affected_ysort/game_world"]
 y_sort_enabled = true
@@ -6577,203 +6632,203 @@ position = Vector2(35419, -30883)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1991, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.396788
+frame_progress = 0.483271
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1960, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.801775
+frame_progress = 0.704172
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2120, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.815172
+frame_progress = 0.858184
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2088, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.88147
+frame_progress = 0.630451
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2280, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.729762
+frame_progress = 0.813544
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2248, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.240451
+frame_progress = 0.72636
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2343, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.629437
+frame_progress = 0.672446
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2439, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.415525
+frame_progress = 0.317926
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2471, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.833515
+frame_progress = 0.248572
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2311, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.782661
+frame_progress = 0.869145
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2152, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0761578
+frame_progress = 0.116587
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2184, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.320752
+frame_progress = 0.299395
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.316932
+frame_progress = 0.136757
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D77" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1063, 2008)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.322216
+frame_progress = 0.0712102
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D80" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1032, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.146943
+frame_progress = 0.18996
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D78" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1095, 2040)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.582485
+frame_progress = 0.416364
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D96" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.228921
+frame_progress = 0.858263
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D113" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.205686
+frame_progress = 0.289472
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-360, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.772536
+frame_progress = 0.559018
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-328, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.337247
+frame_progress = 0.42103
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D79" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.915965
+frame_progress = 0.999755
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2503, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.769182
+frame_progress = 0.671579
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2536, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.577424
+frame_progress = 0.918407
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2569, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.856074
+frame_progress = 0.899088
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2601, 1336)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.149482
+frame_progress = 0.169307
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2664, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.85343
+frame_progress = 0.873249
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.970115
+frame_progress = 0.420552
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D66" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.628902
+frame_progress = 0.18614
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2056, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0318718
+frame_progress = 0.0748917
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6781,7 +6836,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.732749
+frame_progress = 0.633379
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6789,35 +6844,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D71" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-936, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.972036
+frame_progress = 0.0558273
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D72" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-904, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.569781
+frame_progress = 0.163938
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D73" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-968, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.478634
+frame_progress = 0.312516
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D74" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1000, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.561409
+frame_progress = 0.500459
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D75" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-872, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.814483
+frame_progress = 0.834301
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6825,7 +6880,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D76" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-839, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0620105
+frame_progress = 0.145802
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6833,7 +6888,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D81" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-808, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.406587
+frame_progress = 0.240471
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6841,7 +6896,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D82" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-775, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.704685
+frame_progress = 0.745106
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6849,7 +6904,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D83" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-743, 2043)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.572329
+frame_progress = 0.987389
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6857,7 +6912,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D84" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.137955
+frame_progress = 0.0770152
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6865,7 +6920,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D85" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-582, 2109)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.93317
+frame_progress = 0.539056
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6873,7 +6928,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D103" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.8781
+frame_progress = 0.961888
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6881,7 +6936,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D104" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.918574
+frame_progress = 0.78766
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6889,7 +6944,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D105" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-184, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.112692
+frame_progress = 0.45367
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6897,7 +6952,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D106" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-151, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.786203
+frame_progress = 0.686834
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6905,7 +6960,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D107" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-134, 2003)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.572348
+frame_progress = 0.118687
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6913,7 +6968,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D86" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-552, 2169)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.543219
+frame_progress = 0.8842
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6921,7 +6976,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D91" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.17672
+frame_progress = 0.115778
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6929,7 +6984,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2376, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.15285
+frame_progress = 0.699179
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6937,7 +6992,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D63" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.828339
+frame_progress = 0.87135
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6945,7 +7000,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D64" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2856, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.684429
+frame_progress = 0.727438
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6953,7 +7008,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2408, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.552674
+frame_progress = 0.182023
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6961,7 +7016,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1928, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.971742
+frame_progress = 0.0147611
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6969,7 +7024,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1895, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0486759
+frame_progress = 0.797659
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6977,7 +7032,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1863, 1335)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0850866
+frame_progress = 0.871571
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6985,7 +7040,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1832, 1593)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.204069
+frame_progress = 0.0731647
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6993,7 +7048,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1800, 1624)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.253997
+frame_progress = 0.337784
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7001,7 +7056,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1704, 1689)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0100549
+frame_progress = 0.425108
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7009,7 +7064,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1672, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.235912
+frame_progress = 0.984903
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7017,7 +7072,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1639, 1753)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.48176
+frame_progress = 0.155157
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7025,7 +7080,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1607, 1785)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.789185
+frame_progress = 0.575667
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7033,7 +7088,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1576, 1881)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.314043
+frame_progress = 0.655019
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7041,7 +7096,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1544, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.219701
+frame_progress = 0.306191
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7049,7 +7104,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1944)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0599537
+frame_progress = 0.143745
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7057,7 +7112,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1383, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.852863
+frame_progress = 0.93665
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7065,7 +7120,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1351, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.537218
+frame_progress = 0.620997
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7073,7 +7128,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1319, 2041)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.785657
+frame_progress = 0.86944
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7081,7 +7136,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.866991
+frame_progress = 0.907416
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7089,7 +7144,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1656)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.357898
+frame_progress = 0.904233
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7097,7 +7152,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1305)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.459314
+frame_progress = 0.202948
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7105,63 +7160,63 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2632, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.137118
+frame_progress = 0.918845
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2728, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.466849
+frame_progress = 0.550629
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2760, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.107687
+frame_progress = 0.191477
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D65" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2888, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.832664
+frame_progress = 0.875676
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D69" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2983, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.00992856
+frame_progress = 0.829747
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D70" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-3015, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.381336
+frame_progress = 0.467821
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D67" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2952, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.402613
+frame_progress = 0.885503
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D61" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2792, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.459024
+frame_progress = 0.328113
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2600, 1369)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.238088
+frame_progress = 0.138728
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7169,7 +7224,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1433)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.492548
+frame_progress = 0.57903
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7177,7 +7232,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D68" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1401)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.220299
+frame_progress = 0.766629
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7185,14 +7240,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1159, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.871374
+frame_progress = 0.955162
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2105)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.0223227
+frame_progress = 0.000480799
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7200,7 +7255,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D95" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2328)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.888401
+frame_progress = 0.866552
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7208,7 +7263,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D115" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.810203
+frame_progress = 0.293095
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7216,14 +7271,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D130" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.680333
+frame_progress = 0.764115
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D131" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.228844
+frame_progress = 0.207002
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7231,35 +7286,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D132" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2393)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.186953
+frame_progress = 0.973444
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D133" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(408, 2361)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.420515
+frame_progress = 0.359569
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D135" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(440, 2329)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.678755
+frame_progress = 0.547839
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D136" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(472, 2296)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.862356
+frame_progress = 0.946144
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D134" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.201295
+frame_progress = 0.244311
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7267,189 +7322,140 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2375, 1304)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.902242
+frame_progress = 0.986032
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D62" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1432)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.447093
+frame_progress = 0.993432
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1736, 1688)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.256758
+frame_progress = 0.381612
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1688)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.316485
+frame_progress = 0.76692
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1479, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.718503
+frame_progress = 0.802284
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1447, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.189618
+frame_progress = 0.314472
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1415, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.481245
+frame_progress = 0.524253
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1976)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.337677
+frame_progress = 0.0491697
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1255, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.977423
+frame_progress = 0.606762
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1223, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.671042
+frame_progress = 0.540126
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1191, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.895337
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-424, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0252765
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D140" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-392, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.594332
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D141" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-360, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.27783
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D142" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-328, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.872779
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D143" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-296, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.855723
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D144" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-264, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.560128
-script = ExtResource("44_o7dv5")
-wait_offset = 1.0
-
-[node name="AnimatedSprite2D145" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
-position = Vector2(-232, -2568)
-sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.109627
+frame_progress = 0.501224
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.475313
+frame_progress = 0.559094
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D94" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.616146
+frame_progress = 0.245493
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D87" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-678, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.856199
+frame_progress = 0.942688
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D88" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-646, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.494571
+frame_progress = 0.314392
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-297, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.993132
+frame_progress = 0.0796255
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-265, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0385119
+frame_progress = 0.0815316
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D102" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-249, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.409966
+frame_progress = 0.0833637
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D92" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-488, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.685632
+frame_progress = 0.772115
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D108" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.990779
+frame_progress = 0.0745709
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7457,7 +7463,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D118" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(56, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.304415
+frame_progress = 0.00995436
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7465,7 +7471,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D119" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.907111
+frame_progress = 0.947538
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7473,7 +7479,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D120" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.378378
+frame_progress = 0.279016
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7481,7 +7487,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D121" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(121, 2363)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0557071
+frame_progress = 0.612934
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7489,7 +7495,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D122" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(153, 2392)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0808373
+frame_progress = 0.566746
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7497,147 +7503,196 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D109" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.308726
+frame_progress = 0.319731
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D110" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-168, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.630302
+frame_progress = 0.259647
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D114" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-40, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.238687
+frame_progress = 0.785018
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D116" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-8, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.364887
+frame_progress = 0.779939
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D117" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(24, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.329102
+frame_progress = 0.369527
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D111" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-136, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.808633
+frame_progress = 0.71103
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D112" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-104, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.730491
+frame_progress = 0.599573
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D123" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(152, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.48107
+frame_progress = 0.524078
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D124" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(184, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.894695
+frame_progress = 0.9057
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D125" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(216, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.970601
+frame_progress = 0.790419
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D126" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(248, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.56273
+frame_progress = 0.192078
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D127" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(280, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.850663
+frame_progress = 0.829303
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D128" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(312, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.677467
+frame_progress = 0.199502
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D137" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(504, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.232594
+frame_progress = 0.27561
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D138" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(536, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.354522
+frame_progress = 0.804956
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D139" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(568, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0667562
+frame_progress = 0.333665
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D129" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(344, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.278884
+frame_progress = 0.80091
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D93" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-456, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.197494
+frame_progress = 0.575507
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D89" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-614, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.658665
+frame_progress = 0.669666
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D90" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.628026
+frame_progress = 0.447845
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1273)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.716749
+frame_progress = 0.841602
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-424, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.328532
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D140" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-392, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.842816
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D141" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-360, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.049388
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D142" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-328, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.95565
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D143" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-296, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.326266
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D144" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-264, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.275207
+script = ExtResource("44_o7dv5")
+wait_offset = 1.0
+
+[node name="AnimatedSprite2D145" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
+position = Vector2(-232, -2568)
+sprite_frames = ExtResource("43_cpswx")
+frame_progress = 0.879711
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
@@ -7691,30 +7746,6 @@ position = Vector2(39316, -30116)
 
 [node name="TreeAspen15" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
 position = Vector2(38938, -30077)
-
-[node name="TreeAspen24" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2282, -2328)
-
-[node name="TreeAspen26" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2236, -2300)
-
-[node name="TreeAspen27" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2380, -1979)
-
-[node name="TreeAspen30" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2552, -1879)
-
-[node name="TreeAspen31" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2465, -1756)
-
-[node name="TreeAspen28" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2311, -2207)
-
-[node name="TreeAspen29" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2115, -2174)
-
-[node name="TreeAspen25" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
-position = Vector2(-2020, -2322)
 
 [node name="TreeAspen16" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/foliage" instance=ExtResource("51_fbkja")]
 position = Vector2(39450, -30003)
@@ -8058,26 +8089,11 @@ position = Vector2(38692, -30606)
 [node name="rock12" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("54_3xsmd")]
 position = Vector2(39635, -29717)
 
-[node name="rock16" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("54_3xsmd")]
-position = Vector2(-2137, -2332)
-
-[node name="rock17" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("54_3xsmd")]
-position = Vector2(-2148, -2000)
-
-[node name="rock18" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("54_3xsmd")]
-position = Vector2(-2258, -2209)
-
 [node name="rock14" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("54_3xsmd")]
 position = Vector2(39048, -30144)
 
 [node name="rock3" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("55_tlhxh")]
 position = Vector2(38494, -30340)
-
-[node name="rock15" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("55_tlhxh")]
-position = Vector2(-2204, -2326)
-
-[node name="rock19" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("55_tlhxh")]
-position = Vector2(-2466, -2051)
 
 [node name="rock13" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/static props" instance=ExtResource("55_tlhxh")]
 position = Vector2(39287, -30106)
@@ -8094,42 +8110,42 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39208, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.578813
+frame_progress = 0.208161
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39176, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.822497
+frame_progress = 0.86292
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39144, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.249167
+frame_progress = 0.292182
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39112, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.638905
+frame_progress = 0.979891
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39080, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0213658
+frame_progress = 0.890455
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39240, -30135)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0885806
+frame_progress = 0.0296868
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -8137,7 +8153,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39256, -30118)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.382456
+frame_progress = 0.468941
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -8764,6 +8780,7 @@ hour_length_seconds = 120.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="dev_layer/invisible_walls/labyrinth_south_west/bottomless_pit" to="dev_layer/invisible_walls/labyrinth_south_west/bottomless_pit" method="_on_body_entered"]
+[connection signal="body_entered" from="dev_layer/invisible_walls/labyrinth_north_west/bottomless_pit" to="dev_layer/invisible_walls/labyrinth_north_west/bottomless_pit" method="_on_body_entered"]
 [connection signal="activate_header" from="dev_layer/location_labels/Your Apartment" to="dark_indoor_layer/dark_indoor_Section/dark_indoor_ysort/Player" method="_activate_location_header"]
 [connection signal="body_entered" from="dev_layer/location_labels/Your Apartment" to="dev_layer/location_labels/Your Apartment" method="_on_body_entered"]
 [connection signal="activate_header" from="dev_layer/location_labels/Eternal Rest Apartments" to="dark_indoor_layer/dark_indoor_Section/dark_indoor_ysort/Player" method="_activate_location_header"]
