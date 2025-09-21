@@ -35,5 +35,5 @@ bus = &"Music"
 
 [node name="main_camera" parent="." instance=ExtResource("7_xjevn")]
 
-[connection signal="transition_to_main_scene" from="start_menu/start_menu" to="." method="_on_transition_to_main_scene_init"]
 [connection signal="transition_to_main_scene" from="start_menu/start_menu" to="." method="_on_transition_to_main_scene"]
+[connection signal="transition_to_main_scene" from="start_menu/start_menu" to="." method="_on_transition_to_main_scene_init"]
