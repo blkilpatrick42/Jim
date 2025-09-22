@@ -1,4 +1,4 @@
-[gd_scene load_steps=582 format=3 uid="uid://cdqi1t4ffkn68"]
+[gd_scene load_steps=583 format=3 uid="uid://cdqi1t4ffkn68"]
 
 [ext_resource type="Script" uid="uid://c104duy7l2uuq" path="res://scripts/utility/become_visible.gd" id="1_8ce55"]
 [ext_resource type="Script" uid="uid://b6jomjtxpe43f" path="res://scripts/utility/active_root.gd" id="1_kkdxt"]
@@ -1400,6 +1400,12 @@ agent_radius = 0.0
 vertices = PackedVector2Array(-1022, -1521, -1016, -1532, -1016, -1521, -1338, -1444, -1338, -1487, -1186, -1485, -1078, -1356, -1016, -1515, -1018, -1504, -1037, -1518, -1021, -1169, -1078, -1169, -1020, -1202, -1017, -1223, -1019, -1309, -1179, -1493, -1018, -1392, -1369, -1356, -1370, -1443, -1178, -1519, -1017, -1455)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 2, 7, 8, 9), PackedInt32Array(10, 11, 6, 12), PackedInt32Array(13, 12, 6, 14), PackedInt32Array(15, 9, 16, 14, 6, 5), PackedInt32Array(6, 17, 18, 3), PackedInt32Array(15, 19, 9), PackedInt32Array(20, 16, 9, 8)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1016, -1521, -1016, -1515, -1018, -1504, -1017, -1455, -1018, -1392, -1019, -1309, -1017, -1223, -1020, -1202, -1021, -1169, -1078, -1169, -1078, -1356, -1369, -1356, -1370, -1443, -1338, -1444, -1338, -1487, -1186, -1485, -1179, -1493, -1178, -1519, -1037, -1518, -1022, -1521, -1016, -1532)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pqiw3"]
+vertices = PackedVector2Array(-1016, -1532, -1020, -1808, -955, -1808, -955, -1588, -750, -1164, -1021, -1169, -1020, -1202, -763, -1202, -589, -1197, -763, -1520, -1016, -1521, -730, -1582, -725, -1523, -591, -1521, -590, -1355)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 0, 3, 11, 12), PackedInt32Array(12, 13, 14, 7, 9), PackedInt32Array(7, 14, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1020, -1202, -1021, -1169, -750, -1164, -589, -1197, -590, -1355, -591, -1521, -725, -1523, -730, -1582, -955, -1588, -955, -1808, -1020, -1808, -1016, -1532, -1016, -1521, -763, -1520, -763, -1202)])
 agent_radius = 0.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5rmrs"]
@@ -3935,6 +3941,9 @@ navigation_polygon = SubResource("NavigationPolygon_cqkjs")
 [node name="NavigationRegion2D62" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_k76a5")
 
+[node name="NavigationRegion2D70" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
+navigation_polygon = SubResource("NavigationPolygon_pqiw3")
+
 [node name="NavigationRegion2D55" type="NavigationRegion2D" parent="dev_layer/navmeshes"]
 navigation_polygon = SubResource("NavigationPolygon_5rmrs")
 
@@ -4032,7 +4041,6 @@ end_position = Vector2(32837, -26492)
 navigation_polygon = SubResource("NavigationPolygon_l5cdj")
 
 [node name="patrol_points" type="Node2D" parent="dev_layer"]
-visible = false
 
 [node name="patrol_point" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
 position = Vector2(-1638, 273)
@@ -4157,11 +4165,103 @@ next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point26")]
 
 [node name="patrol_point29" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
 position = Vector2(-2426, -1330)
-next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point25")]
+next_points = [NodePath("../patrol_point28"), NodePath("../patrol_point25"), NodePath("../patrol_point82")]
 
 [node name="patrol_point30" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
 position = Vector2(-1663, -1311)
-next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point28")]
+next_points = [NodePath("../patrol_point27"), NodePath("../patrol_point28"), NodePath("../patrol_point81")]
+
+[node name="patrol_point81" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-1653, -1549)
+next_points = [NodePath("../patrol_point30"), NodePath("../patrol_point83"), NodePath("../patrol_point84")]
+
+[node name="patrol_point84" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-1658, -1869)
+next_points = [NodePath("../patrol_point81"), NodePath("../patrol_point85"), NodePath("../patrol_point101"), NodePath("../patrol_point103")]
+
+[node name="patrol_point85" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-1257, -1869)
+next_points = [NodePath("../patrol_point84"), NodePath("../patrol_point86"), NodePath("../patrol_point101")]
+
+[node name="patrol_point86" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-979, -1859)
+next_points = [NodePath("../patrol_point85"), NodePath("../patrol_point89"), NodePath("../patrol_point88")]
+
+[node name="patrol_point88" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-875, -1180)
+next_points = [NodePath("../patrol_point86")]
+
+[node name="patrol_point89" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-316, -1875)
+next_points = [NodePath("../patrol_point86"), NodePath("../patrol_point102"), NodePath("../patrol_point94"), NodePath("../patrol_point90")]
+
+[node name="patrol_point90" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-315, -1454)
+next_points = [NodePath("../patrol_point91"), NodePath("../patrol_point89")]
+
+[node name="patrol_point91" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(404, -1454)
+next_points = [NodePath("../patrol_point90"), NodePath("../patrol_point92")]
+
+[node name="patrol_point92" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(1062, -1454)
+next_points = [NodePath("../patrol_point91"), NodePath("../patrol_point93")]
+
+[node name="patrol_point93" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(1062, -1875)
+next_points = [NodePath("../patrol_point92"), NodePath("../patrol_point94")]
+
+[node name="patrol_point94" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(439, -1875)
+next_points = [NodePath("../patrol_point93"), NodePath("../patrol_point89"), NodePath("../patrol_point95")]
+
+[node name="patrol_point95" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(439, -2316)
+next_points = [NodePath("../patrol_point99"), NodePath("../patrol_point98"), NodePath("../patrol_point94")]
+
+[node name="patrol_point96" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(439, -2710)
+next_points = [NodePath("../patrol_point97"), NodePath("../patrol_point99"), NodePath("../patrol_point98")]
+
+[node name="patrol_point97" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(768, -2637)
+next_points = [NodePath("../patrol_point98"), NodePath("../patrol_point95"), NodePath("../patrol_point96")]
+
+[node name="patrol_point98" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(768, -2316)
+next_points = [NodePath("../patrol_point95"), NodePath("../patrol_point97"), NodePath("../patrol_point96")]
+
+[node name="patrol_point99" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(51, -2417)
+next_points = [NodePath("../patrol_point96"), NodePath("../patrol_point95"), NodePath("../patrol_point102")]
+
+[node name="patrol_point102" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-331, -2332)
+next_points = [NodePath("../patrol_point89"), NodePath("../patrol_point99"), NodePath("../patrol_point100")]
+
+[node name="patrol_point100" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-789, -2444)
+next_points = [NodePath("../patrol_point102"), NodePath("../patrol_point101")]
+
+[node name="patrol_point101" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-1499, -2337)
+next_points = [NodePath("../patrol_point84"), NodePath("../patrol_point85"), NodePath("../patrol_point100")]
+
+[node name="patrol_point82" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-2478, -1557)
+next_points = [NodePath("../patrol_point29"), NodePath("../patrol_point83")]
+
+[node name="patrol_point83" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-2167, -1573)
+next_points = [NodePath("../patrol_point81"), NodePath("../patrol_point82"), NodePath("../patrol_point87")]
+
+[node name="patrol_point87" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-2167, -1863)
+next_points = [NodePath("../patrol_point83"), NodePath("../patrol_point103")]
+
+[node name="patrol_point103" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
+position = Vector2(-1897, -2259)
+next_points = [NodePath("../patrol_point84"), NodePath("../patrol_point87")]
 
 [node name="patrol_point33" parent="dev_layer/patrol_points" node_paths=PackedStringArray("next_points") instance=ExtResource("3_a8ra8")]
 position = Vector2(-1653, 1058)
@@ -6759,203 +6859,203 @@ position = Vector2(35419, -30883)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1991, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.162191
+frame_progress = 0.653689
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1960, 1272)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.342722
+frame_progress = 0.834221
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2120, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.820188
+frame_progress = 0.328071
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2088, 1208)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.309373
+frame_progress = 0.290811
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2280, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.559124
+frame_progress = 0.150629
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2248, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.405277
+frame_progress = 0.754808
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2343, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.372175
+frame_progress = 0.763666
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2439, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0635186
+frame_progress = 0.755009
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2471, 1240)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.927497
+frame_progress = 0.419003
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2311, 1304)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0987163
+frame_progress = 0.590218
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2152, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.862174
+frame_progress = 0.199966
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2184, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.799125
+frame_progress = 0.390634
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.775313
+frame_progress = 0.466817
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D77" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1063, 2008)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0693201
+frame_progress = 0.760812
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D80" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1032, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.756357
+frame_progress = 0.437873
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D78" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1095, 2040)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0952858
+frame_progress = 0.176717
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D96" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.424663
+frame_progress = 0.454245
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D113" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.822536
+frame_progress = 0.514038
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-360, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.897119
+frame_progress = 0.0815408
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-328, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.310795
+frame_progress = 0.620525
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D79" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.432811
+frame_progress = 0.114324
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2503, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.350498
+frame_progress = 0.482547
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2536, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.284798
+frame_progress = 0.966309
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2569, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0705224
+frame_progress = 0.313593
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2601, 1336)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.46903
+frame_progress = 0.709097
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2664, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.511795
+frame_progress = 0.911329
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0236566
+frame_progress = 0.515157
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D66" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.865057
+frame_progress = 0.796477
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2056, 1209)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.279642
+frame_progress = 0.733096
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6963,7 +7063,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1241)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.066459
+frame_progress = 0.614554
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -6971,35 +7071,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D71" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-936, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.766698
+frame_progress = 0.314801
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D72" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-904, 1720)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.842859
+frame_progress = 0.180653
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D73" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-968, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.951076
+frame_progress = 0.153947
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D74" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1000, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.805224
+frame_progress = 0.88665
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D75" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-872, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.370368
+frame_progress = 0.15187
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7007,7 +7107,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D76" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-839, 1752)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.784365
+frame_progress = 0.865784
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7015,7 +7115,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D81" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-808, 1977)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.645224
+frame_progress = 0.42673
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7023,7 +7123,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D82" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-775, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.111515
+frame_progress = 0.603018
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7031,7 +7131,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D83" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-743, 2043)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.183627
+frame_progress = 0.48317
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7039,7 +7139,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D84" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.676742
+frame_progress = 0.184623
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7047,7 +7147,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D85" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-582, 2109)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.284636
+frame_progress = 0.676139
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7055,7 +7155,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D103" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.39494
+frame_progress = 0.704666
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7063,7 +7163,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D104" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-217, 1912)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.466579
+frame_progress = 0.858075
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7071,7 +7171,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D105" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-184, 1945)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.758432
+frame_progress = 0.349943
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7079,7 +7179,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D106" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-151, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.289935
+frame_progress = 0.0714316
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7087,7 +7187,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D107" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-134, 2003)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.654749
+frame_progress = 0.246258
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7095,7 +7195,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D86" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-552, 2169)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.383927
+frame_progress = 0.626991
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7103,7 +7203,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D91" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.815518
+frame_progress = 0.125247
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7111,7 +7211,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2376, 1272)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.970619
+frame_progress = 0.518713
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7119,7 +7219,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D63" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1401)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.797236
+frame_progress = 0.82681
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7127,7 +7227,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D64" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2856, 1369)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.725545
+frame_progress = 0.407064
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7135,7 +7235,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2408, 1240)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.92761
+frame_progress = 0.170676
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7143,7 +7243,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1928, 1273)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.693678
+frame_progress = 0.201556
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7151,7 +7251,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1895, 1305)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.102425
+frame_progress = 0.41216
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7159,7 +7259,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1863, 1335)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.242989
+frame_progress = 0.734484
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7167,7 +7267,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1832, 1593)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.140051
+frame_progress = 0.821558
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7175,7 +7275,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1800, 1624)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.439755
+frame_progress = 0.571804
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7183,7 +7283,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1704, 1689)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.423207
+frame_progress = 0.354646
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7191,7 +7291,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1672, 1721)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.0517907
+frame_progress = 0.543291
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7199,7 +7299,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1639, 1753)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.834072
+frame_progress = 0.341956
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7207,7 +7307,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1607, 1785)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.214226
+frame_progress = 0.613765
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7215,7 +7315,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1576, 1881)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.653129
+frame_progress = 0.0446283
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7223,7 +7323,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1544, 1913)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.502408
+frame_progress = 0.183925
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7231,7 +7331,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1944)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.646475
+frame_progress = 0.327996
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7239,7 +7339,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1383, 1979)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.203047
+frame_progress = 0.794541
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7247,7 +7347,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1351, 2009)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.81725
+frame_progress = 0.308756
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7255,7 +7355,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1319, 2041)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.548348
+frame_progress = 0.0398472
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7263,7 +7363,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2072)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.586332
+frame_progress = 0.667764
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7271,7 +7371,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1656)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.649823
+frame_progress = 0.141326
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7279,7 +7379,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2216, 1305)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.469339
+frame_progress = 0.160844
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7287,63 +7387,63 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2632, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.705308
+frame_progress = 0.213187
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2728, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.15374
+frame_progress = 0.701831
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2760, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.189576
+frame_progress = 0.429647
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D65" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2888, 1368)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.907121
+frame_progress = 0.455219
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D69" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2983, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.896638
+frame_progress = 0.578151
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D70" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-3015, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0342237
+frame_progress = 0.425729
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D67" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2952, 1400)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.251896
+frame_progress = 0.333336
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D61" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2792, 1432)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.430085
+frame_progress = 0.883543
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2600, 1369)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.777287
+frame_progress = 0.980157
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7351,7 +7451,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2696, 1433)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.217586
+frame_progress = 0.709086
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7359,7 +7459,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D68" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2920, 1401)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.90473
+frame_progress = 0.596232
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7367,14 +7467,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1159, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.184738
+frame_progress = 0.58428
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1127, 2105)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.639029
+frame_progress = 0.130531
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7382,7 +7482,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D95" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, 2328)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.499607
+frame_progress = 0.991109
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7390,7 +7490,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D115" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.0386797
+frame_progress = 0.730174
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7398,14 +7498,14 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D130" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.902215
+frame_progress = 0.105088
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D131" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-72, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.885932
+frame_progress = 0.0703524
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7413,35 +7513,35 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D132" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2393)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.506497
+frame_progress = 0.536079
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D133" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(408, 2361)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.46154
+frame_progress = 0.811076
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D135" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(440, 2329)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.186404
+frame_progress = 0.639863
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D136" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(472, 2296)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.279203
+frame_progress = 0.463631
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D134" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(376, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.84405
+frame_progress = 0.153778
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7449,140 +7549,140 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2375, 1304)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.624577
+frame_progress = 0.216083
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D62" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2824, 1432)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.739021
+frame_progress = 0.420538
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1736, 1688)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.881353
+frame_progress = 0.219148
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1768, 1688)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.370022
+frame_progress = 0.610093
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1479, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.207046
+frame_progress = 0.288482
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1447, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.917584
+frame_progress = 0.509083
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1415, 1976)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.203171
+frame_progress = 0.88468
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1511, 1976)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.515555
+frame_progress = 0.19707
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1255, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.273158
+frame_progress = 0.781029
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1223, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.326583
+frame_progress = 0.0180814
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1191, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.427103
+frame_progress = 0.456684
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-1287, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.197652
+frame_progress = 0.879159
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D94" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-520, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.884061
+frame_progress = 0.565577
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D87" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-678, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.621603
+frame_progress = 0.0131006
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D88" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-646, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.552467
+frame_progress = 0.100566
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-297, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.790501
+frame_progress = 0.472015
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-265, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.183514
+frame_progress = 0.775006
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D102" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-249, 1912)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.583087
+frame_progress = 0.823152
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D92" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-488, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.305176
+frame_progress = 0.996677
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D108" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.610634
+frame_progress = 0.640211
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7590,7 +7690,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D118" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(56, 2297)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.543006
+frame_progress = 0.47444
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7598,7 +7698,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D119" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.647271
+frame_progress = 0.23878
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7606,7 +7706,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D120" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(89, 2331)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.917582
+frame_progress = 0.609082
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7614,7 +7714,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D121" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(121, 2363)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.358521
+frame_progress = 0.696311
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7622,7 +7722,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D122" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(153, 2392)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.133152
+frame_progress = 0.317583
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -7630,196 +7730,196 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D109" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-200, 2329)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.998653
+frame_progress = 0.780145
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D110" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-168, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.795719
+frame_progress = 0.727143
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D114" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-40, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.423578
+frame_progress = 0.10509
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D116" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-8, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.279669
+frame_progress = 0.971172
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D117" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(24, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.674277
+frame_progress = 0.182158
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D111" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-136, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.210767
+frame_progress = 0.510306
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D112" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-104, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.238123
+frame_progress = 0.31956
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D123" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(152, 2425)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.0601579
+frame_progress = 0.244588
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D124" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(184, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.441768
+frame_progress = 0.471349
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D125" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(216, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0568311
+frame_progress = 0.356377
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D126" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(248, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.825139
+frame_progress = 0.134865
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D127" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(280, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.467856
+frame_progress = 0.0593536
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D128" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(312, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.429065
+frame_progress = 0.0205645
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D137" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(504, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.0620781
+frame_progress = 0.453583
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D138" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(536, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.176393
+frame_progress = 0.867888
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D139" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(568, 2296)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.933399
+frame_progress = 0.271195
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D129" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(344, 2424)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.336973
+frame_progress = 0.828472
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D93" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-456, 2328)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.880281
+frame_progress = 0.961707
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D89" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-614, 2104)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.899242
+frame_progress = 0.680742
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D90" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-710, 2104)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.114247
+frame_progress = 0.795751
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-2023, 1273)
 sprite_frames = ExtResource("46_wvcnj")
-frame_progress = 0.207999
+frame_progress = 0.756084
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-424, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.894931
+frame_progress = 0.232727
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D140" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-392, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.732588
+frame_progress = 0.414107
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D141" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-360, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.728307
+frame_progress = 0.409824
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D142" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-328, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.118562
+frame_progress = 0.0999931
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D143" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-296, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.762337
+frame_progress = 0.965208
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D144" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-264, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.674929
+frame_progress = 0.914992
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D145" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/cliff_footers"]
 position = Vector2(-232, -2568)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.625291
+frame_progress = 0.0248274
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
@@ -8237,42 +8337,42 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D97" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39208, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.88709
+frame_progress = 0.435189
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D98" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39176, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.501466
+frame_progress = 0.0495596
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D99" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39144, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.930741
+frame_progress = 0.422247
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D100" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39112, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.658805
+frame_progress = 0.206903
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D101" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39080, -30136)
 sprite_frames = ExtResource("43_cpswx")
-frame_progress = 0.601315
+frame_progress = 0.149413
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39240, -30135)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.66823
+frame_progress = 0.21633
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
@@ -8280,7 +8380,7 @@ wait_offset = 1.0
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="daylight_affected_section/daylight_affected_ysort/game_world/start_area/cliff_footers"]
 position = Vector2(39256, -30118)
 sprite_frames = ExtResource("45_j6i8r")
-frame_progress = 0.179816
+frame_progress = 0.633275
 flip_h = true
 script = ExtResource("44_o7dv5")
 wait_offset = 1.0
