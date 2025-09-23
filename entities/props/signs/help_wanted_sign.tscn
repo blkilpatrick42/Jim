@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ee4ba8vtoxo0" path="res://sprites/props/help_wanted_sign.png" id="1_t8fau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hawsn"]
-size = Vector2(20, 42)
+size = Vector2(20, 62)
 
 [node name="HelpWantedSign" type="Area2D"]
 script = ExtResource("1_lsnjx")
@@ -15,6 +15,6 @@ text_when_zone_entered = true
 texture = ExtResource("1_t8fau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_hawsn")
 debug_color = Color(0, 0.6, 0, 0.419608)
