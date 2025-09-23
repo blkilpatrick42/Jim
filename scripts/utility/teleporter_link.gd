@@ -57,7 +57,7 @@ func _draw():
 		draw_line(Vector2(), get_transform().affine_inverse() * linked_teleporter.global_position, Color(0,0,1,1), -1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	_fade_to_black.global_position = Vector2(0,0)
 	update_fade_alpha()
 	if(Engine.is_editor_hint()):
@@ -144,4 +144,3 @@ func _on_area_2d_body_entered(body):
 			body.reparent(daylight_affected_ysort)
 		if(reparent_to_no_daylight):
 			body.reparent(no_daylight_ysort)
-
