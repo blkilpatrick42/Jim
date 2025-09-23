@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(24, 24)
 
-[node name="trash_can_closed" type="RigidBody2D" groups=["dynamic", "prop"]]
+[node name="trash_can_open_trahbag" type="RigidBody2D" groups=["dynamic", "prop"]]
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 4351

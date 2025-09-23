@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dprahdqyqq6s0"]
+
+[ext_resource type="Texture2D" uid="uid://bh1d5smgojx2v" path="res://sprites/game_world/green_car.png" id="1_p5on1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nltfb"]
+size = Vector2(118, 48)
+
+[node name="GreenCar" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p5on1")
+offset = Vector2(0, 20)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_nltfb")

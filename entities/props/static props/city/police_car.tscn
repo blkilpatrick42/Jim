@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://77jd02rb1tun"]
+
+[ext_resource type="Texture2D" uid="uid://bl637bhjhs7vq" path="res://sprites/game_world/police_car.png" id="1_mqemq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nltfb"]
+size = Vector2(126, 51)
+
+[node name="PoliceCar" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mqemq")
+offset = Vector2(0, 24)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4, 29)
+shape = SubResource("RectangleShape2D_nltfb")
