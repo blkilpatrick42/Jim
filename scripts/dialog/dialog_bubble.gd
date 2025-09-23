@@ -61,7 +61,7 @@ func _ready():
 	sound_player.bus = "Effects"
 	
 
-func _process(delta):
+func _physics_process(delta):
 	if(_portrait.sprite_frames == null):
 		_label.size.x = 220
 		_label.position.x = -110

@@ -48,7 +48,7 @@ func isVowel(subStr):
 	else: false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	wait_time = wait_time + delta
 	if(full_text_displayed == false):
 		if(wait_time >= time_between_chars):
