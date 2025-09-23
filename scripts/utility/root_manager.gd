@@ -35,4 +35,3 @@ func _process(delta):
 		prev_scene_freed = true
 		var main_scene = main_scene.instantiate()
 		add_child(main_scene)
-

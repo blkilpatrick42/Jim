@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7kofxbtudo7"]
+
+[ext_resource type="Script" uid="uid://cbgbel0u7cxd7" path="res://scripts/utility/comment_area.gd" id="1_lsnjx"]
+[ext_resource type="Texture2D" uid="uid://ee4ba8vtoxo0" path="res://sprites/props/help_wanted_sign.png" id="1_t8fau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hawsn"]
+size = Vector2(20, 62)
+
+[node name="HelpWantedSign" type="Area2D"]
+script = ExtResource("1_lsnjx")
+text = "\"PIZZA COURIERS URGENTLY NEEDED\""
+text_when_zone_entered = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t8fau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_hawsn")
+debug_color = Color(0, 0.6, 0, 0.419608)

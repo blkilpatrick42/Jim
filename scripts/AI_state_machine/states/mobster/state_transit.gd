@@ -110,7 +110,7 @@ func enter(_msg := {}) -> void:
 	distance_to_current_point() > distance_to_break_current_point):
 		current_point_to_closest_point()
 	else:
-		if(current_patrol_point.has_next_point):
+		if(current_patrol_point.has_next_point()):
 			current_patrol_point = current_patrol_point.get_next_point()
 	
 	if(current_patrol_point != null):

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl38mevtnmtq1"]
+
+[ext_resource type="Texture2D" uid="uid://cji7agu6mdcnb" path="res://sprites/props/dynamic props/trash_can_open_bag.png" id="1_mb3pg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
+size = Vector2(24, 24)
+
+[node name="trash_can_closed" type="RigidBody2D" groups=["dynamic", "prop"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 4351
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 5.0
+
+[node name="sprite" type="Sprite2D" parent="." groups=["dynamic", "prop"]]
+y_sort_enabled = true
+texture = ExtResource("1_mb3pg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["dynamic", "prop"]]
+y_sort_enabled = true
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_x7wqg")
