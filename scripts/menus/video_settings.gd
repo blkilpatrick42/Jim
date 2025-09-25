@@ -3,12 +3,12 @@ extends MarginContainer
 @onready var resolution_label = $CenterContainer/VBoxContainer/resolution
 @onready var integer_scaling_label = $CenterContainer/VBoxContainer/integer_scaling
 @onready var full_screen_label = $CenterContainer/VBoxContainer/full_screen
+@onready var light_quality_label = $CenterContainer/VBoxContainer/light_settings
 @onready var back_label = $CenterContainer/VBoxContainer/back_label
 
 #settings TODO: get these from a serializable class
-var supported_resolutions = [Vector2(632,320),Vector2(600,360),Vector2(640,360)]
-var resolution_index = 0
-var full_screen = false
+
+
 var integer_scaling = true
 
 var active_child_menu = null
@@ -48,11 +48,11 @@ func update_selection():
 
 func handle_selection():
 	if(select_index == 0): #resolution
-		if(resolution_index < supported_resolutions.size() -1):
-			resolution_index += 1
+		if(SettingsVariables.resolution_index < SettingsVariables.supported_resolutions.size() -1):
+			SettingsVariables.resolution_index += 1
 		else:
-			resolution_index = 0 
-		get_viewport().content_scale_size = supported_resolutions[resolution_index]
+			SettingsVariables.resolution_index = 0 
+		get_viewport().content_scale_size = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 	elif(select_index == 1): #integer scaling
 		integer_scaling = !integer_scaling
 		if(integer_scaling):
@@ -60,12 +60,17 @@ func handle_selection():
 		else:
 			get_viewport().content_scale_stretch = 0 #fractional
 	elif(select_index == 2): #full screen
-		full_screen = !full_screen
-		if(full_screen):
+		SettingsVariables.full_screen = !SettingsVariables.full_screen
+		if(SettingsVariables.full_screen):
 			get_viewport().mode = 4 #fullscreen
 		else:
 			get_viewport().mode = 2 #maximized 
-	elif(select_index == 3): #back
+	elif(select_index == 3): #resolution
+		if(SettingsVariables.lighting_index < SettingsVariables.lighting_settings.size() -1):
+			SettingsVariables.lighting_index += 1
+		else:
+			SettingsVariables.lighting_index = 0 
+	elif(select_index == 4): #back
 		queue_free()
 		
 func handle_input():
@@ -86,21 +91,22 @@ func handle_input():
 func _ready():
 	sound_player.bus = "Effects"
 	add_child(sound_player)
-	labels = [resolution_label, integer_scaling_label, full_screen_label, back_label]
+	labels = [resolution_label, integer_scaling_label, full_screen_label, light_quality_label, back_label]
 	set_labels_alpha(menu_alpha)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var resolution = supported_resolutions[resolution_index]
+func _physics_process(delta):
+	var resolution = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 	resolution_label.text = str("RESOLUTION:\n",str(str(resolution.x,"x"),resolution.y))
 	var int_scaling_str = "ON"
 	if(!integer_scaling):
 		int_scaling_str = "OFF"
 	integer_scaling_label.text = str("INTEGER SCALING:\n",int_scaling_str)
 	var full_screen_str = "ON"
-	if(!full_screen):
+	if(!SettingsVariables.full_screen):
 		full_screen_str = "OFF"
 	full_screen_label.text = str("FULL SCREEN:\n",full_screen_str)
+	light_quality_label.text = str("LIGHTING QUALITY:\n",SettingsVariables.lighting_settings[SettingsVariables.lighting_index])
 	menu_alpha = 1
 	set_labels_alpha(menu_alpha)
 	handle_input()

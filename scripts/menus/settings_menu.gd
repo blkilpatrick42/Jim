@@ -75,7 +75,7 @@ func _ready():
 	set_labels_alpha(menu_alpha)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float):
 	if(active_child_menu == null):
 		menu_alpha = 1
 		set_labels_alpha(menu_alpha)

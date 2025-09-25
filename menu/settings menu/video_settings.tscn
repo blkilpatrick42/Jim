@@ -53,6 +53,15 @@ label_settings = SubResource("LabelSettings_0j45f")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="light_settings" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "LIGHTING QUALITY:
+LOW
+"
+label_settings = SubResource("LabelSettings_0j45f")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="back_label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "BACK

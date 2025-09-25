@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/image="res://sprites/start_screen/dire_logo_2.png"
 config/icon="res://sprites/pizzaBubble.png"
 
+[autoload]
+
+SettingsVariables="*res://scripts/menus/settings_variables.gd"
+
 [display]
 
 window/size/viewport_width=632

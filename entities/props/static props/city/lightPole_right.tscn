@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7i6xhe00dvi4"]
+[gd_scene load_steps=8 format=3 uid="uid://b7i6xhe00dvi4"]
 
 [ext_resource type="Texture2D" uid="uid://2hjb0jnagdkt" path="res://sprites/props/lightPole.png" id="1_f2cht"]
 [ext_resource type="Texture2D" uid="uid://d1u4hqhj0fees" path="res://sprites/lights/solid_circle.png" id="2_g61jv"]
 [ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="3_enns8"]
+[ext_resource type="Texture2D" uid="uid://b0a01xjyybg6r" path="res://sprites/lights/solid_circle_yellow.png" id="4_jqfgf"]
+[ext_resource type="Script" uid="uid://cgb37eifsnes3" path="res://scripts/clock/timed_light_sprite.gd" id="5_iaie0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(70.3932, 27.5491)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h4eb8"]
+blend_mode = 1
 
 [node name="lightPole" type="StaticBody2D" groups=["prop"]]
 
@@ -23,6 +28,8 @@ color = Color(1, 1, 0.803922, 1)
 texture = ExtResource("2_g61jv")
 script = ExtResource("3_enns8")
 running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_mid = true
+active_at_hi = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["prop"]]
 z_as_relative = false
@@ -30,3 +37,13 @@ y_sort_enabled = true
 position = Vector2(0.0479048, 7.5)
 scale = Vector2(0.16911, 0.544482)
 shape = SubResource("RectangleShape2D_x7wqg")
+
+[node name="PointLight2D2" type="Sprite2D" parent="."]
+z_index = 400
+material = SubResource("CanvasItemMaterial_h4eb8")
+position = Vector2(86, 8)
+scale = Vector2(0.695313, 0.328125)
+texture = ExtResource("4_jqfgf")
+script = ExtResource("5_iaie0")
+running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_low = true

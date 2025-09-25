@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvw0h3o72k4yp"]
+[gd_scene load_steps=8 format=3 uid="uid://cvw0h3o72k4yp"]
 
 [ext_resource type="Texture2D" uid="uid://2hjb0jnagdkt" path="res://sprites/props/lightPole.png" id="1_imvq8"]
 [ext_resource type="Texture2D" uid="uid://d1u4hqhj0fees" path="res://sprites/lights/solid_circle.png" id="2_upycp"]
 [ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="3_f68rw"]
+[ext_resource type="Texture2D" uid="uid://b0a01xjyybg6r" path="res://sprites/lights/solid_circle_yellow.png" id="4_o5xn8"]
+[ext_resource type="Script" uid="uid://cgb37eifsnes3" path="res://scripts/clock/timed_light_sprite.gd" id="5_t47r7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7wqg"]
 size = Vector2(70.3931, 27.5491)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2lpve"]
+blend_mode = 1
 
 [node name="lightPole" type="StaticBody2D" groups=["prop"]]
 
@@ -25,9 +30,21 @@ shape = SubResource("RectangleShape2D_x7wqg")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 self_modulate = Color(1, 1, 0.905882, 0.501961)
-position = Vector2(-85, 8)
-scale = Vector2(0.705, 0.33)
+position = Vector2(-85.88, 8)
+scale = Vector2(0.711875, 0.33)
 color = Color(1, 1, 0.803922, 1)
 texture = ExtResource("2_upycp")
 script = ExtResource("3_f68rw")
 running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_mid = true
+active_at_hi = true
+
+[node name="PointLight2D2" type="Sprite2D" parent="."]
+z_index = 400
+material = SubResource("CanvasItemMaterial_2lpve")
+position = Vector2(-86, 8)
+scale = Vector2(0.710938, 0.328125)
+texture = ExtResource("4_o5xn8")
+script = ExtResource("5_t47r7")
+running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_low = true

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c66yvth0jdecv"]
+[gd_scene load_steps=8 format=3 uid="uid://c66yvth0jdecv"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpvvvofn2g41j" path="res://sprites/spritesheets/spriteframes/game_world/train_stat_window_1.tres" id="1_c64hi"]
 [ext_resource type="Script" uid="uid://cxi3plipn5gyw" path="res://scripts/clock/clock_anim.gd" id="2_uwuo1"]
 [ext_resource type="Texture2D" uid="uid://7xytxntsgyls" path="res://sprites/lights/diffuse_circle.png" id="3_s2ova"]
 [ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="4_0kcmm"]
+[ext_resource type="Texture2D" uid="uid://6dh6plwhup22" path="res://sprites/lights/diffuse_yellow_light.png" id="5_54gur"]
+[ext_resource type="Script" uid="uid://cgb37eifsnes3" path="res://scripts/clock/timed_light_sprite.gd" id="6_om551"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c4r8x"]
+blend_mode = 1
 
 [node name="train_st_window_1_all_night" type="Node2D"]
 
@@ -18,3 +23,13 @@ color = Color(1, 1, 0.541176, 1)
 texture = ExtResource("3_s2ova")
 script = ExtResource("4_0kcmm")
 running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_hi = true
+
+[node name="PointLight2D2" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_c4r8x")
+scale = Vector2(0.175781, 0.175781)
+texture = ExtResource("5_54gur")
+script = ExtResource("6_om551")
+running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
+active_at_low = true
+active_at_mid = true
