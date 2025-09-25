@@ -23,6 +23,7 @@ color = Color(1, 1, 0.541176, 1)
 texture = ExtResource("3_8ueps")
 script = ExtResource("4_w5gof")
 running_hours = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, false, false])
+active_at_mid = true
 active_at_hi = true
 
 [node name="PointLight2D2" type="Sprite2D" parent="."]
@@ -32,4 +33,3 @@ texture = ExtResource("5_jnkmf")
 script = ExtResource("6_27ba1")
 running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true])
 active_at_low = true
-active_at_mid = true

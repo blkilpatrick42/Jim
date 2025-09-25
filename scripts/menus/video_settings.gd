@@ -6,11 +6,6 @@ extends MarginContainer
 @onready var light_quality_label = $CenterContainer/VBoxContainer/light_settings
 @onready var back_label = $CenterContainer/VBoxContainer/back_label
 
-#settings TODO: get these from a serializable class
-
-
-var integer_scaling = true
-
 var active_child_menu = null
 var select_index = 0
 var labels: Array[Node] = []
@@ -54,8 +49,8 @@ func handle_selection():
 			SettingsVariables.resolution_index = 0 
 		get_viewport().content_scale_size = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 	elif(select_index == 1): #integer scaling
-		integer_scaling = !integer_scaling
-		if(integer_scaling):
+		SettingsVariables.integer_scaling = !SettingsVariables.integer_scaling
+		if(SettingsVariables.integer_scaling):
 			get_viewport().content_scale_stretch = 1 #integer
 		else:
 			get_viewport().content_scale_stretch = 0 #fractional
@@ -99,7 +94,7 @@ func _physics_process(delta):
 	var resolution = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 	resolution_label.text = str("RESOLUTION:\n",str(str(resolution.x,"x"),resolution.y))
 	var int_scaling_str = "ON"
-	if(!integer_scaling):
+	if(!SettingsVariables.integer_scaling):
 		int_scaling_str = "OFF"
 	integer_scaling_label.text = str("INTEGER SCALING:\n",int_scaling_str)
 	var full_screen_str = "ON"
