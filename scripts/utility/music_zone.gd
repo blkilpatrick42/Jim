@@ -16,7 +16,7 @@ func _ready():
 	main_music_player = get_tree().get_first_node_in_group("main_music_player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float):
 	if(internal_clock != time_keeper.clock &&
 	active == true):
 		internal_clock = time_keeper.clock
