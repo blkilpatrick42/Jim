@@ -88,6 +88,24 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func get_hat_spriteframes() -> SpriteFrames:
+	return hat_spriteframes
+
+func get_top_spriteframes() -> SpriteFrames:
+	return top_spriteframes
+
+func get_bottom_spriteframes() -> SpriteFrames:
+	return bottom_spriteframes
+
+func set_hat_spriteframes(hat : SpriteFrames):
+	_character_base.set_hat_spriteframes(hat)
+
+func set_top_spriteframes(top : SpriteFrames):
+	_character_base.set_top_spriteframes(top)
+
+func set_bottom_spriteframes(bottom : SpriteFrames):
+	_character_base.set_bottom_spriteframes(bottom)
+
 func set_ui_visible():
 	_ui.visible = true
 
@@ -162,6 +180,16 @@ func go_vincible():
 	_character_base.stop_flashing()
 	is_invincible = false
 	set_collision_layer_value(damage_collision_layer,true)
+
+func face_dir(dir : String):
+	if (dir == direction.right):
+		_character_base.face_right()
+	else: if (dir == direction.left):
+		_character_base.face_left()
+	else: if (dir == direction.up):
+		_character_base.face_up()
+	else: if (dir == direction.down):
+		_character_base.face_down()
 
 func _activate_location_header(name : String):
 	_ui.activate_header(name)

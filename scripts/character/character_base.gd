@@ -180,6 +180,18 @@ func set_spriteframes(base, hat, top, bottom):
 	if(Engine.is_editor_hint()):
 		queue_redraw()
 
+func set_hat_spriteframes(hat):
+	if(_hat != null):
+		_hat.sprite_frames = hat
+
+func set_top_spriteframes(top):
+	if(_top != null):
+		_top.sprite_frames = top
+
+func set_bottom_spriteframes(bottom):
+	if(_bottom != null):
+		_bottom.sprite_frames = bottom
+
 func set_visibility(value : bool):
 	_base_sprite.visible = value
 	_hat.visible = value

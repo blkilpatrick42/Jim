@@ -3,9 +3,7 @@ extends Node2D
 
 @onready var _fade_to_black = $fade_to_black
 @export var linked_teleporter:Node2D = null
-@export var enter_x_push = 0
 @export var enter_y_push = 0
-@export var exit_x_push = 0
 @export var exit_y_push = 0
 @export var exit_only = false
 @export var reparent_to_daylight = false
@@ -33,6 +31,8 @@ var player_ref = null
 var daylight_affected_ysort : Node
 var no_daylight_ysort : Node
 var dark_indoor_ysort : Node
+
+@export var exit_dir : String = ""
 
 var npcs_using_teleporter : Array[Node] = []
 
@@ -80,31 +80,33 @@ func enter():
 	else: if(fade_alpha >= 1):
 		fade_alpha = 1
 		update_fade_alpha()
+		
 		player_ref.global_position = linked_teleporter.global_position
 		if(reparent_to_daylight):
 			player_ref.reparent(daylight_affected_ysort)
-		if(reparent_to_no_daylight):
+		elif(reparent_to_no_daylight):
 			player_ref.reparent(no_daylight_ysort)
-		if(reparent_to_dark_indoor):
+		elif(reparent_to_dark_indoor):
 			player_ref.reparent(dark_indoor_ysort)
+			
 		linked_teleporter.player_ref = player_ref
 		linked_teleporter.timer_fade.start(teleport_step_secs)
 		linked_teleporter.exiting = true
 		entering = false
-		if(linked_teleporter.exit_x_push != 0):
-				player_ref.set_current_v(Vector2(linked_teleporter.exit_x_push,0))
 		if(linked_teleporter.exit_y_push != 0):
 				player_ref.set_current_v(Vector2(0,linked_teleporter.exit_y_push))
 
 func exit():
 	if(fade_alpha > 0 && timer_fade.is_stopped()):
+		if(exit_dir != ""):
+			player_ref.face_dir(exit_dir)
 		fade_alpha = fade_alpha - fade_step
 		update_fade_alpha()
 		timer_fade.start(fade_step_secs)
 	else: if(fade_alpha <= 0):
 		fade_alpha = 0
 		exiting = false
-		player_ref.stop()
+		#player_ref.stop()
 		if(secs_for_control_back > 0):
 			control_timer_active = true
 			timer_control_back.start(secs_for_control_back)
@@ -130,8 +132,6 @@ func _on_area_2d_body_entered(body):
 			player_ref.set_control_frozen(true)
 			update_fade_alpha()
 			timer_fade.start(fade_step_secs)
-			if(enter_x_push != 0):
-				player_ref.set_current_v(Vector2(enter_x_push,0))
 			if(enter_y_push != 0):
 				player_ref.set_current_v(Vector2(0,enter_y_push))
 	elif(body.is_in_group("npc") && 

@@ -51,7 +51,7 @@ func physics_process(_delta: float) -> void:
 		return
 	else:
 		#check for targets
-		var player = get_tree().get_first_node_in_group("player")
+		var player = get_tree().get_first_node_in_group("courier")
 		var pizza = get_tree().get_first_node_in_group("pizza")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing

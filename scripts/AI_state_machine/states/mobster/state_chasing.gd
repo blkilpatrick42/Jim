@@ -52,7 +52,7 @@ func physics_process(_delta: float) -> void:
 		return
 	else:
 		#mobster takes priority over player
-		var player = get_tree().get_first_node_in_group("player")
+		var player = get_tree().get_first_node_in_group("courier")
 		var nodes_in_vision = ai_state_machine.get_perceptions().nodes_in_vision
 		var nodes_in_hearing = ai_state_machine.get_perceptions().nodes_in_hearing
 		for node in nodes_in_vision:
@@ -64,7 +64,7 @@ func physics_process(_delta: float) -> void:
 					ai_state_machine.transition_to(mobster_states.exclaiming)
 					return
 		if(ai_state_machine.get_perceptions().target_obj != null &&
-		!ai_state_machine.get_perceptions().target_obj.is_in_group("player") &&
+		!ai_state_machine.get_perceptions().target_obj.is_in_group("courier") &&
 			nodes_in_vision.has(player)):
 			set_target.emit(player)
 			if(ai_state_machine.get_perceptions().has_line_of_sight_to_target):
