@@ -7,6 +7,7 @@
 light_mode = 1
 
 [node name="exclaim" type="Node2D" groups=["commotion", "exclaim"]]
+z_index = 7
 script = ExtResource("1_hxebi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]

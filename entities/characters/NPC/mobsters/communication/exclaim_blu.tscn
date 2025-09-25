@@ -10,6 +10,7 @@ light_mode = 1
 script = ExtResource("1_u32w2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["interface"]]
+z_index = 7
 material = SubResource("CanvasItemMaterial_4lqkf")
 position = Vector2(16, 0)
 sprite_frames = ExtResource("2_xnlim")

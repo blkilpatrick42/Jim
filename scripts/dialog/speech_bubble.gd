@@ -38,6 +38,7 @@ func play_passive_text(text, newVoice):
 	voice = newVoice
 
 func isVowel(subStr):
+	subStr = subStr.to_lower()
 	if(subStr == "a" ||
 	   subStr == "e" ||
 	   subStr == "i" ||

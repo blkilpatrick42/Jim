@@ -278,6 +278,14 @@ func handle_pick_up():
 		grabbed_object = null
 		set_holding_object(false)
 
+func return_pizza():
+	sound_player.stream = load("res://audio/soundFX/pickup.wav")
+	sound_player.play()
+	var pizza = get_tree().get_first_node_in_group("pizza")
+	pizza.pick_up(self)
+	grabbed_object = pizza
+	set_holding_object(true)
+
 func dash():
 	if(!is_dashing && Input.get_vector(direction.left, direction.right, direction.up, direction.down).length() > 0):
 		if(can_dash):
@@ -312,9 +320,27 @@ func move():
 	
 	_character_base.set_animation_scale(0.2, 0.8, speed(), top_speed)
 
-func _process(_delta):
+#func _process(_delta):
+	#if(!Engine.is_editor_hint()):
+		
+					
+func _physics_process(delta):
 	if(!Engine.is_editor_hint()):
+		if(camera_connected):
+			_camera.handle_camera_pan()
 		if(!dead):
+			get_input()
+			if(in_dialog):
+				current_v = Vector2(0,0)
+			apply_force(current_v)
+			if(invincibility_timer.is_stopped() &&
+			is_invincible == true):
+				go_vincible()
+			_ui.update_hearts(current_hp)
+			_ui.set_money(money)
+			if(anchored && active_anchor != null):
+				global_position = active_anchor.global_position
+
 			_character_base.animate_sprite_by_vector(current_v, (speed() >= top_speed))
 			update_grabber()
 			will_grab_object = null
@@ -356,21 +382,4 @@ func _process(_delta):
 				else:
 					if(comment_timer.is_stopped()):
 						speech_instance.queue_free()
-					
-func _physics_process(delta):
-	if(!Engine.is_editor_hint()):
-		if(camera_connected):
-			_camera.handle_camera_pan()
-		if(!dead):
-			get_input()
-			if(in_dialog):
-				current_v = Vector2(0,0)
-			apply_force(current_v)
-			if(invincibility_timer.is_stopped() &&
-			is_invincible == true):
-				go_vincible()
-			_ui.update_hearts(current_hp)
-			_ui.set_money(money)
-			if(anchored && active_anchor != null):
-				global_position = active_anchor.global_position
 		

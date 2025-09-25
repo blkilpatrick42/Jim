@@ -129,6 +129,7 @@ func deliver_pizza():
 	dialog_manager.set_speaker_node(destination_door)
 	get_parent().add_child(dialog_manager)
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
+	player_ref.return_pizza()
 	player_ref.enter_dialog()
 	
 	#delivering destroyed pizza

@@ -62,7 +62,7 @@ func player_is_behind_door():
 	return ret_val
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float):
 	#opener has to stand near the door for a period of time for it to open
 	if(opened == false && !waiting_to_open && opener_is_near()):
 		waiting_to_open = true
@@ -91,6 +91,8 @@ func _process(delta):
 		if(locked_hours[time_keeper.clock]):
 			locked = true
 		else: locked = false
+	else:
+		locked = false
 	
 	var last_frame_open = _animated_sprite.sprite_frames.get_frame_count("open")-1 
 	var last_frame_close = _animated_sprite.sprite_frames.get_frame_count("close")-1 
