@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cemad02h52qne"]
+
+[ext_resource type="Texture2D" uid="uid://pww080ujea30" path="res://sprites/props/booth.png" id="1_mt3h5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51w5l"]
+size = Vector2(62, 76)
+
+[node name="Booth" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_mt3h5")
+offset = Vector2(0, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 33)
+shape = SubResource("RectangleShape2D_51w5l")
