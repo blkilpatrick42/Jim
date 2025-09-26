@@ -12,6 +12,7 @@ var menu_alpha = 0
 var menu_alpha_step_size = 0.025
 var alpha_step_time_secs = 0.05
 var done_fading = false
+var scene_changing = false
 
 var sound_player := AudioStreamPlayer2D.new()
 var timer = Timer.new()
@@ -49,6 +50,7 @@ func update_selection():
 
 func handle_selection():
 	if(select_index == 0): #start
+		scene_changing = true
 		transition_to_main_scene.emit()
 	elif(select_index == 1): #settings
 		var child_settings_menu = settings_menu.instantiate()
@@ -58,7 +60,7 @@ func handle_selection():
 		get_tree().quit()
 		
 func handle_input():
-	if(done_fading):
+	if(done_fading && !scene_changing):
 		if Input.is_action_just_pressed(direction.up):
 			if(select_index > 0):
 				reduce_index()
@@ -94,7 +96,7 @@ func _ready():
 	AudioServer.set_bus_volume_db(2, -bus_headroom) #set effects headroom
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if(active_child_menu == null):
 		handle_input()
 		#fade in menu

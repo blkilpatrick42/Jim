@@ -35,7 +35,7 @@ scale = Vector2(0.711875, 0.33)
 color = Color(1, 1, 0.803922, 1)
 texture = ExtResource("2_upycp")
 script = ExtResource("3_f68rw")
-running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true])
+running_hours = Array[bool]([true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true])
 active_at_mid = true
 active_at_hi = true
 
@@ -46,5 +46,5 @@ position = Vector2(-86, 8)
 scale = Vector2(0.710938, 0.328125)
 texture = ExtResource("4_o5xn8")
 script = ExtResource("5_t47r7")
-running_hours = Array[bool]([true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true])
+running_hours = Array[bool]([true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true])
 active_at_low = true
