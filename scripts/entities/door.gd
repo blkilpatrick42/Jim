@@ -44,6 +44,12 @@ func close():
 		if(one_time_use):
 			opens_for_groups = []
 
+func lock():
+	locked = true
+
+func unlock():
+	locked = false
+
 func opener_is_near():
 	var retVal = false
 	for group in opens_for_groups:

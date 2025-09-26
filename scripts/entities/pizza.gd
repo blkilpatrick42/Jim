@@ -55,7 +55,7 @@ func pizza_destroyed():
 	destroy_self()
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
 	timer.one_shot = true
 	add_child(timer)	
 	_compass.visible = false
@@ -129,7 +129,6 @@ func deliver_pizza():
 	dialog_manager.set_speaker_node(destination_door)
 	get_parent().add_child(dialog_manager)
 	var player_ref = get_tree().get_nodes_in_group("player")[0]
-	player_ref.return_pizza()
 	player_ref.enter_dialog()
 	
 	#delivering destroyed pizza
@@ -164,14 +163,19 @@ func deliver_pizza():
 	dialog_manager.set_tree_and_start_dialog(delivery_dialog_tree)	
 	pizzas -= 1
 	if(pizzas > 0):
+		player_ref.return_pizza()
 		selected_delivery_doors.erase(destination_door)
 		destination_door = selected_delivery_doors[0]
 	else:
+		var pizza_kitchen_door = get_tree().get_first_node_in_group("kitchen_door")
+		pizza_kitchen_door.unlock()
 		destroy_self()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float):
 	if(_prop != null):
+		var pizza_kitchen_door = get_tree().get_first_node_in_group("kitchen_door")
+		pizza_kitchen_door.lock()
 		update_pizza_stack()
 		if(_prop.is_picked_up() && 
 		_prop.get_parent().is_in_group("player") && 
