@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2hjb0jnagdkt" path="res://sprites/props/lightPole.png" id="1_imvq8"]
 [ext_resource type="Texture2D" uid="uid://d1u4hqhj0fees" path="res://sprites/lights/solid_circle.png" id="2_upycp"]
-[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="3_f68rw"]
+[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://sprites/lights/timed_light.gd" id="3_f68rw"]
 [ext_resource type="Texture2D" uid="uid://b0a01xjyybg6r" path="res://sprites/lights/solid_circle_yellow.png" id="4_o5xn8"]
 [ext_resource type="Script" uid="uid://cgb37eifsnes3" path="res://scripts/clock/timed_light_sprite.gd" id="5_t47r7"]
 

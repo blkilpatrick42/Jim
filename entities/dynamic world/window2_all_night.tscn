@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bu0s4673l2a68" path="res://sprites/spritesheets/spriteframes/game_world/window2.tres" id="1_4vdnb"]
 [ext_resource type="Script" uid="uid://cxi3plipn5gyw" path="res://scripts/clock/clock_anim.gd" id="2_lhbrc"]
 [ext_resource type="Texture2D" uid="uid://6dh6plwhup22" path="res://sprites/lights/diffuse_yellow_light.png" id="3_x3o52"]
-[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="4_ok4g0"]
+[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://sprites/lights/timed_light.gd" id="4_ok4g0"]
 [ext_resource type="Script" uid="uid://cgb37eifsnes3" path="res://scripts/clock/timed_light_sprite.gd" id="5_x3o52"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x3o52"]

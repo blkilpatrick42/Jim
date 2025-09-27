@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://44qprutfpgt1" path="res://sprites/spritesheets/spriteframes/game_world/bar_sign.tres" id="1_3revh"]
 [ext_resource type="Script" uid="uid://hb4v28wpc1qu" path="res://entities/characters/NPC/mobsters/util/bar_sign.gd" id="1_an41j"]
 [ext_resource type="Texture2D" uid="uid://7xytxntsgyls" path="res://sprites/lights/diffuse_circle.png" id="2_h1lxl"]
-[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="3_an41j"]
+[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://sprites/lights/timed_light.gd" id="3_an41j"]
 
 [node name="BarSign" type="Node2D"]
 script = ExtResource("1_an41j")

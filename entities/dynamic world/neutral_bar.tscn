@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c61l5rhox2220"]
+
+[ext_resource type="SpriteFrames" uid="uid://bvd88lnlae771" path="res://sprites/spritesheets/spriteframes/game_world/neutral_bar_sign.tres" id="1_l2biu"]
+[ext_resource type="Script" uid="uid://cmnqjuh61knqf" path="res://scripts/clock/run_anim_to_clock.gd" id="2_lv0a0"]
+[ext_resource type="Texture2D" uid="uid://7xytxntsgyls" path="res://sprites/lights/diffuse_circle.png" id="3_n08vp"]
+[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://sprites/lights/timed_light.gd" id="4_algrk"]
+
+[node name="NeutralBarNeon" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_l2biu")
+animation = &"running"
+script = ExtResource("2_lv0a0")
+running_hours = Array[bool]([true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true])
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 8
+scale = Vector2(0.319205, 0.368058)
+color = Color(1, 1, 0.054902, 1)
+texture = ExtResource("3_n08vp")
+script = ExtResource("4_algrk")
+running_hours = Array[bool]([true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true, true, true, true, true, true])
+active_at_low = true
+active_at_mid = true
+active_at_hi = true

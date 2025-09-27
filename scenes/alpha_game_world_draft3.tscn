@@ -16,7 +16,7 @@
 [ext_resource type="TileSet" uid="uid://dfyrmia6itd31" path="res://sprites/tilesets/indoor_test_set_1.tres" id="14_hemyw"]
 [ext_resource type="PackedScene" uid="uid://dpruoc10tcsh5" path="res://entities/characters/NPC/mobsters/mobster.tscn" id="15_bkxwh"]
 [ext_resource type="SpriteFrames" uid="uid://cpe2jw8jk1hqg" path="res://sprites/spritesheets/spriteframes/characters/base/blu_mobster_base.tres" id="16_bpye8"]
-[ext_resource type="PackedScene" uid="uid://c61l5rhox2220" path="res://entities/dynamic world/pizza_neon.tscn" id="17_c70bi"]
+[ext_resource type="PackedScene" uid="uid://c61l5rhox2220" path="res://entities/dynamic world/neutral_bar.tscn" id="17_c70bi"]
 [ext_resource type="Texture2D" uid="uid://bskq5e775yxyx" path="res://sprites/game_world/decals/onyx_cave_ad.png" id="18_xt8gj"]
 [ext_resource type="PackedScene" uid="uid://dh2vssi64lbgs" path="res://entities/props/static props/city/train_tracks.tscn" id="19_hiy2o"]
 [ext_resource type="PackedScene" uid="uid://70py3s8or8pa" path="res://entities/props/static props/city/train_tracks_rev.tscn" id="20_pw3md"]

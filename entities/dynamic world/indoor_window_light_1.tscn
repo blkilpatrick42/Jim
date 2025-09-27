@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvpxd8fmth427"]
 
 [ext_resource type="Texture2D" uid="uid://dkmviee8xxpm7" path="res://sprites/lights/indoor_window__light.png" id="1_1s8t7"]
-[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://scripts/clock/timed_light.gd" id="2_yjwhw"]
+[ext_resource type="Script" uid="uid://cpcowly5yu2nq" path="res://sprites/lights/timed_light.gd" id="2_yjwhw"]
 
 [node name="IndoorWindowLight1" type="Node2D"]
 

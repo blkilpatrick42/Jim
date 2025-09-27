@@ -16,7 +16,7 @@
 [ext_resource type="SpriteFrames" uid="uid://c2xs2bbds05s3" path="res://sprites/spritesheets/spriteframes/characters/top/shirt_0.tres" id="14_bkqse"]
 [ext_resource type="PackedScene" uid="uid://0238pavltllm" path="res://entities/props/dynamic props/props_dynamic_pickupable/city/ball.tscn" id="15_8vai1"]
 [ext_resource type="PackedScene" uid="uid://durd7oart1xoi" path="res://entities/dynamic world/pizzashop_window.tscn" id="16_nn84g"]
-[ext_resource type="PackedScene" uid="uid://c61l5rhox2220" path="res://entities/dynamic world/pizza_neon.tscn" id="17_hpgxo"]
+[ext_resource type="PackedScene" uid="uid://c61l5rhox2220" path="res://entities/dynamic world/neutral_bar.tscn" id="17_hpgxo"]
 [ext_resource type="PackedScene" uid="uid://b7i6xhe00dvi4" path="res://entities/props/static props/city/lightPole_right.tscn" id="18_8ba1o"]
 [ext_resource type="PackedScene" uid="uid://cvw0h3o72k4yp" path="res://entities/props/static props/city/lightPole_left.tscn" id="19_p41tx"]
 [ext_resource type="PackedScene" uid="uid://0cgmkcatxxns" path="res://entities/props/static props/city/police_barrier.tscn" id="20_q7jud"]
