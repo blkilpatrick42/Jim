@@ -512,6 +512,7 @@ position = Vector2(376, -311)
 linked_teleporter = NodePath("../teleporter_link2")
 enter_y_push = -50000
 exit_y_push = 25000
+exit_dir = ""
 
 [node name="teleporter_link2" parent="dev_layer" node_paths=PackedStringArray("linked_teleporter") instance=ExtResource("4_313fk")]
 position = Vector2(2200, 72.8197)
@@ -519,6 +520,7 @@ linked_teleporter = NodePath("../teleporter_link")
 enter_y_push = 50000
 exit_y_push = -25000
 exit_only = false
+exit_dir = ""
 
 [node name="invisible_Wall_1" type="StaticBody2D" parent="dev_layer"]
 collision_layer = 16

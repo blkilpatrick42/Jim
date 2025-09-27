@@ -1449,6 +1449,7 @@ linked_teleporter = NodePath("../pizzeria_link_indoor_exit")
 enter_y_push = -25000
 exit_y_push = 35000
 reparent_to_no_daylight = true
+exit_dir = ""
 
 [node name="pizzeria_link_indoor_exit" parent="dev_layer/teleporters" node_paths=PackedStringArray("linked_teleporter") groups=["indoor_exit"] instance=ExtResource("6_3y536")]
 position = Vector2(32837, -26492)
@@ -1458,6 +1459,7 @@ exit_y_push = -50000
 exit_only = false
 reparent_to_daylight = true
 reparent_to_no_daylight = false
+exit_dir = ""
 
 [node name="daylight_affected_section" type="Node2D" parent="."]
 process_mode = 1
@@ -2607,9 +2609,7 @@ position = Vector2(32936, -26841)
 position = Vector2(32872, -26841)
 talk_radius = 64
 has_passive_text = true
-ai_directive = "alert_passive"
 voice = "low_sine_voice"
-passive_text = "Order up, kid..."
 
 [node name="pizza_spawner" parent="no_daylight_layer/no_daylight_section/no_daylight_ysort" instance=ExtResource("39_8k4lg")]
 position = Vector2(32872, -26822)
